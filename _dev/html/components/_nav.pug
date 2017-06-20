@@ -1,2 +1,7 @@
-a(href="#") Link
-a(href="#") Link
+//- Main nav for every page
+
+nav.m-main-nav
+    a(href="index.html" class="home") HOME
+    - var navItems = navItems || ['work', 'news', 'contact']
+    each navItem in navItems
+        a(href=navItem+".html" class=navItem)= navItem.toUpperCase()

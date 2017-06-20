@@ -1,0 +1,8 @@
+//- Link to a news story
+
+mixin newsLink(heading, content)
+	article.m-news-link
+		img(src!=attributes.src)
+		h4= heading
+		p= content
+		a.btn(href!=attributes.href) Continue reading

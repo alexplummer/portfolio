@@ -1,0 +1,54 @@
+extends includes/_head
+
+block title
+	title Home | Alex Plummer Portfolio
+
+block content
+		//- Main nav
+		include components/_nav
+
+		//- Intro title	and description
+		include components/_intro-with-description
+		- var heading = 'Work'
+		- var subheading = 'A selection of my work'
+		+intoWithDescription(heading, subheading)(class="work")
+			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+		
+		//- Showcase
+		include components/_work-showcase
+
+		section.m-work-showcase.digital
+			.inner
+				h3 
+					| Digital
+					span Design
+					span Code
+
+				//- Work entry
+				- var heading = 'Euromoney PLC'
+				- var description = 'Test description'
+				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+		
+		section.m-work-showcase.print
+			.inner
+				h3 
+					| Print
+					
+				//- Work entry
+				- var heading = 'Euromoney PLC'
+				- var description = 'Test description'
+				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+		
+		section.m-work-showcase.branding
+			.inner
+				h3 
+					| Branding
+					
+				//- Work entry
+				- var heading = 'Euromoney PLC'
+				- var description = 'Test description'
+				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+		
+		//- Footer
+		include components/_footer

@@ -676,7 +676,7 @@ gulp.task('watch:gulp', () => {
 // BUILDS
 gulp.task('build:tmp', gulpsync.sync([
 	'clean:tmp','create-folders','js',
-	['bower-install','fontello','copy:fonts','inject-CSSdeps', 'inject-JSdeps','clean-reports'],
+	[/*'bower-install','fontello',*/'copy:fonts','inject-CSSdeps', 'inject-JSdeps','clean-reports'],
 	['copy:scripts','copy:images','sprites'],
 	'build-sass',
 	['lint-reports','html'],

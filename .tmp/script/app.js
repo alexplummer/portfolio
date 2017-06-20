@@ -7,6 +7,6 @@
                 return x * x;
         }
 
-        console.log(square(12)); // 121
+        console.log(square(17)); // 121
 })();
 //# sourceMappingURL=app.js.map

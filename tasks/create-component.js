@@ -71,12 +71,14 @@ gulp.task('create-component', (cb) => {
         properName = properName.charAt(0).toUpperCase() + properName.slice(1);
 
         let pugContents = 
-`//- ${properName}
+`
+//- ${properName}
 //- ============
 //- (Write description here)`;
         
         let sassContents = 
-`// ${properName}
+`
+// ${properName}
 // ============
 // (Write description here)`;
 

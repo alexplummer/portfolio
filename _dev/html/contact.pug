@@ -1,38 +1,49 @@
-extends includes/_head
+//- Extend head of document
+extends _includes/_head
 
+//- Components used on page
+include ../components/nav-vertical/_nav-vertical
+include ../components/intro-with-description/_intro-with-description
+include ../components/contact-form/_contact-form
+include ../components/citation/_citation
+include ../components/social-personal/_social-personal
+include ../components/footer/_footer
+
+//- Page title
 block title
-	title Home | Alex Plummer Portfolio
+	title Contact | Alex Plummer Portfolio
 
 block content
-		//- Main nav
-		include components/_nav
 
-		//- Intro title	and description
-		include components/_intro-with-description
-		- var heading = 'Contact'
-		- var subheading = 'Get in touch'
-		+intoWithDescription(heading, subheading)(class="contact")
-			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		
-		section
-			//- Contact form
-			include components/_contact-form
+	//- Main nav
+	+navVertical
 
-			aside
-				//- Citation
-				include components/_citation
-				- var cite = 'Design and code in beautiful harmony'
-				- var author = '- Some name, author'
-				+citation(cite, author)
+	//- Intro title	and description
+	- var heading = 'Contact'
+	- var subheading = 'Get in touch'
+	+intoWithDescription(heading, subheading)(class="contact")
+		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+	
+	section
+		//- Contact form
+		+contactForm
 
-				//- Citation
-				include components/_citation
-				- var cite = 'Design and code in beautiful harmony'
-				- var author = '- Some name, author'
-				+citation(cite, author)
-		
-		//- Links to online profiles
-		include components/_social-personal
+		aside
+			//- Citation
+			- var cite = 'Design and code in beautiful harmony'
+			- var author = '- Some name, author'
+			+citation(cite, author)
 
-		//- Footer
-		include components/_footer
+			//- Citation
+			- var cite = 'Design and code in beautiful harmony'
+			- var author = '- Some name, author'
+			+citation(cite, author)
+	
+	//- Links to online profiles
+	+socialPersonal
+
+	//- Footer
+	+footer
+
+	//- Under document content
+	include _includes/_under

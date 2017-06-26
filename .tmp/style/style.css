@@ -722,18 +722,18 @@ Copyright 2013 Yahoo!
 Licensed under the BSD License.
 https://github.com/yahoo/pure/blob/master/LICENSE.md
 */
-.pure-table, .m-elements table {
+.pure-table {
   /* Remove spacing between table cells (from Normalize.css) */
   border-collapse: collapse;
   border-spacing: 0;
   empty-cells: show;
   border: 1px solid #cbcbcb; }
-  .pure-table caption, .m-elements table caption {
+  .pure-table caption {
     color: #000;
     font: italic 85%/1 arial, sans-serif;
     padding: 1em 0;
     text-align: center; }
-  .pure-table td, .m-elements table td, .pure-table th, .m-elements table th {
+  .pure-table td, .pure-table th {
     border-left: 1px solid #cbcbcb;
     /*  inner column border */
     border-width: 0 0 0 1px;
@@ -743,14 +743,14 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     /*to make ths where the title is really long work*/
     padding: 0.5em 1em;
     /* cell padding */ }
-  .pure-table td:first-child, .m-elements table td:first-child, .pure-table th:first-child, .m-elements table th:first-child {
+  .pure-table td:first-child, .pure-table th:first-child {
     border-left-width: 0; }
-  .pure-table thead, .m-elements table thead {
+  .pure-table thead {
     background-color: #e0e0e0;
     color: #000;
     text-align: left;
     vertical-align: bottom; }
-  .pure-table td, .m-elements table td {
+  .pure-table td {
     background-color: transparent; }
 
 /* Consider removing this next declaration block, as it causes problems when
@@ -1480,48 +1480,10 @@ section, header, footer {
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse; }
 
-.m-masthead nav {
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -moz-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -moz-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  -webkit-flex-basis: 25%;
-  -moz-flex-basis: 25%;
-  -ms-flex-preferred-size: 25%;
-  flex-basis: 25%;
-  max-width: 25%; }
-
-.m-masthead .brand {
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -moz-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -moz-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  -webkit-flex-basis: 75%;
-  -moz-flex-basis: 75%;
-  -ms-flex-preferred-size: 75%;
-  flex-basis: 75%;
-  max-width: 75%; }
-
 @media only screen and (min-width: 768px) {
   section, header, footer {
     width: 100%; }
-  .split, .m-elements, .m-welcome {
+  .split {
     box-sizing: border-box;
     -webkit-box-flex: 0;
     -webkit-flex-grow: 0;
@@ -1552,7 +1514,7 @@ section, header, footer {
   section, header, footer {
     width: 1376px; } }
 
-.icon:before, .m-welcome h3:first-of-type:before, [class^="icon"]:before {
+.icon:before, [class^="icon"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -1585,8 +1547,8 @@ a.icon:before {
 /* csslint ignore:end */
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?99563334");
-  src: url("../font/fontello.eot?99563334#iefix") format("embedded-opentype"), url("../font/fontello.woff2?99563334") format("woff2"), url("../font/fontello.woff?99563334") format("woff"), url("../font/fontello.ttf?99563334") format("truetype"), url("../font/fontello.svg?99563334#fontello") format("svg");
+  src: url("../font/fontello.eot?95759826");
+  src: url("../font/fontello.eot?95759826#iefix") format("embedded-opentype"), url("../font/fontello.woff2?95759826") format("woff2"), url("../font/fontello.woff?95759826") format("woff"), url("../font/fontello.ttf?95759826") format("truetype"), url("../font/fontello.svg?95759826#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -1596,7 +1558,7 @@ a.icon:before {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?99563334#fontello') format('svg');
+    src: url('../font/fontello.svg?95759826#fontello') format('svg');
   }
 }
 */
@@ -1627,102 +1589,11 @@ a.icon:before {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
 
-.icon-thumbs-up:before, .m-welcome h3:first-of-type:before {
+.icon-thumbs-up:before {
   content: '\e800'; }
 
 /* '' */
-.m-elements form h5, .m-masthead nav a {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.75rem; }
-
 /* inject:componentImports */
-.m-elements img {
-  max-width: 100%; }
-
-.m-elements form {
-  background: #eee;
-  border-radius: 7px;
-  padding: 1.5rem; }
-
-.m-footer {
-  background: #eee;
-  padding-bottom: 1.5rem; }
-  .m-footer a {
-    display: block;
-    margin-bottom: 0; }
-
-.m-masthead {
-  margin-bottom: 1.5rem; }
-  .m-masthead .brand {
-    border-bottom-left-radius: 10px;
-    background: linear-gradient(to left, #fff 0%, #FCA504 100%); }
-    .m-masthead .brand p {
-      font-family: "Sanchez", cursive;
-      color: #272729;
-      display: inline-block;
-      font-size: 2.25rem;
-      line-height: 1.1;
-      padding-top: 1.5rem; }
-  .m-masthead nav {
-    text-align: right;
-    padding: 0.75rem;
-    margin-top: 1.5rem; }
-    .m-masthead nav a {
-      font-family: "Sanchez", sans-serif;
-      text-transform: uppercase;
-      font-size: 1.125rem;
-      margin-left: 1.5rem;
-      text-decoration: none; }
-
-.m-welcome {
-  background: #f9f9f9; }
-  .m-welcome h3:first-of-type {
-    border-bottom: 1px dashed #aaa;
-    padding-bottom: 1.5rem; }
-  .m-welcome .color-vars-main, .m-welcome .color-vars-shades {
-    width: 45%;
-    display: inline-block;
-    margin: 0 0 3rem 0; }
-    .m-welcome .color-vars-main li, .m-welcome .color-vars-shades li {
-      list-style: none;
-      position: relative;
-      line-height: 3rem;
-      padding-left: 70px; }
-      .m-welcome .color-vars-main li:before, .m-welcome .color-vars-shades li:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%; }
-    .m-welcome .color-vars-main li:nth-of-type(1):before, .m-welcome .color-vars-shades li:nth-of-type(1):before {
-      background: #FCA504; }
-    .m-welcome .color-vars-main li:nth-of-type(2):before, .m-welcome .color-vars-shades li:nth-of-type(2):before {
-      background: #009DC9; }
-    .m-welcome .color-vars-main li:nth-of-type(3):before, .m-welcome .color-vars-shades li:nth-of-type(3):before {
-      background: #80007F; }
-    .m-welcome .color-vars-main li:nth-of-type(4):before, .m-welcome .color-vars-shades li:nth-of-type(4):before {
-      background: #FFD68B; }
-    .m-welcome .color-vars-main li:nth-of-type(5):before, .m-welcome .color-vars-shades li:nth-of-type(5):before {
-      background: #CF8600; }
-  .m-welcome .color-vars-shades li:nth-of-type(1):before {
-    background: #E6EAF0; }
-  .m-welcome .color-vars-shades li:nth-of-type(2):before {
-    background: #D8E7E6; }
-  .m-welcome .color-vars-shades li:nth-of-type(3):before {
-    background: #666666; }
-  .m-welcome .color-vars-shades li:nth-of-type(4):before {
-    background: #272729; }
-  .m-welcome .font-vars li {
-    font-size: 2.25rem;
-    line-height: 3rem; }
-  .m-welcome .font-vars li:nth-of-type(1) {
-    font-family: "Sanchez", sans-serif; }
-  .m-welcome .font-vars li:nth-of-type(2) {
-    font-family: "Quicksand", sans-serif; }
-  .m-welcome .font-vars li:nth-of-type(3) {
-    font-family: "Sanchez", cursive; }
-
 /* endinjectComponent */
 
 /*# sourceMappingURL=style.css.map */

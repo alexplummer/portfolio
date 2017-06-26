@@ -1,0 +1,13 @@
+
+//- Intro with description
+//- ============
+//- Intro with description text
+
+mixin intoWithDescription(heading, subheading, content)
+	header.m-intro-with-description
+		.inner
+			.lined-heading.no-under
+				h1(class!=attributes.class)= heading
+			article
+				h2= subheading
+				block

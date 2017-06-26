@@ -1,54 +1,62 @@
-extends includes/_head
+//- Extend head of document
+extends _includes/_head
 
+//- Components used on page
+include ../components/nav-vertical/_nav-vertical
+include ../components/intro-with-description/_intro-with-description
+include ../components/work-showcase/_work-showcase
+include ../components/footer/_footer
+
+//- Page title
 block title
-	title Home | Alex Plummer Portfolio
+	title Work | Alex Plummer Portfolio
 
 block content
-		//- Main nav
-		include components/_nav
 
-		//- Intro title	and description
-		include components/_intro-with-description
-		- var heading = 'Work'
-		- var subheading = 'A selection of my work'
-		+intoWithDescription(heading, subheading)(class="work")
-			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		
-		//- Showcase
-		include components/_work-showcase
+	//- Main nav
+	+navVertical
 
-		section.m-work-showcase.digital
-			.inner
-				h3 
-					| Digital
-					span Design
-					span Code
+	//- Intro title	and description
+	- var heading = 'Work'
+	- var subheading = 'A selection of my work'
+	+intoWithDescription(heading, subheading)(class="work")
+		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+	
+	section.m-work-showcase.digital
+		.inner
+			h3 
+				| Digital
+				span Design
+				span Code
 
-				//- Work entry
-				- var heading = 'Euromoney PLC'
-				- var description = 'Test description'
-				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
-		
-		section.m-work-showcase.print
-			.inner
-				h3 
-					| Print
-					
-				//- Work entry
-				- var heading = 'Euromoney PLC'
-				- var description = 'Test description'
-				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
-		
-		section.m-work-showcase.branding
-			.inner
-				h3 
-					| Branding
-					
-				//- Work entry
-				- var heading = 'Euromoney PLC'
-				- var description = 'Test description'
-				+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
-		
-		//- Footer
-		include components/_footer
+			//- Work entry
+			- var heading = 'Euromoney PLC'
+			- var description = 'Test description'
+			+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+	
+	section.m-work-showcase.print
+		.inner
+			h3 
+				| Print
+				
+			//- Work entry
+			- var heading = 'Euromoney PLC'
+			- var description = 'Test description'
+			+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+	
+	section.m-work-showcase.branding
+		.inner
+			h3 
+				| Branding
+				
+			//- Work entry
+			- var heading = 'Euromoney PLC'
+			- var description = 'Test description'
+			+workShowcase(heading, description)(class="left design code" src="img/media/sample-iso.png")
+	
+	//- Footer
+	+footer
+
+	//- Under document content
+	include _includes/_under

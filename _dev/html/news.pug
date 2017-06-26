@@ -1,41 +1,51 @@
-extends includes/_head
+//- Extend head of document
+extends _includes/_head
 
+//- Components used on page
+include ../components/nav-vertical/_nav-vertical
+include ../components/intro-with-description/_intro-with-description
+include ../components/news-link/_news-link
+include ../components/footer/_footer
+
+//- Page title
 block title
-	title Home | Alex Plummer Portfolio
+	title News | Alex Plummer Portfolio
 
 block content
-		//- Main nav
-		include components/_nav
 
-		//- Intro title	and description
-		include components/_intro-with-description
-		- var heading = 'News'
-		- var subheading = 'Updates, thoughts +more'
-		+intoWithDescription(heading, subheading)(class="news")
-			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-			p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		
-		section
-			include components/_news-link
-			//- News block
-			- var heading = 'Lorem ipsum dolor sit'
-			- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-			+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
+	//- Main nav
+	+navVertical
 
-			//- News block
-			- var heading = 'Lorem ipsum dolor sit'
-			- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-			+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
+	//- Intro title	and description
+	- var heading = 'News'
+	- var subheading = 'Updates, thoughts +more'
+	+intoWithDescription(heading, subheading)(class="news")
+		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+	
+	section
+		//- News block
+		- var heading = 'Lorem ipsum dolor sit'
+		- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
+		+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
 
-			//- News block
-			- var heading = 'Lorem ipsum dolor sit'
-			- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-			+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
+		//- News block
+		- var heading = 'Lorem ipsum dolor sit'
+		- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
+		+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
 
-			//- News block
-			- var heading = 'Lorem ipsum dolor sit'
-			- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-			+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
-		
-		//- Footer
-		include components/_footer
+		//- News block
+		- var heading = 'Lorem ipsum dolor sit'
+		- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
+		+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
+
+		//- News block
+		- var heading = 'Lorem ipsum dolor sit'
+		- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
+		+newsLink(heading, content)(src="img/media/sample-news.jpg" href="news-story.html")
+	
+	//- Footer
+	+footer
+
+	//- Under document content
+	include _includes/_under

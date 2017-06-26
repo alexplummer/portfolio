@@ -1,36 +1,59 @@
-extends includes/_head
+//- Extend head of document
+extends _includes/_head
 
+//- Components used on page
+include ../components/nav-vertical/_nav-vertical
+include ../components/intro-no-description/_intro-no-description
+include ../components/showreel/_showreel
+include ../components/heading-splash/_heading-splash
+include ../components/list-skills/_list-skills
+include ../components/list-info/_list-info
+include ../components/news-highlights/_news-highlights
+include ../components/footer/_footer
+
+//- Page title
 block title
 	title Home | Alex Plummer Portfolio
 
+//- Page content
 block content
-		//- Main nav
-		include components/_nav
 
-		//- Intro title	
-		include components/_intro-no-description
-		
-		//- Showreel
-		include components/_showreel
-		
-		//- Heading splash
-		- var alignment = 'left'
-		- var headingContent = 'Main skill <span>set</span>'
-		include components/_heading-splash
+	//- Main nav
+	+navVertical
 
-		//- Skills list
-		include components/_list-skills
+	//- Intro title	
+	- var heading = 'Alex Plummer'
+	+introNoDescription(heading)
+		h2
+			| Hybrid Design
+			span +code
 
-		//- Info list
-		include components/_list-info
+	//- Showreel
+	+showreel
 
-		//- Heading splash
-		- var alignment = 'right'
-		- var headingContent = 'Latest <span>news</span>'
-		include components/_heading-splash
+	//- Heading splash
+	+headingSplash()(alignment= 'left')
+		h2
+			| Main skill
+			span set
 
-		//- News highlights
-		include components/_news-highlights
+	//- Skills list
+	+listSkills
 
-		//- Footer
-		include components/_footer
+	//- Info list
+	+listInfo
+
+	//- Heading splash
+	+headingSplash()(alignment= 'right')
+		h2
+			| Latest
+			span news
+
+	//- News highlights
+	+newsHighlights
+
+	//- Footer
+	+footer
+
+	//- Under document content
+	include _includes/_under

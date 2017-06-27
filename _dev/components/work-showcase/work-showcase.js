@@ -1,3 +1,4 @@
+
 // Work showcase
 // ============
-// (Write description here)
+// An overview of a piece of work

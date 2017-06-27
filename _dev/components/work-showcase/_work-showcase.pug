@@ -1,3 +1,11 @@
+
 //- Work showcase
 //- ============
-//- (Write description here)
+//- An overview of a piece of work
+
+mixin workShowcase(heading, description)
+    article(class!=attributes.class)
+        img(src!=attributes.src)
+        h3= heading
+        p= description
+        button Check it out

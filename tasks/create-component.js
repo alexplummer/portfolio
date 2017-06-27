@@ -3,7 +3,7 @@
 // ============
 // Define paths used within this gulp file
 
-var paths = {
+let paths = {
     tmp: '.tmp',
     dev: '_dev',
     prod: '_prod'
@@ -14,7 +14,7 @@ var paths = {
 // ============
 // Load plugins in packages.json automatically
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     fs = require('fs'),
     wiredep = require('wiredep').stream,
     argv = require('yargs').argv,
@@ -32,10 +32,10 @@ var gulp = require('gulp'),
 // ============
 // Builds a list of directories in components
 
-let componentDirs = [];
+let oldDirs = [];
 
 gulp.task('component-directories', (cb) => {
-    componentDirs = fs.readdirSync((paths.dev + '/components/'));
+    oldDirs = fs.readdirSync((paths.dev + '/components/'));
     cb();
 });
 
@@ -48,43 +48,50 @@ gulp.task('create-component', (cb) => {
 
     let newDirs = fs.readdirSync((paths.dev + '/components/'));
 
-    compareComponents();
+    let oldArray = Object.keys(oldDirs).map(function (key) { return oldDirs[key]; });
+    let newArray = Object.keys(newDirs).map(function (key) { return newDirs[key]; });
 
-    function compareComponents() {
+    difference(newArray, oldArray);
 
-        for (let i = 0; i < Object.keys(newDirs).length; i++) {
-            let thisKey = Object.keys(newDirs)[i];
+    function difference(a1, a2) {
+        let result = [];
 
-            if (componentDirs[thisKey] !== newDirs[thisKey]) {
-
-                if (newDirs[thisKey] !== 'untitled folder' && newDirs[thisKey] !== 'New folder') {
-                    createComponent(newDirs[thisKey]);
-                }
-                break;
+        for (let i = 0; i < a1.length; i++) {
+            if (a2.indexOf(a1[i]) === -1) {
+                result.push(a1[i]);
             }
         }
-        componentDirs = newDirs;
+        if (result.length > 0 && result !== 'untitled folder' && result !== 'New folder') {
+            console.log('New component created: ' + result);
+            oldDirs = newDirs;
+            createComponent(result);
+        }
     }
+
     function createComponent(componentName) {
 
-        let properName = componentName.replace('-',' ');
+        componentName = componentName.toString();
+        let properName = componentName.replace('-', ' ');
         properName = properName.charAt(0).toUpperCase() + properName.slice(1);
 
-        let pugContents = 
-`
+        if (componentName !== 'untitled folder' && componentName !== 'New folder') {
+
+            let pugContents =
+                `
 //- ${properName}
 //- ============
 //- (Write description here)`;
-        
-        let sassContents = 
-`
+
+            let sassContents =
+                `
 // ${properName}
 // ============
 // (Write description here)`;
 
-        fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.pug', pugContents);
-        fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.scss', sassContents);
-        fs.writeFile(paths.dev + '/components/' + componentName + '/' + componentName + '.js', sassContents);
+            fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.pug', pugContents);
+            fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.scss', sassContents);
+            fs.writeFile(paths.dev + '/components/' + componentName + '/' + componentName + '.js', sassContents);
+        }
     }
 
     cb();

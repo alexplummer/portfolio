@@ -2,3 +2,25 @@
 // News link
 // ============
 // Link to a news story
+
+.news-link {
+
+    img {
+        width: 200px;
+        height: 200px;
+        float: left;
+        margin: 0 $size-m $size-m*4 0;
+    }
+    h4 {
+        @extend %heading-mid;
+        @extend %border-btm;
+        margin-left: 225px;
+    }
+    p {
+        margin-bottom: $size-m *2;
+        font-size: $font-m;
+    }
+    a {
+        @extend %btn;
+    }
+}

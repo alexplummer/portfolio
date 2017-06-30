@@ -2,3 +2,50 @@
 // Footer
 // ============
 // Main page footer
+
+.footer {
+    padding-top: $size-l;
+
+    h2, h2 span {
+        font-family: $font-body;
+        font-size: $font-l;
+        font-weight: 100;
+        letter-spacing: 15px;
+        font-size: $font-m;
+        text-transform: uppercase;
+    }
+    h2 {
+        position: relative;
+        z-index: $z-m + 1;
+    }
+    h2 span {
+        font-size: $font-xl;
+        font-weight: 500;
+        letter-spacing: 30px;
+        display: block;
+    }
+    .legal {
+        
+        p {
+            font-size: $font-s;
+        }
+        p, a {
+            float: left;
+            margin-right: $size-s;
+        }
+    }
+    
+    nav {
+        position: absolute;
+        right: $size-l;
+        text-align: right;
+
+        a {
+            @extend %all-caps;
+            font-size: $font-m;
+            color: $clr-darker;
+            display: block;
+            text-decoration: none;
+        }
+    }
+}

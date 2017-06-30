@@ -184,7 +184,7 @@ Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
 since IE8 won't execute CSS that contains a CSS3 selector.
 */
 
-.pure-form-stacked {
+.pure-forstacked {
   input {
     &[type="text"], &[type="password"], &[type="email"], &[type="url"], &[type="date"], &[type="month"], &[type="time"], &[type="datetime"], &[type="datetime-local"], &[type="week"], &[type="number"], &[type="search"], &[type="tel"], &[type="color"], &[type="file"] {
       display: block;
@@ -203,7 +203,7 @@ Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
 since IE8 won't execute CSS that contains a CSS3 selector.
 */
 
-.pure-form-aligned {
+.pure-foraligned {
   input, textarea, select, .pure-help-inline {
     display: inline-block;
     *display: inline;
@@ -212,14 +212,14 @@ since IE8 won't execute CSS that contains a CSS3 selector.
   }
 }
 
-.pure-form-message-inline {
+.pure-formessage-inline {
   display: inline-block;
   *display: inline;
   *zoom: 1;
   vertical-align: middle;
 }
 
-.pure-form-aligned {
+.pure-foraligned {
   textarea {
     vertical-align: top;
   }
@@ -328,9 +328,9 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 /* Grouped Inputs */
 
 /* Inline help for forms */
-/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+/* NOTE: pure-help-inline is deprecated. Use .pure-formessage-inline instead. */
 
-.pure-form-message-inline {
+.pure-formessage-inline {
   display: inline-block;
   padding-left: 0.3em;
   color: #666;
@@ -340,7 +340,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 
 /* Block help for forms */
 
-.pure-form-message {
+.pure-formessage {
   display: block;
   color: #666;
   font-size: 0.875em;
@@ -371,7 +371,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     }
   }
 
-  .pure-form-aligned {
+  .pure-foraligned {
     .pure-control-group label {
       margin-bottom: 0.3em;
       text-align: left;
@@ -384,9 +384,9 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     }
   }
 
-  /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+  /* NOTE: pure-help-inline is deprecated. Use .pure-formessage-inline instead. */
 
-  .pure-form .pure-help-inline, .pure-form-message-inline, .pure-form-message {
+  .pure-form .pure-help-inline, .pure-formessage-inline, .pure-formessage {
     display: block;
     font-size: 0.75em;
 

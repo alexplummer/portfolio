@@ -1,11 +1,11 @@
 
-//- Vertical nav
+//- Nav vertical
 //- ============
 //- Vertical nav for top of page
 
 
 mixin navVertical(navItems)
-    nav.m-main-nav
+    nav.nav-vertical
         a(href="index.html" class="home") HOME
         - var navItems = navItems || ['work', 'news', 'contact']
         each navItem in navItems

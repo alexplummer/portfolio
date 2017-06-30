@@ -22,11 +22,12 @@ block content
 	+navVertical
 
 	//- Intro title	
-	- var heading = 'Alex Plummer'
+	- var heading = '<span>Alex</span> Plummer'
 	+introNoDescription(heading)
 		h2
-			| Hybrid Design
-			span +code
+			span.first Hybrid 
+			| Design
+			span.last +code
 
 	//- Showreel
 	+showreel
@@ -34,8 +35,9 @@ block content
 	//- Heading splash
 	+headingSplash()(alignment= 'left')
 		h2
-			| Main skill
-			span set
+			span.first Main
+			| skill
+			span.last set
 
 	//- Skills list
 	+listSkills

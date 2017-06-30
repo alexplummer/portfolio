@@ -86,11 +86,21 @@ gulp.task('create-component', (cb) => {
                 `
 // ${properName}
 // ============
+// (Write description here)
+
+.${componentName} {
+
+}`;
+
+    let jsContents =
+                `
+// ${properName}
+// ============
 // (Write description here)`;
 
             fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.pug', pugContents);
             fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.scss', sassContents);
-            fs.writeFile(paths.dev + '/components/' + componentName + '/' + componentName + '.js', sassContents);
+            fs.writeFile(paths.dev + '/components/' + componentName + '/' + componentName + '.js', jsContents);
         }
     }
 

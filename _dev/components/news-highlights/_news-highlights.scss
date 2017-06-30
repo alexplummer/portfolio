@@ -2,3 +2,20 @@
 // News highlights
 // ============
 // Lists with icons to display skill levels
+
+.news-highlights {
+    @extend %pseudo;
+    margin-bottom: 150px;
+
+    &:before {
+        background: $clr-light;
+        width: calc(100% - 3rem);
+        left: $size-m;
+        top: -800px;
+        height: 1200px;
+        z-index: -1;
+    }   
+    article {
+        @extend %col-md-6;
+    }
+}

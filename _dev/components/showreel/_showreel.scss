@@ -2,3 +2,144 @@
 // Showreel
 // ============
 // Large section used to demo work
+
+.showreel {
+    position: relative;
+    top: -20px;
+    margin-bottom: 300px;
+    
+    &:before {
+        @extend %bg-geometry;
+        z-index: $z-m - 1;
+        height: 1200px;
+    }
+    .inner {
+        position: relative;
+        z-index: $z-m;
+    }
+    blockquote {
+        @extend %col-md-6;
+        font-size: $font-xxl * 1.3;
+        line-height: $font-xxl * 1.3;
+        background: none;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: 320px;
+        left: $size-l;
+
+        &:before {
+            font-size: $font-xxl * 1.3;
+            line-height: $font-xxl * 1.3;
+            color: $clr-darker;
+            position: absolute;
+            top: 0;
+            left: -$size-m;
+            //display: none;
+        } 
+    }
+    article {
+        @extend %col-md-5;
+        position: relative;
+        top: 110px;
+    }
+    .slider {
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            background: darken($clr-hlight, 9%);
+            width: 120vw;
+            height: 310px;
+            left: -10vw;
+            margin: 0 -4.5rem;
+            padding-left: calc(10vw + 3rem);
+            top: 250px;
+            transform: rotate(-8deg);
+            position: relative;
+            z-index: $z-m + 1;
+        }
+
+        .title {
+            position: relative;
+            top: -60px;
+            transform: rotate(-8deg);
+            z-index: $z-m;
+            text-align: center;
+            width: 580px;
+            @extend %all-caps;
+
+            &:before {
+                content: "";
+                background: url(../img/shape-triangle.svg) no-repeat;
+                width: 580px;
+                height: 472px;
+                display: block;
+                position: absolute;
+                z-index: -1;
+                left: -30px;
+                top: -67px;
+                transform: rotate(11deg);
+            }
+        }
+        .items-left, .items-right {
+            @include flexbox;
+            @include justify-content(space-between);
+            position: relative;
+            z-index: $z-m + 2;
+            transform: rotate(-8deg);
+            top: -90px;
+
+            a {
+                width: 200px;
+                height: 200px;
+                display: inline-block;
+                text-align: center;
+                font-weight: 500;
+                text-decoration: none;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .items-right {
+            display: none;
+        }
+        .toggle-left, .toggle-right {
+            @extend %all-caps;
+            font-size: $font-xl;
+            text-decoration:  none;
+            position: relative;
+            display: inline-block;
+            z-index: $z-m + 2;
+            transform: rotate(-8deg);
+            top: 120px;
+
+            &.active {
+                padding-left: 40px;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    left: 0px;
+                    background: url("../img/shape-oval.svg");
+                    background-size: cover;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+        .toggle-left {
+            top: 90px;
+            left: 20%;
+        }
+        .toggle-right {
+            top: 5px;
+            left: 55%;
+        }
+    }
+}

@@ -2,3 +2,66 @@
 // Heading splash
 // ============
 // Heading with a splash to the right or left
+
+.heading-splash {
+    position: relative;
+    
+    .splash-heading {
+        @extend %lined-heading;
+        margin-left: 120px;
+        background: $clr-light;
+        text-align: center;
+        position: relative;
+        top: -70px;
+        transform: skewY(-8deg);
+        padding: 0 $size-l;
+        overflow: hidden;
+
+        h2 .first {
+            letter-spacing: 4px;
+        }
+    }
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -390px;
+        right: -630px;
+        z-index: $z-m;
+        width: 1073px;
+        height: 1298px;
+        background: url(../img/shape-splat.svg) no-repeat;
+        transform: rotate(-35deg);
+    }
+    &.right {
+        @include flexbox();
+
+        .inner {
+            @include order(2);
+            position: relative;
+            transform: skewY(15.7deg);
+            top: 100px;
+            height: 384px;
+            
+            h2 {
+                text-align: right;
+                padding-top: $size-xl;
+            }
+            h2 span {
+                display: block;
+            }
+            .splash-heading {
+                top: 18px;
+            }
+        }
+        &:before {
+            @include order(1);
+            position: relative;
+            background-position: top right;
+            transform: rotate(8deg);
+            height: 700px;
+            left: -210px;
+            top: -100px;
+        }
+    }
+}

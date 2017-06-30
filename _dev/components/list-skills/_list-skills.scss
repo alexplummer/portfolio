@@ -2,3 +2,117 @@
 // List skills
 // ============
 // Lists with icons to display skill levels
+
+.list-skills {
+    position: relative;
+    margin-bottom: 200px;
+
+    article {
+        @extend %col-md-5;
+        @extend %col-md-offset-1;
+        position: relative;
+        left: -25px;
+    }
+    .list-wrap {
+        @extend %col-md-4;
+        text-align: center;
+        position: relative;
+        top: 100px;
+
+        h4 {
+            @extend %heading-xxxl;
+            @extend %pseudo;
+            font-size: $font-xxl;
+            color: $clr-link;
+            z-index: $z-m;
+
+            &:before {
+                background-image: url(../img/shape-oval.svg);
+                width: 35px;
+                height: 35px;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        ul {
+            margin-left: 0;
+            display: inline-block;
+            position: relative;
+            z-index: $z-m;
+
+            li {
+                @extend %heading-mid;
+                @extend %pseudo;
+                list-style: none;
+                text-align: left;
+                padding: 0 0 $size-m 60px;
+                margin-bottom: $size-m;
+                border-bottom: 1px solid rgba(0,0,0,0.25);
+            }
+        }
+        &:before {
+            content: "";
+            display: block;
+            background: url(../img/shape-triangle.svg) no-repeat center;
+            background-size: 80%;
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            z-index: $z-m - 1;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &:nth-of-type(1):before {
+            top: -190px;
+            left: 50%;
+        }
+        &:nth-of-type(2):before {
+            transform: rotate(-55deg);
+            transform-origin: bottom;
+            top: -300px;
+            left: 40%;
+        }
+        &:nth-of-type(3):before {
+            transform: rotate(125deg);
+            transform-origin: left;
+            top: -500px;
+            left: 90%;
+        }
+    }
+    .three-bars:before, .two-bars:before, .one-bar:before {
+        left: 0;
+        width: 45px;
+        height: 32px;
+        background-image: url(../img/icon-skill-3.svg);
+        top: -8px;
+    }
+    .two-bars:before {
+        background-image: url(../img/icon-skill-2.svg);
+    }
+    .one-bar:before {
+        background-image: url(../img/icon-skill-1.svg);
+    }
+    .key {
+        position: absolute;
+        right: 10%;
+        bottom: -200px;
+        background: $clr-light;
+        padding: 40px 0 10px 0;
+        text-align: center;
+
+        p {
+            @extend %heading-mid;
+            @extend %pseudo;
+            display: inline-block;
+            margin: 0 $size-m;
+
+            &:before {
+                top: -25px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}

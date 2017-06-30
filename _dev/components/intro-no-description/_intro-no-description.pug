@@ -4,9 +4,10 @@
 //- Intro without any description text
 
 mixin introNoDescription(heading)
-	header.m-intro-no-description
-		.inner
-			.splash-heading
-				h1.logo-main= heading
-			.lined-heading
-				block
+	.intro-no-description
+		header
+			.inner
+				.splash-heading
+					h1.logo-main!= heading
+				.lined-heading
+					block

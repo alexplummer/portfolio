@@ -356,11 +356,11 @@
 	-webkit-align-self: $value;
 	-moz-align-self: $value;
 	@if $value == flex-start {
-		-ms-flex-item-align: start;
+		-ms-flex-itealign: start;
 	} @else if $value == flex-end {
-		-ms-flex-item-align: end;
+		-ms-flex-itealign: end;
 	} @else {
-		-ms-flex-item-align: $value;
+		-ms-flex-itealign: $value;
 	}
 	align-self: $value;
 }

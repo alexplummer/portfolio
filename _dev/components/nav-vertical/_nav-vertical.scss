@@ -1,4 +1,59 @@
 
-// Vertical nav
+// Nav vertical
 // ============
 // Vertical nav for top of page
+
+.nav-vertical {
+    transform: rotate(90deg);
+    transform-origin: left top;
+    position: absolute;
+    top: $size-l + $size-l;
+    left: 100%;
+    line-height: $size-l;
+
+    a {
+        color: $clr-darker;
+        margin-right: $size-l;
+        text-decoration: none;
+        position: relative;
+
+        &:before {
+            content: "";
+            width: $size-m;
+            height: $size-m;
+            display: inline-block;
+            position: absolute;
+            bottom: -$size-l;
+            left: 50%;
+            transform: translateX(-50%);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        $nav-items: 'home', 'work', 'news', 'contact';
+
+        @each $item in $nav-items {
+
+            &.#{$item}:before {
+                background-image: url(../img/icon-#{$item}.svg);
+            }
+        }
+    }
+
+    @media(max-width: $breakpoint-3) {
+        left: calc(100% + 1.5rem);
+        line-height: $size-m;
+        top: $size-l;
+
+        a {
+            font-size: $font-xs;
+            margin-right: $size-m;
+
+            &:before {
+                width: $size-s;
+                height: $size-s;
+                bottom: -$size-m;
+            }
+        }
+    }
+}

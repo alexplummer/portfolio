@@ -130,7 +130,7 @@ $name: xs;
   @include align-items(center);
 }
 
-%bottom-#{$name} {
+%botto#{$name} {
   @include align-items(flex-end);
 }
 
@@ -209,7 +209,7 @@ $name: xs;
       @include align-items(center);
     }
 
-    %bottom-#{$name} {
+    %botto#{$name} {
       @include align-items(flex-end);
     }
 

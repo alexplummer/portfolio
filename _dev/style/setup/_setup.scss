@@ -83,3 +83,14 @@ $container-max: 1376px;
 $grid-columns: 12;
 $gutter-width: $size-l;
 $outer-margin: $size-m;
+
+
+// Z-index
+// ============
+// Structured Z-index
+
+$z-max: 1000;
+$z-l: 100;
+$z-m: 50;
+$z-s: 10;
+$z-min: 0;

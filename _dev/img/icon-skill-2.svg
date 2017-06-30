@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="32px" viewBox="0 0 46 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 32</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="23.432373 0 15 11.7855835 31.8409336 11.7855835"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="16.8409336" height="11.7855835" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1079.000000, -3695.000000)">
+            <g id="Group-32" transform="translate(1079.000000, 3695.000000)">
+                <use id="Path-8" stroke="#27272A" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <polygon id="Path-9" fill="#27272A" points="12.9083869 15 8 21.9875016 39.033496 21.9875016 34.1146973 15.0055529"></polygon>
+                <polygon id="Path-10" fill="#27272A" points="4.95159517 25 0 31.9681533 45.2714891 31.9681533 40.3001021 25.0140557"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

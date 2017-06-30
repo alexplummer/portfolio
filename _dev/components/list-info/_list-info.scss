@@ -2,3 +2,89 @@
 // List info
 // ============
 // Lists of info points with icon for each definition
+
+.list-info {
+    position: relative;
+    top: 100px;
+    margin-bottom: 200px;
+
+    &:before {
+        @extend %bg-geometry;
+        top: 0;
+        transform: rotate(8deg);
+    }
+    .inner {
+        position: relative;
+        z-index: $z-m;
+
+        img {
+            position: absolute;
+            z-index: $z-m;
+            width: 200px;
+            height: 200px;
+        }
+        .heading {
+            @extend %col-md-6;
+            @extend %pseudo;
+            margin-left: -$size-l;
+            background: $clr-hlight;
+            transform: skewY(8deg);
+            height: 250px;
+
+            h2, h2 span {
+                @extend %heading-xxxl;
+                text-align: right;
+            }
+            h2 span {
+                display: block;
+            }
+            &:before {
+            transform: skewY(-8deg);
+                width: 100%;
+                left: 110%;
+                top: -35px;
+                height: 450px;
+                background-image: url(../img/bg-ovals.svg);
+            }
+        }
+        dl {
+            @extend %col-md-4;
+            @extend %col-md-offset-2;
+            padding-top: $size-xl;
+
+            &:nth-of-type(2) {
+                padding-top: 160px;
+                @extend %col-md-offset-1;
+            }
+            dt {
+                @extend %pseudo;
+                @extend %heading-mid;
+                text-transform: uppercase;
+                padding-bottom: $size-m;
+                border-bottom: 1px solid $clr-darker;
+
+                &:before {
+                    left: -80px;
+                    width: 60px;
+                    height: 60px;
+                    background-size: 100%;
+                }
+                
+            }
+            $icons: 'baby','glasses', 'code', 'boot', 'hand', 'chat';
+
+            @each $icon in $icons {
+                .icon-#{$icon}:before {
+                    background-image: url(../img/icon-#{$icon}.svg);
+                }
+            }
+            &:nth-of-type(2) dt:before {
+                width: 50px;
+                left: -75px;
+            }
+            .icon-hand:before {
+                height: 80px;
+            }
+        }
+    }
+}

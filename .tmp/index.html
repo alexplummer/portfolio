@@ -33,7 +33,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- Google Fonts -->
-    <!--<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700|Sanchez" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500|Sanchez" rel="stylesheet">-->
     <!-- build:css style/style.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -42,21 +42,23 @@
 </head>
 
 <body>
-    <nav class="m-main-nav"><a class="home" href="index.html">HOME</a><a class="work" href="work.html">WORK</a><a class="news" href="news.html">NEWS</a><a class="contact" href="contact.html">CONTACT</a>
+    <nav class="nav-vertical"><a class="home" href="index.html">HOME</a><a class="work" href="work.html">WORK</a><a class="news" href="news.html">NEWS</a><a class="contact" href="contact.html">CONTACT</a>
     </nav>
-    <header class="m-intro-no-description">
-        <div class="inner">
-            <div class="splash-heading">
-                <h1 class="logo-main">Alex Plummer</h1>
+    <div class="intro-no-description">
+        <header>
+            <div class="inner">
+                <div class="splash-heading">
+                    <h1 class="logo-main"><span>Alex</span> Plummer</h1>
+                </div>
+                <div class="lined-heading">
+                    <h2><span class="first">Hybrid </span>Design<span class="last">+code</span></h2>
+                </div>
             </div>
-            <div class="lined-heading">
-                <h2>Hybrid Design<span>+code</span></h2>
-            </div>
-        </div>
-    </header>
-    <section class="m-showreel">
+        </header>
+    </div>
+    <section class="showreel">
         <div class="inner">
-            <blockquote class="quote">“Design and code in beautiful harmony”</blockquote>
+            <blockquote>Design and code in beautiful harmony”</blockquote>
             <article>
                 <h3> Hello there!</h3>
                 <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
@@ -67,129 +69,136 @@
             <p class="title">Some of the pretty stuff</p>
             <div class="items-left">
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
             </div>
             <div class="items-right">
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
                 <a href="#">
-                    <img src="img/media/sample-round.jpg" />Sample Title</a>
-            </div><a class="toggle-left" href="#">Design</a><a class="toggle-left" href="#">Code</a>
+                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+            </div><a class="toggle-left active" href="#">Design</a><a class="toggle-right" href="#">Code</a>
         </div>
     </section>
-    <header class="left m-heading-splash">
+    <header class="left heading-splash">
         <div class="inner">
             <div class="splash-heading">
-                <h2>Main skill<span>set</span></h2>
+                <h2><span class="first">Main</span>skill<span class="last">set</span></h2>
             </div>
         </div>
     </header>
-    <section class="m-list-skills">
+    <section class="list-skills">
         <div class="inner">
             <article>
                 <h3>A broad range</h3>
                 <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
-                <div class="list-wrap">
-                    <h4>Code</h4>
-                    <ul>
-                        <li>HTML/Pug</li>
-                        <li>CSS</li>
-                        <li>JS (ES6)</li>
-                        <li>JQuery</li>
-                        <li>SASS/LESS</li>
-                        <li>Gulp/Grunt</li>
-                        <li class="two-bars">Angular</li>
-                        <li class="one-bar">React</li>
-                    </ul>
-                </div>
-                <div class="list-wrap">
-                    <h4>Design</h4>
-                    <ul>
-                        <li>UI Design</li>
-                        <li>App Design</li>
-                        <li>Typography</li>
-                        <li>Layout/grid</li>
-                        <li>Colour theory</li>
-                        <li class="two-bars">UX/research</li>
-                        <li class="two-bars">Wireframing</li>
-                        <li class="two-bars">Print design</li>
-                    </ul>
-                </div>
-                <div class="list-wrap">
-                    <h4>Tools</h4>
-                    <ul>
-                        <li>Photoshop</li>
-                        <li>Sketch</li>
-                        <li>Git</li>
-                        <li>JIRA/agile</li>
-                        <li>MS Office</li>
-                        <li class="two-bars">Axure</li>
-                        <li class="two-bars">Illustrator</li>
-                        <li class="one-bar">Premier Pro</li>
-                    </ul>
-                </div>
-                <div class="key">
-                    <p>Pro</p>
-                    <p class="two-bars">Good</p>
-                    <p class="one-bar">Basic</p>
-                </div>
             </article>
         </div>
-    </section>
-    <section class="m-list-info">
         <div class="inner">
-            <h2>More info</h2>
-            <dl><dt class="icon-born">Made in Guildford</dt>
-                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-study">Uni at Goldsmiths</dt>
-                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-work">Work in London</dt>
+            <div class="list-wrap">
+                <h4>Code</h4>
+                <ul>
+                    <li class="three-bars">HTML/Pug</li>
+                    <li class="three-bars">CSS</li>
+                    <li class="three-bars">JS (ES6)</li>
+                    <li class="three-bars">JQuery</li>
+                    <li class="three-bars">SASS/LESS</li>
+                    <li class="three-bars">Gulp/Grunt</li>
+                    <li class="two-bars">Angular</li>
+                    <li class="one-bar">React</li>
+                </ul>
+            </div>
+            <div class="list-wrap">
+                <h4>Design</h4>
+                <ul>
+                    <li class="three-bars">UI Design</li>
+                    <li class="three-bars">App Design</li>
+                    <li class="three-bars">Typography</li>
+                    <li class="three-bars">Layout/grid</li>
+                    <li class="three-bars">Colour theory</li>
+                    <li class="two-bars">UX/research</li>
+                    <li class="two-bars">Wireframing</li>
+                    <li class="two-bars">Print design</li>
+                </ul>
+            </div>
+            <div class="list-wrap">
+                <h4>Tools</h4>
+                <ul>
+                    <li class="three-bars">Photoshop</li>
+                    <li class="three-bars">Sketch</li>
+                    <li class="three-bars">Git</li>
+                    <li class="three-bars">JIRA/agile</li>
+                    <li class="three-bars">MS Office</li>
+                    <li class="two-bars">Axure</li>
+                    <li class="two-bars">Illustrator</li>
+                    <li class="one-bar">Premier Pro</li>
+                </ul>
+            </div>
+            <div class="key">
+                <p class="three-bars">Pro</p>
+                <p class="two-bars">Good</p>
+                <p class="one-bar">Basic</p>
+            </div>
+        </div>
+    </section>
+    <section class="list-info">
+        <div class="inner">
+            <img src="img/media/screen-euromoney.png" />
+            <div class="heading">
+                <h2> More <span>info</span></h2>
+            </div>
+        </div>
+        <div class="inner">
+            <dl><dt class="icon-baby">Made in Guildford</dt>
+                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-glasses">Uni at Goldsmiths</dt>
+                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-code">Work in London</dt>
                 <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
             </dl>
-            <dl><dt class="icon-kickboxing">Enjoy kickboxing</dt>
-                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-climbing">and some climbing</dt>
-                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-speak">Parlo Italiano (un po')</dt>
+            <dl><dt class="icon-boot">Enjoy kickboxing</dt>
+                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-hand">and some climbing</dt>
+                <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-chat">Parlo Italiano (un po')</dt>
                 <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
             </dl>
         </div>
     </section>
-    <header class="right m-heading-splash">
+    <header class="right heading-splash">
         <div class="inner">
             <div class="splash-heading">
                 <h2>Latest<span>news</span></h2>
             </div>
         </div>
     </header>
-    <section class="m-news-highlights">
+    <section class="news-highlights">
         <div class="inner">
-            <article class="m-news-link">
-                <img src="img/media/sample-news.jpg" />
+            <article class="news-link">
+                <img src="img/media/screen-euromoney.png" />
                 <h4>Lorem ipsum dolor sit</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="news-story.html">Continue reading</a>
             </article>
-            <article class="m-news-link">
-                <img src="img/media/sample-news.jpg" />
+            <article class="news-link">
+                <img src="img/media/screen-euromoney.png" />
                 <h4>Lorem ipsum dolor sit</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="news-story.html">Continue reading</a>
             </article>
         </div>
     </section>
-    <footer class="m-footer">
+    <footer class="footer">
         <div class="inner">
             <div class="legal">
-                <h2 class="logo-main">Alex Plummer</h2>
+                <h2 class="logo-main"><span>Alex</span> Plummer</h2>
                 <p>© Copyright 2017</p><a href="legal.html">Legal</a><a href="credits.html">Credits</a>
             </div>
             <nav><a href="index.html">Home</a><a href="work.html">Work</a><a href="news.html">News</a><a href="contact.html">Contact</a>

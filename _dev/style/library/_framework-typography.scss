@@ -126,39 +126,41 @@ h4, .h4, h5, .h5 {
 // ============
 // Responsive heading sizes
 
-// Tablet
-@media (max-width: $laptop - 1) {
+body {
 
-    h1, .h1 {font-size: $font-xl * $xheight-header; line-height: ceil($font-xl / $font-baseline) * $font-baseline}
-    h2, .h2 {font-size: $font-l  * $xheight-header; line-height: ceil($font-l  / $font-baseline) * $font-baseline}
-    h3, .h3 {font-size: $font-m  * $xheight-header; line-height: ceil($font-m  / $font-baseline) * $font-baseline}
-    h4, .h4 {font-size: $font-s  * $xheight-header; line-height: ceil($font-s  / $font-baseline) * $font-baseline}
-    h5, .h5 {font-size: $font-s  * $xheight-header; line-height: ceil($font-s  / $font-baseline) * $font-baseline}
+    // Tablet
+    @media (max-width: $laptop - 1) {
 
-    @each $el in $type-header-els {
-        #{$el} {
-            padding-top: $font-baseline;
-            margin-bottom: $font-baseline;
+        h1, .h1 {font-size: $font-xl * $xheight-header; line-height: ceil($font-xl / $font-baseline) * $font-baseline}
+        h2, .h2 {font-size: $font-l  * $xheight-header; line-height: ceil($font-l  / $font-baseline) * $font-baseline}
+        h3, .h3 {font-size: $font-l  * $xheight-header; line-height: ceil($font-l  / $font-baseline) * $font-baseline}
+        h4, .h4 {font-size: $font-s  * $xheight-header; line-height: ceil($font-s  / $font-baseline) * $font-baseline}
+        h5, .h5 {font-size: $font-s  * $xheight-header; line-height: ceil($font-s  / $font-baseline) * $font-baseline}
+
+        @each $el in $type-header-els {
+            #{$el} {
+                padding-top: $font-baseline;
+                margin-bottom: $font-baseline;
+            }
+        }
+    }
+    // Mobile
+    @media (max-width: $tablet - 1) {
+
+        h1, .h1 {font-size: $font-l * $xheight-header; line-height: ceil($font-l / $font-baseline) * $font-baseline}
+        h2, .h2 {font-size: $font-l * $xheight-header; line-height: ceil($font-l / $font-baseline) * $font-baseline}
+        h3, .h3 {font-size: $font-l * $xheight-header; line-height: ceil($font-l / $font-baseline) * $font-baseline}
+        h4, .h4 {font-size: $font-s * $xheight-header; line-height: ceil($font-s / $font-baseline) * $font-baseline}
+        h5, .h5 {font-size: $font-s * $xheight-header; line-height: ceil($font-s / $font-baseline) * $font-baseline}
+
+        @each $el in $type-header-els {
+            #{$el} {
+                padding-top: $font-baseline / 2;
+                margin-bottom: $font-baseline / 2;
+            }
         }
     }
 }
-// Mobile
-@media (max-width: $tablet - 1) {
-
-    h1, .h1 {font-size: $font-l * $xheight-header; line-height: ceil($font-l / $font-baseline) * $font-baseline}
-    h2, .h2 {font-size: $font-m * $xheight-header; line-height: ceil($font-m / $font-baseline) * $font-baseline}
-    h3, .h3 {font-size: $font-m * $xheight-header; line-height: ceil($font-s / $font-baseline) * $font-baseline}
-    h4, .h4 {font-size: $font-s * $xheight-header; line-height: ceil($font-s / $font-baseline) * $font-baseline}
-    h5, .h5 {font-size: $font-s * $xheight-header; line-height: ceil($font-s / $font-baseline) * $font-baseline}
-
-    @each $el in $type-header-els {
-        #{$el} {
-            padding-top: $font-baseline / 2;
-            margin-bottom: $font-baseline / 2;
-        }
-    }
-}
-
 
 // Lists
 // ============

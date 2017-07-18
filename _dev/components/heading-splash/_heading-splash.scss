@@ -6,16 +6,16 @@
 .heading-splash {
     position: relative;
     
-    .splash-heading {
+    .lined-heading {
         @extend %lined-heading;
         margin-left: 120px;
         background: $clr-light;
         text-align: center;
         position: relative;
-        top: -70px;
-        transform: skewY(-8deg);
+        top: -120px;
         padding: 0 $size-l;
-        overflow: hidden;
+        transform: skewY(-8deg);
+        z-index: -1;
 
         h2 .first {
             letter-spacing: 4px;
@@ -25,43 +25,184 @@
         content: "";
         display: block;
         position: absolute;
-        top: -390px;
-        right: -630px;
+        top: -420px;
+        right: -900px;
         z-index: $z-m;
-        width: 1073px;
+        width: 1320px;
         height: 1298px;
         background: url(../img/shape-splat.svg) no-repeat;
+        background-size: 100%;
         transform: rotate(-35deg);
     }
     &.right {
         @include flexbox();
+        margin-bottom: $size-xl * 3;
 
         .inner {
             @include order(2);
             position: relative;
             transform: skewY(15.7deg);
-            top: 100px;
+            z-index: $z-m - 1;
             height: 384px;
+            width: 100%;
             
             h2 {
                 text-align: right;
                 padding-top: $size-xl;
+                padding-bottom: $size-xl;
             }
             h2 span {
                 display: block;
             }
-            .splash-heading {
-                top: 18px;
+            .lined-heading {
+                @extend %col-xs-6;
+                @extend %col-xs-offset-6;
+                top: -45px;
+                left: 0;
             }
         }
         &:before {
             @include order(1);
-            position: relative;
             background-position: top right;
-            transform: rotate(8deg);
-            height: 700px;
-            left: -210px;
-            top: -100px;
+            transform: rotate(20deg);
+            left: -810px;
+            top: -320px;
+            right: auto;
+        }
+    }
+    @media (max-width: $breakpoint-1) {
+        
+        &:before {
+            top: -320px;
+            right: -730px;
+            width: 1000px;
+        }
+        .lined-heading {
+            top: -40px;
+        }
+        &.right {
+            margin-bottom: $size-xl * 1.5;
+
+            &:before {
+                top: -300px;
+                left: -640px;
+            }
+        }
+    }
+    @media (max-width: 1080px) {
+        
+        &:before {
+            top: -280px;
+            right: -630px;
+            width: 800px;
+        }
+        &.right {
+            margin-bottom: $size-l;
+            
+            &:before {
+                top: -240px;
+                left: -520px;
+            }
+        }
+    }
+    @media (max-width: $breakpoint-2) {
+        
+        &:before {
+            top: -280px;
+            right: -530px;
+            width: 600px;
+        }
+        &.right {
+            margin-bottom: $size-xl;
+            
+            &:before {
+                top: -190px;
+                left: -420px;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        
+        .lined-heading {
+            top: -120px;
+            left: -120px;
+            padding-left: $size-m;
+            padding-right: $size-m;
+
+            h2 {
+                padding-top: 200px;
+            }
+        }
+        &:before {
+            top: -280px;
+            right: -530px;
+            width: 550px;
+        }
+        &.right {
+            margin-bottom: $size-m;
+            
+            &:before {
+                top: -130px;
+                left: -420px;
+            }
+            .inner {
+
+                .lined-heading {
+                    top: -25px;
+                }
+            }
+            
+        }
+    }
+    @media (max-width: $breakpoint-4) {
+        
+        &:before {
+            top: -200px;
+            width: 400px;
+        }
+        .lined-heading {
+            top: -60px;
+        }
+        &.right {
+            margin-bottom: $size-xl;
+            
+            &:before {
+                top: -130px;
+                left: -370px;
+            }
+            .inner {
+
+                .lined-heading {
+                    top: -60px;
+
+                    h2 {
+                        padding-top: 200px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 410px) {
+
+        &.right {
+            margin-bottom: $size-xl;
+            
+            &:before {
+                top: -130px;
+                left: -370px;
+            }
+            .inner {
+
+                .lined-heading {
+                    top: -60px;
+                    left: -40px;
+
+                    h2 {
+                        padding-top: 220px;
+                        padding-bottom: 120px;
+                    }
+                }
+            }
         }
     }
 }

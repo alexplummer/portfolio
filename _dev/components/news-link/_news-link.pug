@@ -5,7 +5,8 @@
 
 mixin newsLink(heading, content)
 	article.news-link
-		img(src!=attributes.src)
+		picture
+			img(src!=attributes.src)
 		h4= heading
 		p= content
 		a.btn(href!=attributes.href) Continue reading

@@ -625,7 +625,7 @@ gulp.task('watch', () => {
 	// SASS
 	plugins.watch([paths.dev + '/**/*.scss'], () => {
 		gulp.start(gulpsync.sync([
-			'watch:messageSASS', ['clean-reports', 'build-sass'], 'lint-reports'
+			'watch:messageSASS', ['clean-reports', 'build-sass']
 		]));
 	});
 	// COMPONENTS
@@ -643,7 +643,7 @@ gulp.task('watch', () => {
 	// JS
 	plugins.watch(paths.dev + '/**/*.js', () => {
 		gulp.start(gulpsync.sync([
-			'watch:messageJS', 'clean-reports', 'js', ['inject-JSdeps', 'copy:scripts'], 'lint-reports'
+			'watch:messageJS', 'clean-reports', 'js', ['inject-JSdeps', 'copy:scripts']
 		]));
 	});
 	// IMAGES
@@ -701,18 +701,18 @@ gulp.task('watch:gulp', () => {
 // BUILDS
 gulp.task('build:tmp', gulpsync.sync([
 	'clean:tmp', 'create-folders', 'js',
-	['bower-install','component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps', 'clean-reports'],
+	['bower-install','component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
-	['lint-reports', 'html'],
+	['html'],
 	'bower-inject'
 ]));
 gulp.task('build:tmp-offline', gulpsync.sync([
 	'clean:tmp', 'create-folders', 'js',
-	['component-directories','copy:fonts', 'inject-CSSdeps', 'inject-JSdeps', 'clean-reports'],
+	['component-directories','copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
-	['lint-reports', 'html'],
+	['html'],
 	'bower-inject'
 ]));
 gulp.task('build:prod', gulpsync.sync([

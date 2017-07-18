@@ -4,10 +4,27 @@
 // Intro without any description text
 
 .intro-no-description {
-    background: $clr-light;
+    @extend %pseudo;
     height: 1400px;
     margin-bottom: -500px;
 
+    &:before {
+        width: calc(100% - 6rem);
+        height: 100%;
+        left: 3rem;
+        top: 3rem;
+        background: $clr-light;
+
+        @media(max-width: $breakpoint-3) {
+            width: calc(100% - 4rem);
+            left: 2rem;
+            top: 2rem;
+        }
+        @media(max-width: $breakpoint-4) {
+            width: calc(100% - 2rem);
+            left: 0;
+        }
+    }
     .inner {
         
         &:before {
@@ -26,17 +43,8 @@
         }
         .splash-heading {
             
-            &:before {
-                content: "";
-                display: block;
+            svg {
                 position: absolute;
-                top: -190px;
-                left: -310px;
-                z-index: $z-m;
-                width: 1073px;
-                height: 1298px;
-                background: url(../img/shape-splat.svg) no-repeat;
-                background-size: 100%;
             }
             h1, h1 span {
                 font-family: $font-body;
@@ -64,9 +72,15 @@
         }
         .lined-heading {
             @extend %lined-heading;
+            overflow: hidden;
             position: absolute;
             top: $size-l;
             left: calc(50% + 100px);
+            overflow: hidden;
+
+            h2 {
+                transform: skewY(8deg);
+            }
         }
     }
 
@@ -82,7 +96,7 @@
             .splash-heading {
             
                 &:before {
-                    top: -190px;
+                    top: -270px;
                     left: -300px;
                     width: 900px;
                 }
@@ -98,18 +112,13 @@
                     letter-spacing: 20px;
                 }
             }
-            .lined-heading {
-                
-                h2, h2 span {
-                    font-size: $font-xxl;
-                    line-height: $font-xxl;
-                }
-            }
         }
     }
 
     @media(max-width: $breakpoint-2) {
-        
+        height: 900px;
+        margin-bottom: 0;
+
         .inner {
 
             &:before {
@@ -130,12 +139,8 @@
             }
             .lined-heading {
                 
-                h2 {
-                    padding-top: 170px;
-                }
-                h2, h2 span {
-                    font-size: $font-xl;
-                    line-height: $font-xl;
+                h2.long {
+                    padding-top: 200px;
                 }
             }
         }
@@ -171,15 +176,11 @@
             }
             .lined-heading {
                 position: relative;
-                top: 0;
+                top: 2rem;
                 left: calc(50% + 50px);
 
-                h2 {
-                    padding-top: 140px;
-                }
-                h2, h2 span {
-                    font-size: $font-xl;
-                    line-height: $font-xl;
+                h2.long {
+                    padding-top: 160px;
                 }
             }
         }
@@ -192,15 +193,15 @@
                 top: 145px;
                 padding-top: 115px;
                 height: 115px;
-                left: -45px;
+                left: -75px;
             }
             .lined-heading {
                 position: relative;
-                top: 0;
-                left: 50%;
+                top: 2rem;
+                left: calc(50% - 3rem);
 
-                h2 {
-                    padding-top: 240px;
+                h2.long {
+                    padding-top: 255px;
                 }
             }
             .splash-heading {

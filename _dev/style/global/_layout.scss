@@ -3,15 +3,7 @@
 // Major layout rules to go here
 
 body {
-    padding: $size-l;
     overflow-x: hidden;
-
-    @media(max-width: $breakpoint-3) {
-        padding: $size-m;
-    }
-    @media(max-width: $breakpoint-4) {
-        padding: $size-m $size-m 0 0;
-    }
 }
 section, header, footer {
     @extend %container;

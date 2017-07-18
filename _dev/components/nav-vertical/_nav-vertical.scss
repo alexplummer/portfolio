@@ -7,6 +7,7 @@
     transform: rotate(90deg);
     transform-origin: left top;
     position: absolute;
+    z-index: $z-l;
     top: $size-l + $size-l;
     left: 100%;
     line-height: $size-l;
@@ -30,14 +31,21 @@
             background-repeat: no-repeat;
         }
         
-        $nav-items: 'home', 'work', 'news', 'contact';
+        @mixin addNavItem($name, $animation: false) {
 
-        @each $item in $nav-items {
-
-            &.#{$item}:before {
-                background-image: url(../img/icon-#{$item}.svg);
+            &.#{$name}:before {
+                background-image: url(../img/icon-#{$name}.svg);
             }
+            &.#{$name}:hover:before {
+                
+                    @if $animation {
+                    }  
+                }
         }
+        @include addNavItem('home', 'tada');
+        @include addNavItem('work', 'flash');
+        @include addNavItem('news', 'wiggle');
+        @include addNavItem('contact', 'pulse');
     }
 
     @media(max-width: $breakpoint-3) {

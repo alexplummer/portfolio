@@ -7,9 +7,11 @@
     position: relative;
     top: 100px;
     margin-bottom: 200px;
+    z-index: $z-m;
 
     &:before {
         @extend %bg-geometry;
+        height: calc(100% + 3rem);
         top: 0;
         transform: rotate(8deg);
     }
@@ -17,11 +19,11 @@
         position: relative;
         z-index: $z-m;
 
-        img {
+        picture {
             position: absolute;
+            left: 0;
             z-index: $z-m;
-            width: 200px;
-            height: 200px;
+            @extend %img-round;
         }
         .heading {
             @extend %col-md-6;
@@ -35,11 +37,15 @@
                 @extend %heading-xxxl;
                 text-align: right;
             }
+            h2 {
+                padding-left: calc(200px + 3rem);
+                padding-right: $size-m;
+            }
             h2 span {
                 display: block;
             }
             &:before {
-            transform: skewY(-8deg);
+                transform: skewY(-8deg);
                 width: 100%;
                 left: 110%;
                 top: -35px;
@@ -48,8 +54,9 @@
             }
         }
         dl {
-            @extend %col-md-4;
-            @extend %col-md-offset-2;
+            @extend %col-sm-4;
+            @extend %col-sm-offset-2;
+            @extend %col-xs-12;
             padding-top: $size-xl;
 
             &:nth-of-type(2) {
@@ -84,6 +91,120 @@
             }
             .icon-hand:before {
                 height: 80px;
+            }
+        }
+    }
+    @media (max-width: $breakpoint-1) {
+
+        .inner {
+
+            picture {
+                left: 10%;
+                top: $size-l;
+                width: 150px;
+                height: 150px;
+            }
+            .heading {
+                padding-top: $size-l;
+
+                h2, h2 span {
+                    font-size: $font-xxl;
+                    line-height: $font-xxl;
+                }
+                &:before {
+                    top: -10px;
+                }
+            }
+        }
+    }
+    @media (max-width: 991px) {
+
+        .inner {
+            top: $size-m;
+
+            picture {
+                left: 0;
+            }
+            .heading {
+                
+                &:before {
+                    top: 0;
+                }
+            }
+        }
+    }
+    @media (max-width: 767px) {
+
+        .inner {
+            top: $size-m;
+
+            picture {
+                display: none;
+            }
+            .heading {
+                height: 190px;
+                width: 75%;
+
+                h2 {
+                    padding-left: 0;
+                }
+                h2, h2 span {
+                    font-size: $font-xl;
+                    line-height: $font-xl;
+                }
+                &:before {
+                    top: -20px;
+                    height: 360px;
+                }
+            }
+            dl dt, dl dd {
+                margin-left: $size-s;
+                margin-right: $size-m;
+            }
+            dl {
+                padding-top: $size-l;
+                margin-bottom: 0;
+
+                dt {
+                    padding-bottom: $size-s;
+                    margin-bottom: 0;
+
+                    &:before {
+                        width: 30px;
+                        height: 30px;
+                        left: -50px;
+                        top: $size-m;
+                    }
+                }
+                dd {
+                    margin-bottom: $size-m;
+                }
+                &:nth-of-type(2) {
+                    padding-top: 0;
+                }
+                &:nth-of-type(2) dt:before {
+                    width: 25px;
+                    left: -50px;
+                }
+                .icon-hand:before {
+                    height: 80px;
+                }
+            }
+        }
+    }
+    @media (max-width: $breakpoint-4) {
+        
+        &:before {
+            width: 300vw;
+            left: -50vw;
+        }
+        .inner {
+
+            .heading {
+
+                &:before {
+                    top: -10px;
+                }
             }
         }
     }

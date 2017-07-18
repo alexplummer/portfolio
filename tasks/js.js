@@ -88,7 +88,7 @@ gulp.task('js', () => {
 
 gulp.task('copy:scripts', cb => {
 	// JS hint
-	gulp.src(paths.tmp+'/script/script/**/*.js')
+	gulp.src(paths.tmp+'/script/**/*.js')
 	.pipe(plugins.jshint())
 	.pipe(plugins.if(browserReports, plugins.jshint.reporter('gulp-jshint-file-reporter', {
     	filename: 'reports/js/js.html'
@@ -98,4 +98,5 @@ gulp.task('copy:scripts', cb => {
 	// Update browser
 	.pipe(plugins.browserSync.stream());
 	cb();
-})
+});
+

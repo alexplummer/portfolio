@@ -7,7 +7,7 @@ mixin showreel()
     section.showreel
         .inner
             blockquote
-                | Design and code in beautiful harmony”
+                | “Design and code in beautiful harmony”
             article
                 h3 
                     | Hello there!
@@ -21,37 +21,51 @@ mixin showreel()
                 | Some of the pretty stuff
             .items-left
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
 
             .items-right
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
                 a(href="#")
-                    img(src="img/media/screen-euromoney.png")
+                    picture
+                        img(src="img/media/screen-euromoney.jpg")
                     | Sample Title
 
-            a(href="#").toggle-left.active Design
-            a(href="#").toggle-right Code
+            a(href="#").toggle-left.active 
+                img(src="../img/icon-design.svg").svg.btn-icon
+                | Design
+            a(href="#").toggle-right
+                img(src="../img/icon-code-browser.svg").svg.btn-icon.two
+                | Code

@@ -1,7 +1,7 @@
 //- Extend head of document
 extends _includes/_head
 
-//- Components used on page
+//- Includes
 include ../components/nav-vertical/_nav-vertical
 include ../components/intro-no-description/_intro-no-description
 include ../components/showreel/_showreel
@@ -24,7 +24,7 @@ block content
 	//- Intro title	
 	- var heading = '<span>Alex</span> Plummer'
 	+introNoDescription(heading)
-		h2
+		h2.long
 			span.first Hybrid 
 			| Design
 			span.last +code

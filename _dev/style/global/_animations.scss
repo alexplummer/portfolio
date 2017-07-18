@@ -1,0 +1,40 @@
+// Animations
+// ============
+// Global animations go here
+
+%splatter {
+  animation-name: splat-in;
+  animation-duration: 1.5s;
+  animation-fill-mode: both; 
+}
+%splatter-drip {
+  animation-name: splat-in-drip;
+  animation-duration: 1.5s;
+  animation-fill-mode: both; 
+  animation-delay: 0.5s; 
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes splat-in {
+    0% {
+        opacity: 0;
+        transform: scale3d(0, 0, 0);
+        transform-origin: center;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+@keyframes splat-in-drip {
+    0% {
+        transform-origin: top;
+        transform: scale3d(0, 1, 0);
+        top: -400px;
+    }
+}

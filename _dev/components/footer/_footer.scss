@@ -5,6 +5,7 @@
 
 .footer {
     padding-top: $size-l;
+    @extend %full-width-gap;
 
     h2, h2 span {
         font-family: $font-body;
@@ -34,7 +35,6 @@
             margin-right: $size-s;
         }
     }
-    
     nav {
         position: absolute;
         right: $size-l;
@@ -46,6 +46,38 @@
             color: $clr-darker;
             display: block;
             text-decoration: none;
+        }
+    }
+    @media (max-width: 767px) {
+
+        margin-left: 0;
+
+        h2 {
+            font-size: $font-xs;
+            letter-spacing: 6px;
+            line-height: $font-xxs;
+            margin-bottom: $size-m;
+        }
+        h2 span {
+            font-size: $font-s;
+            letter-spacing: 18px;
+        }
+        .legal {
+        
+            p, a {
+                font-size: $font-xs;
+                display: block;
+                float: none;
+                margin-bottom: 0;
+                padding-top: 0;
+            }
+        }
+        nav {
+            right: $size-m;
+
+            a {
+                font-size: $font-s;
+            }
         }
     }
 }

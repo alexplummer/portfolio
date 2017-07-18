@@ -21,7 +21,16 @@
 @import "library/mixins/_flexbox";
 @import "library/mixins/_grid";
 @import "library/mixins/_iconfix";
+@import "library/mixins/_shadows";
 /* csslint ignore:end */
+
+
+// Animate.css
+// ============
+// Animate.css toggles and package import
+
+@import "global/_animate-css";
+@import "../../bower_components/animate-sass/animate";
 
 
 // Fontello
@@ -39,6 +48,7 @@
 @import "global/_patterns";
 @import "global/_layout";
 @import "global/_typography";
+@import "global/_animations";
 
 
 // Components

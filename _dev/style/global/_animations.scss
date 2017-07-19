@@ -2,39 +2,39 @@
 // ============
 // Global animations go here
 
-%splatter {
-  animation-name: splat-in;
+%splatter-oval {
+  animation-name: splatter-oval;
   animation-duration: 1.5s;
   animation-fill-mode: both; 
+}
+%splatter-splat {
+  animation-name: splatter-splat;
+  animation-duration: 1.5s;
+  animation-fill-mode: both; 
+  animation-delay: 0.3s; 
 }
 %splatter-drip {
-  animation-name: splat-in-drip;
+  animation-name: splatter-drip;
   animation-duration: 1.5s;
   animation-fill-mode: both; 
-  animation-delay: 0.5s; 
+  animation-delay: 1.2s; 
 }
-@keyframes fade-in {
+@keyframes splatter-oval {
     0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes splat-in {
-    0% {
-        opacity: 0;
         transform: scale3d(0, 0, 0);
         transform-origin: center;
     }
-    50% {
-        opacity: 1;
+}
+@keyframes splatter-splat {
+    0% {
+        transform: scale3d(0, 0, 0);
+        transform-origin: center;
     }
 }
-@keyframes splat-in-drip {
+@keyframes splatter-drip {
     0% {
         transform-origin: top;
-        transform: scale3d(0, 1, 0);
-        top: -400px;
+        transform: scale3d(1, 1, 0);
+        top: -1000px;
     }
 }

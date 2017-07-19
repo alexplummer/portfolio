@@ -1985,8 +1985,8 @@ body {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?90906491");
-  src: url("../font/fontello.eot?90906491#iefix") format("embedded-opentype"), url("../font/fontello.woff2?90906491") format("woff2"), url("../font/fontello.woff?90906491") format("woff"), url("../font/fontello.ttf?90906491") format("truetype"), url("../font/fontello.svg?90906491#fontello") format("svg");
+  src: url("../font/fontello.eot?76868595");
+  src: url("../font/fontello.eot?76868595#iefix") format("embedded-opentype"), url("../font/fontello.woff2?76868595") format("woff2"), url("../font/fontello.woff?76868595") format("woff"), url("../font/fontello.ttf?76868595") format("truetype"), url("../font/fontello.svg?76868595#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -1996,7 +1996,7 @@ body {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?90906491#fontello') format('svg');
+    src: url('../font/fontello.svg?76868595#fontello') format('svg');
   }
 }
 */
@@ -2032,7 +2032,7 @@ body {
 
 /* '' */
 .heading-splash .lined-heading h2:before, .intro-no-description .inner .lined-heading h2:before {
-  background: url(../img/bg-lined.svg); }
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAF0lEQVQYV2PcuvvIf29XG0YGJMBIA0EAq9wUBqYv3ckAAAAASUVORK5CYII=) repeat; }
 
 .list-info:before, .showreel:before {
   content: "";
@@ -2097,7 +2097,7 @@ body {
   margin-bottom: 0; }
   .heading-splash .lined-heading h2:before, .intro-no-description .inner .lined-heading h2:before {
     background-size: auto;
-    background-repeat: repeat-x;
+    background-repeat: space;
     z-index: -1;
     width: 100%;
     height: 100%; }
@@ -2163,25 +2163,38 @@ p {
   font-size: 1.5rem;
   font-weight: 500; }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
+.intro-no-description .inner .splash-heading .shape-splat-oval {
+  animation-name: splatter-oval;
+  animation-duration: 1.5s;
+  animation-fill-mode: both; }
 
-@keyframes splat-in {
+.intro-no-description .inner .splash-heading .shape-splat {
+  animation-name: splatter-splat;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.3s; }
+
+.intro-no-description .inner .splash-heading .shape-splat-drip {
+  animation-name: splatter-drip;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-delay: 1.2s; }
+
+@keyframes splatter-oval {
   0% {
-    opacity: 0;
     transform: scale3d(0, 0, 0);
-    transform-origin: center; }
-  50% {
-    opacity: 1; } }
+    transform-origin: center; } }
 
-@keyframes splat-in-drip {
+@keyframes splatter-splat {
+  0% {
+    transform: scale3d(0, 0, 0);
+    transform-origin: center; } }
+
+@keyframes splatter-drip {
   0% {
     transform-origin: top;
-    transform: scale3d(0, 1, 0);
-    top: -400px; } }
+    transform: scale3d(1, 1, 0);
+    top: -1000px; } }
 
 /* inject:componentImports */
 .footer {
@@ -2410,8 +2423,20 @@ p {
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover; }
-  .intro-no-description .inner .splash-heading svg {
-    position: absolute; }
+  .intro-no-description .inner .splash-heading .shape-splat-oval, .intro-no-description .inner .splash-heading .shape-splat, .intro-no-description .inner .splash-heading .shape-splat-drip {
+    position: absolute;
+    z-index: 50; }
+  .intro-no-description .inner .splash-heading .shape-splat-oval {
+    left: -50px;
+    width: 400px; }
+  .intro-no-description .inner .splash-heading .shape-splat {
+    left: -300px;
+    top: -180px;
+    width: 1070px; }
+  .intro-no-description .inner .splash-heading .shape-splat-drip {
+    width: 83px;
+    left: 132px;
+    top: 440px; }
   .intro-no-description .inner .splash-heading h1, .intro-no-description .inner .splash-heading h1 span {
     font-family: "Quicksand", sans-serif;
     font-size: 1.5rem;
@@ -2445,10 +2470,17 @@ p {
       top: 130px;
       padding-top: 165px;
       height: 150px; }
-    .intro-no-description .inner .splash-heading:before {
-      top: -270px;
+    .intro-no-description .inner .splash-heading .shape-splat-oval {
+      left: -50px;
+      width: 300px; }
+    .intro-no-description .inner .splash-heading .shape-splat {
       left: -300px;
+      top: -180px;
       width: 900px; }
+    .intro-no-description .inner .splash-heading .shape-splat-drip {
+      width: 63px;
+      left: 69px;
+      top: 340px; }
     .intro-no-description .inner .splash-heading h1 {
       top: 122px;
       left: 40px;
@@ -2468,10 +2500,17 @@ p {
         height: 110px; }
       .intro-no-description .inner .splash-heading h1 {
         top: 100px; }
-      .intro-no-description .inner .splash-heading:before {
-        top: -140px;
-        left: -200px;
+      .intro-no-description .inner .splash-heading .shape-splat-oval {
+        left: -40px;
+        width: 250px; }
+      .intro-no-description .inner .splash-heading .shape-splat {
+        left: -210px;
+        top: -90px;
         width: 700px; }
+      .intro-no-description .inner .splash-heading .shape-splat-drip {
+        left: 74px;
+        top: 314px;
+        width: 52px; }
       .intro-no-description .inner .lined-heading h2.long {
         padding-top: 200px; } }
   @media (max-width: 700px) {
@@ -2479,10 +2518,17 @@ p {
       top: 45px;
       padding-top: 115px;
       height: 115px; }
-    .intro-no-description .inner .splash-heading:before {
-      top: -100px;
+    .intro-no-description .inner .splash-heading .shape-splat-oval {
+      left: -10px;
+      width: 175px; }
+    .intro-no-description .inner .splash-heading .shape-splat {
       left: -140px;
+      top: -80px;
       width: 500px; }
+    .intro-no-description .inner .splash-heading .shape-splat-drip {
+      left: 62px;
+      top: 168px;
+      width: 39px; }
     .intro-no-description .inner .splash-heading h1 {
       top: 60px;
       left: 30px;
@@ -2510,10 +2556,17 @@ p {
       left: calc(50% - 3rem); }
       .intro-no-description .inner .lined-heading h2.long {
         padding-top: 255px; }
-    .intro-no-description .inner .splash-heading:before {
-      top: -100px;
-      left: -190px;
+    .intro-no-description .inner .splash-heading .shape-splat-oval {
+      left: -10px;
+      width: 175px; }
+    .intro-no-description .inner .splash-heading .shape-splat {
+      left: -170px;
+      top: -80px;
       width: 500px; }
+    .intro-no-description .inner .splash-heading .shape-splat-drip {
+      left: 30px;
+      top: 203px;
+      width: 44px; }
     .intro-no-description .inner .splash-heading h1 {
       top: 60px;
       left: 10px; } }

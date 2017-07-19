@@ -75,7 +75,6 @@ var app = function () {
     // Imports
     // Global object
     var globals$1 = globals$1 || {};
-
     // App JS
     inlineSVG();
 

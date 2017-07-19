@@ -43,8 +43,26 @@
         }
         .splash-heading {
             
-            svg {
+            .shape-splat-oval, .shape-splat, .shape-splat-drip {
                 position: absolute;
+                z-index: $z-m;
+            }
+            .shape-splat-oval {
+                @extend %splatter-oval;
+                left: -50px;
+                width: 400px;
+            }
+            .shape-splat {
+                @extend %splatter-splat;
+                left: -300px;
+                top: -180px;
+                width: 1070px;
+            }
+            .shape-splat-drip {
+                @extend %splatter-drip;
+                width: 83px;
+                left: 132px;
+                top: 440px;
             }
             h1, h1 span {
                 font-family: $font-body;
@@ -94,11 +112,20 @@
                 height: 150px;
             }
             .splash-heading {
-            
-                &:before {
-                    top: -270px;
+                
+                .shape-splat-oval {
+                    left: -50px;
+                    width: 300px;
+                }
+                .shape-splat {
                     left: -300px;
+                    top: -180px;
                     width: 900px;
+                }
+                .shape-splat-drip {
+                    width: 63px;
+                    left: 69px;
+                    top: 340px;
                 }
                 h1 {
                     top: 122px;
@@ -131,10 +158,19 @@
                 h1 {
                     top: 100px
                 }
-                &:before {
-                    top: -140px;
-                    left: -200px;
+                .shape-splat-oval {
+                    left: -40px;
+                    width: 250px;
+                }
+                .shape-splat {
+                    left: -210px;
+                    top: -90px;
                     width: 700px;
+                }
+                .shape-splat-drip {
+                    left: 74px;
+                    top: 314px;
+                    width: 52px;
                 }
             }
             .lined-heading {
@@ -157,10 +193,19 @@
             }
             .splash-heading {
             
-                &:before {
-                    top: -100px;
+                .shape-splat-oval {
+                    left: -10px;
+                    width: 175px;
+                }
+                .shape-splat {
                     left: -140px;
+                    top: -80px;
                     width: 500px;
+                }
+                .shape-splat-drip {
+                    left: 62px;
+                    top: 168px;
+                    width: 39px;
                 }
                 h1 {
                     top: 60px;
@@ -206,10 +251,19 @@
             }
             .splash-heading {
         
-                &:before {
-                    top: -100px;
-                    left: -190px;
+                .shape-splat-oval {
+                    left: -10px;
+                    width: 175px;
+                }
+                .shape-splat {
+                    left: -170px;
+                    top: -80px;
                     width: 500px;
+                }
+                .shape-splat-drip {
+                    left: 30px;
+                    top: 203px;
+                    width: 44px;
                 }
                 h1 {
                     top: 60px;

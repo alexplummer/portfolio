@@ -286,7 +286,7 @@ gulp.task('copy:fonts', () => {
 	return plugins.mergeStream(font, fontello);
 });
 gulp.task('copy:images', () => {
-	return gulp.src(paths.dev + '/img/**/*')
+	return gulp.src(paths.dev + '/img/**/*.{png,gif,jpg}')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
 		.pipe(plugins.browserSync.stream());
 });
@@ -319,6 +319,32 @@ gulp.task('copy:prod', () => {
 	// Return streams
 	return plugins.mergeStream(html, css, map, js, fonts, php, humans);
 });
+
+
+// SVG
+// ============
+// Optimises SVGs
+
+gulp.task('svg', () => {
+	return gulp.src(paths.dev + '/img/**/*.svg')
+		// Error handling
+		.pipe(plugins.plumber({ errorHandler: onError }))
+		.pipe(plugins.svgmin({
+			plugins: [
+				{removeDoctype: true}, 
+				{removeComments: true}, 
+				{cleanupNumericValues: 
+					{floatPrecision: 2}
+				}, 
+				{removeDesc: true}, 
+				{removeTitle: true},
+				{removeEmptyAttrs: true},
+				]
+		}))
+		.pipe(gulp.dest(paths.tmp + '/img'))
+		.pipe(plugins.browserSync.stream());
+});
+
 
 
 // Images
@@ -652,6 +678,12 @@ gulp.task('watch', () => {
 			'watch:messageIMAGES', 'copy:images'
 		]));
 	});
+	// SVG
+	plugins.watch(paths.dev + '/img/**/*.*svg', () => {
+		gulp.start(gulpsync.sync([
+			'watch:messageIMAGES', 'svg'
+		]));
+	});
 	// FONTELLO
 	plugins.watch(paths.dev + '/font/config.json', () => {
 		gulp.start(gulpsync.sync([
@@ -700,16 +732,16 @@ gulp.task('watch:gulp', () => {
 
 // BUILDS
 gulp.task('build:tmp', gulpsync.sync([
-	'clean:tmp', 'create-folders', 'js',
-	['bower-install','component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
+	'clean:tmp', 'create-folders', 'svg', 'js',
+	['bower-install', 'component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
 	['html'],
 	'bower-inject'
 ]));
 gulp.task('build:tmp-offline', gulpsync.sync([
-	'clean:tmp', 'create-folders', 'js',
-	['component-directories','copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
+	'clean:tmp', 'create-folders', 'svg', 'js',
+	['component-directories', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
 	['html'],

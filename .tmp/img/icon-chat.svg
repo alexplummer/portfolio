@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="72px" height="75px" viewBox="0 0 72 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>lines-and-angles_chat</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD" transform="translate(-783.000000, -4792.000000)" fill-rule="nonzero" fill="#272729">
-            <g id="lines-and-angles_chat" transform="translate(783.000000, 4792.000000)">
-                <g id="DESIGNS">
-                    <path d="M0,60 L15,60 L30,75 L30,60 L51,60 L51,18 L0,18 L0,60 Z M6,24 L45,24 L45,54 L24,54 L24,60.516 L17.484,54 L6,54 L6,24 Z M72,0 L72,42 L63,42 L54,51 L54,42.516 L60.516,36 L66,36 L66,6 L27,6 L27,15 L21,15 L21,0 L72,0 Z" id="Shape"></path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="72" height="75" viewBox="0 0 72 75" xmlns="http://www.w3.org/2000/svg"><path d="M0 60h15l15 15V60h21V18H0v42zm6-36h39v30H24v6.516L17.484 54H6V24zM72 0v42h-9l-9 9v-8.484L60.516 36H66V6H27v9h-6V0h51z" fill-rule="nonzero" fill="#272729"/></svg>

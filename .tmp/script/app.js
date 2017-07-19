@@ -68,6 +68,48 @@ var app = function () {
         }
     };
 
+    // Showreel
+    // ============
+    // Large section used to demo work
+
+    // Imports
+    // Slide Projects in from left
+    var slideProjectsLeft = function slideProjectsLeft() {
+
+        // init controller
+        var controller = new ScrollMagic.Controller();
+
+        // build scenes
+        new ScrollMagic.Scene({ triggerElement: ".toggle-left" }).setClassToggle(".items-holder", "slide-in").triggerHook(1).addTo(controller);
+    };
+
+    // Swap projects set
+    var swapProjects = function swapProjects() {
+        var left = document.querySelector('.slider').querySelector('.toggle-left');
+        var right = document.querySelector('.slider').querySelector('.toggle-right');
+
+        left.addEventListener('click', function (e) {
+            doSwap(e);
+        });
+        right.addEventListener('click', function (e) {
+            doSwap(e);
+        });
+
+        function doSwap(e) {
+            e.preventDefault();
+
+            left.classList.toggle('active');
+            right.classList.toggle('active');
+            document.querySelector('.slider').querySelector('.items-left').classList.toggle('active');
+            document.querySelector('.slider').querySelector('.items-right').classList.toggle('active');
+            document.querySelector('.slider').querySelector('.items-left').classList.toggle('inactive');
+            document.querySelector('.slider').querySelector('.items-right').classList.toggle('inactive');
+            document.querySelector('.slider').querySelector('.title').classList.toggle('right');
+            document.querySelector('.slider').querySelector('.title').innerHTML = "SOME OF THE PRETTY STUFF";
+            document.querySelector('.slider').querySelector('.right').innerHTML = "SOME OF THE TECHY STUFF";
+        }
+    };
+
     // App
     // ============
     // All of JS is organised from here
@@ -75,8 +117,11 @@ var app = function () {
     // Imports
     // Global object
     var globals$1 = globals$1 || {};
+
     // App JS
     inlineSVG();
+    slideProjectsLeft();
+    swapProjects();
 
     return globals$1;
 }();

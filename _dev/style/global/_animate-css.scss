@@ -56,7 +56,7 @@ $use-rotateOutDownRight : false;
 $use-slideIn			: false;
 $use-slideInUp			: false;
 $use-slideInDown		: false;
-$use-slideInLeft		: false;
+$use-slideInLeft		: true;
 $use-slideInRight		: false;
 
 // Slide Exit
@@ -64,7 +64,7 @@ $use-slideOut			: false;
 $use-slideOutUp			: false;
 $use-slideOutDown		: false;
 $use-slideOutLeft		: false;
-$use-slideOutRight		: false;
+$use-slideOutRight		: true;
 
 // Flippers
 $use-flipInX			: false;
@@ -77,19 +77,19 @@ $use-lightSpeedIn 		: false;
 $use-lightSpeedOut 		: false;
 
 // Attention Seekers
-$use-bounce				: true;
-$use-flash				: true;
-$use-pulse				: true;
-$use-wiggle				: true;
-$use-swing				: true;
-$use-shake				: true;
-$use-tada				: true;
-$use-wobble				: true;
+$use-bounce				: false;
+$use-flash				: false;
+$use-pulse				: false;
+$use-wiggle				: false;
+$use-swing				: false;
+$use-shake				: false;
+$use-tada				: false;
+$use-wobble				: false;
 
 // Special
 $use-hinge				: false;
-$use-rollIn				: false;
-$use-rollOut 			: false;
+$use-rollIn				: true;
+$use-rollOut 			: true;
 
 // Zoom In
 $use-zoomIn 			: false;

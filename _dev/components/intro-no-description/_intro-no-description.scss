@@ -49,7 +49,7 @@
             }
             .shape-splat-oval {
                 @extend %splatter-oval;
-                left: -50px;
+                left: 0px;
                 width: 400px;
             }
             .shape-splat {
@@ -61,7 +61,7 @@
             .shape-splat-drip {
                 @extend %splatter-drip;
                 width: 83px;
-                left: 132px;
+                left: 130px;
                 top: 440px;
             }
             h1, h1 span {
@@ -98,6 +98,16 @@
 
             h2 {
                 transform: skewY(8deg);
+                
+                .first {
+                    @extend %bounce-skew-right-1;
+                }
+                .middle {
+                    @extend %bounce-skew-right-2;
+                }
+                .last {
+                    @extend %bounce-skew-right-3;
+                }
             }
         }
     }
@@ -159,7 +169,7 @@
                     top: 100px
                 }
                 .shape-splat-oval {
-                    left: -40px;
+                    left: -20px;
                     width: 250px;
                 }
                 .shape-splat {

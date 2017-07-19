@@ -40,19 +40,24 @@
 <body>
     <nav class="nav-vertical"><a class="home" href="index.html">HOME</a><a class="work" href="work.html">WORK</a><a class="news" href="news.html">NEWS</a><a class="contact" href="contact.html">CONTACT</a>
     </nav>
-    <header class="intro-no-description">
-        <div class="inner">
-            <div class="splash-heading">
-                <h1 class="logo-main"><span>Alex</span> Plummer</h1>
+    <div class="intro-no-description">
+        <header>
+            <div class="inner">
+                <div class="splash-heading">
+                    <h1 class="logo-main"><span>Alex</span> Plummer</h1>
+                    <img class="svg shape-splat-oval" src="img/shape-splat-oval.svg" />
+                    <img class="svg shape-splat" src="img/shape-splat.svg" />
+                    <img class="svg shape-splat-drip" src="img/shape-splat-drip.svg" />
+                </div>
+                <div class="lined-heading">
+                    <h2 class="long"><span class="first">Hybrid </span><span class="middle">Design</span><span class="last">+code</span></h2>
+                </div>
             </div>
-            <div class="lined-heading">
-                <h2>Hybrid Design<span>+code</span></h2>
-            </div>
-        </div>
-    </header>
+        </header>
+    </div>
     <section class="showreel">
         <div class="inner">
-            <blockquote>Design and code in beautiful harmony”</blockquote>
+            <blockquote>“Design and code in beautiful harmony”</blockquote>
             <article>
                 <h3> Hello there!</h3>
                 <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
@@ -63,33 +68,57 @@
             <p class="title">Some of the pretty stuff</p>
             <div class="items-left">
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
             </div>
             <div class="items-right">
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
                 <a href="#">
-                    <img src="img/media/screen-euromoney.png" />Sample Title</a>
-            </div><a class="toggle-left active" href="#">Design</a><a class="toggle-right" href="#">Code</a>
+                    <picture>
+                        <img src="img/media/screen-euromoney.jpg" />
+                    </picture>Sample Title</a>
+            </div>
+            <a class="toggle-left active" href="#">
+                <img class="svg btn-icon" src="../img/icon-design.svg" />Design</a>
+            <a class="toggle-right" href="#">
+                <img class="svg btn-icon two" src="../img/icon-code-browser.svg" />Code</a>
         </div>
     </section>
     <header class="left heading-splash">
         <div class="inner">
-            <div class="splash-heading">
+            <div class="lined-heading">
                 <h2><span class="first">Main</span>skill<span class="last">set</span></h2>
             </div>
         </div>
@@ -142,6 +171,7 @@
                 </ul>
             </div>
             <div class="key">
+                <h4>- Key -</h4>
                 <p class="three-bars">Pro</p>
                 <p class="two-bars">Good</p>
                 <p class="one-bar">Basic</p>
@@ -150,7 +180,9 @@
     </section>
     <section class="list-info">
         <div class="inner">
-            <img src="img/media/screen-euromoney.png" />
+            <picture>
+                <img src="img/media/screen-euromoney.jpg" />
+            </picture>
             <div class="heading">
                 <h2> More <span>info</span></h2>
             </div>
@@ -170,7 +202,7 @@
     </section>
     <header class="right heading-splash">
         <div class="inner">
-            <div class="splash-heading">
+            <div class="lined-heading">
                 <h2>Latest<span>news</span></h2>
             </div>
         </div>
@@ -178,12 +210,16 @@
     <section class="news-highlights">
         <div class="inner">
             <article class="news-link">
-                <img src="img/media/sample-news.jpg" />
+                <picture>
+                    <img src="img/media/screen-euromoney.jpg" />
+                </picture>
                 <h4>Lorem ipsum dolor sit</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="news-story.html">Continue reading</a>
             </article>
             <article class="news-link">
-                <img src="img/media/sample-news.jpg" />
+                <picture>
+                    <img src="img/media/screen-euromoney.jpg" />
+                </picture>
                 <h4>Lorem ipsum dolor sit</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="news-story.html">Continue reading</a>
             </article>
@@ -192,7 +228,7 @@
     <footer class="footer">
         <div class="inner">
             <div class="legal">
-                <h2 class="logo-main">Alex Plummer</h2>
+                <h2 class="logo-main"><span>Alex</span> Plummer</h2>
                 <p>© Copyright 2017</p><a href="legal.html">Legal</a><a href="credits.html">Credits</a>
             </div>
             <nav><a href="index.html">Home</a><a href="work.html">Work</a><a href="news.html">News</a><a href="contact.html">Contact</a>

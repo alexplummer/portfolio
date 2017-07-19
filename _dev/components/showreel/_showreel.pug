@@ -19,49 +19,50 @@ mixin showreel()
         .slider
             p.title
                 | Some of the pretty stuff
-            .items-left
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
+            .items-holder
+                .items-left.active
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Left
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Left
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Left
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Left
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Left
 
-            .items-right
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
-                a(href="#")
-                    picture
-                        img(src="img/media/screen-euromoney.jpg")
-                    | Sample Title
+                .items-right.inactive
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Right
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Right
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Right
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Right
+                    a(href="#")
+                        picture
+                            img(src="img/media/screen-euromoney.jpg")
+                        | Right
 
             a(href="#").toggle-left.active 
                 img(src="../img/icon-design.svg").svg.btn-icon

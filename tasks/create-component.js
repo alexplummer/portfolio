@@ -96,7 +96,13 @@ gulp.task('create-component', (cb) => {
                 `
 // ${properName}
 // ============
-// (Write description here)`;
+// (Write description here)
+
+// Imports
+
+// Exports
+
+// Module JS`;
 
             fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.pug', pugContents);
             fs.writeFile(paths.dev + '/components/' + componentName + '/_' + componentName + '.scss', sassContents);

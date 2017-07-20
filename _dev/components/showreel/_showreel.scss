@@ -100,16 +100,11 @@
                 @include flexbox;
                 @include justify-content(space-between);
                 @extend .animated;
+                transition: opacity 0.5s ease;
                 width: 100%;
                 position: absolute;
                 top: -95px;
 
-                &.active {
-                    @extend .slideInLeft;
-                }
-                &.inactive {
-                    @extend .slideOutRight;
-                }
                 a {
                     @extend .animated;
                     @extend .rollOut;
@@ -122,6 +117,27 @@
                     picture {
                         @extend %img-round;
                     }
+                }
+                &.inactive {
+                    opacity: 0;
+                }
+            }
+            .items-left {
+                
+                &.active {
+                    @extend .slideInLeft;
+                }
+                &.inactive {
+                    @extend .slideOutLeft;
+                }
+            }
+            .items-right {
+                
+                &.active {
+                    @extend .slideInRight;
+                }
+                &.inactive {
+                    @extend .slideOutRight;
                 }
             }
             &.slide-in {
@@ -292,7 +308,7 @@
                 border-top: 2px solid $clr-darker;
                 border-bottom: 2px solid $clr-darker;
                 text-align: center;
-                margin-bottom: $size-l;
+                margin-bottom: $size-m;
                 padding: $size-m 0;
             }
             article {
@@ -335,23 +351,29 @@
                 top: auto;
                 bottom: -$size-xl;
                 position: absolute;
+                padding: $size-xs $size-m;
+                padding-left: 40px;
 
-                &.active {
-                    padding-left: 60px;
-
-                    &:before {
-                        display: none;
-                    }
+                .btn-icon {
+                    width: $font-s;
+                    left: 15px;
                 }
             }
-            .toggle-left {
-                transform: none;
-                left: $size-l;
+            .toggle-left:first-of-type {
+                left: $size-m;
+
+                .btn-icon {
+                    top: 0px;
+                }
             }
             .toggle-right {
                 transform: none;
                 left: auto;
                 right: $size-l;
+
+                .btn-icon {
+                    top: 2px;
+                }
             }
         }
     }

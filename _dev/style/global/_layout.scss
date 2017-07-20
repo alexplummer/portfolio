@@ -2,7 +2,8 @@
 // ============
 // Major layout rules to go here
 
-body {
+body, html {
+    width: 100vw;
     overflow-x: hidden;
 }
 section, header, footer {

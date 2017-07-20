@@ -14,7 +14,7 @@ $use-fadeInRight 		: false;
 $use-fadeInRightBig 	: false;
 
 // Fade Exit
-$use-fadeOut			: false;
+$use-fadeOut			: true;
 $use-fadeOutUp			: false;
 $use-fadeOutUpBig   	: false;
 $use-fadeOutDown		: false;
@@ -57,20 +57,20 @@ $use-slideIn			: false;
 $use-slideInUp			: false;
 $use-slideInDown		: false;
 $use-slideInLeft		: true;
-$use-slideInRight		: false;
+$use-slideInRight		: true;
 
 // Slide Exit
 $use-slideOut			: false;
 $use-slideOutUp			: false;
 $use-slideOutDown		: false;
-$use-slideOutLeft		: false;
+$use-slideOutLeft		: true;
 $use-slideOutRight		: true;
 
 // Flippers
 $use-flipInX			: false;
-$use-flipInY			: false;
+$use-flipInY			: true;
 $use-flipOutX			: false;
-$use-flipOutY			: false;
+$use-flipOutY			: true;
 
 // Lightspeed
 $use-lightSpeedIn 		: false;

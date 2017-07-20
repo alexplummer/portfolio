@@ -7,6 +7,12 @@
     padding-top: $size-l;
     @extend %full-width-gap;
 
+    .inner {
+        margin-left: 0;
+        margin-right: 0;
+        position: relative;
+    }
+
     h2, h2 span {
         font-family: $font-body;
         font-size: $font-l;
@@ -37,7 +43,7 @@
     }
     nav {
         position: absolute;
-        right: $size-l;
+        right: 0;
         text-align: right;
 
         a {
@@ -49,7 +55,7 @@
         }
     }
     @media (max-width: 767px) {
-
+        padding: $size-s;
         margin-left: 0;
 
         h2 {
@@ -73,7 +79,7 @@
             }
         }
         nav {
-            right: $size-m;
+            right: 0;
 
             a {
                 font-size: $font-s;

@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "animate-sass": "^0.6.6",
-    "scrollmagic": "^2.0.5"
+    "waypoints": "waypoint#^4.0.1",
+    "loadcss": "^1.3.1"
   }
 }

@@ -9,7 +9,7 @@
     margin-bottom: -500px;
 
     &:before {
-        width: calc(100% - 6rem);
+        width: calc(100% - 6.7rem);
         height: 100%;
         left: 3rem;
         top: 3rem;
@@ -99,6 +99,9 @@
             h2 {
                 transform: skewY(8deg);
                 
+                span {
+                    margin-bottom: 0;
+                }
                 .first {
                     @extend %bounce-skew-right-1;
                 }

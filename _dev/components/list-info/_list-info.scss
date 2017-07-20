@@ -15,44 +15,46 @@
         top: 0;
         transform: rotate(8deg);
     }
+    picture {
+        position: absolute;
+        left: 8%;
+        top: 27px;
+        z-index: $z-m;
+        @extend %img-round;
+    }
+    .heading {
+        @extend %pseudo;
+        position: relative;
+        width: 75%;
+        margin-left: -25%;
+        background: $clr-hlight;
+        transform: skewY(8deg);
+        height: 250px;
+
+        h2, h2 span {
+            @extend %heading-xxxl;
+            text-align: right;
+        }
+        h2 {
+            padding-left: calc(200px + 3rem);
+            padding-right: $size-m;
+        }
+        h2 span {
+            display: block;
+        }
+        &:before {
+            transform: skewY(-8deg);
+            width: 100%;
+            left: 110%;
+            top: -35px;
+            height: 450px;
+            background-image: url(../img/bg-ovals.svg);
+        }
+    }
     .inner {
         position: relative;
         z-index: $z-m;
 
-        picture {
-            position: absolute;
-            left: 0;
-            z-index: $z-m;
-            @extend %img-round;
-        }
-        .heading {
-            @extend %col-md-6;
-            @extend %pseudo;
-            margin-left: -$size-l;
-            background: $clr-hlight;
-            transform: skewY(8deg);
-            height: 250px;
-
-            h2, h2 span {
-                @extend %heading-xxxl;
-                text-align: right;
-            }
-            h2 {
-                padding-left: calc(200px + 3rem);
-                padding-right: $size-m;
-            }
-            h2 span {
-                display: block;
-            }
-            &:before {
-                transform: skewY(-8deg);
-                width: 100%;
-                left: 110%;
-                top: -35px;
-                height: 450px;
-                background-image: url(../img/bg-ovals.svg);
-            }
-        }
         dl {
             @extend %col-sm-4;
             @extend %col-sm-offset-2;
@@ -96,67 +98,63 @@
     }
     @media (max-width: $breakpoint-1) {
 
-        .inner {
+        picture {
+            left: 15%;
+            top: 80px;
+            width: 150px;
+            height: 150px;
+        }
+        .heading {
+            padding-top: $size-l;
+            top: $size-m;
 
-            picture {
-                left: 10%;
-                top: $size-l;
-                width: 150px;
-                height: 150px;
+            h2, h2 span {
+                font-size: $font-xxl;
+                line-height: $font-xxl;
             }
-            .heading {
-                padding-top: $size-l;
-
-                h2, h2 span {
-                    font-size: $font-xxl;
-                    line-height: $font-xxl;
-                }
-                &:before {
-                    top: -10px;
-                }
+            &:before {
+                top: -30px;
             }
         }
     }
     @media (max-width: 991px) {
 
-        .inner {
+        picture {
+            left: 5%;
+            top: 80px;
+        }
+        .heading {
             top: $size-m;
-
-            picture {
-                left: 0;
-            }
-            .heading {
-                
-                &:before {
-                    top: 0;
-                }
+            
+            &:before {
+                top: 0;
             }
         }
     }
     @media (max-width: 767px) {
 
+        picture {
+            display: none;
+        }
+        .heading {
+            height: 190px;
+            width: 75%;
+
+            h2 {
+                padding-left: 0;
+            }
+            h2, h2 span {
+                font-size: $font-xl;
+                line-height: $font-xl;
+            }
+            &:before {
+                top: -20px;
+                height: 360px;
+            }
+        }
         .inner {
             top: $size-m;
 
-            picture {
-                display: none;
-            }
-            .heading {
-                height: 190px;
-                width: 75%;
-
-                h2 {
-                    padding-left: 0;
-                }
-                h2, h2 span {
-                    font-size: $font-xl;
-                    line-height: $font-xl;
-                }
-                &:before {
-                    top: -20px;
-                    height: 360px;
-                }
-            }
             dl dt, dl dd {
                 margin-left: $size-s;
                 margin-right: $size-m;
@@ -198,13 +196,10 @@
             width: 300vw;
             left: -50vw;
         }
-        .inner {
+        .heading {
 
-            .heading {
-
-                &:before {
-                    top: -10px;
-                }
+            &:before {
+                top: -10px;
             }
         }
     }

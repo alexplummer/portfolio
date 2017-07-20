@@ -5,7 +5,7 @@
     <!-- Primary meta-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
     <title>Work | Alex Plummer Portfolio</title>
     <link rel="author" href="humans.txt">
     <link rel="canonical" href="#">
@@ -32,12 +32,14 @@
     <meta name="apple-mobile-web-app-title" content="Alex Plummer | Frontend Web Designer London">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- Google Fonts -->
-    <!--<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500|Sanchez" rel="stylesheet">-->
     <!-- build:css style/style.css -->
     <!-- bower:css -->
     <!-- endbower -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="preload" href="style/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="style/style.css">
+    </noscript>
+    <!--<link rel="stylesheet" href="style/style.css">-->
     <!-- endbuild -->
 </head>
 
@@ -101,12 +103,17 @@
     </footer>
     <!-- build:js script/script.js -->
     <!-- bower:js -->
-    <script src="../bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <script src="../bower_components/waypoints/lib/noframework.waypoints.js"></script>
+    <script src="../bower_components/loadcss/src/loadCSS.js"></script>
     <!-- endbower -->
     <!-- inject:imports -->
     <script src="script/app.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+    <!-- Google fonts -->
+    <script>
+        WebFontConfig={google:{families:["Quicksand:400,500","Sanchez"]}},function(e){var n=e.createElement("script"),o=e.scripts[0];n.src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",n.async=!0,o.parentNode.insertBefore(n,o)}(document);
+    </script>
 </body>
 
 </html>

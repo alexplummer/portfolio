@@ -5,7 +5,7 @@
 
 .heading-splash {
     position: relative;
-    
+
     .lined-heading {
         @extend %lined-heading;
         margin-left: 120px;
@@ -21,18 +21,24 @@
             letter-spacing: 4px;
         }
     }
+    &.splash-in {
+
+        &:before {
+            @extend %splatter-right;
+        }
+    }
     &:before {
+        @extend %splatter-right-out;
         content: "";
         display: block;
         position: absolute;
-        top: -420px;
+        top: -370px;
         right: -900px;
         z-index: $z-m;
         width: 1320px;
         height: 1298px;
         background: url(../img/shape-splat.svg) no-repeat;
         background-size: 100%;
-        transform: rotate(-35deg);
     }
     &.right {
         @include flexbox();
@@ -48,7 +54,7 @@
             
             h2 {
                 text-align: right;
-                padding-top: $size-xl;
+                padding-top: $size-xl * 1.2;
                 padding-bottom: $size-xl;
             }
             h2 span {
@@ -57,12 +63,19 @@
             .lined-heading {
                 @extend %col-xs-6;
                 @extend %col-xs-offset-6;
-                top: -45px;
+                top: -75px;
                 left: 0;
+            }
+        }
+        &.splash-in {
+
+            &:before {
+                @extend %splatter-left;
             }
         }
         &:before {
             @include order(1);
+            @extend %splatter-left-out;
             background-position: top right;
             transform: rotate(20deg);
             left: -810px;
@@ -73,8 +86,8 @@
     @media (max-width: $breakpoint-1) {
         
         &:before {
-            top: -320px;
-            right: -730px;
+            top: -220px;
+            right: -530px;
             width: 1000px;
         }
         .lined-heading {
@@ -87,13 +100,16 @@
                 top: -300px;
                 left: -640px;
             }
+            .inner .lined-heading {
+                top: -45px;
+            }
         }
     }
     @media (max-width: 1080px) {
         
         &:before {
-            top: -280px;
-            right: -630px;
+            top: -180px;
+            right: -330px;
             width: 800px;
         }
         &.right {
@@ -108,8 +124,8 @@
     @media (max-width: $breakpoint-2) {
         
         &:before {
-            top: -280px;
-            right: -530px;
+            top: -170px;
+            right: -230px;
             width: 600px;
         }
         &.right {
@@ -134,8 +150,8 @@
             }
         }
         &:before {
-            top: -280px;
-            right: -530px;
+            top: -200px;
+            right: -270px;
             width: 550px;
         }
         &.right {
@@ -157,7 +173,8 @@
     @media (max-width: $breakpoint-4) {
         
         &:before {
-            top: -200px;
+            top: -140px;
+            right: -210px;
             width: 400px;
         }
         .lined-heading {

@@ -19,6 +19,22 @@
     animation-name: splatter-drip;
     animation-delay: 1.2s;
 }
+%splatter-right, %splatter-right-out, %splatter-left, %splatter-left-out {
+    animation-name: splatter-right;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0,0,0,1);
+}
+%splatter-right-out {
+    animation-name: splatter-right-out;
+}
+%splatter-left {
+    transform: scale3d(1, 1, 1) rotate(20deg);
+    animation-name: splatter-left;
+}
+%splatter-left-out {
+    animation-name: splatter-left-out;
+}
 
 @keyframes splatter-oval {
     0% {
@@ -37,6 +53,30 @@
         transform-origin: top;
         transform: scale3d(1, 1, 0);
         top: -1000px;
+    }
+}
+@keyframes splatter-right {
+    0% {
+        transform: scale3d(0, 0, 0) rotate(-35deg);
+        transform-origin: right top;
+    }
+}
+@keyframes splatter-right-out {
+    100% {
+        transform: scale3d(0, 0, 0) rotate(-35deg);
+        transform-origin: right top;
+    }
+}
+@keyframes splatter-left {
+    0% {
+        transform: scale3d(0, 0, 0) rotate(20deg);
+        transform-origin: top left;
+    }
+}
+@keyframes splatter-left-out {
+    100% {
+        transform: scale3d(0, 0, 0) rotate(20deg);
+        transform-origin: top left;
     }
 }
 
@@ -75,7 +115,7 @@
 }
 @keyframes slideInLeft {
     0% {
-        transform: translateX(-4000px);
+        transform: translateX(-105vw);
     }
     100% {
         transform: translateX(0);
@@ -92,6 +132,6 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(4000px);
+        transform: translateX(105vw);
     }
 }

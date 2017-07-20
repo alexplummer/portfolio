@@ -12,39 +12,56 @@ export { slideProjectsLeft, swapProjects };
 // Slide Projects in from left
 const slideProjectsLeft = function slideProjectsLeft() {
 
-    // init controller
-    let controller = new ScrollMagic.Controller();
+    let waypoint = new Waypoint({
+        element: document.querySelector('.toggle-left'),
+        handler: function (direction) {
 
-    // build scenes
-    new ScrollMagic.Scene({ triggerElement: ".toggle-left" })
-        .setClassToggle(".items-holder", "slide-in")
-        .triggerHook(1)
-        .addTo(controller);
+            if (Waypoint.viewportWidth() > 768) {
+                document.querySelector('.items-holder').classList.toggle('slide-in');
+            }            
+        },
+        offset: '90%'
+    });
+    if (Waypoint.viewportWidth() < 768) {
+        document.querySelector('.items-holder').classList.add('slide-in');
+    }
 }
 
 // Swap projects set
 const swapProjects = function swapProjects() {
     let left = document.querySelector('.slider').querySelector('.toggle-left');
     let right = document.querySelector('.slider').querySelector('.toggle-right');
+    let title = document.querySelector('.slider').querySelector('.title');
 
     left.addEventListener('click', (e) => {
-        doSwap(e);
+        e.preventDefault();
+
+        if (left.className.indexOf('active') < 1) {
+            doSwap();
+        }
     });
     right.addEventListener('click', (e) => {
-        doSwap(e);
+        e.preventDefault();
+
+        if (right.className.indexOf('active') < 1) {
+            doSwap();
+        }
     });
 
-    function doSwap(e) {
-        e.preventDefault();
-        
+    function doSwap() {
         left.classList.toggle('active');
-        right.classList.toggle('active');    
+        right.classList.toggle('active');
         document.querySelector('.slider').querySelector('.items-left').classList.toggle('active');
         document.querySelector('.slider').querySelector('.items-right').classList.toggle('active');
         document.querySelector('.slider').querySelector('.items-left').classList.toggle('inactive');
         document.querySelector('.slider').querySelector('.items-right').classList.toggle('inactive');
-        document.querySelector('.slider').querySelector('.title').classList.toggle('right');
-        document.querySelector('.slider').querySelector('.title').innerHTML = "SOME OF THE PRETTY STUFF";
-        document.querySelector('.slider').querySelector('.right').innerHTML = "SOME OF THE TECHY STUFF";
+        title.classList.toggle('right');
+
+        if (title.className.indexOf('right') > -1) {
+            title.innerHTML = "SOME OF THE TECHY STUFF";
+        }
+        else {
+            title.innerHTML = "SOME OF THE PRETTY STUFF";
+        }
     }
 }

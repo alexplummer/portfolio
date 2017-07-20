@@ -24,7 +24,7 @@ FLAGS
 // ============
 // Define paths used within this gulp file
 
-var paths = {
+let paths = {
 	tmp: '.tmp',
 	dev: '_dev',
 	prod: '_prod'
@@ -35,22 +35,23 @@ var paths = {
 // ============
 // Get lint reports in browser
 
-var browserReports = false;
+let browserReports = false;
 
 
 // FTP dest folder
 // ============
 // For when using FTP task, check FTP task first
 
-var ftpFolder = '/serverfolder';
+let ftpFolder = '/portfolio-test-6';
 
 
 // Reqs
 // ============
 // Require definitions and auto plugin require setup
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
 	fs = require('fs'),
+	critical = require('critical').stream,
 	wiredep = require('wiredep').stream,
 	argv = require('yargs').argv,
 	gulpsync = require('gulp-sync')(gulp),
@@ -67,7 +68,7 @@ var gulp = require('gulp'),
 // ============
 // Pull in task modules from folder
 
-var requireDir = require('require-dir');
+let requireDir = require('require-dir');
 requireDir('./tasks');
 
 
@@ -75,7 +76,7 @@ requireDir('./tasks');
 // ============
 // Error response for plumber
 
-var onError = err => {
+let onError = err => {
 	plugins.util.beep();
 	console.log(err);
 };
@@ -111,9 +112,9 @@ gulp.task('clean:cssreports', cb => {
 
 gulp.task('create-folders', cb => {
 	// List of folders to make
-	var folders = ['./bower_components'];
+	let folders = ['./bower_components'];
 	// Make dirs
-	for (var i = 0; i < folders.length; i++) {
+	for (let i = 0; i < folders.length; i++) {
 		plugins.mkdirp(folders[i]);
 	}
 	cb();
@@ -154,16 +155,16 @@ gulp.task('bower-install', () => {
 
 gulp.task('bower-inject', () => {
 	// JS + CSS injection
-	var jsCSS = gulp.src(paths.tmp + '/*.html')
+	let jsCSS = gulp.src(paths.tmp + '/*.html')
 		.pipe(wiredep({
 			devDependencies: true
 		}))
 		.pipe(gulp.dest(paths.tmp + '/'));
 	// Image piping
-	var img = gulp.src(plugins.mainBowerFiles('**/*.{jpg,png,gif}', { includeDev: true }))
+	let img = gulp.src(plugins.mainBowerFiles('**/*.{jpg,png,gif}', { includeDev: true }))
 		.pipe(gulp.dest(paths.dev + '/img'));
 	// Font piping
-	var font = gulp.src(plugins.mainBowerFiles('**/*.{ttf,eot,woff,woff2}', { includeDev: true }))
+	let font = gulp.src(plugins.mainBowerFiles('**/*.{ttf,eot,woff,woff2}', { includeDev: true }))
 		.pipe(gulp.dest(paths.dev + '/font'));
 	// Return streams
 	return plugins.mergeStream(jsCSS, img, font);
@@ -175,7 +176,7 @@ gulp.task('bower-inject', () => {
 // HTML tasks such as compiling pug
 
 gulp.task('html', () => {
-	var output = '';
+	let output = '';
 	// Handles Pug templates
 	return gulp.src([paths.dev + '/html/*.pug', './components/*.pug'])
 		// Error handling
@@ -196,7 +197,7 @@ gulp.task('html', () => {
 // Stylesheet tasks such as compliling and linting SASS
 
 gulp.task('build-sass', () => {
-	var output = '';
+	let output = '';
 	// CSS tasks
 	return gulp.src(paths.dev + '/style/style.scss')
 		// Error handling
@@ -232,6 +233,9 @@ gulp.task('usemin', () => {
 			return stream
 				.pipe(plugins.plumber({ errorHandler: onError }))
 				.pipe(plugins.usemin({
+					jsAttributes : {
+        				async : true
+					},
 					js: [plugins.sourcemaps.init(),
 					// Uglify JS
 					plugins.uglify(),
@@ -274,10 +278,10 @@ gulp.task('fontello', cb => {
 // Moves assets over to prod from tmp
 
 gulp.task('copy:fonts', () => {
-	var font = gulp.src(paths.dev + '/font/**/*')
+	let font = gulp.src(paths.dev + '/font/**/*')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
 		.pipe(plugins.browserSync.stream());
-	var fontello = gulp.src(paths.dev + '/style/fontello/')
+	let fontello = gulp.src(paths.dev + '/style/fontello/')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
 		.pipe(plugins.browserSync.stream());
 	// Create folder if doesn't exists 
@@ -292,29 +296,29 @@ gulp.task('copy:images', () => {
 });
 gulp.task('copy:prod', () => {
 	// HTML
-	var html = gulp.src(paths.tmp + '/usemin/*.html')
+	let html = gulp.src(paths.tmp + '/usemin/*.html')
 		.pipe(plugins.copy(paths.prod, { prefix: 2 }));
 	// CSS
-	var css = gulp.src(paths.tmp + '/usemin/style/**/*')
+	let css = gulp.src(paths.tmp + '/usemin/style/**/*')
 		.pipe(plugins.newer(paths.prod + '/'))
 		.pipe(plugins.copy(paths.prod, { prefix: 2 }));
 	// CSS MAP
-	var map = gulp.src(paths.tmp + '/style/**/*.map')
+	let map = gulp.src(paths.tmp + '/style/**/*.map')
 		.pipe(plugins.newer(paths.prod + '/'))
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// JS
-	var js = gulp.src(paths.tmp + '/usemin/script/**/*')
+	let js = gulp.src(paths.tmp + '/usemin/script/**/*')
 		.pipe(plugins.newer(paths.prod + '/'))
 		.pipe(plugins.copy(paths.prod, { prefix: 2 }));
 	// FONTS
-	var fonts = gulp.src(paths.tmp + '/font/**/*')
+	let fonts = gulp.src(paths.tmp + '/font/**/*')
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// PHP
-	var php = gulp.src(paths.dev + '/script/**/*.php')
+	let php = gulp.src(paths.dev + '/script/**/*.php')
 		.pipe(plugins.newer(paths.prod + '/'))
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// HUMANS
-	var humans = gulp.src(paths.dev + '/humans.txt')
+	let humans = gulp.src(paths.dev + '/humans.txt')
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// Return streams
 	return plugins.mergeStream(html, css, map, js, fonts, php, humans);
@@ -331,15 +335,16 @@ gulp.task('svg', () => {
 		.pipe(plugins.plumber({ errorHandler: onError }))
 		.pipe(plugins.svgmin({
 			plugins: [
-				{removeDoctype: true}, 
-				{removeComments: true}, 
-				{cleanupNumericValues: 
-					{floatPrecision: 2}
-				}, 
-				{removeDesc: true}, 
-				{removeTitle: true},
-				{removeEmptyAttrs: true},
-				]
+				{ removeDoctype: true },
+				{ removeComments: true },
+				{
+					cleanupNumericValues:
+					{ floatPrecision: 2 }
+				},
+				{ removeDesc: true },
+				{ removeTitle: true },
+				{ removeEmptyAttrs: true },
+			]
 		}))
 		.pipe(gulp.dest(paths.tmp + '/img'))
 		.pipe(plugins.browserSync.stream());
@@ -415,7 +420,7 @@ gulp.task('lint-reports', () => {
 		.pipe(plugins.if(browserReports, plugins.removeEmptyLines()))
 		.pipe(gulp.dest('./reports/'));
 	// Open report
-	var openCheck = false;
+	let openCheck = false;
 	// Check for CSS lints
 	fs.stat('./reports/css/css.html', (err, stat) => {
 		if (err == null) {
@@ -443,7 +448,7 @@ gulp.task('lint-reports', () => {
 // ============
 // Creates local server then a global tunnel through ngrok
 
-var site = '';
+let site = '';
 gulp.task('ngrok-server', () => {
 	return plugins.connect.server({
 		root: paths.prod + '/',
@@ -489,7 +494,7 @@ gulp.task('ftpDeploy', () => {
 
 	// Enter details into ftp-security.json (in the root of the framework folder)
 	// and place one folder up outside of project to avoid deploying it
-	var fs = require('fs'),
+	let fs = require('fs'),
 		ftp = JSON.parse(fs.readFileSync('../ftp-security.json')),
 		conn = plugins.vinylFtp.create({
 			host: ftp.values.host,
@@ -539,14 +544,16 @@ gulp.task('accessibility', () => {
 // Adds index-critical.html with critical CSS
 
 gulp.task('critical', () => {
-	return plugins.critical.generate({
-		inline: true,
-		base: paths.prod,
-		src: 'index.html',
-		dest: paths.prod + '/index-critical.html',
-		minify: true,
-		dimensions: [{ width: 320, height: 480 }, { width: 768, height: 1024 }, { width: 1280, height: 960 }]
-	});
+	console.log('(Critical takes some time, only works with stylesheet as style.css - no rev)');
+	return gulp.src(paths.prod + '/*.html')
+        .pipe(plugins.if(argv.optimise,critical({
+			base: paths.prod,
+			inline: true, 
+			minify: true,
+			dimensions: [{ width: 320, height: 480 }, { width: 768, height: 1024 }, { width: 1280, height: 960 }],
+			css: [paths.prod + '/style/style.css']
+		})))
+        .pipe(gulp.dest(paths.prod));
 });
 
 
@@ -555,7 +562,7 @@ gulp.task('critical', () => {
 // Adds images to a spritemap and updates CSS links
 
 gulp.task('sprites', () => {
-	var spriteData = gulp.src(paths.dev + '/img/sprites/*')
+	let spriteData = gulp.src(paths.dev + '/img/sprites/*')
 		.pipe(plugins.spritesmith({
 			imgName: '../img/sprite.png',
 			cssName: '_sprites.scss'
@@ -565,24 +572,13 @@ gulp.task('sprites', () => {
 });
 
 
-// Gzip
-// ============
-// Gzips files so server doesn't have to
-
-gulp.task('gzip', () => {
-	return gulp.src(paths.prod + '/**/*.{html,xml,json,css,js}')
-		.pipe(plugins.if(argv.optim, plugins.gzip()))
-		.pipe(gulp.dest(paths.prod));
-});
-
-
 // Min-html
 // ============
 // Minifies HTML
 
 gulp.task('htmlmin', () => {
 	return gulp.src(paths.prod + '/**/*.html')
-		.pipe(plugins.if(argv.optim, plugins.htmlmin({ collapseWhitespace: true, conservativeCollapse: true })))
+		.pipe(plugins.if(argv.optimise, plugins.htmlmin({ collapseWhitespace: true, conservativeCollapse: true })))
 		.pipe(gulp.dest(paths.prod));
 });
 
@@ -592,9 +588,12 @@ gulp.task('htmlmin', () => {
 // Scans HTML and removes unused CSS
 
 gulp.task('uncss', () => {
-	return gulp.src('site.css')
-		.pipe(plugins.if(argv.optim, plugins.uncss({ html: [paths.prod + '/*.html'] })))
-		.pipe(gulp.dest(paths.prod));
+	return gulp.src(paths.prod + '/style/*.css')
+		.pipe(plugins.if(argv.optimise, plugins.uncss({ 
+			html: [paths.prod + '/*.html'],
+			ignore: []
+		})))
+		.pipe(gulp.dest(paths.prod + '/style'));
 });
 
 
@@ -758,9 +757,8 @@ gulp.task('build:prod', gulpsync.sync([
 // OPTIMISING TASKS
 gulp.task('optimise', gulpsync.sync([
 	//'uncss',
-	//'critical',
+	'critical',
 	'htmlmin',
-	//'gzip'
 ]));
 
 // TASKS

@@ -68,6 +68,18 @@ var app = function () {
         }
     };
 
+    // Module JS
+    var onReady = function onReady(method) {
+
+        var readyStateCheckInterval = setInterval(function () {
+            if (document && document.readyState === 'complete') {
+                // or 'interactive'
+                clearInterval(readyStateCheckInterval);
+                method();
+            }
+        }, 10);
+    };
+
     // Showreel
     // ============
     // Large section used to demo work
@@ -76,37 +88,121 @@ var app = function () {
     // Slide Projects in from left
     var slideProjectsLeft = function slideProjectsLeft() {
 
-        // init controller
-        var controller = new ScrollMagic.Controller();
+        var waypoint = new Waypoint({
+            element: document.querySelector('.toggle-left'),
+            handler: function handler(direction) {
 
-        // build scenes
-        new ScrollMagic.Scene({ triggerElement: ".toggle-left" }).setClassToggle(".items-holder", "slide-in").triggerHook(1).addTo(controller);
+                if (Waypoint.viewportWidth() > 768) {
+                    document.querySelector('.items-holder').classList.toggle('slide-in');
+                }
+            },
+            offset: '90%'
+        });
+        if (Waypoint.viewportWidth() < 768) {
+            document.querySelector('.items-holder').classList.add('slide-in');
+        }
     };
 
     // Swap projects set
     var swapProjects = function swapProjects() {
         var left = document.querySelector('.slider').querySelector('.toggle-left');
         var right = document.querySelector('.slider').querySelector('.toggle-right');
+        var title = document.querySelector('.slider').querySelector('.title');
 
         left.addEventListener('click', function (e) {
-            doSwap(e);
-        });
-        right.addEventListener('click', function (e) {
-            doSwap(e);
-        });
-
-        function doSwap(e) {
             e.preventDefault();
 
+            if (left.className.indexOf('active') < 1) {
+                doSwap();
+            }
+        });
+        right.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (right.className.indexOf('active') < 1) {
+                doSwap();
+            }
+        });
+
+        function doSwap() {
             left.classList.toggle('active');
             right.classList.toggle('active');
             document.querySelector('.slider').querySelector('.items-left').classList.toggle('active');
             document.querySelector('.slider').querySelector('.items-right').classList.toggle('active');
             document.querySelector('.slider').querySelector('.items-left').classList.toggle('inactive');
             document.querySelector('.slider').querySelector('.items-right').classList.toggle('inactive');
-            document.querySelector('.slider').querySelector('.title').classList.toggle('right');
-            document.querySelector('.slider').querySelector('.title').innerHTML = "SOME OF THE PRETTY STUFF";
-            document.querySelector('.slider').querySelector('.right').innerHTML = "SOME OF THE TECHY STUFF";
+            title.classList.toggle('right');
+
+            if (title.className.indexOf('right') > -1) {
+                title.innerHTML = "SOME OF THE TECHY STUFF";
+            } else {
+                title.innerHTML = "SOME OF THE PRETTY STUFF";
+            }
+        }
+    };
+
+    // Heading splash
+    // ============
+    // Heading with a splash to the right or left
+
+    // Imports
+    // The first splash
+    var doFirstSplash = function doFirstSplash() {
+
+        var waypoint = new Waypoint({
+            element: document.getElementById('first-splash'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.getElementById('first-splash').classList.toggle('splash-in');
+                }
+            },
+            offset: '80%'
+        });
+        if (Waypoint.viewportWidth() < 768) {
+            document.getElementById('first-splash').classList.add('splash-in');
+        }
+    };
+
+    // The second splash
+    var doSecondSplash = function doSecondSplash() {
+
+        var waypoint = new Waypoint({
+            element: document.getElementById('second-splash'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.getElementById('second-splash').classList.toggle('splash-in');
+                }
+            },
+            offset: '80%'
+        });
+        if (Waypoint.viewportWidth() < 768) {
+            document.getElementById('second-splash').classList.add('splash-in');
+        }
+    };
+
+    // List skills
+    // ============
+    // Lists with icons to display skill levels
+
+    // Imports
+    // Slide Projects in from left
+    var skillsSpin = function skillsSpin() {
+
+        var waypoint = new Waypoint({
+            element: document.querySelector('.list-skills'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.querySelector('.list-skills').classList.toggle('spin-in');
+                }
+            },
+            offset: '10%'
+        });
+
+        if (Waypoint.viewportWidth() < 768) {
+            document.querySelector('.list-skills').classList.add('spin-in');
         }
     };
 
@@ -119,9 +215,14 @@ var app = function () {
     var globals$1 = globals$1 || {};
 
     // App JS
-    inlineSVG();
-    slideProjectsLeft();
-    swapProjects();
+    onReady(function () {
+        inlineSVG();
+        slideProjectsLeft();
+        swapProjects();
+        doFirstSplash();
+        doSecondSplash();
+        skillsSpin();
+    });
 
     return globals$1;
 }();

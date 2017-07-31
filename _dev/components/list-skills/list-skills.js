@@ -23,7 +23,7 @@ const skillsSpin = function skillsSpin() {
         offset: '10%'
     });
 
-    if (Waypoint.viewportWidth() < 768) {
+    if (Waypoint.viewportWidth() <= 768) {
         document.querySelector('.list-skills').classList.add('spin-in');      
     }
 }

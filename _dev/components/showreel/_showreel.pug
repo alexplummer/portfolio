@@ -4,69 +4,244 @@
 //- Large section used to demo work
 
 mixin showreel()
-    section.showreel
-        .inner
-            blockquote
-                | “Design and code in beautiful harmony”
-            article
-                h3 
-                    | Hello there!
-                p
-                    | Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority. 
-                p
-                    | On this site you can find a selection of both the design and the coding aspects of his work.
-        
-        .slider
-            p.title
-                | Some of the pretty stuff
-            .items-holder
-                .items-left.active
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Left
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Left
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Left
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Left
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Left
+	section.showreel
 
-                .items-right.inactive
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Right
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Right
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Right
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Right
-                    a(href="#")
-                        picture
-                            img(src="img/media/screen-euromoney.jpg")
-                        | Right
+		article.project-modal.modal-inactive
+			a.close
+			.screenshots
+				.desktop
+					img(src="img/device-desktop.svg")
+					.screens
+				.mobile
+					img(src="img/device-mobile.svg")
+					.screens
+			.content
+			
+		.inner
+			blockquote
+				| “Design and code in beautiful harmony”
+			article.intro
+				h3 
+					| Hello there!
+				p
+					| Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority. 
+				p
+					| On this site you can find a selection of both the design and the coding aspects of his work.
+		
+		.slider
+			p.title
+				| Some of the pretty stuff
+			.items-holder
+				.items-left.active
+					ul
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Left
 
-            a(href="#").toggle-left.active 
-                img(src="img/icon-design.svg").svg.btn-icon
-                | Design
-            a(href="#").toggle-right
-                img(src="img/icon-code-browser.svg").svg.btn-icon.two
-                | Code
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Left
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Left
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Left
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Left
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+
+				.items-right.inactive
+					ul
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Right
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Right
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Right
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Right
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+						li
+							picture
+								img(src="img/media/screen-euromoney.jpg")
+							| Right
+
+							.modal-content
+								.desktop
+									.screens
+										img(src="img/media/screen-euromoney.jpg")
+										img(src="img/media/screen-euromoney-2.jpg")
+								.mobile
+									.screens
+										img(src="img/media/screen-mobile-euromoney.jpg")
+										img(src="img/media/screen-mobile-euromoney-2.jpg")
+								.content
+									h3 Title
+									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
+									hr
+									a(href="#") View more
+
+
+			a(href="#").toggle-left.active 
+				img(src="img/icon-design.svg").svg.btn-icon
+				| Design
+			a(href="#").toggle-right
+				img(src="img/icon-code-browser.svg").svg.btn-icon.two
+				| Code

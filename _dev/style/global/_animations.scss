@@ -108,30 +108,43 @@
     }
 }
 
-// Slide in left
-%slide-in-left {
-    animation-name: slideInLeft;
-    animation-duration: 1s;
+// Fade In Fade Out
+%fade-in-slight {
+    animation-name: fadeInSlight;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
 }
-@keyframes slideInLeft {
+@keyframes fadeInSlight {
     0% {
-        transform: translateX(-105vw);
+        opacity: 0;
     }
     100% {
-        transform: translateX(0);
+        opacity: 0.9;
     }
 }
 
-// Slide out left
-%slide-out-right {
-    animation-name: slideOutRight;
-    animation-duration: 1s;
+// Slide up and down
+%slide-up-down {
+    animation-name: slideUpDown;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
 }
-@keyframes slideOutRight {
+@keyframes slideUpDown {
     0% {
-        transform: translateX(0);
+        transform: translateY(0);
+    }
+    45% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+    95% {
+        transform: translateY(-100%);
     }
     100% {
-        transform: translateX(105vw);
+        transform: translateY(0);
     }
 }

@@ -38,30 +38,23 @@
             }
             &.#{$name}:hover:before {
                 
-                    @if $animation {
-                    }  
-                }
-        }
-        @include addNavItem('home', 'tada');
-        @include addNavItem('work', 'flash');
-        @include addNavItem('news', 'wiggle');
-        @include addNavItem('contact', 'pulse');
-    }
+                @if $animation {
 
-    @media(max-width: $breakpoint-3) {
-        left: calc(100% + 1.5rem);
-        line-height: $size-m;
-        top: $size-l;
-
-        a {
-            font-size: $font-xs;
-            margin-right: $size-m;
-
-            &:before {
-                width: $size-s;
-                height: $size-s;
-                bottom: -$size-m;
+                }  
             }
         }
+        @include addNavItem('home');
+        @include addNavItem('work');
+        @include addNavItem('news');
+        @include addNavItem('contact');
+    }
+    @media(max-width: $breakpoint-1) {
+
+        a:before {
+            bottom: -4rem;
+        }
+    }
+    @media(max-width: 900px) {
+        display: none;
     }
 }

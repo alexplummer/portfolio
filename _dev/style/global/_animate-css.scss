@@ -3,7 +3,7 @@
 // Turn specifice animate.css animations on or off
 
 // Fade Enter
-$use-fadeIn 			: false;
+$use-fadeIn 			: true;
 $use-fadeInUp 			: false;
 $use-fadeInUpBig 		: false;
 $use-fadeInDown 		: false;
@@ -54,7 +54,7 @@ $use-rotateOutDownRight : false;
 
 // Slide Enter
 $use-slideIn			: false;
-$use-slideInUp			: false;
+$use-slideInUp			: true;
 $use-slideInDown		: false;
 $use-slideInLeft		: true;
 $use-slideInRight		: true;
@@ -92,14 +92,14 @@ $use-rollIn				: true;
 $use-rollOut 			: true;
 
 // Zoom In
-$use-zoomIn 			: false;
+$use-zoomIn 			: true;
 $use-zoomInDown 		: false;
 $use-zoomInLeft 		: false;
 $use-zoomInRight 		: false;
 $use-zoomInUp 			: false;
 
 // Zoom Out
-$use-zoomOut			: false;
+$use-zoomOut			: true;
 $use-zoomOutDown		: false;
 $use-zoomOutLeft		: false;
 $use-zoomOutRight		: false;

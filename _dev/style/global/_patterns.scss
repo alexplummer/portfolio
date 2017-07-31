@@ -27,7 +27,7 @@
 %pseudo {
     position: relative;
 
-    &:before {
+    &:before, &:after {
         content: "";
         background-size: cover;
         background-repeat: no-repeat;
@@ -47,16 +47,20 @@
     border-bottom: 1px solid $clr-darker;
 }
 %btn, .btn {
+    display: inline-block;
     border: 1px solid $clr-link;
+    margin-top: $size-s;
     background: none;
     border-radius: 50px;
     text-decoration: none;
     color: $clr-link;
     font-weight: 500;
     white-space: nowrap;
+    padding: $size-s $size-m;
 
     &:hover, &:focus {
         color: #fff;
+        background: $clr-link;
         transition: all ease 0.3s;
     }
 }
@@ -107,7 +111,7 @@
             font-size: $font-xxl !important;
             line-height: $font-xxl !important;
         }
-        @media(max-width: $breakpoint-2) {
+        @media(max-width: $breakpoint-3) {
             font-size: $font-xl !important;
             line-height: $font-xl !important;
         }
@@ -126,4 +130,10 @@
         width: 100%;
         padding: $size-s;
     }
+}
+%isometrify-up {
+    transform: rotateZ(-15deg) skewX(-15deg) skewY(-10.3deg);
+}
+%isometrify-down {
+    transform: rotateZ(-25deg) skewX(40.3deg) skewY(0deg);
 }

@@ -5,6 +5,11 @@
 body, html {
     width: 100vw;
     overflow-x: hidden;
+
+    &.modal-active {
+        position: fixed;
+        overflow: hidden;
+    }
 }
 section, header, footer {
     @extend %container;

@@ -6,8 +6,12 @@
 .news-link {
 
     picture {
+        @extend .animated;
         @extend %img-round;
         float: left;
+    }
+    .active & picture{
+        @extend .flipInY;
     }
     h4, p, a {
         margin-left: 225px;

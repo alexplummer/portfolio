@@ -42,7 +42,7 @@ let browserReports = false;
 // ============
 // For when using FTP task, check FTP task first
 
-let ftpFolder = '/portfolio-test-6';
+let ftpFolder = '/portfolio-test';
 
 
 // Reqs

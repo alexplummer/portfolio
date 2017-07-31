@@ -7,7 +7,7 @@
 import { cl } from '../script/library/cl';
 
 // Exports
-export { slideProjectsLeft, swapProjects };
+export { slideProjectsLeft, swapProjects, openPreview };
 
 // Slide Projects in from left
 const slideProjectsLeft = function slideProjectsLeft() {
@@ -22,7 +22,7 @@ const slideProjectsLeft = function slideProjectsLeft() {
         },
         offset: '90%'
     });
-    if (Waypoint.viewportWidth() < 768) {
+    if (Waypoint.viewportWidth() <= 768) {
         document.querySelector('.items-holder').classList.add('slide-in');
     }
 }
@@ -65,3 +65,41 @@ const swapProjects = function swapProjects() {
         }
     }
 }
+
+// Open and close previews
+const openPreview = function openPreview() {
+    let itemsHolder = document.querySelector('.items-holder');
+    let items = itemsHolder.querySelectorAll('li');
+    let modal = document.querySelector('.project-modal');
+
+    items.forEach((thisItem) => {
+        thisItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            let scrollPosition = document.body.scrollTop;
+            let screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
+            let screensMobile  = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
+            let textContent    = thisItem.querySelector('.content').innerHTML;
+            let theBody        = document.getElementsByTagName('body')[0];
+
+            modal.querySelector('.desktop').querySelector('.screens').innerHTML = screensDesktop;
+            modal.querySelector('.mobile').querySelector('.screens').innerHTML = screensMobile;
+            modal.querySelector('.content').innerHTML = textContent;
+            document.querySelector('.items-holder').classList.add('slide-in');
+            
+            theBody.classList.add('modal-active');
+            document.body.style.top = (scrollPosition * -1) + "px";
+
+            modal.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
+                    theBody.classList.remove('modal-active');
+                    modal.classList.toggle('modal-inactive');
+                    window.scrollTo(0, scrollPosition);
+                    document.body.removeAttribute('style');
+                }
+            });
+        });
+    });
+}
+

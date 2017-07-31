@@ -98,7 +98,7 @@ var app = function () {
             },
             offset: '90%'
         });
-        if (Waypoint.viewportWidth() < 768) {
+        if (Waypoint.viewportWidth() <= 768) {
             document.querySelector('.items-holder').classList.add('slide-in');
         }
     };
@@ -141,6 +141,43 @@ var app = function () {
         }
     };
 
+    // Open and close previews
+    var openPreview = function openPreview() {
+        var itemsHolder = document.querySelector('.items-holder');
+        var items = itemsHolder.querySelectorAll('li');
+        var modal = document.querySelector('.project-modal');
+
+        items.forEach(function (thisItem) {
+            thisItem.addEventListener('click', function (e) {
+                e.preventDefault();
+                var scrollPosition = document.body.scrollTop;
+                var screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
+                var screensMobile = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
+                var textContent = thisItem.querySelector('.content').innerHTML;
+                var theBody = document.getElementsByTagName('body')[0];
+
+                modal.querySelector('.desktop').querySelector('.screens').innerHTML = screensDesktop;
+                modal.querySelector('.mobile').querySelector('.screens').innerHTML = screensMobile;
+                modal.querySelector('.content').innerHTML = textContent;
+                document.querySelector('.items-holder').classList.add('slide-in');
+
+                theBody.classList.add('modal-active');
+                document.body.style.top = scrollPosition * -1 + "px";
+
+                modal.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
+                        theBody.classList.remove('modal-active');
+                        modal.classList.toggle('modal-inactive');
+                        window.scrollTo(0, scrollPosition);
+                        document.body.removeAttribute('style');
+                    }
+                });
+            });
+        });
+    };
+
     // Heading splash
     // ============
     // Heading with a splash to the right or left
@@ -159,7 +196,7 @@ var app = function () {
             },
             offset: '80%'
         });
-        if (Waypoint.viewportWidth() < 768) {
+        if (Waypoint.viewportWidth() <= 768) {
             document.getElementById('first-splash').classList.add('splash-in');
         }
     };
@@ -177,7 +214,7 @@ var app = function () {
             },
             offset: '80%'
         });
-        if (Waypoint.viewportWidth() < 768) {
+        if (Waypoint.viewportWidth() <= 768) {
             document.getElementById('second-splash').classList.add('splash-in');
         }
     };
@@ -201,8 +238,31 @@ var app = function () {
             offset: '10%'
         });
 
-        if (Waypoint.viewportWidth() < 768) {
+        if (Waypoint.viewportWidth() <= 768) {
             document.querySelector('.list-skills').classList.add('spin-in');
+        }
+    };
+
+    // News highlights
+    // ============
+    // Lists with icons to display skill levels
+
+    // Slide Projects in from left
+    var newsEntrance = function newsEntrance() {
+
+        var waypoint = new Waypoint({
+            element: document.querySelector('.news-highlights'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    console.log('ok');
+                    document.querySelector('.news-highlights').classList.toggle('active');
+                }
+            },
+            offset: '90%'
+        });
+        if (Waypoint.viewportWidth() <= 768) {
+            document.querySelector('.news-highlights').querySelector('.news-link').classList.toggle('active');
         }
     };
 
@@ -222,6 +282,8 @@ var app = function () {
         doFirstSplash();
         doSecondSplash();
         skillsSpin();
+        openPreview();
+        newsEntrance();
     });
 
     return globals$1;

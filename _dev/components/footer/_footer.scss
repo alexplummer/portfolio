@@ -5,7 +5,9 @@
 
 .footer {
     padding-top: $size-l;
+    padding-right: 0.7rem;
     @extend %full-width-gap;
+    margin: 0;
 
     .inner {
         margin-left: 0;
@@ -79,10 +81,11 @@
             }
         }
         nav {
-            right: 0;
+            top: $size-s;
 
             a {
                 font-size: $font-s;
+                margin-bottom: 0;
             }
         }
     }

@@ -14,16 +14,6 @@
         left: 3rem;
         top: 3rem;
         background: $clr-light;
-
-        @media(max-width: $breakpoint-3) {
-            width: calc(100% - 4rem);
-            left: 2rem;
-            top: 2rem;
-        }
-        @media(max-width: $breakpoint-4) {
-            width: calc(100% - 2rem);
-            left: 0;
-        }
     }
     .inner {
         
@@ -154,7 +144,31 @@
             }
         }
     }
+    @media(max-width: 900px) {
 
+        &:before {
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+        .inner {
+            
+            &:before {
+                top: 115px;
+                padding-top: 115px;
+                height: 187px;
+            }
+            .lined-heading {
+                position: relative;
+                top: 0;
+                left: calc(50% + 50px);
+
+                h2.long {
+                    padding-top: 300px;
+                }
+            }
+        }
+    }
     @media(max-width: $breakpoint-2) {
         height: 900px;
         margin-bottom: 0;
@@ -162,9 +176,8 @@
         .inner {
 
             &:before {
-                top: 100px;
-                padding-top: 115px;
-                height: 110px;
+                top: 70px;
+                height: 180px;
             }
             .splash-heading {
                 
@@ -189,20 +202,18 @@
             .lined-heading {
                 
                 h2.long {
-                    padding-top: 200px;
+                    padding-top: 250px;
                 }
             }
         }
     }
-
     @media(max-width: $breakpoint-3) {
         
         .inner {
-            
+
             &:before {
-                top: 45px;
-                padding-top: 115px;
-                height: 115px;
+                top: 95px;
+                height: 130px;
             }
             .splash-heading {
             
@@ -232,15 +243,6 @@
                     letter-spacing: 18px;
                 }
             }
-            .lined-heading {
-                position: relative;
-                top: 2rem;
-                left: calc(50% + 50px);
-
-                h2.long {
-                    padding-top: 160px;
-                }
-            }
         }
     }
     @media(max-width: $breakpoint-4) {
@@ -248,15 +250,15 @@
         .inner {
             
             &:before {
-                top: 145px;
+                top: 110px;
                 padding-top: 115px;
-                height: 115px;
-                left: -75px;
+                height: 120px;
+                left: -35px;
             }
             .lined-heading {
                 position: relative;
-                top: 2rem;
-                left: calc(50% - 3rem);
+                top: 0;
+                left: calc(50% - 1rem);
 
                 h2.long {
                     padding-top: 255px;

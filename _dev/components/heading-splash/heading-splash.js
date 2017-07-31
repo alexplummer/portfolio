@@ -22,7 +22,7 @@ const doFirstSplash = function doFirstSplash() {
         },
         offset: '80%'
     });
-    if (Waypoint.viewportWidth() < 768) {
+    if (Waypoint.viewportWidth() <= 768) {
         document.getElementById('first-splash').classList.add('splash-in');
     }
 }
@@ -40,7 +40,7 @@ const doSecondSplash = function doSecondSplash() {
         },
         offset: '80%'
     });
-    if (Waypoint.viewportWidth() < 768) {
+    if (Waypoint.viewportWidth() <= 768) {
         document.getElementById('second-splash').classList.add('splash-in');
     }
 }

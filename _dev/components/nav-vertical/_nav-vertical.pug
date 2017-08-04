@@ -5,6 +5,15 @@
 
 
 mixin navVertical(navItems)
+    .menu-toggle.inactive
+        .off
+            span
+            span
+            span
+        .on
+            span
+            span
+
     nav.nav-vertical
         a(href="index.html" class="home") HOME
         - var navItems = navItems || ['work', 'news', 'contact']

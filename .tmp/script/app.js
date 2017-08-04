@@ -68,6 +68,65 @@ var app = function () {
         }
     };
 
+    // Vertical nav
+    // ============
+    // Vertical nav for top of page
+
+    // Slide Projects in from left
+    var menuToggle = function menuToggle() {
+
+        var theToggle = document.querySelector('.menu-toggle');
+
+        theToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            var theBody = document.getElementsByTagName('body')[0];
+            var scrollPosition = document.body.scrollTop;
+
+            if (document.querySelector('.menu-toggle').classList.contains('open')) {
+                theBody.classList.remove('modal-active');
+                theToggle.classList.remove('open');
+                document.querySelector('.nav-vertical').classList.remove('active');
+                document.querySelector('.nav-vertical').classList.remove('offscreen');
+                document.querySelector('.menu-toggle').classList.remove('active');
+                scrollPosition = document.getElementsByTagName('body')[0].getAttribute('data-modal-scroll');
+                window.scrollTo(0, scrollPosition);
+            } else {
+                theBody.classList.add('modal-active');
+                theToggle.classList.add('open');
+                document.querySelector('.nav-vertical').classList.add('active');
+                document.getElementsByTagName('body')[0].setAttribute('data-modal-scroll', scrollPosition);
+                document.body.style.top = scrollPosition * -1 + "px";
+
+                setTimeout(function () {
+                    document.querySelector('.nav-vertical').classList.add('offscreen');
+                    document.querySelector('.menu-toggle').classList.add('active');
+                }, 100);
+            }
+        });
+    };
+
+    // Slide nav in
+    var navEntrance = function navEntrance() {
+
+        var waypoint = new Waypoint({
+            element: document.querySelector('.showreel'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.querySelector('.menu-toggle').classList.toggle('inactive');
+                    document.querySelector('.menu-toggle').classList.toggle('active');
+                    document.querySelector('.nav-vertical').classList.toggle('offscreen');
+                }
+            }
+        });
+        if (Waypoint.viewportWidth() <= 768) {
+            document.querySelector('.menu-toggle').classList.toggle('inactive');
+            document.querySelector('.menu-toggle').classList.toggle('active');
+            document.querySelector('.nav-vertical').classList.toggle('offscreen');
+        }
+    };
+
     // Module JS
     var onReady = function onReady(method) {
 
@@ -96,7 +155,7 @@ var app = function () {
                     document.querySelector('.items-holder').classList.toggle('slide-in');
                 }
             },
-            offset: '90%'
+            offset: '100%'
         });
         if (Waypoint.viewportWidth() <= 768) {
             document.querySelector('.items-holder').classList.add('slide-in');
@@ -162,6 +221,7 @@ var app = function () {
                 document.querySelector('.items-holder').classList.add('slide-in');
 
                 theBody.classList.add('modal-active');
+                modal.classList.add('active');
                 document.body.style.top = scrollPosition * -1 + "px";
 
                 modal.addEventListener('click', function (e) {
@@ -169,8 +229,8 @@ var app = function () {
 
                     if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
                         theBody.classList.remove('modal-active');
-                        modal.classList.toggle('modal-inactive');
                         window.scrollTo(0, scrollPosition);
+                        modal.classList.remove('active');
                         document.body.removeAttribute('style');
                     }
                 });
@@ -243,6 +303,30 @@ var app = function () {
         }
     };
 
+    // List info
+    // ============
+    // Lists of info points with icon for each definition
+
+    // Imports
+    // Slide Projects in from left
+    var infoSpin = function infoSpin() {
+
+        var waypoint = new Waypoint({
+            element: document.querySelector('.list-info'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.querySelector('.list-info').classList.toggle('active');
+                }
+            },
+            offset: '60%'
+        });
+
+        if (Waypoint.viewportWidth() <= 768) {
+            document.querySelector('.list-info').classList.add('spin-in');
+        }
+    };
+
     // News highlights
     // ============
     // Lists with icons to display skill levels
@@ -255,11 +339,10 @@ var app = function () {
             handler: function handler(direction) {
 
                 if (Waypoint.viewportWidth() > 768) {
-                    console.log('ok');
                     document.querySelector('.news-highlights').classList.toggle('active');
                 }
             },
-            offset: '90%'
+            offset: '70%'
         });
         if (Waypoint.viewportWidth() <= 768) {
             document.querySelector('.news-highlights').querySelector('.news-link').classList.toggle('active');
@@ -274,14 +357,17 @@ var app = function () {
     // Global object
     var globals$1 = globals$1 || {};
 
-    // App JS
+    // Run App functions on ready
     onReady(function () {
         inlineSVG();
+        menuToggle();
+        navEntrance();
         slideProjectsLeft();
         swapProjects();
         doFirstSplash();
         doSecondSplash();
         skillsSpin();
+        infoSpin();
         openPreview();
         newsEntrance();
     });

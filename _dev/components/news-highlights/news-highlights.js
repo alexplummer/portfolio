@@ -16,11 +16,10 @@ const newsEntrance = function newsEntrance() {
         handler: function (direction) {
 
             if (Waypoint.viewportWidth() > 768) {
-                console.log('ok');
                 document.querySelector('.news-highlights').classList.toggle('active');
             }            
         },
-        offset: '90%'
+        offset: '70%'
     });
     if (Waypoint.viewportWidth() <= 768) {
         document.querySelector('.news-highlights').querySelector('.news-link').classList.toggle('active');

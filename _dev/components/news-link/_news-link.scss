@@ -8,6 +8,7 @@
     picture {
         @extend .animated;
         @extend %img-round;
+        @extend .flipOutY;
         float: left;
     }
     .active & picture{

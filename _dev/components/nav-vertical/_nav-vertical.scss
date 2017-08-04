@@ -1,4 +1,3 @@
-
 // Nav vertical
 // ============
 // Vertical nav for top of page
@@ -30,31 +29,236 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
-        
-        @mixin addNavItem($name, $animation: false) {
-
-            &.#{$name}:before {
-                background-image: url(../img/icon-#{$name}.svg);
-            }
-            &.#{$name}:hover:before {
-                
-                @if $animation {
-
-                }  
-            }
-        }
-        @include addNavItem('home');
-        @include addNavItem('work');
-        @include addNavItem('news');
-        @include addNavItem('contact');
     }
+    @mixin addNavItem($name, $animation: false) {
+
+        a.#{$name}:before {
+            background-image: url(../img/icon-#{$name}.svg);
+        }
+        a.#{$name}:hover:before {
+            @if $animation {}
+        }
+        &.active a.#{$name}:before {
+            background-image: url(../img/icon-#{$name}-white.svg);
+        }
+    }
+    @include addNavItem('home');
+    @include addNavItem('work');
+    @include addNavItem('news');
+    @include addNavItem('contact');
+
     @media(max-width: $breakpoint-1) {
 
         a:before {
             bottom: -4rem;
         }
     }
-    @media(max-width: 900px) {
-        display: none;
+    &.offscreen {
+        @extend %pseudo;
+        pointer-events: none;
+        position: fixed;
+        transform: rotate(0) translate(-50%, -50%);
+        opacity: 0;
+        left: 50%;
+        top: 50%;
+
+        a {
+            font-size: $font-xl;
+            display: block;
+            padding-left: $size-l;
+            color: #fff;
+            margin-bottom: $size-m;
+            border-bottom: 2px solid #fff;
+            padding-bottom: $size-m;
+
+            &:before {
+                bottom: 40%;
+                left: 0;
+                transform: translateX(0);
+            }
+            &:last-of-type {
+                border-bottom: 0;
+            }
+        }
+        &:before {
+            transform: translate(-50%, -50%);
+            position: fixed;
+            width: 150vw;
+            height: 150vh;
+            background: $clr-link;
+        }
+    }
+    &.active {
+        transition: opacity ease 1s;
+        transform: rotate(0) translate(-50%, -50%);
+        opacity: 1;
+        pointer-events: auto;
+
+        a {
+            @extend .animated;
+            @extend .bounceInUp;
+
+            @for $i from 1 through 4 {
+
+                &:nth-child(#{$i}) {
+                    animation-delay: .05s * $i
+                }
+            }
+        }
+    }
+}
+.menu-toggle {
+    width: 150px;
+    height: 150px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: $z-max;
+    background: $clr-link;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+    transform: translate(50%, -50%);
+
+    span {
+        transition: .25s ease-in-out;
+        background: #fff;
+        display: block;
+        line-height: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 15px;
+    }
+    &:hover {
+        background: lighten($clr-link, 10%);
+    }
+    &.inactive {
+        transform: translate(100%, -100%);
+    }
+    &.active {
+        transform: translate(50%, -50%);
+    }
+    .off {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        span {
+            width: 35px;
+            height: 4px;
+            margin: 10px 0;
+            position: relative;
+            left: 31%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+
+            &:nth-child(1) {
+                transition-delay: .3s;
+            }
+            &:nth-child(2) {
+                transition-delay: .425s;
+            }
+            &:nth-child(3) {
+                transition-delay: .55s;
+            }
+        }
+    }
+    .on {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transform: rotate(45deg);
+
+        span {
+            
+            &:nth-child(1) {
+                height: 0%;
+                width: 4px;
+                position: absolute;
+                top: 75%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition-delay: 0s;
+            }
+            &:nth-child(2) {
+                width: 0%;
+                height: 4px;
+                position: absolute;
+                top: 75%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition-delay: .25s;
+            }
+        }
+    }
+    &.open {
+        background: lighten($clr-link, 10%);
+        transition: all ease 0s;
+
+        .off {
+
+            span {
+                width: 0%;
+
+                &:nth-child(1) {
+                    transition-delay: 0s;
+                }
+                &:nth-child(2) {
+                    transition-delay: .125s;
+                }
+                &:nth-child(3) {
+                    transition-delay: .25s;
+                }
+            }
+        }
+        .on {
+
+            span {
+
+                &:nth-child(1) {
+                    height: 40px;
+                    transition-delay: .425s;
+                }
+            }
+            span {
+
+                &:nth-child(2) {
+                    width: 40px;
+                    transition-delay: .175s;
+                }
+            }
+        }
+    }
+    @media (max-width: 900px) {
+        width: 125px;
+        height: 125px;
+
+        &.inactive {
+            transform: translate(50%, -50%);
+        }
+        .off {
+
+            span {
+                width: 30px;
+                height: 3px;
+                top: 55%;
+                left: 33%;
+                margin: 7px 0;
+            }
+        }
+        &.open .on {
+
+            span {
+
+                &:nth-child(1) {
+                    width: 30px;
+                    height: 3px;
+                }  
+                &:nth-child(2) {
+                    height: 30px;
+                    width: 3px;
+                }
+            }
+        }
     }
 }

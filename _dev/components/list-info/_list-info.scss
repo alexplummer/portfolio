@@ -16,11 +16,16 @@
         transform: rotate(8deg);
     }
     picture {
+        @extend %img-round;
+        @extend .animated;
+        @extend .flipOutY;
         position: absolute;
         left: 8%;
         top: 27px;
         z-index: $z-m;
-        @extend %img-round;
+    }
+    &.active picture {
+        @extend .flipInY;
     }
     .heading {
         @extend %pseudo;

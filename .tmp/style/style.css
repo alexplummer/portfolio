@@ -1754,22 +1754,74 @@ Copyright (c) 2015 Daniel Eden
 body {
   -webkit-backface-visibility: hidden; }
 
-.animated, .list-skills .list-wrap ul, .news-link picture, .showreel .project-modal, .showreel .project-modal:before, .showreel .slider .items-holder .items-left, .showreel .slider .items-holder .items-right, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
+.animated, .list-info picture, .list-skills .list-wrap ul, .nav-vertical.active a, .news-link picture, .showreel .project-modal, .showreel .project-modal:before, .showreel .slider .items-holder .items-left, .showreel .slider .items-holder .items-right, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
-  .animated.infinite, .list-skills .list-wrap ul.infinite, .news-link picture.infinite, .showreel .infinite.project-modal, .showreel .infinite.project-modal:before, .showreel .slider .items-holder .infinite.items-left, .showreel .slider .items-holder .infinite.items-right, .showreel .slider .items-holder .items-left ul li.infinite, .showreel .slider .items-holder .items-right ul li.infinite {
+  .animated.infinite, .list-info picture.infinite, .list-skills .list-wrap ul.infinite, .nav-vertical.active a.infinite, .news-link picture.infinite, .showreel .infinite.project-modal, .showreel .infinite.project-modal:before, .showreel .slider .items-holder .infinite.items-left, .showreel .slider .items-holder .infinite.items-right, .showreel .slider .items-holder .items-left ul li.infinite, .showreel .slider .items-holder .items-right ul li.infinite {
     animation-iteration-count: infinite; }
-  .animated.hinge, .list-skills .list-wrap ul.hinge, .news-link picture.hinge, .showreel .hinge.project-modal, .showreel .hinge.project-modal:before, .showreel .slider .items-holder .hinge.items-left, .showreel .slider .items-holder .hinge.items-right, .showreel .slider .items-holder .items-left ul li.hinge, .showreel .slider .items-holder .items-right ul li.hinge {
+  .animated.hinge, .list-info picture.hinge, .list-skills .list-wrap ul.hinge, .nav-vertical.active a.hinge, .news-link picture.hinge, .showreel .hinge.project-modal, .showreel .hinge.project-modal:before, .showreel .slider .items-holder .hinge.items-left, .showreel .slider .items-holder .hinge.items-right, .showreel .slider .items-holder .items-left ul li.hinge, .showreel .slider .items-holder .items-right ul li.hinge {
     -webkit-animation-duration: 2s;
     animation-duration: 2s; }
-  .animated.bounceIn, .list-skills .list-wrap ul.bounceIn, .news-link picture.bounceIn, .showreel .bounceIn.project-modal, .showreel .bounceIn.project-modal:before, .showreel .slider .items-holder .bounceIn.items-left, .showreel .slider .items-holder .bounceIn.items-right, .showreel .slider .items-holder .items-left ul li.bounceIn, .showreel .slider .items-holder .items-right ul li.bounceIn, .animated.bounceOut, .list-skills .list-wrap ul.bounceOut, .news-link picture.bounceOut, .showreel .bounceOut.project-modal, .showreel .bounceOut.project-modal:before, .showreel .slider .items-holder .bounceOut.items-left, .showreel .slider .items-holder .bounceOut.items-right, .showreel .slider .items-holder .items-left ul li.bounceOut, .showreel .slider .items-holder .items-right ul li.bounceOut {
+  .animated.bounceIn, .list-info picture.bounceIn, .list-skills .list-wrap ul.bounceIn, .nav-vertical.active a.bounceIn, .news-link picture.bounceIn, .showreel .bounceIn.project-modal, .showreel .bounceIn.project-modal:before, .showreel .slider .items-holder .bounceIn.items-left, .showreel .slider .items-holder .bounceIn.items-right, .showreel .slider .items-holder .items-left ul li.bounceIn, .showreel .slider .items-holder .items-right ul li.bounceIn, .animated.bounceOut, .list-info picture.bounceOut, .list-skills .list-wrap ul.bounceOut, .nav-vertical.active a.bounceOut, .news-link picture.bounceOut, .showreel .bounceOut.project-modal, .showreel .bounceOut.project-modal:before, .showreel .slider .items-holder .bounceOut.items-left, .showreel .slider .items-holder .bounceOut.items-right, .showreel .slider .items-holder .items-left ul li.bounceOut, .showreel .slider .items-holder .items-right ul li.bounceOut {
     -webkit-animation-duration: 0.75s;
     animation-duration: 0.75s; }
-  .animated.flipOutX, .list-skills .list-wrap ul.flipOutX, .news-link picture.flipOutX, .showreel .flipOutX.project-modal, .showreel .flipOutX.project-modal:before, .showreel .slider .items-holder .flipOutX.items-left, .showreel .slider .items-holder .flipOutX.items-right, .showreel .slider .items-holder .items-left ul li.flipOutX, .showreel .slider .items-holder .items-right ul li.flipOutX, .animated.flipOutY, .list-skills .list-wrap ul, .news-link picture.flipOutY, .showreel .flipOutY.project-modal, .showreel .flipOutY.project-modal:before, .showreel .list-skills .list-wrap ul.project-modal:before, .list-skills .list-wrap .showreel ul.project-modal:before, .showreel .slider .items-holder .items-left ul li.project-modal:before, .showreel .slider .items-holder .items-right ul li.project-modal:before, .showreel .slider .items-holder .flipOutY.items-left, .showreel .slider .items-holder .list-skills .list-wrap ul.items-left, .list-skills .list-wrap .showreel .slider .items-holder ul.items-left, .showreel .slider .items-holder .flipOutY.items-right, .showreel .slider .items-holder .list-skills .list-wrap ul.items-right, .list-skills .list-wrap .showreel .slider .items-holder ul.items-right, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
+  .animated.flipOutX, .list-info picture.flipOutX, .list-skills .list-wrap ul.flipOutX, .nav-vertical.active a.flipOutX, .news-link picture.flipOutX, .showreel .flipOutX.project-modal, .showreel .flipOutX.project-modal:before, .showreel .slider .items-holder .flipOutX.items-left, .showreel .slider .items-holder .flipOutX.items-right, .showreel .slider .items-holder .items-left ul li.flipOutX, .showreel .slider .items-holder .items-right ul li.flipOutX, .animated.flipOutY, .list-info picture, .list-skills .list-wrap ul.flipOutY, .nav-vertical.active a.flipOutY, .news-link picture, .showreel .flipOutY.project-modal, .showreel .list-info picture.project-modal, .list-info .showreel picture.project-modal, .showreel .news-link picture.project-modal, .news-link .showreel picture.project-modal, .showreel .flipOutY.project-modal:before, .showreel .list-info picture.project-modal:before, .list-info .showreel picture.project-modal:before, .showreel .news-link picture.project-modal:before, .news-link .showreel picture.project-modal:before, .showreel .slider .items-holder .items-left ul li.project-modal:before, .showreel .slider .items-holder .items-right ul li.project-modal:before, .showreel .slider .items-holder .flipOutY.items-left, .showreel .slider .items-holder .list-info picture.items-left, .list-info .showreel .slider .items-holder picture.items-left, .showreel .slider .items-holder .news-link picture.items-left, .news-link .showreel .slider .items-holder picture.items-left, .showreel .slider .items-holder .flipOutY.items-right, .showreel .slider .items-holder .list-info picture.items-right, .list-info .showreel .slider .items-holder picture.items-right, .showreel .slider .items-holder .news-link picture.items-right, .news-link .showreel .slider .items-holder picture.items-right, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
     -webkit-animation-duration: 0.75s;
     animation-duration: 0.75s; }
+
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px); }
+  80% {
+    -webkit-transform: translateY(10px); }
+  100% {
+    -webkit-transform: translateY(0); } }
+
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px); }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px); }
+  80% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0); } }
+
+.bounceInUp, .list-skills.spin-in .list-wrap ul, .nav-vertical.active a {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp; }
+
+@-webkit-keyframes bounceOutDown {
+  0% {
+    -webkit-transform: translateY(0); }
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(-20px); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px); } }
+
+@keyframes bounceOutDown {
+  0% {
+    transform: translateY(0); }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px); }
+  100% {
+    opacity: 0;
+    transform: translateY(2000px); } }
+
+.bounceOutDown, .list-skills .list-wrap ul {
+  -webkit-animation-name: bounceOutDown;
+  animation-name: bounceOutDown; }
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -1827,7 +1879,7 @@ body {
     transform: perspective(400px) rotateY(0deg);
     opacity: 1; } }
 
-.flipInY, .list-skills.spin-in .list-wrap ul, .active .news-link picture, .showreel .slider .items-holder.slide-in .items-left li, .showreel .slider .items-holder.slide-in .items-right li {
+.flipInY, .list-info.active picture, .active .news-link picture, .showreel .slider .items-holder.slide-in .items-left li, .showreel .slider .items-holder.slide-in .items-right li {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   -webkit-animation-name: flipInY;
@@ -1849,7 +1901,7 @@ body {
     transform: perspective(400px) rotateY(90deg);
     opacity: 0; } }
 
-.flipOutY, .list-skills .list-wrap ul, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
+.flipOutY, .list-info picture, .news-link picture, .showreel .slider .items-holder .items-left ul li, .showreel .slider .items-holder .items-right ul li {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   -webkit-animation-name: flipOutY;
@@ -1999,7 +2051,7 @@ body {
   50% {
     opacity: 1; } }
 
-.zoomIn, .modal-active .showreel .project-modal:before {
+.zoomIn, .showreel .project-modal.active:before {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn; }
 
@@ -2027,8 +2079,8 @@ body {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?66450998");
-  src: url("../font/fontello.eot?66450998#iefix") format("embedded-opentype"), url("../font/fontello.woff2?66450998") format("woff2"), url("../font/fontello.woff?66450998") format("woff"), url("../font/fontello.ttf?66450998") format("truetype"), url("../font/fontello.svg?66450998#fontello") format("svg");
+  src: url("../font/fontello.eot?69194737");
+  src: url("../font/fontello.eot?69194737#iefix") format("embedded-opentype"), url("../font/fontello.woff2?69194737") format("woff2"), url("../font/fontello.woff?69194737") format("woff"), url("../font/fontello.ttf?69194737") format("truetype"), url("../font/fontello.svg?69194737#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2038,7 +2090,7 @@ body {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?66450998#fontello') format('svg');
+    src: url('../font/fontello.svg?69194737#fontello') format('svg');
   }
 }
 */
@@ -2090,9 +2142,9 @@ body {
   width: 150vw;
   height: calc(100% + 12rem); }
 
-.heading-splash .lined-heading h2, .intro-no-description .inner .lined-heading h2, .intro-no-description, .list-info .heading, .list-info .inner dl dt, .list-skills .list-wrap h4, .list-skills .list-wrap ul li, .list-skills .key p, .news-highlights, .showreel .project-modal {
+.heading-splash .lined-heading h2, .intro-no-description .inner .lined-heading h2, .intro-no-description, .list-info .heading, .list-info .inner dl dt, .list-skills .list-wrap h4, .list-skills .list-wrap ul li, .list-skills .key p, .nav-vertical.offscreen, .news-highlights, .showreel .project-modal {
   position: relative; }
-  .heading-splash .lined-heading h2:before, .intro-no-description .inner .lined-heading h2:before, .intro-no-description:before, .list-info .heading:before, .list-info .inner dl dt:before, .list-skills .list-wrap h4:before, .list-skills .list-wrap ul li:before, .list-skills .key p:before, .news-highlights:before, .showreel .project-modal:before, .heading-splash .lined-heading h2:after, .intro-no-description .inner .lined-heading h2:after, .intro-no-description:after, .list-info .heading:after, .list-info .inner dl dt:after, .list-skills .list-wrap h4:after, .list-skills .list-wrap ul li:after, .list-skills .key p:after, .news-highlights:after, .showreel .project-modal:after {
+  .heading-splash .lined-heading h2:before, .intro-no-description .inner .lined-heading h2:before, .intro-no-description:before, .list-info .heading:before, .list-info .inner dl dt:before, .list-skills .list-wrap h4:before, .list-skills .list-wrap ul li:before, .list-skills .key p:before, .nav-vertical.offscreen:before, .news-highlights:before, .showreel .project-modal:before, .heading-splash .lined-heading h2:after, .intro-no-description .inner .lined-heading h2:after, .intro-no-description:after, .list-info .heading:after, .list-info .inner dl dt:after, .list-skills .list-wrap h4:after, .list-skills .list-wrap ul li:after, .list-skills .key p:after, .nav-vertical.offscreen:after, .news-highlights:after, .showreel .project-modal:after {
     content: "";
     background-size: cover;
     background-repeat: no-repeat;
@@ -2314,7 +2366,7 @@ p {
   60% {
     transform: translateY(-15px); } }
 
-.modal-active .showreel .project-modal:after {
+.showreel .project-modal.active:after {
   animation-name: fadeInSlight;
   animation-duration: 0.5s;
   animation-fill-mode: both; }
@@ -2615,7 +2667,8 @@ p {
     .intro-no-description .inner .lined-heading h2 {
       transform: skewY(8deg); }
       .intro-no-description .inner .lined-heading h2 span {
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        opacity: 1; }
   @media (max-width: 1250px) {
     .intro-no-description .inner:before {
       top: 130px;
@@ -3069,20 +3122,166 @@ p {
       transform: translateX(-50%);
       background-size: 100% 100%;
       background-repeat: no-repeat; }
-    .nav-vertical a.home:before {
-      background-image: url(../img/icon-home.svg); }
-    .nav-vertical a.work:before {
-      background-image: url(../img/icon-work.svg); }
-    .nav-vertical a.news:before {
-      background-image: url(../img/icon-news.svg); }
-    .nav-vertical a.contact:before {
-      background-image: url(../img/icon-contact.svg); }
+  .nav-vertical a.home:before {
+    background-image: url(../img/icon-home.svg); }
+  .nav-vertical.active a.home:before {
+    background-image: url(../img/icon-home-white.svg); }
+  .nav-vertical a.work:before {
+    background-image: url(../img/icon-work.svg); }
+  .nav-vertical.active a.work:before {
+    background-image: url(../img/icon-work-white.svg); }
+  .nav-vertical a.news:before {
+    background-image: url(../img/icon-news.svg); }
+  .nav-vertical.active a.news:before {
+    background-image: url(../img/icon-news-white.svg); }
+  .nav-vertical a.contact:before {
+    background-image: url(../img/icon-contact.svg); }
+  .nav-vertical.active a.contact:before {
+    background-image: url(../img/icon-contact-white.svg); }
   @media (max-width: 1250px) {
     .nav-vertical a:before {
       bottom: -4rem; } }
+  .nav-vertical.offscreen {
+    pointer-events: none;
+    position: fixed;
+    transform: rotate(0) translate(-50%, -50%);
+    opacity: 0;
+    left: 50%;
+    top: 50%; }
+    .nav-vertical.offscreen a {
+      font-size: 2.25rem;
+      display: block;
+      padding-left: 3rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 1.5rem; }
+      .nav-vertical.offscreen a:before {
+        bottom: 40%;
+        left: 0;
+        transform: translateX(0); }
+      .nav-vertical.offscreen a:last-of-type {
+        border-bottom: 0; }
+    .nav-vertical.offscreen:before {
+      transform: translate(-50%, -50%);
+      position: fixed;
+      width: 150vw;
+      height: 150vh;
+      background: #CE0176; }
+  .nav-vertical.active {
+    transition: opacity ease 1s;
+    transform: rotate(0) translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto; }
+    .nav-vertical.active a:nth-child(1) {
+      animation-delay: 0.05s; }
+    .nav-vertical.active a:nth-child(2) {
+      animation-delay: 0.1s; }
+    .nav-vertical.active a:nth-child(3) {
+      animation-delay: 0.15s; }
+    .nav-vertical.active a:nth-child(4) {
+      animation-delay: 0.2s; }
+
+.menu-toggle {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 1000;
+  background: #CE0176;
+  border-radius: 50%;
+  transition: all ease 0.3s;
+  transform: translate(50%, -50%); }
+  .menu-toggle span {
+    transition: .25s ease-in-out;
+    background: #fff;
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px; }
+  .menu-toggle:hover {
+    background: #fe0493; }
+  .menu-toggle.inactive {
+    transform: translate(100%, -100%); }
+  .menu-toggle.active {
+    transform: translate(50%, -50%); }
+  .menu-toggle .off {
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+    .menu-toggle .off span {
+      width: 35px;
+      height: 4px;
+      margin: 10px 0;
+      position: relative;
+      left: 31%;
+      top: 52%;
+      transform: translate(-50%, -50%); }
+      .menu-toggle .off span:nth-child(1) {
+        transition-delay: .3s; }
+      .menu-toggle .off span:nth-child(2) {
+        transition-delay: .425s; }
+      .menu-toggle .off span:nth-child(3) {
+        transition-delay: .55s; }
+  .menu-toggle .on {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: rotate(45deg); }
+    .menu-toggle .on span:nth-child(1) {
+      height: 0%;
+      width: 4px;
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition-delay: 0s; }
+    .menu-toggle .on span:nth-child(2) {
+      width: 0%;
+      height: 4px;
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition-delay: .25s; }
+  .menu-toggle.open {
+    background: #fe0493;
+    transition: all ease 0s; }
+    .menu-toggle.open .off span {
+      width: 0%; }
+      .menu-toggle.open .off span:nth-child(1) {
+        transition-delay: 0s; }
+      .menu-toggle.open .off span:nth-child(2) {
+        transition-delay: .125s; }
+      .menu-toggle.open .off span:nth-child(3) {
+        transition-delay: .25s; }
+    .menu-toggle.open .on span:nth-child(1) {
+      height: 40px;
+      transition-delay: .425s; }
+    .menu-toggle.open .on span:nth-child(2) {
+      width: 40px;
+      transition-delay: .175s; }
   @media (max-width: 900px) {
-    .nav-vertical {
-      display: none; } }
+    .menu-toggle {
+      width: 125px;
+      height: 125px; }
+      .menu-toggle.inactive {
+        transform: translate(50%, -50%); }
+      .menu-toggle .off span {
+        width: 30px;
+        height: 3px;
+        top: 55%;
+        left: 33%;
+        margin: 7px 0; }
+      .menu-toggle.open .on span:nth-child(1) {
+        width: 30px;
+        height: 3px; }
+      .menu-toggle.open .on span:nth-child(2) {
+        height: 30px;
+        width: 3px; } }
 
 .news-highlights {
   padding: 0;
@@ -3230,7 +3429,7 @@ p {
       background: #004d63;
       opacity: 0.9;
       z-index: -2; }
-    .modal-active .showreel .project-modal {
+    .showreel .project-modal.active {
       display: block; }
     .showreel .project-modal .close {
       cursor: pointer;
@@ -3550,7 +3749,7 @@ p {
         width: 200vw; }
       .showreel .project-modal {
         width: 100vw;
-        height: 80vh;
+        height: 65vh;
         left: 50%; }
         .showreel .project-modal:before {
           border-radius: 0;
@@ -3560,13 +3759,15 @@ p {
           top: -1.5rem;
           right: 1.5rem;
           font-size: 3rem; }
+        .showreel .project-modal .screenshots {
+          margin-top: -60px; }
         .showreel .project-modal .desktop {
           left: -10%;
           width: 50%; }
         .showreel .project-modal .mobile {
           width: 25%;
           position: absolute;
-          top: 25%;
+          top: 15%;
           left: 70%;
           transform: translateX(-50%); }
           .showreel .project-modal .mobile .screens {
@@ -3579,6 +3780,8 @@ p {
           padding-left: 1.5rem;
           padding-top: 1.5rem;
           width: calc(100% - 40px); }
+          .showreel .project-modal .content h3 {
+            margin-bottom: 0; }
           .showreel .project-modal .content hr {
             display: none; }
           .showreel .project-modal .content a {

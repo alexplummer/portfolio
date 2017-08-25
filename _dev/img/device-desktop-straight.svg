@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="619px" height="504px" viewBox="0 0 619 504" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <polyline id="Fill-1" fill="#757B80" points="387.638 493.769 230.847 493.769 239.817 426.307 379.948 426.307 387.638 493.769"></polyline>
+            <path d="M0.046,369.808 L0.046,411.464 C0.046,419.92 6.966,426.841 15.427,426.841 L603.062,426.841 C611.513,426.841 618.433,419.92 618.433,411.464 L618.433,369.808 L0.046,369.808" id="Fill-2" fill="#C0C8CB"></path>
+            <path d="M618.433,16.077 C618.433,7.619 611.513,0.699 603.062,0.699 L15.427,0.699 C6.966,0.699 0.046,7.619 0.046,16.077 L0.046,369.808 L618.433,369.808 L618.433,16.077" id="Fill-3" fill="#343534"></path>
+            <polyline id="Fill-5" fill="#C0C8CB" points="230.847 493.769 387.638 493.769 415.214 500.287 203.267 500.444 230.847 493.769"></polyline>
+            <polyline id="Fill-6" fill="#757B80" points="413.771 503.91 204.707 503.91 203.321 500.444 415.214 500.287 413.771 503.91"></polyline>
+            <path d="M320.241,400.141 C320.241,406.215 315.316,411.139 309.242,411.139 C303.159,411.139 298.24,406.215 298.24,400.141 C298.24,394.063 303.159,389.137 309.242,389.137 C315.316,389.137 320.241,394.063 320.241,400.141" id="Fill-7" fill="#343534"></path>
+        </g>
+    </g>
+</svg>

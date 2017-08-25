@@ -5,14 +5,16 @@
 
 // Imports
 import { cl } from 'library/cl';
-import { inlineSVG } from 'library/inlineSVG';
-import { menuToggle, navEntrance } from '../components/nav-vertical/nav-vertical';
 import { onReady } from 'library/onReady';
+import { hasClass } from 'library/checkClass';
+import { menuToggle, navEntrance } from '../components/nav-vertical/nav-vertical';
 import { slideProjectsLeft, swapProjects, openPreview } from '../components/showreel/showreel';
 import { doFirstSplash, doSecondSplash } from '../components/heading-splash/heading-splash';
 import { skillsSpin } from '../components/list-skills/list-skills';
 import { infoSpin } from '../components/list-info/list-info';
 import { newsEntrance } from '../components/news-highlights/news-highlights';
+import { workModal } from '../components/work-modal/work-modal';
+
 
 // Exports
 export default globals;
@@ -20,17 +22,27 @@ export default globals;
 // Global object
 let globals = globals || {};
 
-// Run App functions on ready
+// Run App fns on ready
 onReady(() => {
-    inlineSVG();
+
+    // Global fns
     menuToggle();
     navEntrance();
-    slideProjectsLeft();
-    swapProjects();
-    doFirstSplash();
-    doSecondSplash();
-    skillsSpin();
-    infoSpin();
-    openPreview();
-    newsEntrance();
+
+    // Home specific fns
+    if (hasClass('body', 'home')) {   
+        slideProjectsLeft();
+        swapProjects();
+        doFirstSplash();
+        doSecondSplash();
+        skillsSpin();
+        infoSpin();
+        openPreview();
+        newsEntrance();
+    }
+
+    // Work specific fns
+    if (hasClass('body', 'work')) {
+        workModal();
+    }
 });

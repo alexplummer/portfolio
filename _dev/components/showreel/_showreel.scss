@@ -106,7 +106,7 @@
         .content {
             position: absolute;
             left: 40%;
-            top: 25%;
+            top: 30%;
             width: 50%;
 
             h3, p {
@@ -139,8 +139,9 @@
             display: block;
             max-width: 100%;
 
-            >img {
+            >svg {
                 width: 100%;
+                height: 100%;
             }
             .screens {
                 position: absolute;
@@ -163,9 +164,9 @@
 
             .screens {
                 @extend %isometrify-up;
-                top: 27%;
+                top: 26%;
                 width: 58%;
-                height: 42%;
+                height: 45%;
                 left: 41%;
             }
         }
@@ -175,9 +176,9 @@
 
             .screens {
                 @extend %isometrify-down;
-                top: 8.5%;
+                top: -1%;
                 width: 33.8%;
-                height: 75%;
+                height: 93%;
                 left: 36%;
             }
         }
@@ -239,7 +240,7 @@
                 transition: opacity 0.5s ease;
                 width: 100%;
                 position: absolute;
-                top: -95px;
+                top: -105px;
 
                 ul {
                     @include flexbox;
@@ -253,6 +254,7 @@
                         display: inline-block;
                         text-align: center;
                         font-weight: 500;
+                        font-size: $font-m;
                         text-decoration: none;
                         padding: 0 $size-xs;
 
@@ -319,12 +321,12 @@
             .btn-icon {
                 position: absolute;
                 left: 20px;
-                top: 8px;
+                top: 11px;
                 width: $size-m;
             }
 
             &:first-of-type .btn-icon {
-                top: 4px;
+                top: 9px;
             }
 
             &.active, &:hover, &:focus {

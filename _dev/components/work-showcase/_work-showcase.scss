@@ -1,4 +1,100 @@
-
 // Work showcase
 // ============
 // An overview of a piece of work
+
+.work-showcase {
+
+    .main-heading {
+        @include inline-flex;
+        @include justify-content(center);
+        margin: 0 auto $size-xl auto;
+        background: darken($clr-primary, 6%);
+        border-radius: 10px;
+        overflow: hidden;
+
+        h3 {
+            @include align-self(center);
+            vertical-align: baseline;
+            color: #fff;
+            font-family: $font-header;
+            font-size: $font-xxl;
+            text-transform: none;
+            padding: 0 $size-l;
+            margin: 0;
+            line-height: 0;
+        }
+        p {
+            @extend %all-caps;
+            font-size: $font-l;
+            color: #fff;
+            background: darken($clr-primary, 3%);padding: $size-m $size-l;
+            text-align: center;
+            position: relative;
+            letter-spacing: 3px;
+            margin: 0;
+
+            svg {
+                display: block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: $size-l;
+                height: $size-l;
+                margin-bottom: $size-xs;
+
+                * {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+    &.digital {
+        @extend %pseudo;
+        padding: 150px 0 0 0;
+        margin-bottom: $size-xl * 2;
+
+        &:before {
+            transform: skewY(8deg);
+            height: 100%;
+            width: 200vw;
+            left: -50vw;
+            background: $clr-primary;
+            border-top: $clr-hlight $size-m solid;
+            border-bottom: $clr-hlight $size-m solid;
+            z-index: -1;
+        }
+        &:after {
+            background: url(../img/shape-splat.svg);
+            width: 1070px;
+            height: 814px;
+            z-index: -2;
+            left: -700px;
+            top: auto;
+            bottom: -350px;
+            transform: rotate(26deg);
+        }
+    }
+    &.print, &.branding {
+        margin-bottom: $size-xl;
+
+        .main-heading {
+            background: $clr-primary;
+            padding: $size-m $size-l;
+            height: 133px;
+
+            h3 {
+                padding: 0;
+            }
+            svg {
+                margin-left: $size-m;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+
+                * {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+}

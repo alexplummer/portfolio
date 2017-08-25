@@ -20,7 +20,7 @@
         .list-wrap {
 
             ul {
-                @extend .bounceInUp;
+                @extend .flipInY;
             }      
         }
     }
@@ -49,7 +49,7 @@
         }
         ul {
             @extend .animated;
-            @extend .bounceOutDown;
+            @extend .flipOutY;
             margin-left: 0;
             display: inline-block;
             position: relative;

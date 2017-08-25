@@ -1,0 +1,203 @@
+
+// Work entry
+// ============
+// (Write description here)
+
+.work-entry {
+
+    &.left {
+        
+        .inner {
+            @include flex-direction(row-reverse);
+        }   
+        .content {
+            position: relative;
+            left: -50px;
+            margin-bottom: $size-xl * 3;
+        }
+        .screens {
+            position: relative;
+            left: 165px;
+            top: 60px;
+
+            .screen-1, .screen-2, .screen-3 {
+                right: auto;
+                left: $size-l;
+            }
+        }
+    }
+    .content {
+        @extend %col-sm-5;
+        position: relative;
+
+        h3 {
+            @extend %all-caps;
+            padding-top: 0;
+        }
+        p {
+            @extend %border-top;
+            @extend %border-btm;
+            margin-bottom: $size-m;
+        }
+        a {
+            @extend %btn;
+            float: right;
+        }
+        svg {
+            position: absolute;
+            left: -$size-m * 1.3;
+            top: 0;
+            display: none;
+
+            *{
+                fill: #fff;
+            }
+        }
+    }
+    &.design {
+
+        svg:first-of-type {
+            display: block;
+        }
+    }
+    &.code {
+
+        svg:last-of-type {
+            display: block;
+        }
+    }
+    &.design.code {
+
+        svg:last-of-type {
+            top: $size-l * 1.3;
+        }
+    }
+    .modal-content {
+        display: none;
+    }
+    .screens {
+        @extend %col-sm-6;
+        position: relative;
+        top: -120px;
+        left: -10px;
+        height: 400px;
+
+        img {
+            position: relative;
+            transform: rotateZ(-25deg) skewX(40.3deg) skewY(0deg) translateX(-50%);
+            width: 500px;
+            height: 223px;
+            left: 30%;
+            margin: 0;
+            padding: 0;
+            box-shadow: -15px 10px 40px -10px rgba(0, 0, 0, 1);
+        }
+        > div:last-of-type img {
+            box-shadow: -20px 10px 50px -5px rgba(0, 0, 0, .2);
+        }
+        .screen-1, .screen-2, .screen-3 {
+            @extend %pseudo;
+            position: absolute;
+            right: $size-xl;
+            text-align: center;
+            transition: all ease .9s;
+
+            img, span {
+                transition: all ease .9s;
+            }
+            .side-left, .side-right {
+                @extend %pseudo;
+                padding: 0;
+                height: 8px;
+                position: absolute;
+                display: block;
+
+                &:before {
+                    opacity: 0.2;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    background: #fff;
+                }
+            }
+            .side-left {
+                transform: rotate(24.73deg) skewX(25deg) skewY(0deg);
+                width: 58.3%;
+                top: 142.2%;
+                left: -40%;
+
+                &:before {
+                    background: #000;
+                }
+            }
+            .side-right {
+                transform: rotate(-25deg) skewX(-25deg) skewY(0deg);
+                width: 100%;
+                left: 11%;
+                top: 122.6%;
+
+                &:before {
+                    background: #fff;
+                }
+            }
+            &:before {
+                background: $clr-primary;
+                transform: rotateZ(-25deg) skewX(40.3deg) skewY(0deg) translateX(-50%);
+                width: 100%;
+                height: 98%;
+                left: 30%;
+                top: 0;
+                z-index: -1;
+            }
+        }
+        .screen-1 {
+            top: -$size-l;
+            z-index: 3;
+        }
+        .screen-2 {
+            top: 0;
+            z-index: 2;
+
+            img, span {
+                opacity: .75;
+            } 
+        }
+        .screen-3 {
+            top: $size-l;
+            z-index: 1;
+
+            img, span {
+                opacity: .2;
+            } 
+        }
+        &:hover, &:focus, &.active {
+            cursor: pointer;
+
+            .screen-1 {
+                top: -$size-l * 3;
+            }
+            .screen-2 {
+                top: -$size-l * 1;
+
+                img, span {
+                    opacity: 1;
+                } 
+            }
+            .screen-3 {
+
+                img, span {
+                    opacity: 1;
+                } 
+            }
+        }
+    }
+    .print &, .branding & {
+        
+        .screen-1, .screen-2, .screen-3 {
+            
+            &:before {
+                background: #fff;
+            }
+        }
+    }
+}

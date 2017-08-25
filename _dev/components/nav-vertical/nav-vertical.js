@@ -47,7 +47,7 @@ const menuToggle = function menuToggle() {
 const navEntrance = function navEntrance() {
 
     let waypoint = new Waypoint({
-        element: document.querySelector('.showreel'),
+        element: document.getElementsByTagName('body')[0],
         handler: function (direction) {
 
             if (Waypoint.viewportWidth() > 768) {
@@ -55,7 +55,8 @@ const navEntrance = function navEntrance() {
                 document.querySelector('.menu-toggle').classList.toggle('active');
                 document.querySelector('.nav-vertical').classList.toggle('offscreen');
             }            
-        }
+        },
+        offset: '-70%'
     });
     if (Waypoint.viewportWidth() <= 768) {
         document.querySelector('.menu-toggle').classList.toggle('inactive');

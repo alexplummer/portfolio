@@ -20,7 +20,7 @@ const slideProjectsLeft = function slideProjectsLeft() {
                 document.querySelector('.items-holder').classList.toggle('slide-in');
             }            
         },
-        offset: '100%'
+        offset: '120%'
     });
     if (Waypoint.viewportWidth() <= 768) {
         document.querySelector('.items-holder').classList.add('slide-in');

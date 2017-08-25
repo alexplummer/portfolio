@@ -17,6 +17,7 @@ var paths = {
 var gulp = require('gulp'),
 	fs = require('fs'),
 	wiredep = require('wiredep').stream,
+	notifier = require('node-notifier'),
 	argv = require('yargs').argv,
 	gulpsync = require('gulp-sync')(gulp),
 	spawn = require('child_process').spawn,
@@ -60,17 +61,30 @@ gulp.task('inject-JSdeps', () => {
 // Changes dependent on framework version
 
 gulp.task('js', () => {
-	// Package up ES6 modules
-	return plugins.rollupStream({
+
+	// Package up ES6 moduleswith stream
+	const stream = plugins.rollupStream({
 		entry: paths.dev + '/script/app.js',
 		sourceMap: true,
 		format: 'iife',
 		moduleName: 'app',
 		plugins: [
-			plugins.rollupPluginIncludepaths({ paths: [paths.dev + '/script/'] })
+			plugins.rollupPluginIncludepaths({ paths: [paths.dev + '/script/'] }),
 		]
 	})
-		.on('error', plugins.util.log)
+
+	return stream
+		.on('error', e => {
+			console.error(e.stack);
+
+			notifier.notify({
+				title: 'Rollup error',
+				message: e.stack
+			});
+			stream.emit('end');
+		})
+		// Error handling
+		.pipe(plugins.plumber())
 		// Prepare files for sourcemap
 		.pipe(plugins.vinylSourceStream('app.js', paths.dev + '/script/'))
 		.pipe(plugins.vinylBuffer())
@@ -85,22 +99,29 @@ gulp.task('js', () => {
 
 // Copy scripts
 // ============
-// In this framework version runs JS hint, updates browser stream
+// In this framework version runs eslint, updates browser stream
 
-gulp.task('copy:scripts', cb => {
+gulp.task('copy:scripts', () => {
 
-	// JS hint
-	gulp.src(paths.dev + '/script/**/*.js')
-		.pipe(plugins.eslint({
-			"rules":{
-				"camelcase": 1,
-			},
-			"parser": "babel-eslint"
-		}))
-		.pipe(plugins.eslint.format())
-		.on("error",plugins.notify.onError('Error!!!'))
-		// Update browser
-		.pipe(plugins.browserSync.stream());
-	cb();
+	// eslint
+	return gulp.src([paths.dev + '/script/**/*.js', paths.dev + '/components/**/*.js'])
+		.pipe(plugins.eslint())
+		.pipe(plugins.eslint.result(result => {
+
+			if (result.errorCount) {
+				console.log('');
+				console.log('JS Error: ' + result.messages[0].message);
+				console.log(result.filePath);
+				console.log('Line: ' + result.messages[0].line);
+				console.log('_____________________');
+
+				notifier.notify({
+					title: result.messages[0].message,
+					subtitle: result.filePath,
+					message: 'Line: ' + result.messages[0].line,
+					sound: 'Bottle',
+				});
+			}
+		}));
 });
 

@@ -77,8 +77,12 @@ requireDir('./tasks');
 // Error response for plumber
 
 let onError = err => {
-	plugins.util.beep();
-	console.log(err);
+	plugins.notify.onError({
+		title:    "<%= error %>",
+		subtitle: "Line: <%= error.line %>",
+		message:  "<%= error.message %>",
+		sound:    "Beep"
+	})(err);
 };
 
 
@@ -187,8 +191,7 @@ gulp.task('html', () => {
 		// HTML lint
 		.pipe(plugins.htmlhint())
 		.pipe(plugins.htmlhint.reporter())
-		.pipe(gulp.dest(paths.tmp + '/'))
-		.pipe(plugins.browserSync.stream());
+		.pipe(gulp.dest(paths.tmp + '/'));
 });
 
 
@@ -201,7 +204,7 @@ gulp.task('build-sass', () => {
 	// CSS tasks
 	return gulp.src(paths.dev + '/style/style.scss')
 		// Error handling
-		.pipe(plugins.plumber({ errorHandler: onError }))
+		.pipe(plugins.plumber())
 		// Sourcemap init
 		.pipe(plugins.sourcemaps.init())
 		// Compile SASS
@@ -233,8 +236,8 @@ gulp.task('usemin', () => {
 			return stream
 				.pipe(plugins.plumber({ errorHandler: onError }))
 				.pipe(plugins.usemin({
-					jsAttributes : {
-        				async : true
+					jsAttributes: {
+						async: true
 					},
 					js: [plugins.sourcemaps.init(),
 					// Uglify JS
@@ -351,6 +354,19 @@ gulp.task('svg', () => {
 });
 
 
+// SVG inline
+// ============
+// Inlines SVGs
+
+gulp.task('svg-inline', () => {
+	return gulp.src(paths.tmp + '/**/*.html')
+		.pipe(plugins.inline({
+			base: paths.tmp + '/',
+			disabledTypes: ['css', 'img', 'js']
+		}))
+		.pipe(gulp.dest(paths.tmp));
+});
+
 
 // Images
 // ============
@@ -384,7 +400,7 @@ gulp.task('connect', () => {
 	// Fires up browserSync
 	plugins.browserSync.init({
 		server: {
-			baseDir: paths.tmp,
+			baseDir: paths.tmp + "/",
 			routes: {
 				"/bower_components": "bower_components"
 			}
@@ -546,14 +562,14 @@ gulp.task('accessibility', () => {
 gulp.task('critical', () => {
 	console.log('(Critical takes some time, only works with stylesheet as style.css - no rev)');
 	return gulp.src(paths.prod + '/*.html')
-        .pipe(plugins.if(argv.optimise,critical({
+		.pipe(plugins.if(argv.optimise, critical({
 			base: paths.prod,
-			inline: true, 
+			inline: true,
 			minify: true,
 			dimensions: [{ width: 320, height: 480 }, { width: 768, height: 1024 }, { width: 1280, height: 960 }],
 			css: [paths.prod + '/style/style.css']
 		})))
-        .pipe(gulp.dest(paths.prod));
+		.pipe(gulp.dest(paths.prod));
 });
 
 
@@ -589,7 +605,7 @@ gulp.task('htmlmin', () => {
 
 gulp.task('uncss', () => {
 	return gulp.src(paths.prod + '/style/*.css')
-		.pipe(plugins.if(argv.optimise, plugins.uncss({ 
+		.pipe(plugins.if(argv.optimise, plugins.uncss({
 			html: [paths.prod + '/*.html'],
 			ignore: []
 		})))
@@ -650,7 +666,7 @@ gulp.task('watch', () => {
 	// SASS
 	plugins.watch([paths.dev + '/**/*.scss'], () => {
 		gulp.start(gulpsync.sync([
-			'watch:messageSASS', ['clean-reports', 'build-sass']
+			'watch:messageSASS', ['clean-reports', 'build-sass', 'watch:reload']
 		]));
 	});
 	// COMPONENTS
@@ -662,7 +678,7 @@ gulp.task('watch', () => {
 	// HTML
 	plugins.watch(paths.dev + '/**/*.pug', () => {
 		gulp.start(gulpsync.sync([
-			'watch:messageHTML', 'clean:html', 'html', 'bower-inject', 'watch:reload'
+			'watch:messageHTML', 'clean:html', 'html', 'svg-inline', 'bower-inject', 'watch:reload'
 		]));
 	});
 	// JS
@@ -736,6 +752,7 @@ gulp.task('build:tmp', gulpsync.sync([
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
 	['html'],
+	'svg-inline',
 	'bower-inject'
 ]));
 gulp.task('build:tmp-offline', gulpsync.sync([

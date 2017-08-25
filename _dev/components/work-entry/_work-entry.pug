@@ -1,0 +1,16 @@
+
+//- Work entry
+//- ============
+//- An overview of a piece of work
+
+mixin workEntry(heading, description)
+	article(class!=attributes.class).work-entry
+		.inner
+			block
+				
+			.content
+				h3= heading
+				p= description
+				a Check it out
+				img(src="img/icon-design.svg")
+				img(src="img/icon-code-browser.svg")

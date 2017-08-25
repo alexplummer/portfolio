@@ -15,7 +15,13 @@ mixin navVertical(navItems)
             span
 
     nav.nav-vertical
-        a(href="index.html" class="home") HOME
-        - var navItems = navItems || ['work', 'news', 'contact']
-        each navItem in navItems
-            a(href=navItem+".html" class=navItem)= navItem.toUpperCase()
+        .logo-main 
+            h2 <span>Alex</span> Plummer
+
+        .nav-inner
+            a(href="index.html" class="home") HOME
+                img(src="img/icon-home.svg").svg
+            - var navItems = navItems || ['work', 'news', 'contact']
+            each navItem in navItems
+                a(href=navItem+".html" class=navItem)= navItem.toUpperCase()
+                    img(src='img/icon-'+ navItem +'.svg').svg

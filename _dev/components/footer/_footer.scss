@@ -4,34 +4,16 @@
 // Main page footer
 
 .footer {
+    @extend %full-width-gap;
+    @extend %logo-main;
     padding-top: $size-l;
     padding-right: 0.7rem;
-    @extend %full-width-gap;
     margin: 0;
 
     .inner {
         margin-left: 0;
         margin-right: 0;
         position: relative;
-    }
-
-    h2, h2 span {
-        font-family: $font-body;
-        font-size: $font-l;
-        font-weight: 100;
-        letter-spacing: 15px;
-        font-size: $font-m;
-        text-transform: uppercase;
-    }
-    h2 {
-        position: relative;
-        z-index: $z-m + 1;
-    }
-    h2 span {
-        font-size: $font-xl;
-        font-weight: 500;
-        letter-spacing: 30px;
-        display: block;
     }
     .legal {
         
@@ -60,16 +42,6 @@
         padding: $size-s;
         margin-left: 0;
 
-        h2 {
-            font-size: $font-xs;
-            letter-spacing: 6px;
-            line-height: $font-xxs;
-            margin-bottom: $size-m;
-        }
-        h2 span {
-            font-size: $font-s;
-            letter-spacing: 18px;
-        }
         .legal {
         
             p, a {

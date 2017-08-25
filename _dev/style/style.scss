@@ -45,6 +45,7 @@
 // Common SASS shared between components
 
 @import "global/_vars";
+@import "global/_base";
 @import "global/_patterns";
 @import "global/_layout";
 @import "global/_typography";
@@ -59,8 +60,8 @@
 @import "../components/citation/_citation.scss";
 @import "../components/contact-form/_contact-form.scss";
 @import "../components/footer/_footer.scss";
-@import "../components/heading-splash/_heading-splash.scss";
 @import "../components/heading-image/_heading-image.scss";
+@import "../components/heading-splash/_heading-splash.scss";
 @import "../components/intro-no-description/_intro-no-description.scss";
 @import "../components/intro-with-description/_intro-with-description.scss";
 @import "../components/list-info/_list-info.scss";
@@ -70,7 +71,9 @@
 @import "../components/news-link/_news-link.scss";
 @import "../components/quote-inline/_quote-inline.scss";
 @import "../components/showreel/_showreel.scss";
-@import "../components/social-personal/_social-personal.scss";
-@import "../components/work-showcase/_work-showcase.scss";
 @import "../components/social-share/_social-share.scss";
+@import "../components/work-entry/_work-entry.scss";
+@import "../components/social-personal/_social-personal.scss";
+@import "../components/work-modal/_work-modal.scss";
+@import "../components/work-showcase/_work-showcase.scss";
 /* endinjectComponent */

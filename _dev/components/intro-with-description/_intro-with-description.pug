@@ -3,11 +3,13 @@
 //- ============
 //- Intro with description text
 
-mixin intoWithDescription(heading, subheading, content)
+mixin intoWithDescription(heading, subheading)
 	header.intro-with-description
 		.inner
 			.lined-heading.no-under
 				h1(class!=attributes.class)= heading
+					img(src="img/icon-" + heading.toLowerCase() + ".svg").svg
+				img(src="img/bg-ovals-header.svg").header-bg-under
 			article
 				h2= subheading
 				block

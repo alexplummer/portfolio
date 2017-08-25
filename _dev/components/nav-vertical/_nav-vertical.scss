@@ -10,15 +10,36 @@
     top: $size-l + $size-l;
     left: 100%;
     line-height: $size-l;
+    width: 100%;
 
+    .logo-main {
+        @extend %logo-main;
+        display: none;
+        position: fixed;
+        top: $size-m;
+        left: $size-m;  
+
+        h2, h2 span {
+            color: #fff;
+        }
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+        span {
+            padding-top: 0;
+        }
+    }
     a {
         color: $clr-darker;
+        font-size: $font-s;
         margin-right: $size-l;
         text-decoration: none;
         position: relative;
+        transition: color .5s ease;
+        line-height: $size-m;
 
-        &:before {
-            content: "";
+        svg {
             width: $size-m;
             height: $size-m;
             display: inline-block;
@@ -28,69 +49,148 @@
             transform: translateX(-50%);
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            overflow: visible;
+        }
+        &:hover {
+            color: $clr-link;
         }
     }
-    @mixin addNavItem($name, $animation: false) {
+    &.active a svg * {
+        fill: #fff;
+    }
+    .home, .work, .news, .contact {
 
-        a.#{$name}:before {
-            background-image: url(../img/icon-#{$name}.svg);
-        }
-        a.#{$name}:hover:before {
-            @if $animation {}
-        }
-        &.active a.#{$name}:before {
-            background-image: url(../img/icon-#{$name}-white.svg);
+        &:hover svg, &:focus svg,  &:hover svg *,  &:focus svg * {
+            transform-origin: center;
+            fill: $clr-link;
         }
     }
-    @include addNavItem('home');
-    @include addNavItem('work');
-    @include addNavItem('news');
-    @include addNavItem('contact');
+    .home {
+
+        &:hover svg,  &:focus svg {
+            @extend %spin;
+        }
+    }
+    .work {
+
+        &:hover svg .line-1, &:hover svg .line-2, &:focus svg .line-1, &:focus svg .line-2 {
+            @extend %fade-in-out;
+            transform-origin: top left;
+        }
+    }
+    .news {
+
+       &:hover svg .line-1, &:hover svg .line-2, &:focus svg .line-1, &:focus svg .line-2 {
+            @extend %rotate-out-up;
+        }
+    }
+    .contact {
+
+        &:hover svg,  &:focus svg {
+            @extend %swing;
+            transform-origin: top center;
+        }
+    }
 
     @media(max-width: $breakpoint-1) {
 
-        a:before {
+        a svg {
             bottom: -4rem;
         }
     }
-    &.offscreen {
-        @extend %pseudo;
+    @mixin offscreen {
+        transform: none;
         pointer-events: none;
         position: fixed;
-        transform: rotate(0) translate(-50%, -50%);
         opacity: 0;
-        left: 50%;
-        top: 50%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
 
+        .logo-main {
+            display: block;
+        }
+        .nav-inner {
+            position: absolute;
+            transform: rotate(0) translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
         a {
+            font-family: $font-header;
             font-size: $font-xl;
             display: block;
             padding-left: $size-l;
             color: #fff;
             margin-bottom: $size-m;
-            border-bottom: 2px solid #fff;
+            border-bottom: 1px solid rgba(250,250,250,.4);
+            margin-right: 0;
             padding-bottom: $size-m;
+            letter-spacing: 6px;
 
-            &:before {
+            svg {
                 bottom: 40%;
                 left: 0;
                 transform: translateX(0);
             }
             &:last-of-type {
                 border-bottom: 0;
+                padding-bottom: 0;
+                margin-bottom: 0;
+
+                svg {
+                    bottom: 0;
+                }
+            }
+            &:hover svg * {
+                fill: #fff;
             }
         }
+        .home {
+
+            &:hover svg,  &:focus svg {
+                @include spin-position-left;
+            }
+        }
+        .contact {
+
+                &:hover svg,  &:focus svg {
+                    @include swing-position-left;
+                    transform-origin: top center;
+                }
+            }
         &:before {
+            content: "";
             transform: translate(-50%, -50%);
             position: fixed;
-            width: 150vw;
-            height: 150vh;
+            width: 200vw;
+            height: 200vh;
             background: $clr-link;
+            z-index: -2;
+        }
+        /*&:after {
+            content: "";
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.2;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+            z-index: -1; 
+        }*/
+    }
+    &.offscreen {
+        @include offscreen;
+    }
+    @media (max-width: 900px) {
+        @include offscreen;
+
+        &.offscreen a {
+            font-size: $font-l;
         }
     }
     &.active {
         transition: opacity ease 1s;
-        transform: rotate(0) translate(-50%, -50%);
         opacity: 1;
         pointer-events: auto;
 

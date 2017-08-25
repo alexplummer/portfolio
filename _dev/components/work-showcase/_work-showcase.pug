@@ -1,11 +1,405 @@
 
 //- Work showcase
 //- ============
-//- An overview of a piece of work
+//- Wrapper for holding work entries
 
-mixin workShowcase(heading, description)
-    article(class!=attributes.class)
-        img(src!=attributes.src)
-        h3= heading
-        p= description
-        button Check it out
+//- Includes
+include ../work-entry/_work-entry
+
+mixin workShowcase()
+	section.work-showcase.digital
+		.inner
+			.main-heading
+				h3
+					| Digital
+				p 
+					img(src="img/icon-design.svg")
+					| Design
+				p 
+					img(src="img/icon-code-browser.svg")
+					| Code
+
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="left design code")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="right code")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+		
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="left design")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+
+	section.work-showcase.print
+		.inner
+			.main-heading
+				h3
+					| Print
+				img(src="img/icon-work-print.svg")
+				
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="left")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="right")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+
+	section.work-showcase.branding
+		.inner
+			.main-heading
+				h3
+					| Branding
+				img(src="img/icon-work-branding.svg")
+				
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="left")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")
+
+		//- Work entry
+		- var heading = 'Euromoney PLC'
+		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
+		+workEntry(heading, description)(class="right")
+			.modal-content
+				h2 Tiny Terms
+				h3.icon-list-bullet Overview
+				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
+
+				h3.icon-users Roles
+				ul
+					li Design and concept
+					li Development
+					li Marketing and release management
+
+				h3.icon-calendar Length of project
+				p 8 months
+
+				h3.icon-code Tech stack
+				ul
+					li Pure ES6, Pug, SCSS
+					li Gulp, Babel, Rollup
+					li Cordova
+
+				h3.icon-folder-open-empty Libraries
+				ul
+					li Tabletop
+					li localForage
+
+				h3.icon-star Key project features
+				ul
+					li Solo project, from concept through to release
+					li Lightweight, responsive SPA 
+					li Focus on UX and highly effective study techniques
+
+				h3.icon-link Visit the site
+				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
+				a(href="#") https://github.com/alexplummer/language-app 
+				
+			.screens
+				.screen-1
+					span.side-left(style="background: #132636")
+					span.side-right(style="background: #132636")
+					img(src="img/media/screen-euromoney.jpg")
+				.screen-2
+					span.side-left(style="background: #053554")
+					span.side-right(style="background: #053554")
+					img(src="img/media/screen-euromoney-2.jpg")
+				.screen-3
+					span.side-left(style="background: #F1F3F4")
+					span.side-right(style="background: #DDDDDD")
+					img(src="img/media/screen-euromoney-3.jpg")

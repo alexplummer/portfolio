@@ -4,13 +4,12 @@
 //- Intro without any description text
 
 mixin introNoDescription(heading)
-	.intro-no-description
-		header
-			.inner
-				.splash-heading
-					h1.logo-main!= heading
-					img.svg.shape-splat-oval(src="img/shape-splat-oval.svg")
-					img.svg.shape-splat(src="img/shape-splat.svg")
-					img.svg.shape-splat-drip(src="img/shape-splat-drip.svg")
-				.lined-heading
-					block
+	header.intro-no-description
+		.inner
+			.splash-heading
+				h1.logo-main!= heading
+				img.svg.shape-splat-oval(src="img/shape-splat-oval.svg")
+				img.svg.shape-splat(src="img/shape-splat.svg")
+				img.svg.shape-splat-drip(src="img/shape-splat-drip.svg")
+			.lined-heading
+				block

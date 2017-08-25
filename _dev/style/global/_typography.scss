@@ -3,27 +3,6 @@
 // ============
 // Global typographic styles go in here
 
-h3 {
-    font-size: $font-xl;
-    font-family: $font-body;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-p {
-    font-size: $font-l;
-    line-height: $size-m * 1.3;
-
-    // Tablet
-    @media (max-width: $laptop - 1) {
-        font-size: $font-m;
-        line-height: $font-m * 1.3;
-    }
-    // Mobile
-    @media (max-width: $tablet - 1) {
-        font-size: $font-s;
-        line-height: $font-baseline;
-    }
-}
 %all-caps {
     font-size: $font-l;
     font-family: $font-body;
@@ -41,4 +20,32 @@ p {
     font-family: $font-body;
     font-size: $font-l;
     font-weight: 500;
+}
+%heading-lg {
+    font-size: $font-xl;
+    font-family: $font-body;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+h3 {
+    @extend %heading-lg;
+}
+// Body font
+@each $el in $type-normal-els {
+
+    #{$el} {
+        font-size: $font-l;
+        line-height: $size-m * 1.3;
+
+        // Tablet
+        @media (max-width: $desktop - 1) {
+            font-size: $font-m;
+            line-height: $font-m * 1.3;
+        }
+        // Mobile
+        @media (max-width: $laptop - 1) {
+            font-size: $font-s;
+            line-height: $font-baseline;
+        }
+    }
 }

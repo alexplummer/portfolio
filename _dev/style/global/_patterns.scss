@@ -24,6 +24,16 @@
     width: 150vw;
     height: calc(100% + 12rem);
 }
+@mixin iso-down-shadow($color) {
+    
+    $shadow: ();
+
+    @for $i from 2 through 50 {
+        $value: $i * 0.2px;
+        $shadow: append($shadow, $value * -1 ($value - ($i * 0.05)) 0 0 $color, comma)
+    }
+    box-shadow: $shadow;
+}  
 %pseudo {
     position: relative;
 
@@ -37,8 +47,8 @@
     }
 }
 %border-top {
-    padding-bottom: $size-m;
-    margin-bottom: $size-s;
+    padding-top: $size-m;
+    margin-top: $size-m;
     border-top: 1px solid $clr-darker;
 }
 %border-btm {
@@ -46,9 +56,9 @@
     margin-bottom: $size-s;
     border-bottom: 1px solid $clr-darker;
 }
-%btn, .btn {
+%btn, .btn, button {
     display: inline-block;
-    border: 1px solid $clr-link;
+    border: 2px solid $clr-link;
     margin-top: $size-s;
     background: none;
     border-radius: 50px;
@@ -79,11 +89,12 @@
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+        margin: 0;
     }
 }
 %lined-heading {
     
-    h2 {
+    h1, h2 {
         padding: $size-xl 0;
         position: relative;
         display: inline-block;
@@ -103,7 +114,7 @@
             padding: 280px 0 300px 0;
         }
     }
-    h2, h2 span {
+    h1, h2, h1 span, h2 span {
         @extend %heading-xxxl;
         text-align: right;
 
@@ -116,7 +127,7 @@
             line-height: $font-xl !important;
         }
     }
-    h2 .first, h2 .middle, h2 .last {
+    h2 .first, h2 .middle, h2 .last, h2 .first, h2 .middle, h2 .last {
         display: block;
     }
 }
@@ -136,4 +147,38 @@
 }
 %isometrify-down {
     transform: rotateZ(-25deg) skewX(40.3deg) skewY(0deg);
+}
+%logo-main {
+
+    h2, h2 span {
+        font-family: $font-body;
+        font-size: $font-l;
+        font-weight: 100;
+        letter-spacing: 15px;
+        font-size: $font-m;
+        text-transform: uppercase;
+    }
+    h2 {
+        position: relative;
+        z-index: $z-m + 1;
+    }
+    h2 span {
+        font-size: $font-xl;
+        font-weight: 500;
+        letter-spacing: 30px;
+        display: block;
+    }
+    @media (max-width: 767px) {
+
+        h2 {
+            font-size: $font-xs;
+            letter-spacing: 6px;
+            line-height: $font-xxs;
+            margin-bottom: $size-m;
+        }
+        h2 span {
+            font-size: $font-s;
+            letter-spacing: 18px;
+        }
+    }
 }

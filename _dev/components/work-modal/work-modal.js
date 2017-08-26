@@ -108,7 +108,7 @@ const modalSlider = function modalSlider() {
                 controls[i].classList.add('active');
             });
         };
-213sd
+
         // Auto scroll
         let controlPosition = 0;
 

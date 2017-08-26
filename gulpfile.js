@@ -78,10 +78,10 @@ requireDir('./tasks');
 
 let onError = err => {
 	plugins.notify.onError({
-		title:    "<%= error %>",
+		title: "<%= error %>",
 		subtitle: "Line: <%= error.line %>",
-		message:  "<%= error.message %>",
-		sound:    "Beep"
+		message: "<%= error.message %>",
+		sound: "Beep"
 	})(err);
 };
 
@@ -180,11 +180,18 @@ gulp.task('bower-inject', () => {
 // HTML tasks such as compiling pug
 
 gulp.task('html', () => {
+	let htmlError = err => {
+		plugins.notify.onError({
+			title: "PUG: <%= error %>",
+			sound: "Frog"
+		})(err);
+	};
+	
 	let output = '';
 	// Handles Pug templates
 	return gulp.src([paths.dev + '/html/*.pug', './components/*.pug'])
 		// Error handling
-		.pipe(plugins.plumber({ errorHandler: onError }))
+		.pipe(plugins.plumber({ errorHandler: htmlError }))
 		// Pug compilation
 		.pipe(plugins.pug())
 		.pipe(plugins.htmlPrettify())
@@ -201,14 +208,26 @@ gulp.task('html', () => {
 
 gulp.task('build-sass', () => {
 	let output = '';
+
+	let sassError = err => {
+		plugins.notify.onError({
+			title: "<%= error.formatted %>",
+			subtitle: "Line: <%= error.line %>",
+			message: "<%= error.message %>",
+			sound: "Frog"
+		})(err);
+	};
+
 	// CSS tasks
 	return gulp.src(paths.dev + '/style/style.scss')
 		// Error handling
-		.pipe(plugins.plumber())
+		.pipe(plugins.plumber({ errorHandler: sassError }))
 		// Sourcemap init
 		.pipe(plugins.sourcemaps.init())
 		// Compile SASS
-		.pipe(plugins.sass().on('error', plugins.notify.onError()))
+		.pipe(plugins.sass().on('error', function () {
+			this.emit('end')
+		}))
 		// Lint CSS
 		.pipe(plugins.if(browserReports, plugins.csslint({
 			"adjoining-classes": false, "box-model": false, "box-sizing": false, "font-sizes": false,

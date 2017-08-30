@@ -90,8 +90,13 @@
             right: -530px;
             width: 1000px;
         }
-        .lined-heading {
+        div.lined-heading {
             top: -40px;
+
+            h2, h2 span {
+                font-size: $font-xxl;
+                line-height: $font-xxl;
+            }
         }
         &.right {
             margin-bottom: $size-xl * 1.5;
@@ -168,6 +173,13 @@
                 }
             }
             
+        }
+    }
+    @media (max-width: $breakpoint-3) {
+
+        div.lined-heading h2, div.lined-heading h2 span {
+            font-size: $font-xl;
+            line-height: $font-xl;
         }
     }
     @media (max-width: $breakpoint-4) {

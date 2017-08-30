@@ -3,7 +3,7 @@
 // An overview of a piece of work
 
 .work-showcase {
-
+    
     .main-heading {
         @include inline-flex;
         @include justify-content(center);
@@ -50,7 +50,7 @@
     }
     &.digital {
         @extend %pseudo;
-        padding: 150px 0 0 0;
+        padding-top: 150px;
         margin-bottom: $size-xl * 2;
 
         &:before {
@@ -94,6 +94,45 @@
                 * {
                     fill: #fff;
                 }
+            }
+        }
+    }
+    @media (max-width: 767px) {
+
+        .main-heading {
+            margin-bottom: $size-l + $size-m;
+
+            h3 {
+                font-size: $font-l;
+                padding: 0 $size-s;
+            }
+            p {
+                font-size: $font-s;
+                letter-spacing: 1px;
+                padding: $size-s;
+
+                svg {
+                    width: $size-m;
+                    height: $size-m;
+                }
+            }
+        }
+        &.digital {
+            padding-top: 75px; 
+        }
+    }
+    @media (max-width: 480px) {
+
+        &.print, &.branding {
+            margin-bottom: $size-m;
+
+            .main-heading {
+                padding: 1rem 3rem;
+                height: 80px;
+                width: 100vw;
+                margin-left: -$size-m;
+                margin-right: -$size-m;
+                border-radius: 0;
             }
         }
     }

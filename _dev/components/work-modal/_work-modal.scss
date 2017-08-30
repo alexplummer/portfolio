@@ -38,6 +38,7 @@
         margin: 0;
     }
     .screenshots {
+        @extend %col-sm-7;
         @extend %col-md-8;
         @include align-self(center);
         text-align: center;
@@ -64,8 +65,12 @@
 
             .screen-1, .screen-2, .screen-3 {
                 z-index: $z-m + 1;
+                width: 100%;
+                height: 100%;
 
                 img {
+                    width: 100%;
+                    height: 100%;
                     max-width: 100%;
                     margin: 0 0 -4px 0;
                     padding: 0;
@@ -96,7 +101,7 @@
         }
         .controls {
             position: absolute;
-            bottom: $size-m;
+            bottom: 0;
             left: 12%;
 
             a {
@@ -119,6 +124,7 @@
         }
     }
     .content {
+        @extend %col-sm-5;
         @extend %col-md-4;
         box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .3);
         margin-top: $size-xl;
@@ -197,6 +203,98 @@
         &:before {
             border-radius: 50%;
             background: #fff;
+        }
+    }
+    @media (max-width: 1400px) {
+
+        .screenshots {
+
+            .screens {
+                width: calc(83% - 6rem);
+                top: $size-s;
+            }
+        }
+    }
+    @media (max-width: 1200px) {
+        
+        .screenshots {
+
+            .controls {
+                bottom: -$size-m;
+            }
+        }
+        .content {
+
+            h2 {
+                font-size: $font-l;
+                padding-bottom: $size-s;
+                margin-bottom: 0;
+            }
+            h3 {
+                font-size: $font-m;
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        padding: $size-m;
+        
+        .screenshots {
+            padding: 0;
+            position: relative;
+            
+            svg {
+                width: 90%;
+            }
+            .screens {
+                width: calc(108% - 6rem);
+            }
+            .controls {
+                bottom: -$size-l - $size-s;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        padding: $size-s;
+        
+        .content {
+            margin-top: 0;
+            margin-bottom: $size-m;
+            height: 40vh;
+            padding: $size-m;
+            max-width: 100%;
+            width: 100%;
+        }
+        .screenshots {
+
+            svg {
+                width: 100%;
+                height: auto;
+            }
+            .screens {
+                height: 65%;
+                width: calc(100% - #{$size-m});
+            }
+        }
+        .close {
+            top: 0;
+            right: -$size-s;
+            z-index: $z-m + 1;
+        }
+    }
+    @media (max-width: 400px) {
+
+        .content {
+            margin-bottom: 0;
+            padding: $size-s;
+
+            h3 {
+                padding-top: $size-m;
+            }
+        }
+        .screenshots {
+            top: -$size-m;
         }
     }
 }

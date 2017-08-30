@@ -119,12 +119,12 @@
         text-align: right;
 
         @media(max-width: $breakpoint-1) {
-            font-size: $font-xxl !important;
-            line-height: $font-xxl !important;
+            font-size: $font-xxl;
+            line-height: $font-xxl;
         }
         @media(max-width: $breakpoint-3) {
-            font-size: $font-xl !important;
-            line-height: $font-xl !important;
+            font-size: $font-xl;
+            line-height: $font-xl;
         }
     }
     h2 .first, h2 .middle, h2 .last, h2 .first, h2 .middle, h2 .last {

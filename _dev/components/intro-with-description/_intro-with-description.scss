@@ -36,8 +36,8 @@
 
         .lined-heading {
             @extend %lined-heading;
-            @extend %col-xs-12;
-            @extend %col-sm-offset-2;
+            @extend %col-xs-4;
+            @extend %col-xs-offset-1;
             @extend %col-sm-3;
             @extend %col-sm-offset-2;
             @extend %col-lg-3;
@@ -73,7 +73,7 @@
             }
         }
         article {
-            @extend %col-xs-12;
+            @extend %col-xs-6;
             @extend %col-sm-5;
             @extend %col-xl-4;
             @include flexbox;
@@ -94,6 +94,7 @@
         }
     }
     @media (max-width: $breakpoint-1) {
+        height: 830px;
 
         &:before {
             width: calc(100% - 6.7rem);
@@ -104,7 +105,7 @@
                 min-width: 155px;
 
                 h1 {
-                    font-size: $font-xl;
+                    font-size: $font-xxl;
                     padding: 280px 0 $size-l 0;
                     top: -30px;
                     width: 155px;
@@ -140,6 +141,7 @@
         }
     }
     @media (max-width: 900px) {
+        margin-bottom: -270px;
         
         &:before {
             width: 100%;
@@ -150,10 +152,49 @@
             
             .lined-heading {
                 top: 0;
+
+                h1 {
+                    padding: 160px 0 0 0;
+                }
             }
         }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
+        height: 900px;
+    }
+    @media (max-width: 500px) {
         padding: 0 $size-l;
+
+        &:after {
+            display: none;
+        }
+        .inner {
+            @include flex-direction(column);
+
+            .lined-heading {
+                max-width: 100%;
+                width: 100%;
+                margin-left: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            article {
+                max-width: 100%;
+                width: 100%;
+                margin-top: -$size-m;
+                padding-left: 0;
+                padding-right: 0;
+    
+                p {
+                    
+                    &:last-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        height: 950px;
     }
 }

@@ -150,6 +150,10 @@
                     letter-spacing: 20px;
                 }
             }
+            div.lined-heading h2 span {
+                font-size: $font-xxl;
+                line-height: $font-xxl;
+            }
         }
     }
     @media(max-width: 900px) {
@@ -250,6 +254,10 @@
                     font-size: $font-s;
                     letter-spacing: 18px;
                 }
+            }
+            div.lined-heading h2 span {
+                font-size: $font-xl;
+                line-height: $font-xl;
             }
         }
     }

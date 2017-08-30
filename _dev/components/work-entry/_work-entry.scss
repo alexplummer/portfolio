@@ -12,7 +12,6 @@
         }   
         .content {
             position: relative;
-            left: -50px;
             margin-bottom: $size-xl * 3;
         }
         .screens {
@@ -27,6 +26,7 @@
         }
     }
     .content {
+        @extend %col-xs-12;
         @extend %col-sm-5;
         position: relative;
 
@@ -76,6 +76,7 @@
         display: none;
     }
     .screens {
+        @extend %col-xs-12;
         @extend %col-sm-6;
         position: relative;
         top: -120px;
@@ -197,6 +198,77 @@
             
             &:before {
                 background: #fff;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        
+        &.left, &.right {
+
+            .screens {     
+                top: 0px;
+                height: auto;
+                max-width: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: $size-m;
+
+                .screen-1, .screen-2, .screen-3 {
+                    right: auto;
+                    left: auto;
+                    display: none;
+                    position: static;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        left: 0;
+                        transform: none;
+                        box-shadow: none;
+                    }
+                    span {
+                        display: none;
+                    }
+                    &:before {
+                        display: none;
+                    }
+                }   
+                .screen-1 {
+                    display: block;
+                }
+            }
+            .content {
+                margin-bottom: $size-l;
+                
+                p {
+                    margin-top: $size-s;
+                    padding-top: $size-s;
+                    margin-bottom: $size-s;
+                }
+            }
+        }
+        &.left {
+            
+            .inner {
+                @include flex-direction(row);
+            }  
+        }
+        .digital & {
+
+            .content {
+                padding-left: $size-m;
+
+                svg {
+                    left: -12px;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+        &.design.code {
+            
+            svg:last-of-type {
+                top: $size-m + $size-s;
             }
         }
     }

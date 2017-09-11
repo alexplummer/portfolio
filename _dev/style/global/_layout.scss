@@ -5,7 +5,7 @@
 body, html {
     width: 100vw;
 }
-section, header, footer {
+section, header, body > footer, .news-article .content {
     @extend %container;
 }
 .inner {
@@ -13,4 +13,11 @@ section, header, footer {
 }
 .split {
     @extend %col-sm-6;
+}
+body.chat {
+
+    aside {
+        @extend %col-sm-6;
+        margin-top: $size-xl * 2;
+    }
 }

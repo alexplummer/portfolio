@@ -21,7 +21,7 @@ mixin navVertical(navItems)
         .nav-inner
             a(href="index.html" class="home") HOME
                 img(src="img/icon-home.svg").svg
-            - var navItems = navItems || ['work', 'news', 'contact']
+            - var navItems = navItems || ['work', 'news', 'chat']
             each navItem in navItems
                 a(href=navItem+".html" class=navItem)= navItem.toUpperCase()
                     img(src='img/icon-'+ navItem +'.svg').svg

@@ -170,14 +170,16 @@ var app = function () {
                 var textContent = thisItem.querySelector('.content').innerHTML;
                 var theBody = document.getElementsByTagName('body')[0];
 
+                // Show modal
+                theBody.classList.add('modal-active');
+                modal.classList.add('active');
+                document.body.style.top = scrollPosition * -1 + "px";
+
+                // Add content
                 modal.querySelector('.desktop').querySelector('.screens').innerHTML = screensDesktop;
                 modal.querySelector('.mobile').querySelector('.screens').innerHTML = screensMobile;
                 modal.querySelector('.content').innerHTML = textContent;
                 document.querySelector('.items-holder').classList.add('slide-in');
-
-                theBody.classList.add('modal-active');
-                modal.classList.add('active');
-                document.body.style.top = scrollPosition * -1 + "px";
 
                 modal.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -300,7 +302,30 @@ var app = function () {
             offset: '70%'
         });
         if (Waypoint.viewportWidth() <= 768) {
-            document.querySelector('.news-highlights').querySelector('.news-link').classList.toggle('active');
+            document.querySelector('.news-highlights').classList.toggle('active');
+        }
+    };
+
+    // Related news
+    // ============
+    // (Write description here)
+
+    // Imports
+    // Slide Projects in from left
+    var relatedNewsEntrance = function relatedNewsEntrance() {
+
+        var waypoint = new Waypoint({
+            element: document.querySelector('.related-news'),
+            handler: function handler(direction) {
+
+                if (Waypoint.viewportWidth() > 768) {
+                    document.querySelector('.related-news').classList.toggle('active');
+                }
+            },
+            offset: '70%'
+        });
+        if (Waypoint.viewportWidth() <= 768) {
+            document.querySelector('.related-news').classList.toggle('active');
         }
     };
 
@@ -474,6 +499,16 @@ var app = function () {
         // Work specific fns
         if (hasClass('body', 'work')) {
             workModal();
+        }
+
+        // News specific fns
+        if (hasClass('body', 'news')) {
+            newsEntrance();
+        }
+
+        // Article specific fns
+        if (hasClass('body', 'article')) {
+            relatedNewsEntrance();
         }
     });
 

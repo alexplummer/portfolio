@@ -85,7 +85,7 @@
                 }
                 
             }
-            $icons: 'baby','glasses', 'code', 'boot', 'hand', 'chat';
+            $icons: 'baby','glasses', 'code', 'boot', 'hand', 'chat-bubble';
 
             @each $icon in $icons {
                 .icon-#{$icon}:before {
@@ -136,7 +136,7 @@
             }
         }
     }
-    @media (max-width: 767px) {
+    @media (max-width: $tablet - 1px) {
 
         picture {
             display: none;
@@ -193,6 +193,9 @@
                     height: 80px;
                 }
             }
+        }
+        &:before {
+            height: calc(100% + 6rem);
         }
     }
     @media (max-width: $breakpoint-4) {

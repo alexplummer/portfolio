@@ -13,6 +13,7 @@ import { doFirstSplash, doSecondSplash } from '../components/heading-splash/head
 import { skillsSpin } from '../components/list-skills/list-skills';
 import { infoSpin } from '../components/list-info/list-info';
 import { newsEntrance } from '../components/news-highlights/news-highlights';
+import { relatedNewsEntrance } from '../components/related-news/related-news';
 import { workModal } from '../components/work-modal/work-modal';
 
 
@@ -44,5 +45,15 @@ onReady(() => {
     // Work specific fns
     if (hasClass('body', 'work')) {
         workModal();
+    }
+
+    // News specific fns
+    if (hasClass('body', 'news')) {
+        newsEntrance();
+    }
+
+    // Article specific fns
+    if (hasClass('body', 'article')) {
+        relatedNewsEntrance();
     }
 });

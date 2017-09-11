@@ -2,3 +2,20 @@
 // Quote inline
 // ============
 // An inline blockquote
+
+.quote-inline {
+    @extend .h1;
+    display: inline-block;
+    background: none;
+    border-left: 0;
+    padding: $size-l 0;
+    margin: $size-l 0;
+    text-align: center;
+    
+    &:before {
+        display: none;
+    }
+    @media (max-width: $tablet - 1) { 
+        padding: 0;
+    }
+}

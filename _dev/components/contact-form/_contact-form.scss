@@ -2,3 +2,31 @@
 // Contact form
 // ============
 // A basic contact form
+
+.contact-form {
+    @extend %col-xs-12;
+    @extend %col-sm-6;
+    @extend %col-md-5;
+    @extend %col-md-offset-1;
+    position: relative;
+    margin-bottom: $size-xl *2;
+
+    &:before {
+        @extend %bg-geometry;
+        transform: rotate(8deg);
+        z-index: -1;
+    }   
+    @media (max-width: $tablet - 1px) {
+        
+        // Chat page
+        .chat & {
+            
+            input, textarea {
+                width: 100%;
+            }
+            input[type=submit] {
+                width: 120px;
+            }
+        }
+    }
+}

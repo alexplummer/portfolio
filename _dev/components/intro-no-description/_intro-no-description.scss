@@ -5,7 +5,7 @@
 
 .intro-no-description {
     @extend %pseudo;
-    height: 1400px;
+    height: $max;
     max-width: 100%;
     width: 100%;
     padding: 0;
@@ -112,9 +112,6 @@
 
     @media(max-width: $breakpoint-1) {
         
-        &:before {
-            width: calc(100% - 6.7rem);
-        }
         .inner {
 
             &:before {

@@ -93,12 +93,52 @@
             }
         }
     }
+    
+    // News page
+    .news & {
+        
+        &:after {
+            display: none;
+        }
+    }
+
+    // Chat page
+    .chat & {
+        height: 780px;
+
+        .inner {
+
+            .lined-heading {
+
+                h1 {
+                    font-size: 6rem;
+                }
+                >svg {
+                    display: none;
+                }
+            }
+        }
+        &:after {
+            display: none;
+        }
+    }
+    
+    // News page, Chat page
+    .news &, .chat & {
+        
+        .inner {
+            
+            .lined-heading {
+
+                h1 svg {
+                    width: 90px;
+                }
+            }
+        }
+    }
     @media (max-width: $breakpoint-1) {
         height: 830px;
 
-        &:before {
-            width: calc(100% - 6.7rem);
-        }
         .inner {
             
             .lined-heading {
@@ -139,6 +179,20 @@
                 }
             }
         }
+        // Chat page
+        .chat & {
+            height: 780px;
+
+            .inner {
+
+                .lined-heading {
+
+                    h1 {
+                        font-size: 3.3rem;
+                    }
+                }
+            }
+        }
     }
     @media (max-width: 900px) {
         margin-bottom: -270px;
@@ -159,7 +213,7 @@
             }
         }
     }
-    @media (max-width: 767px) {
+    @media (max-width: $tablet - 1px) {
         height: 900px;
     }
     @media (max-width: 500px) {
@@ -169,7 +223,7 @@
             display: none;
         }
         .inner {
-            @include flex-direction(column);
+            display: block;
 
             .lined-heading {
                 max-width: 100%;
@@ -189,6 +243,23 @@
                     
                     &:last-of-type {
                         display: none;
+                    }
+                }
+            }
+        }
+        // Chat page
+        .chat & {
+            height: 930px;
+
+            .inner {
+
+                article {
+
+                    p {
+                        
+                        &:last-of-type {
+                            display: block;
+                        }
                     }
                 }
             }

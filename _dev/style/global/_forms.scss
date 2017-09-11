@@ -1,0 +1,28 @@
+// Forms
+// ============
+// Global form styles
+
+input, textarea {
+    background: none;
+    border: 0;
+    border-bottom: 2px solid $clr-darker;
+    margin-bottom: $size-l;
+    width: 400px;
+    max-width: 100%;
+}
+textarea {
+    padding: $size-s;
+    border: 2px solid $clr-darker;
+    height: 150px;
+}
+label {
+    @extend %all-caps;
+    font-size: $font-s;
+    margin-bottom: 0;
+    display: block;
+}
+input[type=submit] {
+    @extend %btn;
+    width: 120px;
+    display: block;
+}

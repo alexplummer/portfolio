@@ -3,9 +3,7 @@
 // Vertical nav for top of page
 
 .nav-vertical {
-    transform: rotate(90deg);
-    transform-origin: left top;
-    position: absolute;
+    position: relative;
     z-index: $z-l;
     top: $size-l + $size-l;
     left: 100%;
@@ -29,6 +27,11 @@
         span {
             padding-top: 0;
         }
+    }
+    .nav-inner {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        position: absolute;
     }
     a {
         color: $clr-darker;
@@ -58,7 +61,7 @@
     &.active a svg * {
         fill: #fff;
     }
-    .home, .work, .news, .contact {
+    .home, .work, .news, .chat {
 
         &:hover svg, &:focus svg,  &:hover svg *,  &:focus svg * {
             transform-origin: center;
@@ -84,18 +87,11 @@
             @extend %rotate-out-up;
         }
     }
-    .contact {
+    .chat {
 
         &:hover svg,  &:focus svg {
             @extend %swing;
             transform-origin: top center;
-        }
-    }
-
-    @media(max-width: $breakpoint-1) {
-
-        a svg {
-            bottom: -4rem;
         }
     }
     @mixin offscreen {
@@ -153,13 +149,13 @@
                 @include spin-position-left;
             }
         }
-        .contact {
+        .chat {
 
-                &:hover svg,  &:focus svg {
-                    @include swing-position-left;
-                    transform-origin: top center;
-                }
+            &:hover svg,  &:focus svg {
+                @include swing-position-left;
+                transform-origin: top center;
             }
+        }
         &:before {
             content: "";
             transform: translate(-50%, -50%);

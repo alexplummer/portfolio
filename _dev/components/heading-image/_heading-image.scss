@@ -2,3 +2,105 @@
 // Heading image
 // ============
 // A header with a background image
+
+.heading-image {
+    @extend %pseudo;
+    margin: $size-l;
+    padding: 0;
+    max-width: 100%;
+
+    &:before {
+        width: calc(100vw - 6.7rem);
+        height: 100%;
+        background: $clr-light;
+    }
+    .inner {
+        @extend %pseudo;
+        position: relative;
+        margin: 0 $size-l 0 0;
+        padding-right: $size-l;
+
+        &:before {
+            width: calc(100% - #{$size-l});
+            height: 100%;
+            background: url(../img/bg-trapezium.svg) bottom no-repeat;
+            background-size: contain;
+            opacity: 0.9;
+        }
+        &:after {       
+            top: calc(100% - 16rem);
+            left: calc(100% - 16rem);
+            z-index: $z-m;
+            width: 1282px;
+            height: 985px;
+            background: url(../img/shape-splat.svg) no-repeat;
+            background-size: 100%;
+        }
+    }
+    picture {
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            margin: 0;
+        }
+    }
+    h1 {
+        @extend %col-xs-12;
+        position: absolute;
+        bottom: $size-m;
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 50%;
+        margin: 0;
+    }
+    @media (max-width: $breakpoint-1) {
+
+        .inner {
+            
+            h1 {
+                width: 75%;
+            }
+            &:after {   
+                width: 782px;
+                left: calc(100% - 12rem);    
+                top: calc(100% - 4rem);
+            }
+        }
+    }
+    @media (max-width: 900px) {
+        margin: 0;
+
+        .inner {
+            margin: 0;
+            padding: 0;
+            
+            &:before {
+                width: 100%;
+            }
+        }
+    }
+    @media (max-width: $tablet - 1) { 
+
+        .inner {
+            
+            h1 {
+                padding-left: $size-m;
+                width: 100%;
+            }
+            &:after {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: $mobile - 1) {
+
+        .inner {
+            
+            h1 {
+                bottom: $size-s;
+            }
+        }
+    }
+}

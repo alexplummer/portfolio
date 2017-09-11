@@ -22,6 +22,6 @@ const newsEntrance = function newsEntrance() {
         offset: '70%'
     });
     if (Waypoint.viewportWidth() <= 768) {
-        document.querySelector('.news-highlights').querySelector('.news-link').classList.toggle('active');
+        document.querySelector('.news-highlights').classList.toggle('active');
     }
 }

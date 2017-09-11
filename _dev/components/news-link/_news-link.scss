@@ -4,14 +4,16 @@
 // Link to a news story
 
 .news-link {
+    position: relative;
 
     picture {
         @extend .animated;
         @extend %img-round;
         @extend .flipOutY;
-        float: left;
+        position: absolute;
+        top: 0;
     }
-    .active & picture{
+    .active & picture {
         @extend .flipInY;
     }
     h4, p, a {
@@ -22,7 +24,7 @@
         @extend %border-btm;
     }
     p {
-        margin-bottom: $size-m *2;
+        margin-bottom: $size-m;
         font-size: $font-m;
     }
     a {
@@ -56,7 +58,7 @@
             font-size: $font-s;
         }
     }
-    @media (max-width: 767px) {
+    @media (max-width: $tablet - 1px) {
         
         margin-bottom: $size-l * 2;
 

@@ -2,3 +2,49 @@
 // Citation
 // ============
 // A citation with author and quote
+
+.citation {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin-left: 0;
+    text-align: center;
+    
+    p {
+        font-family: $font-header;
+        font-size: $font-xxl;
+        line-height: 1.1;
+        margin-bottom: $size-m;
+        display: block;
+    }
+    footer {
+        @extend %all-caps;
+        max-width: 100%;
+    }
+    &:before {
+        display: none;
+    }
+    @media (max-width: $breakpoint-1) {
+
+        p {
+            font-size: $font-xl;
+        }
+    }
+    @media (max-width: $breakpoint-2) {
+        
+        p {
+            font-size: $font-l;
+            margin-bottom: $size-s;
+        }
+        footer {
+            font-size: $font-m;
+        }
+    }
+    @media (max-width: $tablet - 1px) {
+        
+        // Chat page
+        .chat & {
+            display: none;
+        }
+    }
+}

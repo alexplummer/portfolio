@@ -5,10 +5,8 @@ block bodyClassVar
 
 //- Includes
 include ../components/nav-vertical/_nav-vertical
-include ../components/intro-with-description/_intro-with-description
-include ../components/heading-image/_heading-image
-include ../components/social-share/_social-share
-include ../components/quote-inline/_quote-inline
+include ../components/news-article/_news-article
+include ../components/related-news/_related-news
 include ../components/footer/_footer
 
 //- Page title
@@ -20,30 +18,17 @@ block content
 	//- Main nav
 	+navVertical
 	
-	//- News header
-	article
-		header
-			- var heading = 'The latest thoughts about some subject'
-			+headingImage(heading)(src="img/media/sample-article.jpg")
+	//- Article
+	+newsArticle
 
-			p.author Alex Plummer 
-			+socialShare
-		
-		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum posuere augue sed semper bibendum. Integer aliquam pellentesque luctus. Sed diam tellus, egestas vitae dapibus nec, mattis in metus. Maecenas euismod molestie erat quis ullamcorper. Nam neque ligula, rutrum sed imperdiet eu, gravida placerat metus. Pellentesque ultrices eros vel orci egestas tristique. Donec faucibus ullamcorper scelerisque.
-		p Cras orci orci, blandit a eros eu, elementum consequat nulla. Fusce interdum nunc ac consectetur euismod. Nunc quam urna, laoreet id nulla vel, facilisis scelerisque enim. Integer quis risus odio. Aliquam venenatis mollis erat, id molestie libero convallis in. Aliquam nec ipsum mauris. Suspendisse venenatis nisl in justo condimentum, vitae condimentum nisi semper. Praesent dignissim hendrerit nisi, ornare ornare sem varius a. Aliquam vulputate ante leo, et tristique tortor consequat sed.
-
-		+quoteInline
-			| Design and code in beautiful harmony
-		
-		p Donec accumsan nulla vitae felis convallis auctor. Duis vitae ipsum pharetra, tristique justo ac, volutpat enim. Sed porta magna vel ipsum congue, eget porta nibh interdum. Nulla rutrum porta feugiat. Proin ultricies massa vitae auctor ornare. Nam viverra in quam non ullamcorper. Aliquam mattis dictum congue. Sed mattis vulputate leo, eu bibendum nisl finibus eu. Integer mollis leo risus.
-		p Pellentesque gravida fringilla leo ullamcorper dapibus. Suspendisse tincidunt ipsum libero, nec tincidunt dolor cursus non. Etiam sollicitudin lacus mollis massa fringilla ornare. Etiam euismod purus sed dui scelerisque, a pellentesque nulla volutpat. Phasellus a velit sit amet libero volutpat semper et at neque. Suspendisse finibus turpis ac mi vestibulum, a semper arcu accumsan. Donec dignissim augue arcu, non dapibus mi ullamcorper sit amet. Donec a lacus efficitur, accumsan arcu in, molestie ante. Integer cursus euismod elit ut vulputate. Aenean laoreet enim eleifend lacus pulvinar volutpat. Donec rhoncus purus id faucibus sodales. Proin eget bibendum ligula.
-	
-	aside
-		img(src="img/media/sample-news.jpg")
+	//- Related news
+	+relatedNews
 		
 	//- Footer
 	+footer
+
+	//- Add this
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55c6759b75b46ce8"></script> 
 
 	//- Under document content
 	include _includes/_under

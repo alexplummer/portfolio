@@ -80,15 +80,17 @@ const openPreview = function openPreview() {
             let screensMobile  = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
             let textContent    = thisItem.querySelector('.content').innerHTML;
             let theBody        = document.getElementsByTagName('body')[0];
+            
+            // Show modal
+            theBody.classList.add('modal-active');
+            modal.classList.add('active');
+            document.body.style.top = (scrollPosition * -1) + "px";
 
+            // Add content
             modal.querySelector('.desktop').querySelector('.screens').innerHTML = screensDesktop;
             modal.querySelector('.mobile').querySelector('.screens').innerHTML = screensMobile;
             modal.querySelector('.content').innerHTML = textContent;
             document.querySelector('.items-holder').classList.add('slide-in');
-            
-            theBody.classList.add('modal-active');
-            modal.classList.add('active');
-            document.body.style.top = (scrollPosition * -1) + "px";
 
             modal.addEventListener('click', (e) => {
                 e.preventDefault();

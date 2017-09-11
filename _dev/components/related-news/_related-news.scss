@@ -1,0 +1,28 @@
+
+// Related news
+// ============
+// Related news stories
+
+.related-news {
+    margin-bottom: $size-l;
+
+    .inner {
+        background: $clr-light;
+        margin: 0;
+        padding: $size-s $size-m $size-l $size-m;
+    }
+    h2 {
+        @extend %col-xs-12;
+        margin-bottom: $size-l;
+    }
+    article {
+        @extend %col-xs-12;
+        @extend %col-sm-6;
+    }
+    @media (max-width: $tablet - 1) {
+        
+        article:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

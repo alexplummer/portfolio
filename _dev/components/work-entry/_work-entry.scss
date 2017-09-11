@@ -48,8 +48,10 @@
             left: -$size-m * 1.3;
             top: 0;
             display: none;
+            width: $font-xl;
+            height: $font-xl;
 
-            *{
+            * {
                 fill: #fff;
             }
         }
@@ -201,7 +203,7 @@
             }
         }
     }
-    @media (max-width: 767px) {
+    @media (max-width: $tablet - 1px) {
         
         &.left, &.right {
 

@@ -42,7 +42,7 @@ let browserReports = false;
 // ============
 // For when using FTP task, check FTP task first
 
-let ftpFolder = '/portfolio-test';
+let ftpFolder = '/portfolio-test5';
 
 
 // Reqs
@@ -366,6 +366,7 @@ gulp.task('svg', () => {
 				{ removeDesc: true },
 				{ removeTitle: true },
 				{ removeEmptyAttrs: true },
+				{ removeDimensions: true}
 			]
 		}))
 		.pipe(gulp.dest(paths.tmp + '/img'))
@@ -780,6 +781,7 @@ gulp.task('build:tmp-offline', gulpsync.sync([
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
 	['html'],
+	'svg-inline',
 	'bower-inject'
 ]));
 gulp.task('build:prod', gulpsync.sync([

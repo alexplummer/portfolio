@@ -2,3 +2,76 @@
 // Social personal
 // ============
 // A section with links to online profiles
+
+.social-personal {
+    @extend %pseudo;
+    max-width: 100%;
+    width: 100%;
+    padding-top: $size-l;
+    margin-bottom: $size-xl + $size-l;
+
+    h3, nav {
+        text-align: center;
+    }
+    h3 {
+        @extend %col-xs-12;
+        margin-bottom: $size-m;
+    }
+    nav {
+        @extend %col-xs-12;
+
+        a {
+            display: inline-block;
+            margin-right: calc(#{$size-s} - 4px);
+
+            svg {
+                width: 50px;
+                height: 50px;
+
+                * {
+                    fill: $clr-link;
+                }
+            }
+            &:hover, &:focus {
+
+                svg {
+
+                    * {
+                        fill: $clr-link-hover;
+                    }
+                }
+            }
+        }
+    }
+    &:before {
+        position: absolute;
+        width: calc(100% - 6rem);
+        left: 3rem;
+        background: $clr-light;
+        top: -800px;
+        height: calc(100% + 950px);
+        z-index: -2;
+    } 
+    @media (max-width: $tablet - 1px) {
+        
+        &:before {
+            width: 100%;
+            left: 0;
+        }
+        
+        // Chat page
+        .chat & {
+
+            nav {
+        
+                a {
+        
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

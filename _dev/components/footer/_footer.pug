@@ -13,7 +13,9 @@ mixin footer()
 				a(href="credits.html") Credits
 			
 			nav
-				a(href="index.html") Home
-				a(href="work.html") Work
-				a(href="news.html") News
-				a(href="contact.html") Contact
+				a(href="index.html" class="home") HOME
+					img(src="img/icon-home.svg").svg
+				- var navItems = navItems || ['work', 'news', 'chat']
+				each navItem in navItems
+					a(href=navItem+".html" class=navItem)= navItem.toUpperCase()
+						img(src='img/icon-'+ navItem +'.svg').svg

@@ -7,7 +7,6 @@
     @extend %full-width-gap;
     @extend %logo-main;
     padding-top: $size-l;
-    padding-right: 0.7rem;
     margin: 0;
 
     .inner {
@@ -17,10 +16,8 @@
     }
     .legal {
         
-        p {
-            font-size: $font-s;
-        }
         p, a {
+            font-size: $font-s;
             float: left;
             margin-right: $size-s;
         }
@@ -32,14 +29,66 @@
 
         a {
             @extend %all-caps;
-            font-size: $font-m;
-            color: $clr-darker;
             display: block;
+            color: $clr-darker;
+            font-size: $font-s;
+            margin-bottom: $size-m;
             text-decoration: none;
+            position: relative;
+            transition: color .5s ease;
+            line-height: $size-m;
+            padding-left: $size-m + $size-s;
+
+            svg {
+                width: $size-m;
+                height: $size-m;
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                overflow: visible;
+            }
+            &:hover {
+                color: $clr-link;
+            }
+        }
+        .home, .work, .news, .chat {
+            
+            &:hover svg, &:focus svg,  &:hover svg *,  &:focus svg * {
+                transform-origin: center;
+                fill: $clr-link;
+            }
+        }
+        .home {
+            
+            &:hover svg,  &:focus svg {
+                @include spin-position-left;
+            }
+        }
+        .work {
+    
+            &:hover svg .line-1, &:hover svg .line-2, &:focus svg .line-1, &:focus svg .line-2 {
+                @extend %fade-in-out;
+                transform-origin: top left;
+            }
+        }
+        .news {
+    
+            &:hover svg .line-1, &:hover svg .line-2, &:focus svg .line-1, &:focus svg .line-2 {
+                @extend %rotate-out-up;
+            }
+        }
+        .chat {
+
+            &:hover svg,  &:focus svg {
+                @include swing-position-left;
+                transform-origin: top center;
+            }
         }
     }
-    @media (max-width: 767px) {
-        padding: $size-s;
+    @media (max-width: $tablet - 1px) {
+        padding: $size-s $size-s $size-l $size-s;
         margin-left: 0;
 
         .legal {
@@ -56,8 +105,9 @@
             top: $size-s;
 
             a {
-                font-size: $font-s;
-                margin-bottom: 0;
+                font-size: $font-xs;
+                font-weight: 100;
+                margin-bottom: $size-s;
             }
         }
     }

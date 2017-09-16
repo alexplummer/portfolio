@@ -2,9 +2,6 @@
 // ============
 // Major layout rules to go here
 
-body, html {
-    width: 100vw;
-}
 section, header, body > footer, .news-article .content {
     @extend %container;
 }

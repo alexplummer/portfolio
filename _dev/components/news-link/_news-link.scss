@@ -16,12 +16,13 @@
     .active & picture {
         @extend .flipInY;
     }
-    h4, p, a {
+    h3, p, a {
         margin-left: 225px;
     }
-    h4 {
+    h3 {
         @extend %heading-mid;
         @extend %border-btm;
+        text-transform: none;
     }
     p {
         margin-bottom: $size-m;
@@ -36,7 +37,7 @@
             width: 150px;
             height: 150px;
         }
-        h4, p, a {
+        h3, p, a {
             margin-left: 175px;
         }
     }
@@ -46,10 +47,10 @@
             width: 120px;
             height: 120px;
         }
-        h4, p, a {
+        h3, p, a {
             margin-left: 145px;
         }
-        h4 {
+        h3 {
             font-size: $font-m;
             padding-bottom: $size-s;
             margin-bottom: 0;
@@ -66,10 +67,10 @@
             width: 80px;
             height: 80px;
         }
-        h4 {
+        h3 {
             padding-top: 0;
         }
-        h4, p, a {
+        h3, p, a {
             margin-left: 100px;
         }
     }

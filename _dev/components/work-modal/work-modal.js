@@ -25,11 +25,18 @@ const workModal = function workModal() {
     let modalContentHolder = modal.querySelector('.content');
     let modalScreensHolder = modal.querySelector('.screens');
 
+    // Accesibilty related
+    let keyHandle;
+    let tabHandle;
+    let disabledHandle;
+    let hiddenHandle;
+    let focusedElementBeforeDialogOpened;
+
     toggleList.forEach((thisList) => {
-        let thisToggle = thisList.querySelector('.content').getElementsByTagName('a')[0];
+        let thisToggle = thisList.querySelector('.content').querySelector('.modal-toggle');
         let thisScreens = thisList.querySelector('.screens');
         let modalContent = thisList.querySelector('.modal-content').innerHTML;
-        let modalScreens = thisScreens.innerHTML;
+        let modalScreens = thisScreens.innerHTML.replace(/data-/g,'');
 
         // Open screenshots on hover
         thisToggle.addEventListener('mouseenter', () => {
@@ -43,15 +50,51 @@ const workModal = function workModal() {
         // Open modal toggles
         thisToggle.addEventListener('click', (e) => {
             toggleModal(e);
+
+            focusedElementBeforeDialogOpened = document.activeElement;
         });
 
         thisScreens.addEventListener('click', (e) => {
             toggleModal(e);
+
+            focusedElementBeforeDialogOpened = document.activeElement;
         });
 
         function toggleModal(e) {
             e.preventDefault();
             let scrollPosition = document.body.scrollTop;
+
+            // Accessibilty related
+
+            // Set tabbale els
+            let element = ally.query.firstTabbable({
+                context: modal, 
+                defaultToContext: true,
+            });
+
+            // Disable els outside of modal
+            disabledHandle = ally.maintain.disabled({
+                filter: modal,
+            });
+
+            // Remove els outside of modal from accessibilty tree
+            hiddenHandle = ally.maintain.hidden({
+                filter: modal,
+            });
+
+            // Trap focus to modal
+            tabHandle = ally.maintain.tabFocus({
+                context: modal,
+            });
+
+            // React to enter and escape keys as mandated by ARIA Practices
+            keyHandle = ally.when.key({
+                escape: closeModal,
+            });
+
+            modal.hidden = false;
+
+            // Get content and display modal
             document.getElementsByTagName('body')[0].classList.add('modal-active');
             modalContentHolder.innerHTML = modalContent;
             modalScreensHolder.innerHTML = modalScreens;
@@ -62,11 +105,43 @@ const workModal = function workModal() {
 
             // Close modal
             modal.querySelector('.close').addEventListener('click', (e) => {
+                closeModal();
+            });
+
+            function closeModal() {
                 document.getElementsByTagName('body')[0].classList.remove('modal-active');
                 modal.style.display = "none";
                 window.scrollTo(0, scrollPosition);
                 document.body.removeAttribute('style');
-            });
+
+                // Remove any active screens
+                let allScreens = document.querySelectorAll('.screens');
+                allScreens = Array.prototype.slice.call(allScreens);
+
+                allScreens.forEach((thisScreen) => {
+                    thisScreen.classList.remove('active');
+                });
+
+                // Accessibilty related
+
+                // undo listening to keyboard
+                keyHandle.disengage();
+                
+                // undo trapping Tab key focus
+                tabHandle.disengage();
+
+                // undo hiding elements outside of the dialog
+                hiddenHandle.disengage();
+
+                // undo disabling elements outside of the dialog
+                disabledHandle.disengage();
+
+                // return focus to where it was before we opened the dialog
+                focusedElementBeforeDialogOpened.focus();
+
+                // hide or remove the dialog
+                modal.hidden = true;
+            }
         }
     });
 }

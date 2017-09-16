@@ -1,3 +1,8 @@
+
+//- Chat
+//- ============
+//- A contact page
+
 //- Extend head of document
 extends _includes/_head
 block bodyClassVar
@@ -17,36 +22,41 @@ block title
 
 block content
 
-	//- Main nav
-	+navVertical
-
 	//- Intro title	and description
 	- var heading = 'Chat'
 	- var subheading = 'Get in touch'
 	+intoWithDescription(heading, subheading)(class="chat")
 		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
 	
-	section
-		.inner
-			//- Contact form
-			+contactForm
-
-			aside
-				//- Citation
-				- var cite = 'Design and code in beautiful harmony'
-				- var author = '- Some name, author'
-				+citation(cite, author)
-
-				//- Citation
-				- var cite = 'Design and code in beautiful harmony'
-				- var author = '- Some name, author'
-				+citation(cite, author)
+	//- Main nav
+	+navVertical
 	
-	//- Links to online profiles
-	+socialPersonal
+	main(role="main" id="maincontent")
+		section
+			.inner
+				//- Contact form
+				+contactForm
+
+				aside
+					//- Citation
+					- var cite = 'Design and code in beautiful harmony'
+					- var author = '- Some name, author'
+					+citation(cite, author)
+
+					//- Citation
+					- var cite = 'Design and code in beautiful harmony'
+					- var author = '- Some name, author'
+					+citation(cite, author)
+		
+		//- Links to online profiles
+		+socialPersonal
 
 	//- Footer
 	+footer
+		script(type="application/ld+json") 
+			| [
+			include _includes/json-ld/ContactPage.html
+			| ]
 
 	//- Under document content
 	include _includes/_under

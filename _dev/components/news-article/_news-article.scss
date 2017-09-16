@@ -8,26 +8,44 @@
     margin: 0 0 $size-l 0;
 
     .content-left {
+        @extend %col-xs-12;
         @extend %col-sm-8;
 
         .details {
             @extend %border-btm;
             @extend %cf;
             margin-bottom: $size-l;
-            padding-top: $size-l;
+            padding-top: 0;
             padding-bottom: 0;
             
             .author {
                 float: left;
+                margin-bottom: $size-m;
 
                 p {
-
-                    span {
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        margin-right: $size-s;
-                    }
+                    margin: 0;
+                    padding: 0;
+                    font-size: $font-m;
+                    line-height: $font-m;
+                }
+                span {
+                    font-size: $font-m;
+                    line-height: $font-m;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin-right: $size-s;
                 } 
+                .pubdate {
+
+                    time {
+                        padding-top: 0;
+                        font-size: $font-s;
+                        text-transform: none;
+                    }
+                    span {
+                        display: none;
+                    }
+                }
             }
             .social-share {
                 float: right;
@@ -79,11 +97,17 @@
                         span {
                             display: block;
                             padding: 0;
-                            margin: 0;
+                            margin: 0 0 $size-s 0;
                         }
                     }
                 }
+                .social-share {
+                    float: none;
+                }
             }
+        }
+        .content-right {
+            display: none;
         }
     }
 }

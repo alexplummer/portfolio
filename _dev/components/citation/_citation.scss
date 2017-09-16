@@ -9,6 +9,8 @@
     padding: 0;
     margin-left: 0;
     text-align: center;
+    position: relative;
+    z-index: 2;
     
     p {
         font-family: $font-header;

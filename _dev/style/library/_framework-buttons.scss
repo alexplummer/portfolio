@@ -15,4 +15,7 @@ button, %button, %btn, input[type="submit"] {
         background: lighten($clr-link, 10%);
     }
 }
-
+// Weird normalize override
+html button {
+    font-family: $font-body;
+}

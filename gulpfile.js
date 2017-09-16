@@ -42,7 +42,7 @@ let browserReports = false;
 // ============
 // For when using FTP task, check FTP task first
 
-let ftpFolder = '/portfolio-test5';
+let ftpFolder = '/portfolio-test-15';
 
 
 // Reqs
@@ -189,16 +189,22 @@ gulp.task('html', () => {
 	
 	let output = '';
 	// Handles Pug templates
-	return gulp.src([paths.dev + '/html/*.pug', './components/*.pug'])
+	let pugCompile = gulp.src([paths.dev + '/html/*.pug', './components/*.pug'])
 		// Error handling
 		.pipe(plugins.plumber({ errorHandler: htmlError }))
 		// Pug compilation
 		.pipe(plugins.pug())
 		.pipe(plugins.htmlPrettify())
-		// HTML lint
+		.pipe(gulp.dest(paths.tmp + '/'));
+
+	// HTML lint
+	let htmlLint = gulp.src([paths.tmp + '/**/*.html'])
 		.pipe(plugins.htmlhint())
 		.pipe(plugins.htmlhint.reporter())
 		.pipe(gulp.dest(paths.tmp + '/'));
+	
+	// Return streams
+	return plugins.mergeStream(pugCompile, htmlLint);
 });
 
 
@@ -299,6 +305,7 @@ gulp.task('fontello', cb => {
 // ============
 // Moves assets over to prod from tmp
 
+// Fonts
 gulp.task('copy:fonts', () => {
 	let font = gulp.src(paths.dev + '/font/**/*')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
@@ -306,16 +313,16 @@ gulp.task('copy:fonts', () => {
 	let fontello = gulp.src(paths.dev + '/style/fontello/')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
 		.pipe(plugins.browserSync.stream());
-	// Create folder if doesn't exists 
-
 	// Return streams
 	return plugins.mergeStream(font, fontello);
 });
+// Images
 gulp.task('copy:images', () => {
 	return gulp.src(paths.dev + '/img/**/*.{png,gif,jpg}')
 		.pipe(plugins.copy(paths.tmp, { prefix: 1 }))
 		.pipe(plugins.browserSync.stream());
 });
+// Prod
 gulp.task('copy:prod', () => {
 	// HTML
 	let html = gulp.src(paths.tmp + '/usemin/*.html')
@@ -342,8 +349,11 @@ gulp.task('copy:prod', () => {
 	// HUMANS
 	let humans = gulp.src(paths.dev + '/humans.txt')
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
+	// HTACCESS
+	let htaccess = gulp.src(paths.dev + '/.htaccess.txt')
+		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// Return streams
-	return plugins.mergeStream(html, css, map, js, fonts, php, humans);
+	return plugins.mergeStream(html, css, map, js, fonts, php, humans, htaccess);
 });
 
 
@@ -539,7 +549,7 @@ gulp.task('ftpDeploy', () => {
 			parallel: 8,
 			log: plugins.util.log
 		});
-	return gulp.src(paths.prod + '/**', { base: paths.prod + '/', buffer: false })
+	return gulp.src(paths.prod + '/**/*.*', { base: paths.prod + '/', buffer: false })
 		.pipe(conn.newer(ftpFolder))
 		.pipe(conn.dest(ftpFolder));
 });
@@ -565,7 +575,13 @@ gulp.task('favicon', () => {
 gulp.task('accessibility', () => {
 	return gulp.src(paths.prod + '/*.html')
 		.pipe(plugins.accessibility({
-			force: true
+			force: true,
+			accessibilityLevel: 'WCAG2AA',
+			reportLevels: {
+				notice: false,
+				warning: false,
+				error: true
+			}
 		}))
 		.pipe(plugins.accessibility.report({ reportType: 'txt' }))
 		.pipe(plugins.rename({
@@ -761,11 +777,11 @@ gulp.task('watch:gulp', () => {
 });
 
 
-// Tasks
+// Builds
 // ============
-// List of main gulp tasks
+// List of different builds
 
-// BUILDS
+// Build to tmp
 gulp.task('build:tmp', gulpsync.sync([
 	'clean:tmp', 'create-folders', 'svg', 'js',
 	['bower-install', 'component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
@@ -775,6 +791,8 @@ gulp.task('build:tmp', gulpsync.sync([
 	'svg-inline',
 	'bower-inject'
 ]));
+
+// Offline only build to tmp
 gulp.task('build:tmp-offline', gulpsync.sync([
 	'clean:tmp', 'create-folders', 'svg', 'js',
 	['component-directories', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
@@ -784,6 +802,8 @@ gulp.task('build:tmp-offline', gulpsync.sync([
 	'svg-inline',
 	'bower-inject'
 ]));
+
+// Build to prod
 gulp.task('build:prod', gulpsync.sync([
 	'usemin',
 	'copy:prod',
@@ -792,14 +812,23 @@ gulp.task('build:prod', gulpsync.sync([
 	'optimise'
 ]));
 
-// OPTIMISING TASKS
+
+// Optimising tasks
+// ============
+// Optional optimising tasks
+
 gulp.task('optimise', gulpsync.sync([
 	//'uncss',
 	'critical',
 	'htmlmin',
 ]));
 
-// TASKS
+
+// Tasks
+// ============
+// Main Gulp tasks
+
+// Default Gulp
 gulp.task('default', gulpsync.sync([
 	'build:tmp',
 	'connect',
@@ -807,6 +836,8 @@ gulp.task('default', gulpsync.sync([
 ]), () => {
 	console.log('(Watching)');
 });
+
+// Gulp when offline
 gulp.task('offline', gulpsync.sync([
 	'build:tmp-offline',
 	'connect',
@@ -814,20 +845,28 @@ gulp.task('offline', gulpsync.sync([
 ]), () => {
 	console.log('(Watching)');
 });
+
+// Builds prod out
 gulp.task('prod', gulpsync.sync([
 	'build:tmp',
 	'clean:prod',
 	'build:prod'
 ]));
+
+// Builds then deploys via FTP
 gulp.task('deploy', gulpsync.sync([
 	'prod',
 	'ftpDeploy'
 ]));
+
+// Cleans report folders
 gulp.task('clean-reports', gulpsync.async([
 	'clean:report',
 	'clean:jsreports',
 	'clean:cssreports'
 ]));
+
+// Runs PSI tests
 gulp.task('psi', gulpsync.sync([
 	'prod',
 	'ngrok-server',
@@ -836,15 +875,21 @@ gulp.task('psi', gulpsync.sync([
 	'psi-mobile',
 	'gulp-stop'
 ]));
+
+// Local to external tunnel
 gulp.task('ngrok', gulpsync.sync([
 	'prod',
 	'ngrok-server',
 	'ngrok-url'
 ]));
+
+// Generate further reports
 gulp.task('report', gulpsync.sync([
 	'prod',
 	'accessibility'
 ]));
+
+// Couch CMS tasks
 gulp.task('couch', gulpsync.sync([
 	'phpext',
 	'couchIncludes',

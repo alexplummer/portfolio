@@ -1,4 +1,11 @@
+
+//- Document head
+//- ============
+//- The heading for all pages
+
+//- Includes
 include ../_vars/_global-vars
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +23,7 @@ include ../_vars/_global-vars
 	<meta name="description" content="#{siteDescription}">
 	<meta property="article:author" content="#{siteAuthor}">
 	<meta name="robots" content="index, follow">
+	<meta name="theme-color" content="#{brand}">
 	<meta property="fb:app_id" content="123456789">
 	<meta property="og:url" content="#{siteURL}">
 	<meta property="og:type" content="website">
@@ -44,4 +52,4 @@ include ../_vars/_global-vars
 	</head>
 block bodyClassVar
 body(class=(bodyClass || ""))
-block content
+	block content

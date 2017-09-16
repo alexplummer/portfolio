@@ -7,6 +7,7 @@
     position: relative;
     top: -20px;
     margin-bottom: 300px;
+    z-index: 1;
     
     &:before {
         @extend %bg-geometry;
@@ -86,6 +87,9 @@
                 @extend %fade-in-slight;
             }
         }
+        *:focus {
+            outline: 2px solid $clr-primary;
+        }
         .close {
             @extend .icon;
             @extend .icon-cancel-circled2;
@@ -98,10 +102,16 @@
             font-size: 60px;
             text-align: center;
             z-index: $z-m + 3;
+            border: 0;
 
             &:before {
                 border-radius: 50%;
                 background: #fff;
+            }
+            &:hover, &:focus {
+                background: none;
+                border: 0;
+                color: $clr-link-hover;
             }
         }
         .content {
@@ -256,14 +266,23 @@
                         font-size: $font-m;
                         text-decoration: none;
                         padding: 0 $size-xs;
+                        text-align: center;
 
                         picture {
                             @extend .animated;
                             @extend .flipOutY;
                             @extend %img-round;
+                            display: inline-block;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            margin-bottom: 0;
                         }
                         .modal-content {
                             display: none;
+                        }
+                        p {
+                            padding-top: 0;
+                            display: block;
                         }
                     }
                 }
@@ -624,6 +643,24 @@
                     bottom: -$size-l;
                     left: 50%;
                     transform: translateX(-50%);
+                }
+            }
+        }
+    }
+    @media (max-width: 600px) {
+
+        .slider {
+
+            .items-holder {
+
+                .items-left, .items-right {
+
+                    ul {
+                        
+                        li {
+                            @include flex(0 0 50%);
+                        }
+                    }
                 }
             }
         }

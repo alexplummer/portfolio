@@ -14,13 +14,17 @@
     &:before {
         @extend %bg-geometry;
         transform: rotate(8deg);
-        z-index: -1;
-    }   
+        z-index: 1;
+    }          
+    input, textarea, label {
+        position: relative;
+        z-index: 2;
+    }
     @media (max-width: $tablet - 1px) {
         
         // Chat page
         .chat & {
-            
+
             input, textarea {
                 width: 100%;
             }

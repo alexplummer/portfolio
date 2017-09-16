@@ -8,9 +8,10 @@
     margin: $size-l;
     padding: 0;
     max-width: 100%;
+    width: 100%;
 
     &:before {
-        width: calc(100vw - 6.7rem);
+        width: calc(100vw - 7.15rem);
         height: 100%;
         background: $clr-light;
     }
@@ -18,7 +19,7 @@
         @extend %pseudo;
         position: relative;
         margin: 0 $size-l 0 0;
-        padding-right: $size-l;
+        padding-right: $size-xl;
 
         &:before {
             width: calc(100% - #{$size-l});
@@ -26,6 +27,7 @@
             background: url(../img/bg-trapezium.svg) bottom no-repeat;
             background-size: contain;
             opacity: 0.9;
+            z-index: $z-m;
         }
         &:after {       
             top: calc(100% - 16rem);
@@ -43,17 +45,19 @@
 
         img {
             width: 100%;
-            margin: 0;
+            margin: 0 0 -4px 0;
         }
     }
     h1 {
         @extend %col-xs-12;
         position: absolute;
         bottom: $size-m;
+        left: 0;
         text-transform: uppercase;
         font-weight: 100;
         width: 50%;
         margin: 0;
+        z-index: $z-m + 1;
     }
     @media (max-width: $breakpoint-1) {
 
@@ -99,6 +103,7 @@
         .inner {
             
             h1 {
+                font-size: $font-m;
                 bottom: $size-s;
             }
         }

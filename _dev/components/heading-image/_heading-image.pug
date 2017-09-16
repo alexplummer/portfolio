@@ -4,8 +4,8 @@
 //- A header with a background image
 
 mixin headingImage(heading)
-	header.heading-image
+	header.heading-image(role="banner")
 		.inner
 			picture
-				img(src!=attributes.src)
+				img(src!=attributes.src alt="some alt text")
 			h1= heading

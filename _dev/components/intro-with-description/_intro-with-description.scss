@@ -19,13 +19,11 @@
         left: 3rem;
         top: 3rem;
         background: $clr-light;
-        z-index: -2;
     }
     &:after {
         background: url(../img/shape-splat.svg);
         width: 1070px;
         height: 814px;
-        z-index: -2;
         left: auto;
         top: auto;
         right: -600px;

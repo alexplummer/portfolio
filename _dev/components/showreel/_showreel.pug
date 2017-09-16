@@ -6,14 +6,14 @@
 mixin showreel()
 	section.showreel
 
-		article.project-modal.modal-inactive
-			a.close
+		article.project-modal.modal-inactive(tabindex="-1" role="dialog" hidden)
+			button.close(title="Close the dialog")
 			.screenshots
 				.desktop
-					img(src="img/device-desktop.svg")
+					img(src="img/device-desktop.svg"  aria-hidden="true" role="presentation")
 					.screens
 				.mobile
-					img(src="img/device-mobile.svg")
+					img(src="img/device-mobile.svg"  aria-hidden="true" role="presentation")
 					.screens
 			.content
 			
@@ -35,19 +35,19 @@ mixin showreel()
 				.items-left.active
 					ul
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Left
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Left
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -55,19 +55,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Left
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Left
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -76,19 +76,19 @@ mixin showreel()
 
 						
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Left
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Left
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -96,19 +96,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Left
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Left
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -116,19 +116,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Left
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Left
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -139,19 +139,19 @@ mixin showreel()
 				.items-right.inactive
 					ul
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Right
+							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Right
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -159,19 +159,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Right
+							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Right
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -179,19 +179,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Right
+							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Right
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -199,19 +199,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Right
+							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Right
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -219,19 +219,19 @@ mixin showreel()
 									a(href="#") View more
 
 						li
-							picture
-								img(src="img/media/screen-euromoney.jpg")
-							| Right
+							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
+								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+							p Right
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg")
-										img(src="img/media/screen-euromoney-2.jpg")
+										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg")
-										img(src="img/media/screen-mobile-euromoney-2.jpg")
+										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
+										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
 								.content
 									h3 Title
 									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
@@ -240,8 +240,9 @@ mixin showreel()
 
 
 			a(href="#").toggle-left.active 
-				img(src="img/icon-design.svg").svg.btn-icon
+				img(src="img/icon-design.svg"  aria-hidden="true" role="presentation").svg.btn-icon
 				| Design
+			
 			a(href="#").toggle-right
-				img(src="img/icon-code-browser.svg").svg.btn-icon.two
+				img(src="img/icon-code-browser.svg"  aria-hidden="true" role="presentation").svg.btn-icon.two
 				| Code

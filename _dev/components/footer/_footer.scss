@@ -10,21 +10,33 @@
     margin: 0;
 
     .inner {
+        @include flexbox;
+        @include justify-content(space-between);
         margin-left: 0;
         margin-right: 0;
         position: relative;
     }
     .legal {
-        
+
+        ul, li, p, a {
+            float: left;
+            vertical-align: baseline;
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+
+            li {
+                margin-left: $size-s;
+            }
+        }
         p, a {
             font-size: $font-s;
-            float: left;
-            margin-right: $size-s;
         }
     }
     nav {
-        position: absolute;
-        right: 0;
+        @include align-self(end);
         text-align: right;
 
         a {
@@ -44,6 +56,7 @@
                 height: $size-m;
                 display: inline-block;
                 position: absolute;
+                top: 14px;
                 left: 0;
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
@@ -88,17 +101,23 @@
         }
     }
     @media (max-width: $tablet - 1px) {
-        padding: $size-s $size-s $size-l $size-s;
+        padding: $size-s;
         margin-left: 0;
 
         .legal {
-        
+            
+            h2 {
+                padding-top: 0;
+            }
             p, a {
                 font-size: $font-xs;
                 display: block;
                 float: none;
                 margin-bottom: 0;
                 padding-top: 0;
+            }
+            ul li {
+                margin: 0 $size-s 0 0;
             }
         }
         nav {

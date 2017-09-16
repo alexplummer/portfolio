@@ -149,17 +149,58 @@ var app = function () {
 
             if (title.className.indexOf('right') > -1) {
                 title.innerHTML = "SOME OF THE TECHY STUFF";
+
+                // Set tabindex for left
+                var leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
+                var rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+
+                leftItems = Array.prototype.slice.call(leftItems);
+                rightItems = Array.prototype.slice.call(rightItems);
+
+                // Set tabindex for left
+                leftItems.forEach(function (thisItem) {
+                    thisItem.tabIndex = "-1";
+                });
+
+                // Set tabindex for right
+                rightItems.forEach(function (thisItem) {
+                    thisItem.tabIndex = "0";
+                });
             } else {
                 title.innerHTML = "SOME OF THE PRETTY STUFF";
+
+                // Set tabindex for left
+                var _leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
+                var _rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+
+                _leftItems = Array.prototype.slice.call(_leftItems);
+                _rightItems = Array.prototype.slice.call(_rightItems);
+
+                // Set tabindex for left
+                _leftItems.forEach(function (thisItem) {
+                    thisItem.tabIndex = "0";
+                });
+
+                // Set tabindex for right
+                _rightItems.forEach(function (thisItem) {
+                    thisItem.tabIndex = "-1";
+                });
             }
         }
     };
 
     // Open and close previews
     var openPreview = function openPreview() {
+        var modal = document.querySelector('.project-modal');
         var itemsHolder = document.querySelector('.items-holder');
         var items = itemsHolder.querySelectorAll('li');
-        var modal = document.querySelector('.project-modal');
+
+        // Accesibilty related
+        var keyHandle = void 0;
+        var tabHandle = void 0;
+        var disabledHandle = void 0;
+        var hiddenHandle = void 0;
+        var focusedElementBeforeDialogOpened = void 0;
 
         items.forEach(function (thisItem) {
             thisItem.addEventListener('click', function (e) {
@@ -170,10 +211,42 @@ var app = function () {
                 var textContent = thisItem.querySelector('.content').innerHTML;
                 var theBody = document.getElementsByTagName('body')[0];
 
+                focusedElementBeforeDialogOpened = document.activeElement;
+
                 // Show modal
                 theBody.classList.add('modal-active');
                 modal.classList.add('active');
                 document.body.style.top = scrollPosition * -1 + "px";
+
+                // Accessibilty related
+
+                // Set tabbale els
+                var element = ally.query.firstTabbable({
+                    context: modal,
+                    defaultToContext: true
+                });
+
+                // Disable els outside of modal
+                disabledHandle = ally.maintain.disabled({
+                    filter: modal
+                });
+
+                // Remove els outside of modal from accessibilty tree
+                hiddenHandle = ally.maintain.hidden({
+                    filter: modal
+                });
+
+                // Trap focus to modal
+                tabHandle = ally.maintain.tabFocus({
+                    context: modal
+                });
+
+                // React to enter and escape keys as mandated by ARIA Practices
+                keyHandle = ally.when.key({
+                    escape: closeModal
+                });
+
+                modal.hidden = false;
 
                 // Add content
                 modal.querySelector('.desktop').querySelector('.screens').innerHTML = screensDesktop;
@@ -181,16 +254,41 @@ var app = function () {
                 modal.querySelector('.content').innerHTML = textContent;
                 document.querySelector('.items-holder').classList.add('slide-in');
 
+                // Close modal
                 modal.addEventListener('click', function (e) {
                     e.preventDefault();
 
                     if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
-                        theBody.classList.remove('modal-active');
-                        window.scrollTo(0, scrollPosition);
-                        modal.classList.remove('active');
-                        document.body.removeAttribute('style');
+                        closeModal();
                     }
                 });
+
+                function closeModal() {
+                    theBody.classList.remove('modal-active');
+                    window.scrollTo(0, scrollPosition);
+                    modal.classList.remove('active');
+                    document.body.removeAttribute('style');
+
+                    // Accessibilty related
+
+                    // undo listening to keyboard
+                    keyHandle.disengage();
+
+                    // undo trapping Tab key focus
+                    tabHandle.disengage();
+
+                    // undo hiding elements outside of the dialog
+                    hiddenHandle.disengage();
+
+                    // undo disabling elements outside of the dialog
+                    disabledHandle.disengage();
+
+                    // return focus to where it was before we opened the dialog
+                    focusedElementBeforeDialogOpened.focus();
+
+                    // hide or remove the dialog
+                    modal.hidden = true;
+                }
             });
         });
     };
@@ -350,11 +448,18 @@ var app = function () {
         var modalContentHolder = modal.querySelector('.content');
         var modalScreensHolder = modal.querySelector('.screens');
 
+        // Accesibilty related
+        var keyHandle = void 0;
+        var tabHandle = void 0;
+        var disabledHandle = void 0;
+        var hiddenHandle = void 0;
+        var focusedElementBeforeDialogOpened = void 0;
+
         toggleList.forEach(function (thisList) {
-            var thisToggle = thisList.querySelector('.content').getElementsByTagName('a')[0];
+            var thisToggle = thisList.querySelector('.content').querySelector('.modal-toggle');
             var thisScreens = thisList.querySelector('.screens');
             var modalContent = thisList.querySelector('.modal-content').innerHTML;
-            var modalScreens = thisScreens.innerHTML;
+            var modalScreens = thisScreens.innerHTML.replace(/data-/g, '');
 
             // Open screenshots on hover
             thisToggle.addEventListener('mouseenter', function () {
@@ -368,15 +473,51 @@ var app = function () {
             // Open modal toggles
             thisToggle.addEventListener('click', function (e) {
                 toggleModal(e);
+
+                focusedElementBeforeDialogOpened = document.activeElement;
             });
 
             thisScreens.addEventListener('click', function (e) {
                 toggleModal(e);
+
+                focusedElementBeforeDialogOpened = document.activeElement;
             });
 
             function toggleModal(e) {
                 e.preventDefault();
                 var scrollPosition = document.body.scrollTop;
+
+                // Accessibilty related
+
+                // Set tabbale els
+                var element = ally.query.firstTabbable({
+                    context: modal,
+                    defaultToContext: true
+                });
+
+                // Disable els outside of modal
+                disabledHandle = ally.maintain.disabled({
+                    filter: modal
+                });
+
+                // Remove els outside of modal from accessibilty tree
+                hiddenHandle = ally.maintain.hidden({
+                    filter: modal
+                });
+
+                // Trap focus to modal
+                tabHandle = ally.maintain.tabFocus({
+                    context: modal
+                });
+
+                // React to enter and escape keys as mandated by ARIA Practices
+                keyHandle = ally.when.key({
+                    escape: closeModal
+                });
+
+                modal.hidden = false;
+
+                // Get content and display modal
                 document.getElementsByTagName('body')[0].classList.add('modal-active');
                 modalContentHolder.innerHTML = modalContent;
                 modalScreensHolder.innerHTML = modalScreens;
@@ -387,11 +528,43 @@ var app = function () {
 
                 // Close modal
                 modal.querySelector('.close').addEventListener('click', function (e) {
+                    closeModal();
+                });
+
+                function closeModal() {
                     document.getElementsByTagName('body')[0].classList.remove('modal-active');
                     modal.style.display = "none";
                     window.scrollTo(0, scrollPosition);
                     document.body.removeAttribute('style');
-                });
+
+                    // Remove any active screens
+                    var allScreens = document.querySelectorAll('.screens');
+                    allScreens = Array.prototype.slice.call(allScreens);
+
+                    allScreens.forEach(function (thisScreen) {
+                        thisScreen.classList.remove('active');
+                    });
+
+                    // Accessibilty related
+
+                    // undo listening to keyboard
+                    keyHandle.disengage();
+
+                    // undo trapping Tab key focus
+                    tabHandle.disengage();
+
+                    // undo hiding elements outside of the dialog
+                    hiddenHandle.disengage();
+
+                    // undo disabling elements outside of the dialog
+                    disabledHandle.disengage();
+
+                    // return focus to where it was before we opened the dialog
+                    focusedElementBeforeDialogOpened.focus();
+
+                    // hide or remove the dialog
+                    modal.hidden = true;
+                }
             }
         });
     };
@@ -476,6 +649,9 @@ var app = function () {
     // Imports
     // Global object
     var globals$1 = globals$1 || {};
+
+    // Run App fns on start
+    var lazyload = new LazyLoad();
 
     // Run App fns on ready
     onReady(function () {

@@ -1,3 +1,8 @@
+
+//- Work
+//- ============
+//- Main showcase of work
+
 //- Extend head of document
 extends _includes/_head
 block bodyClassVar
@@ -16,9 +21,6 @@ block title
 
 block content
 
-	//- Main nav
-	+navVertical
-
 	//- Intro title	and description
 	- var heading = 'Work'
 	- var subheading = 'A selection of my work'
@@ -26,14 +28,22 @@ block content
 		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
 		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
 	
-	//- Work modal
-	+workModal
+	//- Main nav
+	+navVertical
 
-	//- Showcase of work
-	+workShowcase
+	main(role="main" id="maincontent")
+		//- Work modal
+		+workModal
+
+		//- Showcase of work
+		+workShowcase
 
 	//- Footer
 	+footer
+	script(type="application/ld+json") 
+		| [
+		include _includes/json-ld/CollectionPage.html
+		| ]
 
 	//- Under document content
 	include _includes/_under

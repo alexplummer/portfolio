@@ -16,12 +16,14 @@ import { newsEntrance } from '../components/news-highlights/news-highlights';
 import { relatedNewsEntrance } from '../components/related-news/related-news';
 import { workModal } from '../components/work-modal/work-modal';
 
-
 // Exports
 export default globals;
 
 // Global object
 let globals = globals || {};
+
+// Run App fns on start
+let lazyload = new LazyLoad();
 
 // Run App fns on ready
 onReady(() => {

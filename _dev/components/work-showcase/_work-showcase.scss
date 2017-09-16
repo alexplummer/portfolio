@@ -11,6 +11,7 @@
         background: darken($clr-primary, 6%);
         border-radius: 10px;
         overflow: hidden;
+        z-index: 6;
 
         h3 {
             @include align-self(center);
@@ -61,13 +62,13 @@
             background: $clr-primary;
             border-top: $clr-hlight $size-m solid;
             border-bottom: $clr-hlight $size-m solid;
-            z-index: -1;
+            z-index: 5;
         }
         &:after {
             background: url(../img/shape-splat.svg);
             width: 1070px;
             height: 814px;
-            z-index: -2;
+            z-index: 4;
             left: -700px;
             top: auto;
             bottom: -350px;
@@ -105,7 +106,7 @@
             background: $clr-light;
             top: -830px;
             height: calc(100% + 950px);
-            z-index: -3;
+            z-index: 1;
         }
     }
     @media (max-width: $tablet - 1px) {
@@ -158,6 +159,7 @@
             }
         }
         &.print {
+            z-index: 3;
             border-bottom: $size-l #fff solid;
         }
     }

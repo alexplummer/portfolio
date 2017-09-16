@@ -200,7 +200,13 @@
         font-size: 60px;
         text-align: center;
         z-index: $z-m + 3;
+        border: 0;
 
+        &:hover, &:focus {
+            background: none;
+            border: 0;
+            color: $clr-link-hover;
+        }
         &:before {
             border-radius: 50%;
             background: #fff;

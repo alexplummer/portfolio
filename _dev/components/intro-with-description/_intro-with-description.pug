@@ -4,12 +4,12 @@
 //- Intro with description text
 
 mixin intoWithDescription(heading, subheading)
-	header.intro-with-description
+	header.intro-with-description(role="banner")
 		.inner
 			.lined-heading.no-under
 				h1(class!=attributes.class)= heading
-					img(src="img/icon-" + heading.toLowerCase() + ".svg").svg
-				img(src="img/bg-ovals-header.svg").header-bg-under
+					img(src="img/icon-" + heading.toLowerCase() + ".svg"  aria-hidden="true" role="presentation").svg
+				img(src="img/bg-ovals-header.svg"  aria-hidden="true" role="presentation").header-bg-under
 			article
 				h2= subheading
 				block

@@ -4,12 +4,12 @@
 //- Intro without any description text
 
 mixin introNoDescription(heading)
-	header.intro-no-description
+	header.intro-no-description(role="banner")
 		.inner
 			.splash-heading
 				h1.logo-main!= heading
-				img.svg.shape-splat-oval(src="img/shape-splat-oval.svg")
-				img.svg.shape-splat(src="img/shape-splat.svg")
-				img.svg.shape-splat-drip(src="img/shape-splat-drip.svg")
+				img.svg.shape-splat-oval(src="img/shape-splat-oval.svg" aria-hidden="true" role="presentation")
+				img.svg.shape-splat(src="img/shape-splat.svg" aria-hidden="true" role="presentation")
+				img.svg.shape-splat-drip(src="img/shape-splat-drip.svg" aria-hidden="true" role="presentation")
 			.lined-heading
 				block

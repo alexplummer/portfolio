@@ -5,10 +5,11 @@
 
 mixin contactForm()
 	form(action="post").contact-form
-		label Name
-		input(type="text" placeholder="Enter name here")
-		label Email
-		input(type="email" placeholder="Enter email here")
-		label Message
-		textarea(placeholder="Enter message here")
-		input(type="submit" value="Send")
+		.form-contents
+			label(for="name") Full Name
+			input(type="text" placeholder="Enter name here" id="name")
+			label(for="email") Email
+			input(type="email" placeholder="Enter email here" id="email")
+			label(for="message") Message
+			textarea(placeholder="Enter message here" id="message")
+			input(type="submit" value="Send")

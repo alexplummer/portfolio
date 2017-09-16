@@ -4,13 +4,13 @@
 //- (Write description here)
 
 mixin workModal()
-	article.work-modal.modal-inactive
-		a.close 
+	article.work-modal.modal-inactive(tabindex="-1" role="dialog" hidden)
+		button.close(title="Close the dialog")
 		.inner
 			.content
 				
 			.screenshots
-				img(src="img/device-desktop-straight.svg").svg
+				img(src="img/device-desktop-straight.svg"  aria-hidden="true" role="presentation").svg
 
 				.screens
 				

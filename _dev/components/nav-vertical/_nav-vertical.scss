@@ -3,7 +3,7 @@
 // Vertical nav for top of page
 
 .nav-vertical {
-    position: relative;
+    position: absolute;
     z-index: $z-l;
     top: $size-l + $size-l;
     left: 100%;
@@ -26,6 +26,18 @@
         }
         span {
             padding-top: 0;
+        }
+    }
+    .skip-main {
+        position: absolute;
+        top: -$size-xl * 3;
+        right: calc(100vw - #{$size-l});
+        margin: 0;
+        width: 200px;
+        transition: all ease .3s;
+
+        &:focus {
+            top: -$size-xl;
         }
     }
     .nav-inner {
@@ -190,6 +202,9 @@
         opacity: 1;
         pointer-events: auto;
 
+        .skip-main {
+            display: none;
+        }
         a {
             @extend .animated;
             @extend .bounceInUp;

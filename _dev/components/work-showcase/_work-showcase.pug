@@ -7,6 +7,12 @@
 include ../work-entry/_work-entry
 
 mixin workShowcase()
+
+	//- CMS config
+	<cms:editable name="group_work_digital" label="Work digital" desc="Digital work entries" type="group"></cms:editable>
+	<cms:editable name="group_work_print" label="Work print" desc="Print work entries" type="group"></cms:editable>
+	<cms:editable name="group_work_branding" label="Work branding" desc="Branding work entries" type="group"></cms:editable>
+
 	section.work-showcase.digital
 		.inner
 			.main-heading
@@ -18,165 +24,54 @@ mixin workShowcase()
 				p 
 					img(src="img/icon-code-browser.svg"  aria-hidden="true" role="presentation")
 					| Code
-
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="left design code")
-			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
-				
-			.screens
-				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
-				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
-
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="right code")
-			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
-				
-			.screens
-				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
-				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
 		
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="left design")
+		//- Work entry digital CMS repeat tags
+		<cms:repeatable name="work_entry_digital" label="Work entry item digital" desc="A right item in the showreel" group="group_work_digital">
+			<cms:editable name="work_entry_digital_title" label="Digital title" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_description" label="Digital description" input_width="600" col_width="600" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_orientation" label="Digital orientataion" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_skills" label="Digital skills" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_content" label="Digital content" input_width="600" col_width="600" type="richtext"></cms:editable>
+			<cms:editable name="work_entry_digital_image_1" label="Digital image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_digital_image_1_alt" label="Digital image 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_1_color_1" label="Digital image 1 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_1_color_2" label="Digital image 1 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_2" label="Digital image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_digital_image_2_alt" label="Digital image 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_2_color_1" label="Digital image 2 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_2_color_2" label="Digital image 2 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_3" label="Digital image 3" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_digital_image_3_alt" label="Digital image 3 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_3_color_1" label="Digital image 3 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_image_3_color_2" label="Digital image 3 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+		</cms:repeatable>
+
+		//- Work entry digital
+		<cms:show_repeatable "work_entry_digital">
+		- var heading = '<cms:show work_entry_digital_title "/>"'
+		- var description = '<cms:show work_entry_digital_description "/>"'
+		+workEntry(heading, description)(class="<cms:show work_entry_digital_orientation /> <cms:show work_entry_digital_skills />")
 			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
+				<cms:show work_entry_digital_content "/>"
 				
 			.screens
 				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_digital_image_1_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_digital_image_1_color_2 />")
+					img(data-src="<cms:show work_entry_digital_image_1 />" alt="<cms:show work_entry_digital_image_1_alt />")
+				<cms:if "<cms:not_empty work_entry_digital_image_2 />" >
 				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_digital_image_2_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_digital_image_2_color_2 />")
+					img(data-src="<cms:show work_entry_digital_image_2 />" alt="<cms:show work_entry_digital_image_2_alt />")
+				</cms:if>
+				<cms:if "<cms:not_empty work_entry_digital_image_3 />" >
 				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_digital_image_3_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_digital_image_3_color_2 />")
+					img(data-src="<cms:show work_entry_digital_image_3 />" alt="<cms:show work_entry_digital_image_3_alt />")
+				</cms:if>
+		</cms:show_repeatable>
 
 	section.work-showcase.print
 		.inner
@@ -185,111 +80,55 @@ mixin workShowcase()
 					| Print
 				img(src="img/icon-work-print.svg"  aria-hidden="true" role="presentation")
 				
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="left")
+		//- Work entry print CMS repeat tags
+		<cms:repeatable name="work_entry_print" label="Work entry item print" desc="A right item in the showreel" group="group_work_print">
+			<cms:editable name="work_entry_print_title" label="print title" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_description" label="print description" input_width="600" col_width="600" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_orientation" label="print orientataion" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_skills" label="Digital skills" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_content" label="print content" input_width="600" col_width="600" type="richtext"></cms:editable>
+			<cms:editable name="work_entry_print_image_1" label="print image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_print_image_1_alt" label="print image 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_1_color_1" label="print image 1 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_1_color_2" label="print image 1 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_2" label="print image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_print_image_2_alt" label="print image 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_2_color_1" label="print image 2 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_2_color_2" label="print image 2 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_3" label="print image 3" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_print_image_3_alt" label="print image 3 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_3_color_1" label="print image 3 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_print_image_3_color_2" label="print image 3 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+		</cms:repeatable>
+
+		//- Work entry print
+		<cms:show_repeatable "work_entry_print">
+		- var heading = '<cms:show work_entry_print_title "/>"'
+		- var description = '<cms:show work_entry_print_description "/>"'
+		+workEntry(heading, description)(class="<cms:show work_entry_print_orientation /> <cms:show work_entry_digital_skills />")
 			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
+				<cms:show work_entry_print_content "/>"
 				
 			.screens
 				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_print_image_1_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_print_image_1_color_2 />")
+					img(data-src="<cms:show work_entry_print_image_1 />" alt="<cms:show work_entry_print_image_1_alt />")
+				<cms:if "<cms:not_empty work_entry_print_image_2 />" >
 				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_print_image_2_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_print_image_2_color_2 />")
+					img(data-src="<cms:show work_entry_print_image_2 />" alt="<cms:show work_entry_print_image_2_alt />")
+				</cms:if>
+				<cms:if "<cms:not_empty work_entry_print_image_3 />" >
 				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_print_image_3_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_print_image_3_color_2 />")
+					img(data-src="<cms:show work_entry_print_image_3 />" alt="<cms:show work_entry_print_image_3_alt />")
+				</cms:if>
+		</cms:show_repeatable>
 
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="right")
-			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
 
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
-				
-			.screens
-				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
-				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
 
 	section.work-showcase.branding
 		.inner
@@ -298,108 +137,51 @@ mixin workShowcase()
 					| Branding
 				img(src="img/icon-work-branding.svg"  aria-hidden="true" role="presentation")
 				
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="left")
+		//- Work entry branding CMS repeat tags
+		<cms:repeatable name="work_entry_branding" label="Work entry item branding" desc="A right item in the showreel" group="group_work_branding">
+			<cms:editable name="work_entry_branding_title" label="branding title" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_description" label="branding description" input_width="600" col_width="600" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_orientation" label="branding orientataion" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_digital_skills" label="Digital skills" input_width="200" col_width="200" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_content" label="branding content" input_width="600" col_width="600" type="richtext"></cms:editable>
+			<cms:editable name="work_entry_branding_image_1" label="branding image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_branding_image_1_alt" label="branding image 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_1_color_1" label="branding image 1 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_1_color_2" label="branding image 1 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_2" label="branding image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_branding_image_2_alt" label="branding image 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_2_color_1" label="branding image 2 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_2_color_2" label="branding image 2 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_3" label="branding image 3" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+			<cms:editable name="work_entry_branding_image_3_alt" label="branding image 3 alt" input_width="200" col_width="230" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_3_color_1" label="branding image 3 color 1" input_width="100" col_width="110" type="text"></cms:editable>
+			<cms:editable name="work_entry_branding_image_3_color_2" label="branding image 3 color 2" input_width="100" col_width="110" type="text"></cms:editable>
+		</cms:repeatable>
+
+		//- Work entry branding
+		<cms:show_repeatable "work_entry_branding">
+		- var heading = '<cms:show work_entry_branding_title "/>"'
+		- var description = '<cms:show work_entry_branding_description "/>"'
+		+workEntry(heading, description)(class="<cms:show work_entry_branding_orientation /> <cms:show work_entry_digital_skills />")
 			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
+				<cms:show work_entry_branding_content "/>"
 				
 			.screens
 				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
-				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
-
-		//- Work entry
-		- var heading = 'Euromoney PLC'
-		- var description = 'Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.'
-		+workEntry(heading, description)(class="right")
-			.modal-content
-				h2 Tiny Terms
-				h3.icon-list-bullet Overview
-				p Tiny Terms is an edducational app I worked on in my spare time, it provides a way to learn a subject using cards which contain useful information about a specific term. Users can upload their own lists, customise cards using colours and symbols as well as use built in integration with Wikipedia and Glosbe translations to take learning to a high level. This was a solo project and has found success on the Google Play store and as a web app.
-
-				h3.icon-users Roles
-				ul
-					li Design and concept
-					li Development
-					li Marketing and release management
-
-				h3.icon-calendar Length of project
-				p 8 months
-
-				h3.icon-code Tech stack
-				ul
-					li Pure ES6, Pug, SCSS
-					li Gulp, Babel, Rollup
-					li Cordova
-
-				h3.icon-folder-open-empty Libraries
-				ul
-					li Tabletop
-					li localForage
-
-				h3.icon-star Key project features
-				ul
-					li Solo project, from concept through to release
-					li Lightweight, responsive SPA 
-					li Focus on UX and highly effective study techniques
-
-				h3.icon-link Visit the site
-				a(href="#") https://play.google.com/store/apps/details?id=com.phonegap.tinyterms
-				a(href="#") https://github.com/alexplummer/language-app 
+					span.side-left(style="background: <cms:show work_entry_branding_image_1_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_branding_image_1_color_2 />")
+					img(data-src="<cms:show work_entry_branding_image_1 />" alt="<cms:show work_entry_branding_image_1_alt />")
 				
-			.screens
-				.screen-1
-					span.side-left(style="background: #132636")
-					span.side-right(style="background: #132636")
-					img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
+				<cms:if "<cms:not_empty work_entry_branding_image_2 />" >
 				.screen-2
-					span.side-left(style="background: #053554")
-					span.side-right(style="background: #053554")
-					img(data-src="img/media/screen-euromoney-2.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_branding_image_2_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_branding_image_2_color_2 />")
+					img(data-src="<cms:show work_entry_branding_image_2 />" alt="<cms:show work_entry_branding_image_2_alt />")
+				</cms:if>
+				<cms:if "<cms:not_empty work_entry_branding_image_3 />" >
 				.screen-3
-					span.side-left(style="background: #F1F3F4")
-					span.side-right(style="background: #DDDDDD")
-					img(data-src="img/media/screen-euromoney-3.jpg" alt="Some alt text")
+					span.side-left(style="background: <cms:show work_entry_branding_image_3_color_1 />")
+					span.side-right(style="background: <cms:show work_entry_branding_image_3_color_2 />")
+					img(data-src="<cms:show work_entry_branding_image_3 />" alt="<cms:show work_entry_branding_image_3_alt />")
+				</cms:if>
+		</cms:show_repeatable>

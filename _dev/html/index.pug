@@ -5,7 +5,9 @@
 
 //- Extend head of document
 extends _includes/_head
-block bodyClassVar
+
+//- Page vars
+block pageVars
 	- var bodyClass = 'home'
 
 //- Includes
@@ -18,12 +20,13 @@ include ../components/list-info/_list-info
 include ../components/news-highlights/_news-highlights
 include ../components/footer/_footer
 
-//- Page title
-block title
-	title Home | Alex Plummer Portfolio
-
 //- Page content
 block content
+
+	//- CMS config
+	<cms:template title="Home"></cms:template>
+	<cms:editable name='group_heading_splash_1' label='Heading Splash' desc='Heading with a splash' type='group'></cms:editable>
+	<cms:editable name='group_heading_splash_2' label='Heading Splash' desc='Heading with a splash' type='group'></cms:editable>
 
 	//- Intro title	
 	- var heading = '<span>Alex</span> Plummer'
@@ -41,11 +44,13 @@ block content
 		+showreel
 
 		//- Heading splash
-		+headingSplash()(alignment= 'left' id='first-splash')
+		+headingSplash()(alignment='left' id='first-splash')
+			<cms:editable name='heading_splash_1' label='Heading splash text' desc='Text for heading splash skills' group='group_heading_splash_1' type='text'>
 			h2
 				span.first Main
 				| skill
 				span.last set
+			</cms:editable>
 
 		//- Skills list
 		+listSkills
@@ -55,9 +60,11 @@ block content
 
 		//- Heading splash
 		+headingSplash()(alignment= 'right' id='second-splash')
+			<cms:editable name='heading_splash_2' label='Heading splash text news' desc='Text for heading splash' group='group_heading_splash_2' type='text'>
 			h2
 				| Latest
 				span news
+			</cms:editable>
 
 		//- News highlights
 		+newsHighlights
@@ -66,8 +73,10 @@ block content
 	+footer
 		script(type="application/ld+json") 
 			| [
+			<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>
 			include _includes/json-ld/WebSite.html
 			include _includes/json-ld/Person.html
+			</cms:editable>
 			| ]
 
 	//- Under document content

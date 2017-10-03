@@ -1,3 +1,5 @@
+<?php require_once( 'couch/cms.php' ); ?>
+<cms:editable name="group_meta" label="Meta" desc="Page meta information" type="group"></cms:editable>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,21 +8,23 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Home | Alex Plummer Portfolio</title>
+    <title>
+        <cms:editable name="meta_title" label="Page Title" desc="Page title used for meta and OG" group="group_meta" type="text"></cms:editable>
+    </title>
     <link rel="author" href="humans.txt">
     <link rel="canonical" href="#">
     <!-- DNS Prefetch-->
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <!-- Meta, OG, Twitter, Apple-->
-    <meta name="description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
+    <meta name="description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="article:author" content="Alex Plummer">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#009DC9">
     <meta property="fb:app_id" content="123456789">
     <meta property="og:url" content="http://wwww.alexplummer.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Alex Plummer | Frontend Web Designer London">
-    <meta property="og:description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
+    <meta property="og:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
     <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
@@ -28,9 +32,9 @@
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
     <meta name="twitter:url" content="http://wwww.alexplummer.com">
-    <meta name="twitter:title" content="Alex Plummer | Frontend Web Designer London">
-    <meta name="twitter:description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
-    <meta name="apple-mobile-web-app-title" content="Alex Plummer | Frontend Web Designer London">
+    <meta name="twitter:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="twitter:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- build:css style/style.css -->
@@ -46,16 +50,24 @@
 </head>
 
 <body class="home">
+    <cms:template title="Home"></cms:template>
+    <cms:editable name="group_heading_splash_1" label="Heading Splash" desc="Heading with a splash" type="group"></cms:editable>
+    <cms:editable name="group_heading_splash_2" label="Heading Splash" desc="Heading with a splash" type="group"></cms:editable>
+    <cms:editable name="group_header" label="Page Header" desc="Content for main header" type="group"></cms:editable>
     <header class="intro-no-description" role="banner">
         <div class="inner">
             <div class="splash-heading">
-                <h1 class="logo-main"><span>Alex</span> Plummer</h1>
+                <cms:editable name="logo_heading" label="Logo Heading" desc="The main heading for logo" group="group_header" type="text">
+                    <h1 class="logo-main"><span>Alex</span> Plummer</h1>
+                </cms:editable>
                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 410 410" class="svg shape-splat-oval" aria-hidden="true" role="presentation"><circle cx="205" cy="205" r="204.3" fill="#009DC9"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1073 814" class="svg shape-splat" aria-hidden="true" role="presentation"><path d="M511.2 624.3c4.7-5.7 9.9-11 15.4-15.5 19.5-16 48.4-39.4 62.7-45.8 14.3-6.8 27.6-7.4 34.7 2.4 7.2 9.9 18.4 35.4 26.4 31.1 8.1-4.3 6.2-8.3.7-24-5.6-15.7-8.1-30.7 4-30.4 11.5.3 25.5-.3 36.3-10.5 10.9-10.1 14.9-14.7 29.8-7 14.9 7.6 52.2 37.1 64 50.7 11.8 13.5 41.9 77.7 69.5 63.3 14.6-7.7-22.3-63.6-34.1-68.9-11.8-5.2-32.9-21.2-46.6-30.7-2.8-1.8-5.9-4.3-9.3-7.1 17.4 12.3 51.2 35.4 62.7 12.3 5.3-10.4-2.2-19.9-10.6-25.5-16.1-10.4-34.4-18.4-51.2-27.6-19.5-10.5-39.1-20.9-58.7-31.4-1.5-4.6-2.4-8.6-2.4-12.3 39.1-9.8 80.1-12.9 120.4-8 24.5 3.1 48.8 9 72 16.9 17.4 6.2 35.7 13 53.8 5.3 36.6-15.4 19.2-59.6-14.3-65.2-22.4-3.7-46.6 5.6-68.3 9.6-25.2 4.6-50.6 7.9-76.1 10.1-21.1 1.8-41.9 2.8-63 2.8 1.2-7.4-1.3-16.9-7.2-27.1-4.3-7.4-8.3-14.7-12.1-22.1 21.5 1.2 42.9 2.5 64.3 4 12.7.9 58.7 7.1 51.5-20-2.1-8.9-10.8-12.3-19.5-12.6-16.5-.6-34.2 3.1-50.3 4.6-18.3 1.9-36.3 3.7-54.7 5.3-.6-1.6-1.2-2.8-1.5-4.3-4.7-13-28.9-18.2-26.1-42.5.9-8.2.6-17.8 1.9-26.1 22.9-17.5 46.2-34.1 69.8-50.4 79.5-38.1 163.6-66.6 250.3-84.8 23.2-4.9 56.5-5.2 71.1-26.7 11.8-16.6 6.5-40.6-14.9-45.8-24.3-6.1-51.9 12-73 20.9-32.9 14.4-65.8 28.9-99 43.3-36.4 16-72.7 32-108.7 47.7-23.3 2.7-44.7 11.9-65.5 23-6.5-1.5-13.7-1.2-20.5-1.2-9 .3-21.1 2.1-25.5-8.6 14.6-12 34.2-20 50.3-26.8 20.5-8.3 52.2-20.5 45.1-48.5-2.5-9.5-10-16.6-20.2-17.5-12.4-.9-22.7 7.7-31.4 15.3-19.2 17.2-38.5 34.5-57.4 51.7-.9-1-1.9-1.9-2.5-3.1-5.9-8-6.8-19.1 3.1-27.7 9.9-8.6 19.9-51.3 10.6-45.7-9.4 5.2-23.9 16.2-28.3 23.6-4.3 7.4-5.6 16.6-19.2 13.8-13.7-2.7-25.8-4-32.6-15.9-.7-1.3-1.3-2.2-1.9-3.1 5.9-12 12.1-23.7 18-35.7 10.9-11.3 22.7-21.5 34.8-31.6 7.7-6.5 14.9-14.1 14.3-24.6-.4-8.6-5.9-16.9-14.9-18.7-10.9-1.9-18.4 6.7-23.3 14.7-10 16.6-18.7 34.1-27.4 51.9-8.6 9.3-16.4 19.1-23.9 29.2-9-1.5-17-2.7-18-13.2-1.2-12.6-4.3-21.8-13.9-22.4-9.3-.6-12.1 6.8-16.5 11.4-4.3 4.6-7.1 12.6-22.7 13.2-4 0-7.7.3-10.8.6-3.1-.3-6.5-.6-10.9-.6-15.5-.6-18.3-8.6-22.6-13.2-4.4-4.6-7.2-12-16.5-11.4-9.3.6-12.7 9.8-14 22.4-.9 10.5-9 11.4-17.7 12.9-3.1-12-4.9-25.5-8.4-30.4-6.8-8.9-20.1-14.7-31.3-10.4-11.5 4.6-14.6 16.9-10.3 27.6 3.2 8 10 13.5 14 21.2 3.1 5.9 4.1 12.3 3.1 18.8-6.5 4-14.9 5.2-23.9 7-13.6 2.8-14.9-6.4-19.2-13.8-4.4-7.4-19.3-18.4-28.3-23.7-9.3-5.2-18.6-2.4-22 11.1-3.4 13.5 22.3 26.4 32.6 35 9.9 8.6 9.3 19.7 3.1 27.7-5.6 7.7-11.2 8.9-14.3 21.8-38.5-4.9-75.1-21.2-108.4-41.8-24.8-15.3-48.1-32.9-71.4-49.8-14.6-10.7-37.5-34.1-57.7-30.1-17.1 3.4-20.8 23.7-12.4 36.9 5.6 8.3 14.9 12.9 23.9 17.2 13 6.2 26.1 11.7 39.1 17.5l81 36.3c14 6.1 28 12.6 41.6 18.7 5.9 2.8 12.1 5.2 18 8.3 1.6.6 2.8 1.6 4.4 2.5-5 .6-9.9 1.5-14.3 4.3-8.4 4.9-4 5.8-12.7 8.6-8.7 2.7-18.3 1.2-22.4 13.8-4 12.3 13.7 20.9 23.3 22.4 9.6 1.6 12.1.7 32.9 4 17.4 2.8 17.7 20.9 18.3 37.5-16.1 3.4-34.7.9-50-.6-26.7-3.1-53.4-5.8-80.4-8.9-28.5-3.1-57.4-6.5-86-9.5-16.4-1.9-40.6-6.5-49 12.6-6.5 15.3 6.5 26.7 21.1 27.6 11.8.9 23.9-1.5 35.7-2.4 14.3-1 28.6-1.6 42.8-1.6 28-.3 55.9 1.3 83.6 4.6 8.7 1 59.6 6.2 62.7 21.9-2.5 2.4-4.7 5.2-5.9 8.3-4.7 12.9-13.4 28.8-22.7 45.1-9.3 16-10.5 30.4-.9 37.8 9.3 7.7 15.8 4.3 17.7 15.1 1.8 10.7-8.1 31.9-20.8 48.2-12.8 16.3-35.1 36-48.8 45.8-13.6 9.8-34.7 25.5-46.5 30.7-11.8 5.3-28.6 18.2-37.6 32.3-9 14.4-11.2 28.9 3.4 36.6 27.6 14.4 36.6-15.4 43.2-28.9 6.8-13.5 14.6-20.9 26.4-34.4 11.8-13.6 48.7-43.1 63.9-50.7 14.9-7.7 19.3-3.1 29.8 7 10.9 10.2 24.5 10.8 36.3 10.5 12.1-.3 9.4 14.7 4.1 30.4-5.6 15.7-7.5 19.7.6 24 8.1 4.3 19.6-21.2 26.4-31.1 7.1-9.8 20.5-9.2 34.8-2.4.9.3 1.5.9 2.4 1.2 2.5 11.4 1.9 23-1.8 34.1-1 1.2-1.6 2.5-2.5 3.7-2.8 4.3-5 8.9-6.8 13.8-3.5 4.6-7.8 8.6-12.5 12.3-9.9 7.4-21.1 13.2-25.7 25.2-3.7 9.5-2.8 21.5 5.3 28.6 7.7 6.7 18.6 6.4 27.3 1.5 12.4-7.4 15.5-20.9 17.1-34.4.9-9.8 3.1-19 6.8-27.7 2.5-3.9 4.6-7.9 6.5-12.5 3.1-5.3 7.1-9.6 11.8-13.9 8.7.3 16.1 9.5 17.7 17.8 2.2 13-4.4 26.8-9.3 38.1-10 23.1-20.5 45.8-30.4 68.9-10 22.4-23.6 45.8-30.5 69.1-3.7 12.9 3.8 26.4 18.7 24.6 17.3-2.5 19.5-20 21.1-34.1 2.5-21.2 6.8-42.4 13.3-62.7 10.9-33.2 27.3-64.2 48.4-92.2.4.6.8 1.1 1.2 1.6.1-.6.2-1.1.4-1.7 24.2 13.9 51.4 14 81.5.3z" fill="#009DC9"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 83 651" class="svg shape-splat-drip" aria-hidden="true" role="presentation"><path d="M82.2.3C70.2 15 61.9 32.6 63.7 47.4c2.5 20.6-18.6 65.8 7.5 546.4 1.8 32.9 1.2 53.1-29.8 57.1-31.1-4-31.7-24.2-29.8-57.1C37.6 113.2 16.5 68 19 47.4 20.5 33.2 10.2 16.2.3 1.7.4 1.1.5.6.7 0c24.2 13.9 51.4 14 81.5.3z" fill="#009DC9"/></svg>
             </div>
             <div class="lined-heading">
-                <h2 class="long"><span class="first">Hybrid </span><span class="middle">Design</span><span class="last">&amp; code</span></h2>
+                <cms:editable name="lined_heading" label="Lined Heading" desc="The secondary lined heading" group="group_header" type="text">
+                    <h2 class="long"><span class="first">Hybrid </span><span class="middle">Design</span><span class="last">&amp; code</span></h2>
+                </cms:editable>
             </div>
         </div>
     </header>
@@ -76,6 +88,7 @@
         </div>
     </nav>
     <main role="main" id="maincontent">
+        <cms:editable name="group_showreel" label="Showreel" desc="Showreel for projects" type="group"></cms:editable>
         <section class="showreel">
             <article class="project-modal modal-inactive" tabindex="-1" role="dialog" hidden="hidden">
                 <button class="close" title="Close the dialog"></button>
@@ -92,11 +105,15 @@
                 <div class="content"></div>
             </article>
             <div class="inner">
-                <blockquote>“Design and code in beautiful harmony”</blockquote>
+                <blockquote>
+                    <cms:editable name="showreel_quote" label="Showreel Quote" desc="Quote within showreel" group="group_showreel" type="text">“Design and code in beautiful harmony”</cms:editable>
+                </blockquote>
                 <article class="intro">
-                    <h3> Hello there!</h3>
-                    <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
-                    <p>On this site you can find a selection of both the design and the coding aspects of his work.</p>
+                    <cms:editable name="showreel_description" label="Showreel Description" desc="Description within showreel" group="group_showreel" type="richtext">
+                        <h3> Hello there!</h3>
+                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
+                        <p>On this site you can find a selection of both the design and the coding aspects of his work.</p>
+                    </cms:editable>
                 </article>
             </div>
             <div class="slider">
@@ -104,321 +121,160 @@
                 <div class="items-holder">
                     <div class="items-left active">
                         <ul>
-                            <li>
-                                <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Left</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Left</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Left</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Left</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Left</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
+                            <cms:repeatable name="showreel_left" label="Showreel item left" desc="A left item in the showreel" group="group_showreel">
+                                <cms:editable name="showreel_left_title" label="Showreel item title" input_width="200" col_width="200" type="text"></cms:editable>
+                                <cms:editable name="showreel_left_content" label="Showreel item content" input_width="600" col_width="600" type="richtext"></cms:editable>
+                                <cms:editable name="showreel_left_thumb" label="Showreel item thumb" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                <cms:editable name="showreel_left_thumb_alt" label="Showreel item thumb alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                <cms:editable name="showreel_left_desktop_image_1" label="Showreel item desktop image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                <cms:editable name="showreel_left_desktop_image_1_alt" label="Showreel desktop 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                <cms:editable name="showreel_left_desktop_image_2" label="Showreel item desktop image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                <cms:editable name="showreel_left_desktop_image_2_alt" label="Showreel desktop 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                <cms:editable name="showreel_left_mobile_image_1" label="Showreel item mobile image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                <cms:editable name="showreel_left_mobile_image_1_alt" label="Showreel mobile 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                <cms:editable name="showreel_left_mobile_image_2" label="Showreel item mobile image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                <cms:editable name="showreel_left_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                            </cms:repeatable>
+                            <cms:show_repeatable "showreel_left"="">
+                                <li>
+                                    <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
+                                        <img data-src="&lt;cms:show showreel_left_thumb /&gt;" alt="&lt;cms:show showreel_left_thumb_alt /&gt;">
+                                    </picture>
+                                    <p>
+                                        <cms:show showreel_left_title="" "="">"</cms:show></p>
+                                            <div class="modal-content">
+                                                <div class="desktop">
+                                                    <div class="screens">
+                                                        <img src="&lt;cms:show showreel_left_desktop_image_1 /&gt;" alt="&lt;cms:show showreel_left_desktop_image_1_alt /&gt;">
+                                                        <img src="&lt;cms:show showreel_left_desktop_image_2 /&gt;" alt="&lt;cms:show showreel_left_desktop_image_2_alt /&gt;">
+                                                    </div>
+                                                </div>
+                                                <div class="mobile">
+                                                    <div class="screens">
+                                                        <img src="&lt;cms:show showreel_left_mobile_image_1 /&gt;" alt="&lt;cms:show showreel_left_mobile_image_1_alt /&gt;">
+                                                        <img src="&lt;cms:show showreel_left_mobile_image_2 /&gt;" alt="&lt;cms:show showreel_left_mobile_image_2_alt /&gt;">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <cms:show showreel_left_content="" "="">"</cms:show></div>
+                                                </div>
+                                </li>
+                            </cms:show_repeatable>
                         </ul>
+                        </div>
+                        <div class="items-right inactive">
+                            <ul>
+                                <cms:repeatable name="showreel_right" label="Showreel item right" desc="A right item in the showreel" group="group_showreel">
+                                    <cms:editable name="showreel_right_title" label="Showreel item title" input_width="200" col_width="200" type="text"></cms:editable>
+                                    <cms:editable name="showreel_right_content" label="Showreel item content" input_width="600" col_width="600" type="richtext"></cms:editable>
+                                    <cms:editable name="showreel_right_thumb" label="Showreel item thumb" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                    <cms:editable name="showreel_right_thumb_alt" label="Showreel item thumb alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                    <cms:editable name="showreel_right_desktop_image_1" label="Showreel item desktop image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                    <cms:editable name="showreel_right_desktop_image_1_alt" label="Showreel desktop 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                    <cms:editable name="showreel_right_desktop_image_2" label="Showreel item desktop image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                    <cms:editable name="showreel_right_desktop_image_2_alt" label="Showreel desktop 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                    <cms:editable name="showreel_right_mobile_image_1" label="Showreel item mobile image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                    <cms:editable name="showreel_right_mobile_image_1_alt" label="Showreel mobile 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                    <cms:editable name="showreel_right_mobile_image_2" label="Showreel item mobile image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+                                    <cms:editable name="showreel_right_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+                                </cms:repeatable>
+                                <cms:show_repeatable "showreel_right"="">
+                                    <li>
+                                        <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
+                                            <img data-src="&lt;cms:show showreel_right_thumb /&gt;" alt="&lt;cms:show showreel_right_thumb_alt /&gt;">
+                                        </picture>
+                                        <p>
+                                            <cms:show showreel_right_title="" "="">"</cms:show></p>
+                                                <div class="modal-content">
+                                                    <div class="desktop">
+                                                        <div class="screens">
+                                                            <img src="&lt;cms:show showreel_right_desktop_image_1 /&gt;" alt="&lt;cms:show showreel_right_desktop_image_1_alt /&gt;">
+                                                            <img src="&lt;cms:show showreel_right_desktop_image_2 /&gt;" alt="&lt;cms:show showreel_right_desktop_image_2_alt /&gt;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mobile">
+                                                        <div class="screens">
+                                                            <img src="&lt;cms:show showreel_right_mobile_image_1 /&gt;" alt="&lt;cms:show showreel_right_mobile_image_1_alt /&gt;">
+                                                            <img src="&lt;cms:show showreel_right_mobile_image_2 /&gt;" alt="&lt;cms:show showreel_right_mobile_image_2_alt /&gt;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="content">
+                                                        <cms:show showreel_left_content="" "="">"</cms:show></div>
+                                                    </div>
+                                    </li>
+                                </cms:show_repeatable>
+                            </ul>
+                            </div>
+                        </div>
+                        <a class="toggle-left active" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 37 37" class="svg btn-icon" aria-hidden="true" role="presentation"><path d="M36.6 29L26 18.4l7.2-7.2c1.1-1.1 1.6-2.4 1.6-3.9 0-1.4-.5-2.8-1.6-3.8-1-1-2.3-1.6-3.8-1.6-1.4 0-2.8.6-3.8 1.6L24 5l-5.6 5.7L8 .3c-.5-.4-1.1-.4-1.6 0L.3 6.4c-.2.2-.3.5-.3.8 0 .3.1.6.3.8l10.4 10.4-6 6-.1.1v.1h-.1v.2h-.1v.1l-2.3 8.4c-.1.4 0 .8.3 1.1.2.2.5.3.8.3 0 0 .1 0 .2-.1l8.5-2.3h.2v-.1h.1l.1-.1 6.1-6.1L29 36.6c.2.2.4.3.7.3.3 0 .6-.1.8-.3l6.1-6.1c.4-.4.4-1.1 0-1.5zM27.1 5c.6-.6 1.4-.9 2.3-.9.9 0 1.7.3 2.3.9.6.7 1 1.5 1 2.3 0 .9-.4 1.7-1 2.3l-.8.8-4.6-4.6.8-.8zM2.6 7.2l4.6-4.6 2 2-2.3 2.2c-.4.5-.4 1.1 0 1.6.2.2.5.3.8.3.3 0 .5-.1.7-.3l2.3-2.3 1.7 1.7L11.2 9c-.4.4-.4 1.1 0 1.5.2.2.5.4.8.4.3 0 .6-.2.8-.4l1.1-1.1 2.9 2.8-4.6 4.6-9.6-9.6zm22.2.1l1.5 1.6L8.5 26.7 7 25.2 24.8 7.3zM4.7 32L6 27.3l3.5 3.4L4.7 32zm6.9-2.2L10 28.2l17.9-17.8 1.5 1.5-5.7 5.7-12.1 12.2zm18.1 4.5l-9.8-9.8 4.6-4.6 3.1 3.1-1.2 1.2c-.4.4-.4 1.1 0 1.5.2.2.5.3.8.3.2 0 .5-.1.7-.3l1.2-1.2 1.7 1.7-2.2 2.3c-.5.4-.5 1.1 0 1.5.2.2.4.3.7.3.3 0 .6-.1.8-.3l2.3-2.2 1.9 1.9-4.6 4.6z" fill="#CE0176"/></svg>Design</a>
+                        <a class="toggle-right" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 36 33" class="svg btn-icon two" aria-hidden="true" role="presentation"><g fill="#CE0176"><path d="M33.8.1H2.2C1 .1 0 1.1 0 2.3v28.5c0 1.2 1 2.1 2.2 2.1h31.6c1.2 0 2.1-.9 2.1-2.1V2.3c0-1.2-.9-2.2-2.1-2.2zm-6.5 3.6c0-.4.3-.8.8-.8h.8c.4 0 .7.4.7.8v.9c0 .5-.3.8-.7.8h-.8c-.5 0-.8-.3-.8-.8v-.9zm-3.7 0c0-.4.3-.8.7-.8h.8c.5 0 .8.4.8.8v.9c0 .5-.3.8-.8.8h-.8c-.4 0-.7-.3-.7-.8v-.9zm9.7 26.6H2.6V7.9h30.7v22.4zm.1-25.7c0 .5-.4.8-.8.8h-.8c-.5 0-.8-.3-.8-.8v-.9c0-.4.3-.8.8-.8h.8c.4 0 .8.4.8.8v.9z"/><path d="M7.7 19.9l5.8 2.7c.1.1.3.1.5.1s.4 0 .6-.1c.3-.2.5-.6.5-1 0-.5-.3-.9-.7-1l-3.6-1.7 3.6-1.7c.4-.2.7-.6.7-1v-.1c0-.4-.2-.7-.5-.9-.2-.1-.4-.2-.6-.2-.2 0-.4 0-.5.1l-5.8 2.7c-.4.2-.6.6-.6 1v.1c0 .4.2.9.6 1zM15.1 25.4c.2.3.6.5.9.5h.1c.5 0 .9-.3 1-.8l3.8-11.8c.2-.4.1-.8-.1-1.1-.2-.2-.6-.4-.9-.4-.5 0-1 .3-1.1.8L15 24.4c-.1.4-.1.8.1 1zM20.8 16.2c0 .4.3.8.7 1l3.6 1.7-3.6 1.7c-.4.1-.7.5-.7 1 0 .4.2.8.6 1 .1.1.3.1.6.1.1 0 .3 0 .4-.1l5.8-2.7c.4-.1.7-.6.7-1v-.1c0-.4-.3-.8-.7-1l-5.8-2.7c-.1-.1-.3-.1-.4-.1-.3 0-.5.1-.6.2-.4.2-.6.5-.6.9v.1z"/></g></svg>Code</a>
                     </div>
-                    <div class="items-right inactive">
-                        <ul>
-                            <li>
-                                <picture role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Right</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Right</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Right</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Right</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <picture role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1">
-                                    <img data-src="img/media/screen-euromoney.jpg" alt="Some alt text">
-                                </picture>
-                                <p>Right</p>
-                                <div class="modal-content">
-                                    <div class="desktop">
-                                        <div class="screens">
-                                            <img src="img/media/screen-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="mobile">
-                                        <div class="screens">
-                                            <img src="img/media/screen-mobile-euromoney.jpg" alt="some alt text">
-                                            <img src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Title</h3>
-                                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.</p>
-                                        <hr><a href="#">View more</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <a class="toggle-left active" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 37 37" class="svg btn-icon" aria-hidden="true" role="presentation"><path d="M36.6 29L26 18.4l7.2-7.2c1.1-1.1 1.6-2.4 1.6-3.9 0-1.4-.5-2.8-1.6-3.8-1-1-2.3-1.6-3.8-1.6-1.4 0-2.8.6-3.8 1.6L24 5l-5.6 5.7L8 .3c-.5-.4-1.1-.4-1.6 0L.3 6.4c-.2.2-.3.5-.3.8 0 .3.1.6.3.8l10.4 10.4-6 6-.1.1v.1h-.1v.2h-.1v.1l-2.3 8.4c-.1.4 0 .8.3 1.1.2.2.5.3.8.3 0 0 .1 0 .2-.1l8.5-2.3h.2v-.1h.1l.1-.1 6.1-6.1L29 36.6c.2.2.4.3.7.3.3 0 .6-.1.8-.3l6.1-6.1c.4-.4.4-1.1 0-1.5zM27.1 5c.6-.6 1.4-.9 2.3-.9.9 0 1.7.3 2.3.9.6.7 1 1.5 1 2.3 0 .9-.4 1.7-1 2.3l-.8.8-4.6-4.6.8-.8zM2.6 7.2l4.6-4.6 2 2-2.3 2.2c-.4.5-.4 1.1 0 1.6.2.2.5.3.8.3.3 0 .5-.1.7-.3l2.3-2.3 1.7 1.7L11.2 9c-.4.4-.4 1.1 0 1.5.2.2.5.4.8.4.3 0 .6-.2.8-.4l1.1-1.1 2.9 2.8-4.6 4.6-9.6-9.6zm22.2.1l1.5 1.6L8.5 26.7 7 25.2 24.8 7.3zM4.7 32L6 27.3l3.5 3.4L4.7 32zm6.9-2.2L10 28.2l17.9-17.8 1.5 1.5-5.7 5.7-12.1 12.2zm18.1 4.5l-9.8-9.8 4.6-4.6 3.1 3.1-1.2 1.2c-.4.4-.4 1.1 0 1.5.2.2.5.3.8.3.2 0 .5-.1.7-.3l1.2-1.2 1.7 1.7-2.2 2.3c-.5.4-.5 1.1 0 1.5.2.2.4.3.7.3.3 0 .6-.1.8-.3l2.3-2.2 1.9 1.9-4.6 4.6z" fill="#CE0176"/></svg>Design</a>
-                <a class="toggle-right" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 36 33" class="svg btn-icon two" aria-hidden="true" role="presentation"><g fill="#CE0176"><path d="M33.8.1H2.2C1 .1 0 1.1 0 2.3v28.5c0 1.2 1 2.1 2.2 2.1h31.6c1.2 0 2.1-.9 2.1-2.1V2.3c0-1.2-.9-2.2-2.1-2.2zm-6.5 3.6c0-.4.3-.8.8-.8h.8c.4 0 .7.4.7.8v.9c0 .5-.3.8-.7.8h-.8c-.5 0-.8-.3-.8-.8v-.9zm-3.7 0c0-.4.3-.8.7-.8h.8c.5 0 .8.4.8.8v.9c0 .5-.3.8-.8.8h-.8c-.4 0-.7-.3-.7-.8v-.9zm9.7 26.6H2.6V7.9h30.7v22.4zm.1-25.7c0 .5-.4.8-.8.8h-.8c-.5 0-.8-.3-.8-.8v-.9c0-.4.3-.8.8-.8h.8c.4 0 .8.4.8.8v.9z"/><path d="M7.7 19.9l5.8 2.7c.1.1.3.1.5.1s.4 0 .6-.1c.3-.2.5-.6.5-1 0-.5-.3-.9-.7-1l-3.6-1.7 3.6-1.7c.4-.2.7-.6.7-1v-.1c0-.4-.2-.7-.5-.9-.2-.1-.4-.2-.6-.2-.2 0-.4 0-.5.1l-5.8 2.7c-.4.2-.6.6-.6 1v.1c0 .4.2.9.6 1zM15.1 25.4c.2.3.6.5.9.5h.1c.5 0 .9-.3 1-.8l3.8-11.8c.2-.4.1-.8-.1-1.1-.2-.2-.6-.4-.9-.4-.5 0-1 .3-1.1.8L15 24.4c-.1.4-.1.8.1 1zM20.8 16.2c0 .4.3.8.7 1l3.6 1.7-3.6 1.7c-.4.1-.7.5-.7 1 0 .4.2.8.6 1 .1.1.3.1.6.1.1 0 .3 0 .4-.1l5.8-2.7c.4-.1.7-.6.7-1v-.1c0-.4-.3-.8-.7-1l-5.8-2.7c-.1-.1-.3-.1-.4-.1-.3 0-.5.1-.6.2-.4.2-.6.5-.6.9v.1z"/></g></svg>Code</a>
-            </div>
         </section>
         <header class="left heading-splash" id="first-splash">
             <div class="inner">
                 <div class="lined-heading">
-                    <h2><span class="first">Main</span>skill<span class="last">set</span></h2>
+                    <cms:editable name="heading_splash_1" label="Heading splash text" desc="Text for heading splash skills" group="group_heading_splash_1" type="text">
+                        <h2><span class="first">Main</span>skill<span class="last">set</span></h2>
+                    </cms:editable>
                 </div>
             </div>
         </header>
+        <cms:editable name="group_list_skills" label="Skills list" desc="Content for list skills" type="group"></cms:editable>
         <section class="list-skills">
             <div class="inner">
                 <article>
-                    <h3>A broad range</h3>
-                    <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
+                    <cms:editable name="list_skills_description" label="Skills list description" desc="Description for the skills list" group="group_list_skills" type="richtext">
+                        <h3>A broad range</h3>
+                        <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
+                    </cms:editable>
                 </article>
             </div>
             <div class="inner">
                 <div class="list-wrap">
                     <h4>Code</h4>
                     <ul>
-                        <li class="three-bars">HTML/Pug</li>
-                        <li class="three-bars">CSS</li>
-                        <li class="three-bars">JS (ES6)</li>
-                        <li class="three-bars">JQuery</li>
-                        <li class="three-bars">SASS/LESS</li>
-                        <li class="three-bars">Gulp/Grunt</li>
-                        <li class="two-bars">Angular</li>
-                        <li class="one-bar">React</li>
+                        <cms:editable name="list_skills_code" label="Skills list code" desc="List of code skills" group="group_list_skills" type="richtext">
+                            <li class="three-bars">HTML/Pug</li>
+                            <li class="three-bars">CSS</li>
+                            <li class="three-bars">JS (ES6)</li>
+                            <li class="three-bars">JQuery</li>
+                            <li class="three-bars">SASS/LESS</li>
+                            <li class="three-bars">Gulp/Grunt</li>
+                            <li class="two-bars">Angular</li>
+                            <li class="one-bar">React</li>
+                        </cms:editable>
                     </ul>
                 </div>
                 <div class="list-wrap">
                     <h4>Design</h4>
                     <ul>
-                        <li class="three-bars">UI Design</li>
-                        <li class="three-bars">App Design</li>
-                        <li class="three-bars">Typography</li>
-                        <li class="three-bars">Layout/grid</li>
-                        <li class="three-bars">Colour theory</li>
-                        <li class="two-bars">UX/research</li>
-                        <li class="two-bars">Wireframing</li>
-                        <li class="two-bars">Print design</li>
+                        <cms:editable name="list_skills_design" label="Skills list design" desc="List of design skills" group="group_list_skills" type="richtext">
+                            <li class="three-bars">UI Design</li>
+                            <li class="three-bars">App Design</li>
+                            <li class="three-bars">Typography</li>
+                            <li class="three-bars">Layout/grid</li>
+                            <li class="three-bars">Colour theory</li>
+                            <li class="two-bars">UX/research</li>
+                            <li class="two-bars">Wireframing</li>
+                            <li class="two-bars">Print design</li>
+                        </cms:editable>
                     </ul>
                 </div>
                 <div class="list-wrap">
                     <h4>Tools</h4>
                     <ul>
-                        <li class="three-bars">Photoshop</li>
-                        <li class="three-bars">Sketch</li>
-                        <li class="three-bars">Git</li>
-                        <li class="three-bars">JIRA/agile</li>
-                        <li class="three-bars">MS Office</li>
-                        <li class="two-bars">Axure</li>
-                        <li class="two-bars">Illustrator</li>
-                        <li class="one-bar">Premier Pro</li>
+                        <cms:editable name="list_skills_tools" label="Skills list tools" desc="List of tools skills" group="group_list_skills" type="richtext">
+                            <li class="three-bars">Photoshop</li>
+                            <li class="three-bars">Sketch</li>
+                            <li class="three-bars">Git</li>
+                            <li class="three-bars">JIRA/agile</li>
+                            <li class="three-bars">MS Office</li>
+                            <li class="two-bars">Axure</li>
+                            <li class="two-bars">Illustrator</li>
+                            <li class="one-bar">Premier Pro</li>
+                        </cms:editable>
                     </ul>
                 </div>
                 <div class="key">
@@ -429,49 +285,59 @@
                 </div>
             </div>
         </section>
+        <cms:editable name="group_list_info" label="List info" desc="Content for list info" type="group"></cms:editable>
         <section class="list-info">
             <picture>
-                <img src="img/media/screen-euromoney.jpg" alt="some alt text">
+                <cms:editable name="info_image" group="group_list_info" label="info image" type="image"></cms:editable>
+                <cms:editable name="info_image_alt" group="group_list_info" label="info image alt" type="text"></cms:editable>
+                <img data-src="&lt;cms:show info_image /&gt;" alt="&lt;cms:show info_image_alt /&gt;">
             </picture>
             <div class="heading">
-                <h2> More <span>info</span></h2>
+                <cms:editable name="list_info_description" label="Info list description" desc="Description for the info list" group="group_list_info" type="text">
+                    <h2> More <span>info</span></h2>
+                </cms:editable>
             </div>
             <div class="inner">
-                <dl><dt class="icon-baby">Made in Guildford</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-glasses">Uni at Goldsmiths</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-code">Work in London</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
-                </dl>
-                <dl><dt class="icon-boot">Enjoy kickboxing</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-hand">and some climbing</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-chat-bubble">Parlo Italiano (un po')</dt>
-                    <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
-                </dl>
+                <cms:editable name="list_info_col_left" label="Info list col left" desc="Left col of info list" group="group_list_info" type="richtext">
+                    <dl><dt class="icon-baby">Made in Guildford</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-glasses">Uni at Goldsmiths</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-code">Work in London</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
+                    </dl>
+                </cms:editable>
+                <cms:editable name="list_info_col_right" label="Info list col right" desc="Right col of info list" group="group_list_info" type="richtext">
+                    <dl><dt class="icon-boot">Enjoy kickboxing</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-hand">and some climbing</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd><dt class="icon-chat-bubble">Parlo Italiano (un po')</dt>
+                        <dd>Alex Plummer is a frontend developer and designer, bringing together</dd>
+                    </dl>
+                </cms:editable>
             </div>
         </section>
         <header class="right heading-splash" id="second-splash">
             <div class="inner">
                 <div class="lined-heading">
-                    <h2>Latest<span>news</span></h2>
+                    <cms:editable name="heading_splash_2" label="Heading splash text news" desc="Text for heading splash" group="group_heading_splash_2" type="text">
+                        <h2>Latest<span>news</span></h2>
+                    </cms:editable>
                 </div>
             </div>
         </header>
+        <cms:editable name="group_news_highlights" label="News Highlights" desc="Latest news" type="group"></cms:editable>
         <section class="news-highlights">
             <div class="inner">
-                <article class="news-link">
-                    <picture>
-                        <img data-src="img/media/screen-euromoney.jpg">
-                    </picture>
-                    <h3>Lorem ipsum dolor sit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
-                </article>
-                <article class="news-link">
-                    <picture>
-                        <img data-src="img/media/screen-euromoney.jpg">
-                    </picture>
-                    <h3>Lorem ipsum dolor sit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
-                </article>
+                <cms:pages masterpage="article.php" limit="2">
+                    <article class="news-link">
+                        <picture>
+                            <img data-src="&lt;cms:show article_thumb /&gt;">
+                        </picture>
+                        <h3><cms:show k_page_title="" "="">"</cms:show></h3>
+                        <p>
+                            <cms:excerpthtml count="70" ignore="img">
+                                <cms:show article_standfirst="" "="">"</cms:show></cms:excerpthtml>
+                        </p><a class="btn" href="&lt;cms:show k_page_link /&gt;">Continue reading</a>
+                    </article>
+                </cms:pages>
             </div>
         </section>
     </main>
@@ -495,41 +361,41 @@
         </div>
     </footer>
     <script type="application/ld+json">
-        [{ 
-            "@context": "http://schema.org", 
-            "@type": "WebSite", 
-            "url": "http://www.example.com/", 
-            "name": "Generally the title",
-            "author": {
-                "@type": "Person",
-                "name": "Jane Doe"
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+            '@context': 'http://schema.org', 
+            '@type': 'WebSite', 
+            'url': 'http://www.example.com/', 
+            'name': 'Generally the title',
+            'author': {
+                '@type': 'Person',
+                'name': 'Jane Doe'
             },
-            "description": "Any sort of description, I'd keep it short",
-            "publisher": "publisher name",
-            "potentialAction": { 
-                "@type": "SearchAction", 
-                "target": "http://www.example.com/?s={search_term}", 
-                "query-input": "required name=search_term" 
+            'description': 'Any sort of description, I'd keep it short',
+            'publisher': 'publisher name',
+            'potentialAction': { 
+                '@type': 'SearchAction', 
+                'target': 'http://www.example.com/?s={search_term}', 
+                'query-input': 'required name=search_term' 
             } 
         },{
-            "@context": "http://schema.org",
-            "@type": "Person",
-            "email": "mailto:info@example.com",
-            "image": "janedoe.jpg",
-            "jobTitle": "Research Assistant",
-            "name": "Jane Doe",
-            "birthPlace": "Philadelphia, PA",
-            "gender": "female",
-            "nationality": "African American",
-            "url": "http://www.example.com",
-            "sameAs": [ 
-                "https://www.facebook.com/",
-                "https://www.linkedin.com/",
-                "http://twitter.com/",
-                "http://instagram.com/",
-                "https://plus.google.com/"
+            '@context': 'http://schema.org',
+            '@type': 'Person',
+            'email': 'mailto:info@example.com',
+            'image': 'janedoe.jpg',
+            'jobTitle': 'Research Assistant',
+            'name': 'Jane Doe',
+            'birthPlace': 'Philadelphia, PA',
+            'gender': 'female',
+            'nationality': 'African American',
+            'url': 'http://www.example.com',
+            'sameAs': [ 
+                'https://www.facebook.com/',
+                'https://www.linkedin.com/',
+                'http://twitter.com/',
+                'http://instagram.com/',
+                'https://plus.google.com/'
             ]
-        },]
+        },</cms:editable>]
     </script>
     <!-- build:js script/script.js -->
     <!-- bower:js -->
@@ -550,3 +416,4 @@
 </body>
 
 </html>
+<?php COUCH::invoke(); ?>

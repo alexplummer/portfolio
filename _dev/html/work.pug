@@ -5,7 +5,9 @@
 
 //- Extend head of document
 extends _includes/_head
-block bodyClassVar
+
+//- Page vars
+block pageVars
 	- var bodyClass = 'work'
 
 //- Includes
@@ -16,17 +18,18 @@ include ../components/work-modal/_work-modal
 include ../components/footer/_footer
 
 //- Page title
-block title
-	title Work | Alex Plummer Portfolio
 
 block content
 
+	//- CMS config
+	<cms:template title="Work"></cms:template>
+	<cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+
 	//- Intro title	and description
 	- var heading = 'Work'
-	- var subheading = 'A selection of my work'
+	- var subheading = '<cms:editable name="intro_subheading" label="Intro subheading" desc="Subheading for the intro" group="group_intro" type="text"></cms:editable>'
 	+intoWithDescription(heading, subheading)(class="work")
-		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+		<cms:editable name="intro_content" label="Intro content" desc="Content for the intro" group="group_intro" type="richtext"></cms:editable>
 	
 	//- Main nav
 	+navVertical
@@ -42,7 +45,9 @@ block content
 	+footer
 	script(type="application/ld+json") 
 		| [
+		<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>
 		include _includes/json-ld/CollectionPage.html
+		</cms:editable>
 		| ]
 
 	//- Under document content

@@ -5,6 +5,10 @@
 
 //- Includes
 include ../_vars/_global-vars
+block pageVars
+
+<?php require_once( 'couch/cms.php' ); ?>
+<cms:editable name='group_meta' label='Meta' desc='Page meta information' type='group'></cms:editable>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,22 +17,21 @@ include ../_vars/_global-vars
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
-	block title
-		title #{siteName}
+	title <cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>
 	<link rel="author" href="humans.txt">
 	<link rel="canonical" href="#">
 	// DNS Prefetch
 	<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
 	// Meta, OG, Twitter, Apple
-	<meta name="description" content="#{siteDescription}">
+	<meta name="description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
 	<meta property="article:author" content="#{siteAuthor}">
 	<meta name="robots" content="index, follow">
 	<meta name="theme-color" content="#{brand}">
 	<meta property="fb:app_id" content="123456789">
 	<meta property="og:url" content="#{siteURL}">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="#{siteName}">
-	<meta property="og:description" content="#{siteDescription}">
+	<meta property="og:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+	<meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
 	<meta property="og:site_name" content="#{siteName}">
 	<meta property="og:locale" content="en_UK">
 	block shareImage
@@ -37,9 +40,9 @@ include ../_vars/_global-vars
 	<meta name="twitter:site" content="@site_account">
 	<meta name="twitter:creator" content="@individual_account">
 	<meta name="twitter:url" content="#{siteURL}">
-	<meta name="twitter:title" content="#{siteName}">
-	<meta name="twitter:description" content="#{siteDescription}">
-	<meta name="apple-mobile-web-app-title" content="#{siteName}">
+	<meta name="twitter:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+	<meta name="twitter:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+	<meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<!-- build:css style/style.css -->
@@ -50,6 +53,6 @@ include ../_vars/_global-vars
 	//<link rel="stylesheet" href="style/style.css">
 	<!-- endbuild -->
 	</head>
-block bodyClassVar
+
 body(class=(bodyClass || ""))
 	block content

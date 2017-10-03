@@ -4,18 +4,25 @@
 //- Lists with icons to display skill levels
 
 mixin listSkills()
+
+	//- CMS config
+	<cms:editable name='group_list_skills' label='Skills list' desc='Content for list skills' type='group'></cms:editable>
+
 	section.list-skills
 		.inner
 			article
+				<cms:editable name='list_skills_description' label='Skills list description' desc='Description for the skills list' group="group_list_skills" type='richtext'>
 				h3 A broad range
 				p
 					| Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
+				</cms:editable>
 
 		.inner
 
 			.list-wrap
 				h4 Code
 				ul
+					<cms:editable name='list_skills_code' label='Skills list code' desc='List of code skills' group="group_list_skills" type='richtext'>
 					li.three-bars HTML/Pug
 					li.three-bars CSS
 					li.three-bars JS (ES6)
@@ -24,10 +31,12 @@ mixin listSkills()
 					li.three-bars Gulp/Grunt
 					li.two-bars Angular
 					li.one-bar React
+					</cms:editable>
 
 			.list-wrap
 				h4 Design
 				ul
+					<cms:editable name='list_skills_design' label='Skills list design' desc='List of design skills' group="group_list_skills" type='richtext'>
 					li.three-bars UI Design
 					li.three-bars App Design
 					li.three-bars Typography
@@ -36,10 +45,12 @@ mixin listSkills()
 					li.two-bars UX/research
 					li.two-bars Wireframing
 					li.two-bars Print design
+					</cms:editable>
 
 			.list-wrap
 				h4 Tools
 				ul
+					<cms:editable name='list_skills_tools' label='Skills list tools' desc='List of tools skills' group="group_list_skills" type='richtext'>
 					li.three-bars Photoshop
 					li.three-bars Sketch
 					li.three-bars Git
@@ -48,6 +59,7 @@ mixin listSkills()
 					li.two-bars Axure
 					li.two-bars Illustrator
 					li.one-bar Premier Pro
+					</cms:editable>
 
 			.key
 				h4 - Key -

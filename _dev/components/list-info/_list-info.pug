@@ -4,15 +4,25 @@
 //- Lists of info points with icon for each definition
 
 mixin listInfo()
+
+	//- CMS config
+	<cms:editable name='group_list_info' label='List info' desc='Content for list info' type='group'></cms:editable>
+	
 	section.list-info
 		picture
-			img(src="img/media/screen-euromoney.jpg" alt="some alt text")
+			<cms:editable name="info_image" group="group_list_info" label="info image" type="image"></cms:editable>
+			<cms:editable name="info_image_alt" group="group_list_info" label="info image alt" type="text"></cms:editable>
+			img(data-src="<cms:show info_image />" alt="<cms:show info_image_alt />")
+
 		.heading
+			<cms:editable name='list_info_description' label='Info list description' desc='Description for the info list' group="group_list_info" type='text'>
 			h2 
 				| More 
 				span info
+			</cms:editable>
 		
 		.inner
+			<cms:editable name='list_info_col_left' label='Info list col left' desc='Left col of info list' group="group_list_info" type='richtext'>
 			dl
 				dt.icon-baby Made in Guildford
 				dd Alex Plummer is a frontend developer and designer, bringing together
@@ -22,7 +32,9 @@ mixin listInfo()
 
 				dt.icon-code Work in London
 				dd Alex Plummer is a frontend developer and designer, bringing together
+			</cms:editable>
 			
+			<cms:editable name='list_info_col_right' label='Info list col right' desc='Right col of info list' group="group_list_info" type='richtext'>
 			dl
 				dt.icon-boot Enjoy kickboxing
 				dd Alex Plummer is a frontend developer and designer, bringing together
@@ -32,3 +44,4 @@ mixin listInfo()
 
 				dt.icon-chat-bubble Parlo Italiano (un po')
 				dd Alex Plummer is a frontend developer and designer, bringing together
+			</cms:editable>

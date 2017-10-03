@@ -1,3 +1,5 @@
+<?php require_once( 'couch/cms.php' ); ?>
+<cms:editable name="group_meta" label="Meta" desc="Page meta information" type="group"></cms:editable>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,21 +8,23 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chat | Alex Plummer Portfolio</title>
+    <title>
+        <cms:editable name="meta_title" label="Page Title" desc="Page title used for meta and OG" group="group_meta" type="text"></cms:editable>
+    </title>
     <link rel="author" href="humans.txt">
     <link rel="canonical" href="#">
     <!-- DNS Prefetch-->
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <!-- Meta, OG, Twitter, Apple-->
-    <meta name="description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
+    <meta name="description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="article:author" content="Alex Plummer">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#009DC9">
     <meta property="fb:app_id" content="123456789">
     <meta property="og:url" content="http://wwww.alexplummer.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Alex Plummer | Frontend Web Designer London">
-    <meta property="og:description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
+    <meta property="og:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
     <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
@@ -28,9 +32,9 @@
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
     <meta name="twitter:url" content="http://wwww.alexplummer.com">
-    <meta name="twitter:title" content="Alex Plummer | Frontend Web Designer London">
-    <meta name="twitter:description" content="Alex Plummer is a hybrid frontend developer in London specialising in appealing, and creative web design and also the latest tech such as ES6 Javascript development.">
-    <meta name="apple-mobile-web-app-title" content="Alex Plummer | Frontend Web Designer London">
+    <meta name="twitter:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="twitter:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- build:css style/style.css -->
@@ -46,6 +50,8 @@
 </head>
 
 <body class="chat">
+    <cms:template title="Chat"></cms:template>
+    <cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
     <header class="intro-with-description" role="banner">
         <div class="inner">
             <div class="lined-heading no-under">
@@ -53,8 +59,8 @@
                 <svg viewbox="0 0 424 313" xmlns="http://www.w3.org/2000/svg" class="header-bg-under" aria-hidden="true" role="presentation"><g fill="#CE0176" fill-rule="evenodd"><g transform="rotate(99 186.34 213.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 156.447 248.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 126.554 283.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 96.661 318.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g></g></svg>
             </div>
             <article>
-                <h2>Get in touch</h2>
-                <p>Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.</p>
+                <h2><cms:editable name="intro_subheading" label="Intro subheading" desc="Subheading for the intro" group="group_intro" type="text"></cms:editable></h2>
+                <cms:editable name="intro_content" label="Intro content" desc="Content for the intro" group="group_intro" type="richtext"></cms:editable>
             </article>
         </div>
     </header>
@@ -77,17 +83,37 @@
     <main role="main" id="maincontent">
         <section>
             <div class="inner">
-                <form class="contact-form" action="post">
+                <cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+                <cms:form method="post" class="contact-form">
                     <div class="form-contents">
-                        <label for="name">Full Name</label>
-                        <input type="text" placeholder="Enter name here" id="name">
-                        <label for="email">Email</label>
-                        <input type="email" placeholder="Enter email here" id="email">
+                        <cms:if k_success="">
+                            <div class="k_successmessage">
+                                <cms:send_mail from="info@alexplummer.com" to="alexplummer86@gmail.com" subject="Feedback from your site">The following is an email sent by a visitor to your site:
+                                    <cms:show k_success="" "="">" </cms:show></cms:send_mail>
+                                        <h4>Thanks, message sent!</h4>
+                            </div>
+                        </cms:if>
+                        <label for="name">Full Name<small>&nbsp;(required)</small>
+                        </label>
+                        <cms:input type="text" id="name" name="name" maxlength="100" desc="Enter your full name" placeholder="Enter full name here" required="1"></cms:input>
+                        <label for="email">Email<small>&nbsp;(required)</small>
+                        </label>
+                        <cms:input type="text" id="email" name="email" maxlength="100" desc="Enter your email" placeholder="Enter email here" validator="email" required="1"></cms:input>
                         <label for="message">Message</label>
-                        <textarea placeholder="Enter message here" id="message"></textarea>
-                        <input type="submit" value="Send">
+                        <cms:input type="textarea" rows="5" cols="20" wrap="physical" desc="Enter an optional message" id="message" name="message" placeholder="Enter message here"></cms:input>
+                        <cms:if k_error="">
+                            <div class="k_errormessage">
+                                <h4>Sorry, please correct the following:</h4>
+                                <ul>
+                                    <cms:each k_error="">
+                                        <li>
+                                            <cms:show item="" "="">"</cms:show></li></cms:each>
+                                </ul>
+                            </div>
+                        </cms:if>
+                        <cms:input type="submit" name="submit" value="Send"></cms:input>
                     </div>
-                </form>
+                </cms:form>
                 <aside>
                     <blockquote class="citation">
                         <p>Design and code in beautiful harmony</p>
@@ -146,23 +172,23 @@
         </div>
     </footer>
     <script type="application/ld+json">
-        [{ 
-            "@context": "http://schema.org", 
-            "@type": "ContactPage", 
-            "url": "http://www.example.com/", 
-            "name": "Generally the title",
-            "author": {
-                "@type": "Person",
-                "name": "Jane Doe"
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+            '@context': 'http://schema.org', 
+            '@type': 'ContactPage', 
+            'url': 'http://www.example.com/', 
+            'name': 'Generally the title',
+            'author': {
+                '@type': 'Person',
+                'name': 'Jane Doe'
             },
-            "description": "Any sort of description, I'd keep it short",
-            "publisher": "publisher name",
-            "potentialAction": { 
-                "@type": "SearchAction", 
-                "target": "http://www.example.com/?s={search_term}", 
-                "query-input": "required name=search_term" 
+            'description': 'Any sort of description, I'd keep it short',
+            'publisher': 'publisher name',
+            'potentialAction': { 
+                '@type': 'SearchAction', 
+                'target': 'http://www.example.com/?s={search_term}', 
+                'query-input': 'required name=search_term' 
             } 
-        },]
+        },</cms:editable>]
     </script>
     <!-- build:js script/script.js -->
     <!-- bower:js -->
@@ -183,3 +209,4 @@
 </body>
 
 </html>
+<?php COUCH::invoke(); ?>

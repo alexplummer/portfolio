@@ -116,7 +116,7 @@ const openPreview = function openPreview() {
     items.forEach((thisItem) => {
         thisItem.addEventListener('click', (e) => {
             e.preventDefault();
-            let scrollPosition = document.body.scrollTop;
+            let scrollPosition = e.clientX;
             let screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
             let screensMobile = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
             let textContent = thisItem.querySelector('.content').innerHTML;
@@ -128,8 +128,6 @@ const openPreview = function openPreview() {
             theBody.classList.add('modal-active');
             modal.classList.add('active');
             document.body.style.top = (scrollPosition * -1) + "px";
-
-            // Accessibilty related
 
             // Set tabbale els
             let element = ally.query.firstTabbable({

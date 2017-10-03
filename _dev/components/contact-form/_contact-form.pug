@@ -4,12 +4,38 @@
 //- A basic contact form
 
 mixin contactForm()
-	form(action="post").contact-form
+
+	//- CMS config
+	<cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+	
+		<cms:form method="post" class="contact-form">
+		
 		.form-contents
+			<cms:if k_success >
+				<div class="k_successmessage">
+						<cms:send_mail from="info@alexplummer.com" to="alexplummer86@gmail.com" subject='Feedback from your site'>
+							| The following is an email sent by a visitor to your site:
+							<cms:show k_success "/>"
+						</cms:send_mail>
+						h4 Thanks, message sent!
+				</div>
+			</cms:if>
 			label(for="name") Full Name
-			input(type="text" placeholder="Enter name here" id="name")
+				small &nbsp;(required)
+			<cms:input type="text" id ="name" name="name" maxlength="100" desc="Enter your full name" placeholder="Enter full name here" required="1"></cms:input>
 			label(for="email") Email
-			input(type="email" placeholder="Enter email here" id="email")
+				small &nbsp;(required)
+			<cms:input type="text" id ="email" name="email" maxlength="100" desc="Enter your email" placeholder="Enter email here" validator="email" required="1"></cms:input>
 			label(for="message") Message
-			textarea(placeholder="Enter message here" id="message")
-			input(type="submit" value="Send")
+			<cms:input type='textarea' rows="5" cols="20" wrap="physical" desc="Enter an optional message" id="message" name="message" placeholder="Enter message here"></cms:input>
+			<cms:if k_error >
+				<div class="k_errormessage">
+					h4 Sorry, please correct the following:
+					ul
+						<cms:each k_error >
+							li <cms:show item "/>"
+						</cms:each>
+				</div>
+			</cms:if>
+			<cms:input type="submit" name="submit" value="Send"></cms:input>
+		</cms:form>

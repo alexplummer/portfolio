@@ -16,9 +16,34 @@
         transform: rotate(8deg);
         z-index: 1;
     }          
-    input, textarea, label {
+    input, textarea, label, .k_errormessage, .k_successmessage {
         position: relative;
         z-index: 2;
+    }
+    .k_errormessage {
+
+        h4 {
+            padding-top: 0;
+        }
+        li, p, b {
+            font-size: $font-m;
+        }
+        ul {
+            margin-left: 0;
+            padding-top: 0;
+            list-style: none;
+
+            li {
+                padding-top: 0;
+            }
+            b {
+                text-transform: capitalize;
+            }
+        }
+    }
+    .k_successmessage h4 {
+        font-size: $font-l;
+        color: #fff;
     }
     @media (max-width: $tablet - 1px) {
         

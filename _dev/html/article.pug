@@ -5,7 +5,9 @@
 
 //- Extend head of document
 extends _includes/_head
-block bodyClassVar
+
+//- Page vars
+block pageVars
 	- var bodyClass = 'article'
 
 //- Includes
@@ -15,15 +17,19 @@ include ../components/news-article/_news-article
 include ../components/related-news/_related-news
 include ../components/footer/_footer
 
-//- Page title
-block title
-	title Article | Alex Plummer Portfolio
-
 block content
+
+	//- CMS config
+	<cms:template title="Article" clonable="1" dynamic_folders='1'></cms:template>
+	<cms:editable name="group_news_article_header" label="News article header" desc="Header for news article" type="group"></cms:editable>
 	
 	//- Image heading
-	- var heading = 'The latest thoughts about some subject'
+	- var heading = '<cms:show k_page_title">"'
 	+headingImage(heading)(src="img/media/hero-sample.jpg")
+	<cms:hide>
+	<cms:editable name="article_thumb" group="group_news_article_header" label="Article thumb image" type="image"></cms:editable>
+	<cms:editable name="article_thumb_alt" group="group_news_article_header" label="Article thumb alt" type="text"></cms:editable>
+	</cms:hide>
 
 	//- Main nav
 	+navVertical
@@ -39,8 +45,10 @@ block content
 	+footer
 		script(type="application/ld+json") 
 			| [
+			<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>
 			include _includes/json-ld/WebSite.html
 			include _includes/json-ld/NewsArticle.html
+			</cms:editable>
 			| ]
 
 	//- Add this

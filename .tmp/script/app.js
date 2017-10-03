@@ -205,7 +205,7 @@ var app = function () {
         items.forEach(function (thisItem) {
             thisItem.addEventListener('click', function (e) {
                 e.preventDefault();
-                var scrollPosition = document.body.scrollTop;
+                var scrollPosition = e.clientX;
                 var screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
                 var screensMobile = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
                 var textContent = thisItem.querySelector('.content').innerHTML;
@@ -217,8 +217,6 @@ var app = function () {
                 theBody.classList.add('modal-active');
                 modal.classList.add('active');
                 document.body.style.top = scrollPosition * -1 + "px";
-
-                // Accessibilty related
 
                 // Set tabbale els
                 var element = ally.query.firstTabbable({
@@ -485,9 +483,7 @@ var app = function () {
 
             function toggleModal(e) {
                 e.preventDefault();
-                var scrollPosition = document.body.scrollTop;
-
-                // Accessibilty related
+                var scrollPosition = e.clientX;
 
                 // Set tabbale els
                 var element = ally.query.firstTabbable({

@@ -4,12 +4,20 @@
 //- Intro without any description text
 
 mixin introNoDescription(heading)
+
+	//- CMS config
+	<cms:editable name='group_header' label='Page Header' desc='Content for main header' type='group'></cms:editable>
+
 	header.intro-no-description(role="banner")
 		.inner
 			.splash-heading
-				h1.logo-main!= heading
+				<cms:editable name='logo_heading' label='Logo Heading' desc='The main heading for logo' group="group_header" type='text'>
+					h1.logo-main!= heading
+				</cms:editable>
 				img.svg.shape-splat-oval(src="img/shape-splat-oval.svg" aria-hidden="true" role="presentation")
 				img.svg.shape-splat(src="img/shape-splat.svg" aria-hidden="true" role="presentation")
 				img.svg.shape-splat-drip(src="img/shape-splat-drip.svg" aria-hidden="true" role="presentation")
 			.lined-heading
-				block
+				<cms:editable name='lined_heading' label='Lined Heading' desc='The secondary lined heading' group="group_header" type='text'>
+					block
+				</cms:editable>

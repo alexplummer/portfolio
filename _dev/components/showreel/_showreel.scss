@@ -251,7 +251,7 @@
                 transition: opacity 0.5s ease;
                 width: 100%;
                 position: absolute;
-                top: -105px;
+                top: -115px;
 
                 ul {
                     @include flexbox;
@@ -281,6 +281,7 @@
                             display: none;
                         }
                         p {
+                            font-size: $font-s;
                             padding-top: 0;
                             display: block;
                         }

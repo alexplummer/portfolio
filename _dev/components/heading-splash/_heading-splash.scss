@@ -37,7 +37,7 @@
         width: 1320px;
         height: 1298px;
         background: url(../img/shape-splat.svg) no-repeat;
-        background-size: 100%;
+        background-size: contain;
     }
     &.right {
         @include flexbox();
@@ -195,8 +195,9 @@
             margin-bottom: $size-xl;
             
             &:before {
+                height: 310px;
                 top: -130px;
-                left: -370px;
+                left: -250px;
             }
             .inner {
 

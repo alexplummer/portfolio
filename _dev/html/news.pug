@@ -1,11 +1,14 @@
-//- Extend head of document
-extends _includes/_head
-block bodyClassVar
-	- var bodyClass = 'news'
 
 //- News
 //- ============
 //- News landing page
+
+//- Extend head of document
+extends _includes/_head
+
+//- Page vars
+block pageVars
+	- var bodyClass = 'news'
 
 //- Includes
 include ../components/nav-vertical/_nav-vertical
@@ -13,51 +16,68 @@ include ../components/intro-with-description/_intro-with-description
 include ../components/news-link/_news-link
 include ../components/footer/_footer
 
-//- Page title
-block title
-	title News | Alex Plummer Portfolio
-
 block content
+
+	//- CMS config
+	<cms:template title="News"></cms:template>
+	<cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
 
 	//- Intro title	and description
 	- var heading = 'News'
-	- var subheading = 'Updates, thoughts +more'
+	- var subheading = '<cms:editable name="intro_subheading" label="Intro subheading" desc="Subheading for the intro" group="group_intro" type="text"></cms:editable>'
 	+intoWithDescription(heading, subheading)(class="news")
-		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-		p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority.
-
+		<cms:editable name="intro_content" label="Intro content" desc="Content for the intro" group="group_intro" type="richtext"></cms:editable>
+	
 	//- Main nav
 	+navVertical
 
 	main(role="main" id="maincontent")
 		section.news-highlights
 			.inner
-				//- News link
-				- var heading = 'Lorem ipsum dolor sit'
-				- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-				+newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+				//-
+					<cms:search_form "/>"
 
-				//- News link
-				- var heading = 'Lorem ipsum dolor sit'
-				- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-				+newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+					<cms:search limit='10' >
+						<cms:if k_paginated_top >
+							<div>
+								<cms:if k_paginator_required >
+								<cms:show k_current_page "/>" 
+								<cms:show k_total_pages "/>"
+								br
+								</cms:if>
+								<cms:show k_total_records "/>" 
+								<cms:show k_record_from "/>"
+								<cms:show k_record_to "/>"
+							</div>
+						</cms:if>
 
-				//- News link
-				- var heading = 'Lorem ipsum dolor sit'
-				- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-				+newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+						h3
+							a(href='')
+								<cms:show k_search_title "/>"
 
+						<cms:show k_search_excerpt "/>"
+						hr
+
+						<cms:paginator />
+
+					</cms:search>
 				//- News link
-				- var heading = 'Lorem ipsum dolor sit'
-				- var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-				+newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+				<cms:pages masterpage="article.php" limit="8" paginate='1'>
+				- var heading = '<cms:show k_page_title "/>"'
+				- var content = '<cms:excerptHTML count="70" ignore="img"><cms:show article_standfirst "/>"</cms:excerptHTML>'
+				+newsLink(heading, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
+
+				<cms:paginator "/>"
+				</cms:pages>
 
 	//- Footer
 	+footer
 		script(type="application/ld+json") 
 			| [
+			<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>
 			include _includes/json-ld/WebSite.html
 			include _includes/json-ld/NewsArticle.html
+			</cms:editable>
 			| ]
 
 	//- Under document content

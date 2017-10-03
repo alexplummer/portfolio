@@ -42,7 +42,7 @@ let browserReports = false;
 // ============
 // For when using FTP task, check FTP task first
 
-let ftpFolder = '/portfolio-test-15';
+let ftpFolder = '';
 
 
 // Reqs
@@ -186,7 +186,7 @@ gulp.task('html', () => {
 			sound: "Frog"
 		})(err);
 	};
-	
+
 	let output = '';
 	// Handles Pug templates
 	let pugCompile = gulp.src([paths.dev + '/html/*.pug', './components/*.pug'])
@@ -202,7 +202,7 @@ gulp.task('html', () => {
 		.pipe(plugins.htmlhint())
 		.pipe(plugins.htmlhint.reporter())
 		.pipe(gulp.dest(paths.tmp + '/'));
-	
+
 	// Return streams
 	return plugins.mergeStream(pugCompile, htmlLint);
 });
@@ -376,7 +376,7 @@ gulp.task('svg', () => {
 				{ removeDesc: true },
 				{ removeTitle: true },
 				{ removeEmptyAttrs: true },
-				{ removeDimensions: true}
+				{ removeDimensions: true }
 			]
 		}))
 		.pipe(gulp.dest(paths.tmp + '/img'))
@@ -676,14 +676,40 @@ gulp.task('depcheck', plugins.depcheck({
 // ============
 // Replaces with Couch CMS absolute path
 
-gulp.task('couchIncludes', () => {
+gulp.task('couchIncludes', function () {
 	return gulp.src(paths.prod + '/*.php')
-		.pipe(plugins.replace('', ''))
+		.pipe(plugins.replace('href="style', 'href="<cms:show k_site_link />style'))
+		.pipe(plugins.replace('src="script', 'src="<cms:show k_site_link />script'))
+		.pipe(plugins.replace('href="img', 'href="<cms:show k_site_link />img'))
+		.pipe(plugins.replace('src="img', 'src="<cms:show k_site_link />img'))
+		.pipe(plugins.replace('a href="', 'a href="<cms:show k_site_link />'))
+		.pipe(plugins.replace('index.html', '<cms:show k_site_link />index.php'))
+		.pipe(plugins.replace('about.html', '<cms:show k_site_link />about.php'))
+		.pipe(plugins.replace('news.html', '<cms:show k_site_link />news.php'))
+		.pipe(plugins.replace('article.html', '<cms:show k_site_link />article.php'))
+		.pipe(plugins.replace('work.html', '<cms:show k_site_link />work.php'))
+		.pipe(plugins.replace('chat.html', '<cms:show k_site_link />chat.php'))
+		.pipe(plugins.replace('legal.html', '<cms:show k_site_link />legal.php'))
+		.pipe(plugins.replace('credits.html', '<cms:show k_site_link />credits.php'))
 		.pipe(gulp.dest(paths.prod));
 });
-gulp.task('couchExcludes', () => {
+
+gulp.task('couchExcludes', function () {
 	return gulp.src(paths.prod + '/*.php')
-		.pipe(plugins.replace('', ''))
+		.pipe(plugins.replace('<a href="<cms:show k_site_link /><cms:show k_page_link />">', '<a href="<cms:show k_page_link />">'))
+		.pipe(plugins.replace('=""',''))
+		.pipe(plugins.replace('&lt;','<'))
+		.pipe(plugins.replace('&gt;','>'))
+		.pipe(plugins.replace('">"</cms:show>','/>'))
+		.pipe(plugins.replace('">"</cms:date>','/>'))
+		.pipe(plugins.replace('&quot;/>&quot;','/>'))
+		.pipe(plugins.replace('image_2>">','image_2 />">'))
+		.pipe(plugins.replace('image_3>">','image_3 />">'))
+		.pipe(plugins.replace('">" </cms:show>','/>'))
+		.pipe(plugins.replace('">" </cms:paginator>','/>'))
+		.pipe(plugins.replace('">"','/>'))
+		.pipe(plugins.replace('</cms:show>',''))
+		.pipe(plugins.replace('</cms:search_form>',''))
 		.pipe(gulp.dest(paths.prod));
 });
 
@@ -784,7 +810,7 @@ gulp.task('watch:gulp', () => {
 // Build to tmp
 gulp.task('build:tmp', gulpsync.sync([
 	'clean:tmp', 'create-folders', 'svg', 'js',
-	['bower-install', 'component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
+	[/*'bower-install', */'component-directories', 'fontello', 'copy:fonts', 'inject-CSSdeps', 'inject-JSdeps'],
 	['copy:scripts', 'copy:images', 'sprites'],
 	'build-sass',
 	['html'],
@@ -808,7 +834,7 @@ gulp.task('build:prod', gulpsync.sync([
 	'usemin',
 	'copy:prod',
 	'images',
-	//'couch',
+	'couch',
 	'optimise'
 ]));
 

@@ -1,0 +1,192 @@
+<?php require_once( 'couch/cms.php' ); ?>
+<cms:editable name="group_meta" label="Meta" desc="Page meta information" type="group"></cms:editable>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary meta-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
+    <title>
+        <cms:editable name="meta_title" label="Page Title" desc="Page title used for meta and OG" group="group_meta" type="text"></cms:editable>
+    </title>
+    <link rel="author" href="humans.txt">
+    <link rel="canonical" href="#">
+    <!-- DNS Prefetch-->
+    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+    <!-- Meta, OG, Twitter, Apple-->
+    <meta name="description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta property="article:author" content="Alex Plummer">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#009DC9">
+    <meta property="fb:app_id" content="123456789">
+    <meta property="og:url" content="http://wwww.alexplummer.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
+    <meta property="og:locale" content="en_UK">
+    <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="http://wwww.alexplummer.com">
+    <meta name="twitter:title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="twitter:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="<cms:show k_site_link />style/style.css"/>
+</head>
+
+<body class="chat">
+    <cms:template title="Chat"></cms:template>
+    <cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+    <header class="intro-with-description" role="banner">
+        <div class="inner">
+            <div class="lined-heading no-under">
+                <h1 class="chat">Chat<svg viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M12.398 0C5.55 0 0 5.596 0 12.5S5.55 25 12.398 25c6.847 0 12.397-5.596 12.397-12.5S19.245 0 12.398 0zm.516 1.055c5.864.265 10.558 5.012 10.823 10.924h-4.132c-.254-3.61-3.11-6.488-6.69-6.745v-4.18zm0 11.966h5.658c-.25 3.035-2.647 5.452-5.658 5.703V13.02zm5.658-1.042h-5.658V6.276c3.01.251 5.409 2.668 5.658 5.703zm-6.69 0H6.223c.249-3.035 2.647-5.452 5.657-5.703v5.703zm0-10.924v4.18C8.3 5.49 5.444 8.368 5.19 11.978H1.058C1.323 6.067 6.017 1.32 11.881 1.055zm0 22.89c-5.865-.264-10.56-5.012-10.824-10.924H5.19c.255 3.61 3.11 6.488 6.691 6.745v4.18zM6.223 13.021h5.657v5.703c-3.01-.251-5.408-2.668-5.657-5.703zm6.69 10.924v-4.18c3.581-.255 6.437-3.134 6.69-6.744h4.133c-.264 5.912-4.959 10.66-10.823 10.924z" fill="#272729" fill-rule="evenodd"/></svg></h1>
+                <svg viewbox="0 0 424 313" xmlns="http://www.w3.org/2000/svg" class="header-bg-under" aria-hidden="true" role="presentation"><g fill="#CE0176" fill-rule="evenodd"><g transform="rotate(99 186.34 213.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 156.447 248.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 126.554 283.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 96.661 318.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g></g></svg>
+            </div>
+            <article>
+                <h2><cms:editable name="intro_subheading" label="Intro subheading" desc="Subheading for the intro" group="group_intro" type="text"></cms:editable></h2>
+                <cms:editable name="intro_content" label="Intro content" desc="Content for the intro" group="group_intro" type="richtext"></cms:editable>
+            </article>
+        </div>
+    </header>
+    <div class="menu-toggle inactive">
+        <div class="off"><span></span><span></span><span></span>
+        </div>
+        <div class="on"><span></span><span></span>
+        </div>
+    </div>
+    <nav class="nav-vertical">
+        <div class="logo-main">
+            <h2><span>Alex</span> Plummer</h2>
+        </div><a class="skip-main" href="#maincontent">Skip to main content</a>
+        <div class="nav-inner" role="navigation"><a class="home" href="<cms:show k_site_link />index.php">HOME<svg viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M12.375 9.554c-1.61 0-2.917 1.32-2.917 2.946 0 1.627 1.306 2.946 2.917 2.946 1.61 0 2.917-1.319 2.917-2.946 0-1.627-1.306-2.946-2.917-2.946zm0 4.714c-.967 0-1.75-.792-1.75-1.768s.783-1.768 1.75-1.768 1.75.792 1.75 1.768-.783 1.768-1.75 1.768zm0-14.268L0 12.5 12.375 25 24.75 12.5 12.375 0zM1.65 12.5L12.375 1.667 23.1 12.501 12.375 23.334 1.65 12.5z" fill="#272729" fill-rule="evenodd"/></svg></a><a class="work" href="<cms:show k_site_link />work.php">WORK<svg viewbox="0 0 128 99" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#27272A"><path class="line-1" d="M45.95 12.974l26.059 32.02 21.389-21.021 29.147 34.582 5.353-4.51L93.88 13.683 72.585 34.612 46.371 2.402 25.213 24.539 5.705.779.295 5.221l24.52 29.865z"/><path class="line-2" d="M72.009 84.993l21.389-21.02 29.147 34.582 5.353-4.51L93.88 53.683 72.585 74.612l-26.214-32.21-21.158 22.137-19.508-23.76-5.41 4.442 24.52 29.865L45.95 52.974z"/></g></svg></a>
+            <a class="news" href="<cms:show k_site_link />news.php">NEWS
+                <svg viewbox="0 0 26 31" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill="#272729" fill-rule="evenodd"><path d="M10.135 26.186c0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.632 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.6 2.098-4.6 4.686 0 2.36 1.714 4.307 3.943 4.633v12.156c-2.229.325-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542-.001 4.602-2.1 4.602-4.687zM2.247 4.764c0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zm0 21.422c0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zM6.848 4.764c0-.74-.589-1.339-1.315-1.339-.725 0-1.314.6-1.314 1.339s.588 1.339 1.314 1.339c.727 0 1.315-.6 1.315-1.34zm0 21.422c0-.74-.589-1.34-1.315-1.34-.725 0-1.314.6-1.314 1.34 0 .739.588 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34z" class="line-1"/><path d="M19.995 4.764c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.6-1.314 1.339zm0 21.422c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.599-1.314 1.339zM16.708 4.764c0 2.36 1.715 4.307 3.944 4.632v12.157c-2.229.326-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542 0 4.602-2.098 4.602-4.686 0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.633 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.601 2.098-4.601 4.686zm7.888 21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347zm0-21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347z" class="line-2"/></g></svg>
+                </a><a class="chat" href="<cms:show k_site_link />chat.php">CHAT<svg viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M12.398 0C5.55 0 0 5.596 0 12.5S5.55 25 12.398 25c6.847 0 12.397-5.596 12.397-12.5S19.245 0 12.398 0zm.516 1.055c5.864.265 10.558 5.012 10.823 10.924h-4.132c-.254-3.61-3.11-6.488-6.69-6.745v-4.18zm0 11.966h5.658c-.25 3.035-2.647 5.452-5.658 5.703V13.02zm5.658-1.042h-5.658V6.276c3.01.251 5.409 2.668 5.658 5.703zm-6.69 0H6.223c.249-3.035 2.647-5.452 5.657-5.703v5.703zm0-10.924v4.18C8.3 5.49 5.444 8.368 5.19 11.978H1.058C1.323 6.067 6.017 1.32 11.881 1.055zm0 22.89c-5.865-.264-10.56-5.012-10.824-10.924H5.19c.255 3.61 3.11 6.488 6.691 6.745v4.18zM6.223 13.021h5.657v5.703c-3.01-.251-5.408-2.668-5.657-5.703zm6.69 10.924v-4.18c3.581-.255 6.437-3.134 6.69-6.744h4.133c-.264 5.912-4.959 10.66-10.823 10.924z" fill="#272729" fill-rule="evenodd"/></svg></a>
+        </div>
+    </nav>
+    <main role="main" id="maincontent">
+        <section>
+            <div class="inner">
+                <cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+                <cms:form method="post" class="contact-form">
+                    <div class="form-contents">
+                        <cms:if k_success>
+                            <div class="k_successmessage">
+                                <cms:send_mail from="info@alexplummer.com" to="alexplummer86@gmail.com" subject="Feedback from your site">The following is an email sent by a visitor to your site:
+                                    <cms:show k_success /></cms:send_mail>
+                                        <h4>Thanks, message sent!</h4>
+                            </div>
+                        </cms:if>
+                        <label for="name">Full Name<small>&nbsp;(required)</small>
+                        </label>
+                        <cms:input type="text" id="name" name="name" maxlength="100" desc="Enter your full name" placeholder="Enter full name here" required="1"></cms:input>
+                        <label for="email">Email<small>&nbsp;(required)</small>
+                        </label>
+                        <cms:input type="text" id="email" name="email" maxlength="100" desc="Enter your email" placeholder="Enter email here" validator="email" required="1"></cms:input>
+                        <label for="message">Message</label>
+                        <cms:input type="textarea" rows="5" cols="20" wrap="physical" desc="Enter an optional message" id="message" name="message" placeholder="Enter message here"></cms:input>
+                        <cms:if k_error>
+                            <div class="k_errormessage">
+                                <h4>Sorry, please correct the following:</h4>
+                                <ul>
+                                    <cms:each k_error>
+                                        <li>
+                                            <cms:show item /></li></cms:each>
+                                </ul>
+                            </div>
+                        </cms:if>
+                        <cms:input type="submit" name="submit" value="Send"></cms:input>
+                    </div>
+                </cms:form>
+                <aside>
+                    <blockquote class="citation">
+                        <p>Design and code in beautiful harmony</p>
+                        <footer>- Some name, author</footer>
+                    </blockquote>
+                    <blockquote class="citation">
+                        <p>Design and code in beautiful harmony</p>
+                        <footer>- Some name, author</footer>
+                    </blockquote>
+                </aside>
+            </div>
+        </section>
+        <section class="social-personal">
+            <div class="inner">
+                <h3>Find me online</h3>
+                <nav>
+                    <a href="<cms:show k_site_link />#" title="Link to Facebook profile">
+                        <svg viewbox="0 0 50 49" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#CE0176"><path d="M24.905 0C11.15 0 0 10.754 0 24.021c0 13.267 11.15 24.021 24.905 24.021S49.81 37.288 49.81 24.022C49.81 10.753 38.66 0 24.905 0zm0 44.29c-11.606 0-21.014-9.075-21.014-20.269 0-11.194 9.408-20.268 21.014-20.268s21.014 9.074 21.014 20.268S36.51 44.29 24.905 44.29z"/><path d="M30.815 20.344h-4.332v-3.05c0-.935 1.003-1.152 1.471-1.152h2.799v-4.115l-3.208-.016c-4.376 0-5.375 3.068-5.375 5.036v3.297h-3.175v4.24h3.175v11.448h4.313V24.584h3.663l.67-4.24z"/></g></svg>
+                    </a>
+                    <a href="<cms:show k_site_link />#" title="Link to Twitter profile">
+                        <svg viewbox="0 0 51 49" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#CE0176"><path d="M25.705 0C11.95 0 .8 10.754.8 24.021c0 13.267 11.15 24.021 24.905 24.021S50.61 37.288 50.61 24.022C50.61 10.753 39.46 0 25.705 0zm0 44.29c-11.606 0-21.014-9.075-21.014-20.269 0-11.194 9.408-20.268 21.014-20.268s21.014 9.074 21.014 20.268S37.31 44.29 25.705 44.29z"/><path d="M38.157 16.038c-.419.24-1.677.72-2.851.84.752-.421 1.867-1.802 2.142-2.898-.724.48-2.385 1.178-3.206 1.178 0 0 0 .003.002.004-.937-1.017-2.254-1.65-3.716-1.65-2.836 0-5.138 2.389-5.138 5.337 0 .409.047.806.132 1.189h-.001c-3.849-.103-8.348-2.106-10.884-5.536-1.556 2.8-.21 5.915 1.558 7.05-.603.049-1.719-.072-2.243-.6-.037 1.857.825 4.32 3.963 5.213-.606.338-1.673.242-2.14.167.165 1.571 2.28 3.624 4.593 3.624-.824.988-3.636 2.787-7.116 2.214 2.364 1.496 5.12 2.36 8.037 2.36 8.29 0 14.727-6.977 14.38-15.584l-.003-.03c0-.023.003-.047.003-.067 0-.027-.003-.053-.003-.08a9.043 9.043 0 0 0 2.491-2.73z"/></g></svg>
+                    </a>
+                    <a href="<cms:show k_site_link />#" title="Link to LinkedIn profile">
+                        <svg viewbox="0 0 51 49" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#CE0176"><path d="M25.505 0C11.75 0 .6 10.754.6 24.021c0 13.267 11.15 24.021 24.905 24.021S50.41 37.288 50.41 24.022C50.41 10.753 39.26 0 25.505 0zm0 44.29c-11.606 0-21.014-9.075-21.014-20.269 0-11.194 9.408-20.268 21.014-20.268s21.014 9.074 21.014 20.268S37.11 44.29 25.505 44.29z"/><path d="M13.062 36.022h4.67V18.006h-4.67v18.016zM31.74 18.006c-3.997.064-5.964 2.875-6.226 3.002v-3.002h-4.67v18.016h4.67v-10.51c0-.385.985-3.472 4.67-3.002 1.979.124 3.046 2.649 3.113 3.002v10.51l4.651.02V23.57c-.164-1.8-1.097-5.5-6.208-5.564zM15.396 12c-1.289 0-2.334 1.008-2.334 2.252 0 1.245 1.045 2.252 2.334 2.252 1.29 0 2.335-1.007 2.335-2.252 0-1.244-1.045-2.252-2.335-2.252z"/></g></svg>
+                    </a>
+                    <a href="<cms:show k_site_link />#" title="Link to Github profile">
+                        <svg viewbox="0 0 51 50" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M25.4 0C11.593 0 .4 11.193.4 25s11.193 25 25 25 25-11.193 25-25-11.193-25-25-25zm14.846 39.846a20.932 20.932 0 0 1-8.609 5.21v-3.747c0-1.97-.675-3.418-2.026-4.346a21.876 21.876 0 0 0 2.332-.342 17.597 17.597 0 0 0 2.246-.635c.79-.276 1.497-.606 2.124-.988a8.857 8.857 0 0 0 1.806-1.49 8.712 8.712 0 0 0 1.453-2.075c.39-.773.7-1.7.928-2.783.228-1.082.342-2.275.342-3.577 0-2.523-.822-4.67-2.466-6.445.749-1.953.667-4.077-.244-6.372l-.61-.073c-.424-.05-1.185.13-2.283.537-1.1.407-2.332 1.074-3.7 2.002a22.46 22.46 0 0 0-6.03-.806c-2.099 0-4.1.269-6.005.806a20.91 20.91 0 0 0-2.454-1.453c-.773-.382-1.391-.643-1.855-.781a6.363 6.363 0 0 0-1.294-.257c-.399-.032-.655-.04-.77-.024a1.56 1.56 0 0 0-.243.049c-.912 2.311-.993 4.435-.245 6.372-1.643 1.774-2.465 3.922-2.465 6.445 0 1.302.114 2.495.341 3.577.228 1.082.538 2.01.928 2.783.39.773.875 1.465 1.453 2.075a8.862 8.862 0 0 0 1.806 1.49c.627.382 1.335.712 2.124.988.79.277 1.539.489 2.247.635.708.147 1.485.26 2.331.342-1.335.911-2.002 2.36-2.002 4.346v3.82a20.932 20.932 0 0 1-8.853-5.282A20.93 20.93 0 0 1 4.403 25a20.933 20.933 0 0 1 6.15-14.846A20.929 20.929 0 0 1 25.4 4.004c2.836 0 5.585.554 8.171 1.648a20.934 20.934 0 0 1 6.676 4.502A20.93 20.93 0 0 1 46.397 25a20.93 20.93 0 0 1-6.15 14.846z" fill-rule="nonzero" fill="#CE0176"/></svg>
+                    </a>
+                    <a href="<cms:show k_site_link />#" title="Link to Stack Overflow profile">
+                        <svg viewbox="0 0 51 50" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#CE0176"><path d="M29.598 25.994h1.93V37.77h-18.79V25.994h1.928v9.869h14.93c.002-3.293.002-6.577.002-9.87zm-5.495-13.18l6.412 9.356c.676-.46 1.34-.91 2.009-1.363-2.144-3.126-4.277-6.238-6.412-9.355-.673.455-1.335.905-2.009 1.363zm6.018 9.686l-9.8-5.752-1.237 2.083 9.802 5.753c.415-.701.825-1.39 1.235-2.084zm3.285-13.41c-.802.14-1.589.277-2.395.415.65 3.725 1.3 7.435 1.947 11.155l2.396-.414c-.65-3.729-1.298-7.44-1.948-11.155zm-4.72 16.178c-3.67-.984-7.324-1.96-10.99-2.941l-.631 2.336 10.99 2.94c.213-.785.421-1.557.63-2.335zm-1.031 6.263h-11.36v2.405h11.36v-2.405zm.284-3.109c-3.783-.346-7.552-.694-11.33-1.038l-.226 2.41c3.783.345 7.554.691 11.332 1.037l.224-2.409z"/><path d="M25.2 0C11.392 0 .2 11.192.2 25s11.192 25 25 25 25-11.192 25-25-11.192-25-25-25zm0 46.094C13.55 46.094 4.106 36.65 4.106 25S13.55 3.906 25.2 3.906 46.294 13.35 46.294 25 36.85 46.094 25.2 46.094z"/></g></svg>
+                    </a>
+                    <a href="<cms:show k_site_link />#" title="Link to Behance profile">
+                        <svg viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#CE0176"><path d="M25 0C11.192 0 0 11.192 0 25s11.192 25 25 25 25-11.192 25-25S38.808 0 25 0zm0 46.094C13.35 46.094 3.906 36.65 3.906 25S13.35 3.906 25 3.906 46.094 13.35 46.094 25 36.65 46.094 25 46.094z"/><path d="M23.685 18.814c.46.644.692 1.42.692 2.324 0 .93-.235 1.68-.698 2.246-.263.316-.643.606-1.148.865.768.286 1.348.731 1.74 1.345.39.618.586 1.36.586 2.235 0 .903-.223 1.712-.672 2.428a4.235 4.235 0 0 1-1.065 1.205c-.479.37-1.05.623-1.701.763-.655.134-1.364.203-2.129.203H12.5v-15.24h7.283c1.836.025 3.139.567 3.902 1.626zm-8.179 1.024v3.357h3.662c.653 0 1.183-.125 1.595-.375.404-.255.61-.7.61-1.34 0-.713-.27-1.177-.809-1.407-.464-.159-1.06-.235-1.78-.235h-3.278zm0 5.885v4.06h3.656c.653 0 1.163-.092 1.526-.27.662-.332.992-.967.992-1.902 0-.795-.32-1.338-.962-1.634-.357-.165-.857-.25-1.504-.254h-3.708zM34.586 21.385c.778.354 1.42.908 1.928 1.668.453.674.751 1.45.888 2.333.077.516.109 1.259.095 2.232h-8.115c.046 1.136.437 1.926 1.17 2.382.442.283.977.423 1.601.423.664 0 1.204-.173 1.616-.517.23-.186.427-.441.603-.776h2.972c-.077.666-.439 1.348-1.08 2.04-.998 1.092-2.396 1.643-4.192 1.643-1.481 0-2.787-.463-3.923-1.388-1.132-.926-1.696-2.427-1.696-4.513 0-1.95.51-3.45 1.535-4.492 1.02-1.04 2.348-1.564 3.98-1.564.97 0 1.842.181 2.618.53zm-4.355 2.547c-.412.432-.669 1.011-.776 1.748h5.018c-.054-.784-.313-1.38-.779-1.783-.462-.405-1.037-.608-1.724-.608-.747 0-1.329.217-1.74.643zM28.13 18.747h7.81v1.56h-7.81z"/></g></svg>
+                    </a>
+                </nav>
+            </div>
+        </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+        <div class="inner">
+            <div class="legal">
+                <h2 class="logo-main"><span>Alex</span> Plummer</h2>
+                <p>© Copyright 2017</p>
+                <ul role="navigation">
+                    <li> <a href="<cms:show k_site_link /><cms:show k_site_link />legal.php">Legal</a>
+                    </li>
+                    <li> <a href="<cms:show k_site_link /><cms:show k_site_link />credits.php">Credits</a>
+                    </li>
+                </ul>
+            </div>
+            <nav><a class="home" href="<cms:show k_site_link />index.php">HOME<svg viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M12.375 9.554c-1.61 0-2.917 1.32-2.917 2.946 0 1.627 1.306 2.946 2.917 2.946 1.61 0 2.917-1.319 2.917-2.946 0-1.627-1.306-2.946-2.917-2.946zm0 4.714c-.967 0-1.75-.792-1.75-1.768s.783-1.768 1.75-1.768 1.75.792 1.75 1.768-.783 1.768-1.75 1.768zm0-14.268L0 12.5 12.375 25 24.75 12.5 12.375 0zM1.65 12.5L12.375 1.667 23.1 12.501 12.375 23.334 1.65 12.5z" fill="#272729" fill-rule="evenodd"/></svg></a><a class="work" href="<cms:show k_site_link />work.php">WORK<svg viewbox="0 0 128 99" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="#27272A"><path class="line-1" d="M45.95 12.974l26.059 32.02 21.389-21.021 29.147 34.582 5.353-4.51L93.88 13.683 72.585 34.612 46.371 2.402 25.213 24.539 5.705.779.295 5.221l24.52 29.865z"/><path class="line-2" d="M72.009 84.993l21.389-21.02 29.147 34.582 5.353-4.51L93.88 53.683 72.585 74.612l-26.214-32.21-21.158 22.137-19.508-23.76-5.41 4.442 24.52 29.865L45.95 52.974z"/></g></svg></a>
+                <a class="news" href="<cms:show k_site_link />news.php">NEWS
+                    <svg viewbox="0 0 26 31" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill="#272729" fill-rule="evenodd"><path d="M10.135 26.186c0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.632 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.6 2.098-4.6 4.686 0 2.36 1.714 4.307 3.943 4.633v12.156c-2.229.325-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542-.001 4.602-2.1 4.602-4.687zM2.247 4.764c0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zm0 21.422c0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zM6.848 4.764c0-.74-.589-1.339-1.315-1.339-.725 0-1.314.6-1.314 1.339s.588 1.339 1.314 1.339c.727 0 1.315-.6 1.315-1.34zm0 21.422c0-.74-.589-1.34-1.315-1.34-.725 0-1.314.6-1.314 1.34 0 .739.588 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34z" class="line-1"/><path d="M19.995 4.764c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.6-1.314 1.339zm0 21.422c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.599-1.314 1.339zM16.708 4.764c0 2.36 1.715 4.307 3.944 4.632v12.157c-2.229.326-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542 0 4.602-2.098 4.602-4.686 0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.633 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.601 2.098-4.601 4.686zm7.888 21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347zm0-21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347z" class="line-2"/></g></svg>
+                    </a><a class="chat" href="<cms:show k_site_link />chat.php">CHAT<svg viewbox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><path d="M12.398 0C5.55 0 0 5.596 0 12.5S5.55 25 12.398 25c6.847 0 12.397-5.596 12.397-12.5S19.245 0 12.398 0zm.516 1.055c5.864.265 10.558 5.012 10.823 10.924h-4.132c-.254-3.61-3.11-6.488-6.69-6.745v-4.18zm0 11.966h5.658c-.25 3.035-2.647 5.452-5.658 5.703V13.02zm5.658-1.042h-5.658V6.276c3.01.251 5.409 2.668 5.658 5.703zm-6.69 0H6.223c.249-3.035 2.647-5.452 5.657-5.703v5.703zm0-10.924v4.18C8.3 5.49 5.444 8.368 5.19 11.978H1.058C1.323 6.067 6.017 1.32 11.881 1.055zm0 22.89c-5.865-.264-10.56-5.012-10.824-10.924H5.19c.255 3.61 3.11 6.488 6.691 6.745v4.18zM6.223 13.021h5.657v5.703c-3.01-.251-5.408-2.668-5.657-5.703zm6.69 10.924v-4.18c3.581-.255 6.437-3.134 6.69-6.744h4.133c-.264 5.912-4.959 10.66-10.823 10.924z" fill="#272729" fill-rule="evenodd"/></svg></a>
+            </nav>
+        </div>
+    </footer>
+    <script type="application/ld+json">
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+            '@context': 'http://schema.org', 
+            '@type': 'ContactPage', 
+            'url': 'http://www.example.com/', 
+            'name': 'Generally the title',
+            'author': {
+                '@type': 'Person',
+                'name': 'Jane Doe'
+            },
+            'description': 'Any sort of description, I'd keep it short',
+            'publisher': 'publisher name',
+            'potentialAction': { 
+                '@type': 'SearchAction', 
+                'target': 'http://www.example.com/?s={search_term}', 
+                'query-input': 'required name=search_term' 
+            } 
+        },</cms:editable>]
+    </script>
+    <script src="<cms:show k_site_link />script/script.js" async></script>
+    <!-- Google fonts -->
+    <script>
+        WebFontConfig={google:{families:["Quicksand:400,500","Sanchez"]}},function(e){var n=e.createElement("script"),o=e.scripts[0];n.src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",n.async=!0,o.parentNode.insertBefore(n,o)}(document);
+    </script>
+</body>
+
+</html>
+<?php COUCH::invoke(); ?>

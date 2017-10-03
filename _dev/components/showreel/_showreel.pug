@@ -4,8 +4,11 @@
 //- Large section used to demo work
 
 mixin showreel()
-	section.showreel
 
+	//- CMS config
+	<cms:editable name="group_showreel" label="Showreel" desc="Showreel for projects" type="group"></cms:editable>
+
+	section.showreel
 		article.project-modal.modal-inactive(tabindex="-1" role="dialog" hidden)
 			button.close(title="Close the dialog")
 			.screenshots
@@ -19,225 +22,101 @@ mixin showreel()
 			
 		.inner
 			blockquote
+				<cms:editable name="showreel_quote" label="Showreel Quote" desc="Quote within showreel" group="group_showreel" type="text">
 				| “Design and code in beautiful harmony”
+				</cms:editable>
 			article.intro
+				<cms:editable name="showreel_description" label="Showreel Description" desc="Description within showreel" group="group_showreel" type="richtext">
 				h3 
 					| Hello there!
 				p
 					| Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design and it’s application using the latest tech, provoking yet always keeping the user experience as the highest priority. 
 				p
 					| On this site you can find a selection of both the design and the coding aspects of his work.
-		
+				</cms:editable>
 		.slider
 			p.title
 				| Some of the pretty stuff
 			.items-holder
 				.items-left.active
 					ul
+						//- Left item CMS repeat tags
+						<cms:repeatable name="showreel_left" label="Showreel item left" desc="A left item in the showreel" group="group_showreel">
+							<cms:editable name="showreel_left_title" label="Showreel item title" input_width="200" col_width="200" type="text"></cms:editable>
+							<cms:editable name="showreel_left_content" label="Showreel item content" input_width="600" col_width="600" type="richtext"></cms:editable>
+							<cms:editable name="showreel_left_thumb" label="Showreel item thumb" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_left_thumb_alt" label="Showreel item thumb alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_left_desktop_image_1" label="Showreel item desktop image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_left_desktop_image_1_alt" label="Showreel desktop 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_left_desktop_image_2" label="Showreel item desktop image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_left_desktop_image_2_alt" label="Showreel desktop 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_left_mobile_image_1" label="Showreel item mobile image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_left_mobile_image_1_alt" label="Showreel mobile 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_left_mobile_image_2" label="Showreel item mobile image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_left_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+						</cms:repeatable>
+
+						//- Left item CMS show repeat
+						<cms:show_repeatable "showreel_left" >
 						li
 							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Left
+								img(data-src="<cms:show showreel_left_thumb />" alt="<cms:show showreel_left_thumb_alt />")
+	
+							p <cms:show showreel_left_title "/>"
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
+										img(src="<cms:show showreel_left_desktop_image_1 />" alt="<cms:show showreel_left_desktop_image_1_alt />")
+										img(src="<cms:show showreel_left_desktop_image_2 />" alt="<cms:show showreel_left_desktop_image_2_alt />")
+										
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Left
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Left
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Left
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Left
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
+										img(src="<cms:show showreel_left_mobile_image_1 />" alt="<cms:show showreel_left_mobile_image_1_alt />")
+										img(src="<cms:show showreel_left_mobile_image_2 />" alt="<cms:show showreel_left_mobile_image_2_alt />")
+										
+								.content <cms:show showreel_left_content "/>"
+						</cms:show_repeatable>
 
 				.items-right.inactive
 					ul
+						//- Right item CMS repeat tags
+						<cms:repeatable name="showreel_right" label="Showreel item right" desc="A right item in the showreel" group="group_showreel">
+							<cms:editable name="showreel_right_title" label="Showreel item title" input_width="200" col_width="200" type="text"></cms:editable>
+							<cms:editable name="showreel_right_content" label="Showreel item content" input_width="600" col_width="600" type="richtext"></cms:editable>
+							<cms:editable name="showreel_right_thumb" label="Showreel item thumb" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_right_thumb_alt" label="Showreel item thumb alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_right_desktop_image_1" label="Showreel item desktop image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_right_desktop_image_1_alt" label="Showreel desktop 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_right_desktop_image_2" label="Showreel item desktop image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_right_desktop_image_2_alt" label="Showreel desktop 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_right_mobile_image_1" label="Showreel item mobile image 1" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_right_mobile_image_1_alt" label="Showreel mobile 1 alt" input_width="200" col_width="230" type="text"></cms:editable>
+							<cms:editable name="showreel_right_mobile_image_2" label="Showreel item mobile image 2" show_preview="1" preview_width="200" input_width="200" col_width="230" type="image"></cms:editable>
+							<cms:editable name="showreel_right_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
+						</cms:repeatable>
+						
+						//- Right item CMS show repeat
+						<cms:show_repeatable "showreel_right">
 						li
-							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Right
+							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+								img(data-src="<cms:show showreel_right_thumb />" alt="<cms:show showreel_right_thumb_alt />")
+	
+							p <cms:show showreel_right_title "/>"
 
 							.modal-content
 								.desktop
 									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
+										img(src="<cms:show showreel_right_desktop_image_1 />" alt="<cms:show showreel_right_desktop_image_1_alt />")
+										img(src="<cms:show showreel_right_desktop_image_2 />" alt="<cms:show showreel_right_desktop_image_2_alt />")
+										
 								.mobile
 									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Right
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Right
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Right
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
-						li
-							picture(role="button" aria-pressed="false" title="Open a dialog with project info" tabindex="-1")
-								img(data-src="img/media/screen-euromoney.jpg" alt="Some alt text")
-							p Right
-
-							.modal-content
-								.desktop
-									.screens
-										img(src="img/media/screen-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-euromoney-2.jpg" alt="some alt text")
-								.mobile
-									.screens
-										img(src="img/media/screen-mobile-euromoney.jpg" alt="some alt text")
-										img(src="img/media/screen-mobile-euromoney-2.jpg" alt="some alt text")
-								.content
-									h3 Title
-									p Alex Plummer is a frontend developer and designer, bringing together a love for creative graphic design.
-									hr
-									a(href="#") View more
-
+										img(src="<cms:show showreel_right_mobile_image_1 />" alt="<cms:show showreel_right_mobile_image_1_alt />")
+										img(src="<cms:show showreel_right_mobile_image_2 />" alt="<cms:show showreel_right_mobile_image_2_alt />")
+										
+								.content <cms:show showreel_left_content "/>"
+						</cms:show_repeatable>
 
 			a(href="#").toggle-left.active 
 				img(src="img/icon-design.svg"  aria-hidden="true" role="presentation").svg.btn-icon

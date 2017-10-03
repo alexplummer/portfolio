@@ -7,5 +7,9 @@ mixin headingImage(heading)
 	header.heading-image(role="banner")
 		.inner
 			picture
-				img(src!=attributes.src alt="some alt text")
-			h1= heading
+				<cms:hide>
+				<cms:editable name="article_image" group="group_news_article_header" label="Article image" type="image"></cms:editable>
+				<cms:editable name="article_image_alt" group="group_news_article_header" label="Article image alt" type="text"></cms:editable>
+				</cms:hide>
+				img(data-src="<cms:show article_image />" alt="<cms:show article_image_alt />")
+			h1!= heading

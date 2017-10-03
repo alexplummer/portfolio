@@ -7,14 +7,15 @@
 include ../news-link/_news-link
 
 mixin newsHighlights()
-    section.news-highlights
-        .inner
-            //- News link
-            - var heading = 'Lorem ipsum dolor sit'
-            - var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-            +newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
 
-            //- News link
-            - var heading = 'Lorem ipsum dolor sit'
-            - var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-            +newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+	//- CMS config
+	<cms:editable name="group_news_highlights" label="News Highlights" desc="Latest news" type="group"></cms:editable>
+
+	section.news-highlights
+		.inner
+			//- News link
+			<cms:pages masterpage="article.php" limit="2">
+			- var heading = '<cms:show k_page_title "/>"'
+			- var content = '<cms:excerptHTML count="70" ignore="img"><cms:show article_standfirst "/>"</cms:excerptHTML>'
+			+newsLink(heading, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
+			</cms:pages>

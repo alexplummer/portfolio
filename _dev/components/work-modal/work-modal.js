@@ -62,7 +62,7 @@ const workModal = function workModal() {
 
         function toggleModal(e) {
             e.preventDefault();
-            let scrollPosition = e.clientX;
+            let scrollPosition = window.pageYOffset;
 
             // Set tabbale els
             let element = ally.query.firstTabbable({

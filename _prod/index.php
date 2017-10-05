@@ -190,7 +190,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="content">
-                                                        <cms:show showreel_left_content /></div>
+                                                        <cms:show showreel_right_content /></div>
                                                     </div>
                                     </li>
                                 </cms:show_repeatable>
@@ -352,7 +352,7 @@
         </div>
     </footer>
     <script type="application/ld+json">
-        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea' no_xss_check='1'>{ 
             '@context': 'http://schema.org', 
             '@type': 'WebSite', 
             'url': 'http://www.example.com/', 

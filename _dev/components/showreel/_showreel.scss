@@ -394,9 +394,10 @@
                 height: 220px;
 
                 .items-left, .items-right {
-                    top: -50px;
+                    top: -70px;
                     
                     ul {
+
                         li {
                             
                             picture {
@@ -634,6 +635,7 @@
                 width: calc(100% - 40px);
 
                 h3 {
+                    line-height: $font-xl;
                     margin-bottom: 0;
                 }
                 hr {

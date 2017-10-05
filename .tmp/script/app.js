@@ -205,7 +205,7 @@ var app = function () {
         items.forEach(function (thisItem) {
             thisItem.addEventListener('click', function (e) {
                 e.preventDefault();
-                var scrollPosition = e.clientX;
+                var scrollPosition = window.pageYOffset;
                 var screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
                 var screensMobile = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
                 var textContent = thisItem.querySelector('.content').innerHTML;
@@ -483,7 +483,7 @@ var app = function () {
 
             function toggleModal(e) {
                 e.preventDefault();
-                var scrollPosition = e.clientX;
+                var scrollPosition = window.pageYOffset;
 
                 // Set tabbale els
                 var element = ally.query.firstTabbable({

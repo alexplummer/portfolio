@@ -37,33 +37,28 @@
     <meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- build:css style/style.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/gemini-scrollbar/gemini-scrollbar.css" />
-    <!-- endbower -->
-    <link rel="preload" href="style/style.css" as="style" onload="this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="style/style.css">
-    </noscript>
-    <!--<link rel="stylesheet" href="style/style.css">-->
-    <!-- endbuild -->
+    <link rel="stylesheet" href="style/style.css"/>
 </head>
 
-<body class="news">
-    <cms:template title="News"></cms:template>
-    <cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
-    <header class="intro-with-description" role="banner">
+<body class="article">
+    <cms:template title="Article" clonable="1" dynamic_folders="1"></cms:template>
+    <cms:editable name="group_news_article_header" label="News article header" desc="Header for news article" type="group"></cms:editable>
+    <header class="heading-image" role="banner">
         <div class="inner">
-            <div class="lined-heading no-under">
-                <h1 class="news">News<svg viewbox="0 0 26 31" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill="#272729" fill-rule="evenodd"><path d="M10.135 26.186c0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.632 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.6 2.098-4.6 4.686 0 2.36 1.714 4.307 3.943 4.633v12.156c-2.229.325-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542-.001 4.602-2.1 4.602-4.687zM2.247 4.764c0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zm0 21.422c0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347 0 1.848-1.472 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347zM6.848 4.764c0-.74-.589-1.339-1.315-1.339-.725 0-1.314.6-1.314 1.339s.588 1.339 1.314 1.339c.727 0 1.315-.6 1.315-1.34zm0 21.422c0-.74-.589-1.34-1.315-1.34-.725 0-1.314.6-1.314 1.34 0 .739.588 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34z" class="line-1"/><path d="M19.995 4.764c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.6-1.314 1.339zm0 21.422c0 .739.589 1.339 1.314 1.339.727 0 1.315-.6 1.315-1.34 0-.739-.588-1.338-1.315-1.338-.725 0-1.314.599-1.314 1.339zM16.708 4.764c0 2.36 1.715 4.307 3.944 4.632v12.157c-2.229.326-3.944 2.273-3.944 4.633 0 2.588 2.06 4.686 4.601 4.686 2.542 0 4.602-2.098 4.602-4.686 0-2.36-1.715-4.307-3.944-4.633V9.397c2.229-.326 3.944-2.273 3.944-4.633 0-2.588-2.06-4.686-4.602-4.686-2.54 0-4.601 2.098-4.601 4.686zm7.888 21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.849 1.472-3.347 3.286-3.347 1.816 0 3.287 1.498 3.287 3.347zm0-21.422c0 1.848-1.471 3.347-3.287 3.347-1.814 0-3.286-1.499-3.286-3.347 0-1.848 1.472-3.347 3.286-3.347 1.816 0 3.287 1.499 3.287 3.347z" class="line-2"/></g></svg></h1>
-                <svg viewbox="0 0 424 313" xmlns="http://www.w3.org/2000/svg" class="header-bg-under" aria-hidden="true" role="presentation"><g fill="#CE0176" fill-rule="evenodd"><g transform="rotate(99 186.34 213.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 156.447 248.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 126.554 283.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g><g transform="rotate(99 96.661 318.598)"><circle cx="22" cy="175" r="21"/><circle cx="21.65" cy="96.08" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="21.93" cy="21.12" r="21"/><circle cx="22" cy="252" r="21"/><circle cx="22" cy="330" r="21"/><circle cx="22" cy="407" r="21"/></g></g></svg>
-            </div>
-            <article>
-                <h2><cms:editable name="intro_subheading" label="Intro subheading" desc="Subheading for the intro" group="group_intro" type="text"></cms:editable></h2>
-                <cms:editable name="intro_content" label="Intro content" desc="Content for the intro" group="group_intro" type="richtext"></cms:editable>
-            </article>
+            <picture>
+                <cms:hide>
+                    <cms:editable name="article_image" group="group_news_article_header" label="Article image" type="image"></cms:editable>
+                    <cms:editable name="article_image_alt" group="group_news_article_header" label="Article image alt" type="text"></cms:editable>
+                </cms:hide>
+                <img data-src="&lt;cms:show article_image /&gt;" alt="&lt;cms:show article_image_alt /&gt;">
+            </picture>
+            <h1><cms:show k_page_title"="">"</cms:show></h1>
         </div>
     </header>
+    <cms:hide>
+        <cms:editable name="article_thumb" group="group_news_article_header" label="Article thumb image" type="image"></cms:editable>
+        <cms:editable name="article_thumb_alt" group="group_news_article_header" label="Article thumb alt" type="text"></cms:editable>
+    </cms:hide>
     <div class="menu-toggle inactive">
         <div class="off"><span></span><span></span><span></span>
         </div>
@@ -81,20 +76,55 @@
         </div>
     </nav>
     <main role="main" id="maincontent">
-        <section class="news-highlights">
-            <div class="inner">
-                <cms:pages masterpage="article.php" limit="8" paginate="1">
-                    <article class="news-link">
-                        <picture>
-                            <img data-src="&lt;cms:show article_thumb /&gt;">
-                        </picture>
-                        <h3><cms:show k_page_title="" "="">"</cms:show></h3>
+        <cms:editable name="group_news_article_body" label="News article body" desc="Body for news article" type="group"></cms:editable>
+        <div class="news-article">
+            <div class="content">
+                <div class="inner">
+                    <article class="content-left" role="article">
+                        <div class="details">
+                            <div class="author">
+                                <p rel="author"><span>Written by:</span>
+                                    <cms:editable name="article_author" group="group_news_article_header" type="text"></cms:editable>
+                                </p>
+                                <div class="pubdate">
+                                    <p><span>Published: </span>
+                                        <time pubdate="pubdate">
+                                            <cms:date k_page_date="" format="jS F, Y" "="">"</cms:date></time>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="social-share">
+                                <div class="addthis_inline_share_toolbox_xdz8"></div>
+                            </div>
+                        </div>
                         <p>
-                            <cms:excerpthtml count="70" ignore="img">
-                                <cms:show article_standfirst="" "="">"</cms:show></cms:excerpthtml>
-                        </p><a class="btn" href="&lt;cms:show k_page_link /&gt;">Continue reading</a>
+                            <cms:editable name="article_standfirst" group="group_news_article_body" type="text"></cms:editable>
+                        </p>
+                        <cms:editable name="article_body" group="group_news_article_body" type="richtext"></cms:editable>
                     </article>
-                    <cms:paginator "="">" </cms:paginator></cms:pages>
+                    <aside class="content-right" role="complementary">
+                        <img src="img/media/content-sample.jpg" alt="some alt text">
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <section class="related-news">
+            <div class="inner">
+                <h2>Further reading</h2>
+                <article class="news-link">
+                    <picture>
+                        <img data-src="img/media/screen-euromoney.jpg">
+                    </picture>
+                    <h3>Lorem ipsum dolor sit</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
+                </article>
+                <article class="news-link">
+                    <picture>
+                        <img data-src="img/media/screen-euromoney.jpg">
+                    </picture>
+                    <h3>Lorem ipsum dolor sit</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
+                </article>
             </div>
         </section>
     </main>
@@ -161,18 +191,8 @@
             }
         },</cms:editable>]
     </script>
-    <!-- build:js script/script.js -->
-    <!-- bower:js -->
-    <script src="../bower_components/waypoints/lib/noframework.waypoints.js"></script>
-    <script src="../bower_components/loadcss/src/loadCSS.js"></script>
-    <script src="../bower_components/gemini-scrollbar/index.js"></script>
-    <script src="../bower_components/vanilla-lazyload/dist/lazyload.min.js"></script>
-    <script src="../bower_components/ally.js/dist/ally.min.js"></script>
-    <!-- endbower -->
-    <!-- inject:imports -->
-    <script src="script/app.js"></script>
-    <!-- endinject -->
-    <!-- endbuild -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55c6759b75b46ce8"></script>
+    <script src="script/script.js" async></script>
     <!-- Google fonts -->
     <script>
         WebFontConfig={google:{families:["Quicksand:400,500","Sanchez"]}},function(e){var n=e.createElement("script"),o=e.scripts[0];n.src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",n.async=!0,o.parentNode.insertBefore(n,o)}(document);

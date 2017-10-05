@@ -120,6 +120,7 @@
                 height: 8px;
                 position: absolute;
                 display: block;
+                z-index: $z-m;
 
                 &:before {
                     opacity: 0.2;
@@ -200,6 +201,25 @@
             }
         }
     }
+    &.mobile .screens {
+        
+        img {
+            width: 145px;
+        }
+        .side-left {
+            width: 201.3%;
+            top: 76.4%;
+            left: -111.3%;
+        }    
+        .side-right {
+            width: 100%;
+            left: 76.3%;
+            top: 90%;
+        }
+        .screen-1, .screen-2, .screen-3 {
+            right: $size-xl + $size-l + $size-m;
+        }
+    }
     .print &, .branding & {
         
         .screen-1, .screen-2, .screen-3 {
@@ -260,6 +280,27 @@
             .inner {
                 @include flex-direction(row);
             }  
+        }
+        &.right {
+            
+            .inner {
+
+                .content {
+                    
+                    button {
+                        float: right;
+                    }
+                }
+            }  
+        }
+        &.mobile .screens {
+
+            .screen-1, .screen-2, .screen-3 {
+
+                img {
+                    width: 50%;
+                }
+            }
         }
         .digital & {
 

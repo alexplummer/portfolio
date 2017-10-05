@@ -109,7 +109,7 @@
         </div>
     </footer>
     <script type="application/ld+json">
-        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea' no_xss_check='1'>{ 
             '@context': 'http://schema.org', 
             '@type': 'WebSite', 
             'url': 'http://www.example.com/', 
@@ -150,7 +150,7 @@
                     'url': 'http://example.com/images/logo.png'
                 }
             }
-        }</cms:editable>]
+        },</cms:editable>]
     </script>
     <script src="<cms:show k_site_link />script/script.js" async></script>
     <!-- Google fonts -->

@@ -116,7 +116,7 @@ const openPreview = function openPreview() {
     items.forEach((thisItem) => {
         thisItem.addEventListener('click', (e) => {
             e.preventDefault();
-            let scrollPosition = e.clientX;
+            let scrollPosition = window.pageYOffset;
             let screensDesktop = thisItem.querySelector('.desktop').querySelector('.screens').innerHTML;
             let screensMobile = thisItem.querySelector('.mobile').querySelector('.screens').innerHTML;
             let textContent = thisItem.querySelector('.content').innerHTML;

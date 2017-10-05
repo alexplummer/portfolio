@@ -163,7 +163,7 @@
         </div>
     </footer>
     <script type="application/ld+json">
-        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea'>{ 
+        [<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea' no_xss_check='1'>{ 
             '@context': 'http://schema.org', 
             '@type': 'ContactPage', 
             'url': 'http://www.example.com/', 

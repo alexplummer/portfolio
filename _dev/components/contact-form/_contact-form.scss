@@ -16,9 +16,16 @@
         transform: rotate(8deg);
         z-index: 1;
     }          
-    input, textarea, label, .k_errormessage, .k_successmessage {
+    input, textarea, a, label, .k_errormessage, .k_successmessage {
         position: relative;
         z-index: 2;
+    }
+    input[type=submit] {
+        float: left;
+    }
+    .privacy-link {
+        top: 16px;
+        margin-left: $size-m;
     }
     .k_errormessage {
 
@@ -50,7 +57,7 @@
         // Chat page
         .chat & {
 
-            input, textarea {
+            input, textarea  a,{
                 width: 100%;
             }
             input[type=submit] {

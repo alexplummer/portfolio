@@ -3,11 +3,13 @@
 //- ============
 //- Link to a news story
 
-mixin newsLink(heading, content)
+mixin newsLink(heading, date, content)
 	article.news-link
-		picture
-			img(data-src!=attributes.src)
-		h3!= heading
-		p!= content
-		a.btn(href!=attributes.href) Continue reading
+		a(href!=attributes.href)
+			picture
+				img(data-src!=attributes.src)
+			h3!= heading
+			time(pubdate="pubdate")!= date
+			p!= content
+			button Continue reading
 						

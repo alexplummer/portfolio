@@ -11,7 +11,8 @@
         background: darken($clr-primary, 6%);
         border-radius: 10px;
         overflow: hidden;
-        z-index: 6;
+        position: relative;
+        z-index: $z-m;
 
         h3 {
             @include align-self(center);
@@ -78,6 +79,8 @@
     &.print, &.branding {
         @extend %pseudo;
         margin-bottom: $size-xl;
+        width: calc(100% - 1rem);
+        max-width: 100%;
 
         .main-heading {
             background: $clr-primary;
@@ -129,6 +132,16 @@
                     height: $size-m;
                 }
             }
+        }
+        .screens {
+
+            img {
+                max-width: 400px;
+            }
+        }
+        .content {
+            max-width: 400px;
+            margin: 0px auto ($size-l + $size-m) auto;
         }
         &.digital {
             padding-top: 75px; 

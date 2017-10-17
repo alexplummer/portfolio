@@ -33,6 +33,63 @@
             @extend %col-lg-offset-1;
         }
     }
+    .news-search {
+        position: relative;
+        z-index: $z-m;
+        background: $clr-primary;
+        padding-top: $size-m * 3;
+        margin-bottom: $size-xl;
+
+        h4:before {
+            margin-right: $size-s;
+        }
+        .search-wrap, .tags-wrap {
+            @extend %col-xs-6;
+        }
+        form {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+
+            p {
+                @include flexbox();
+            }
+            .search_field {
+                width: calc(100% - 160px);
+                float: left;
+                margin-right: $size-m;
+            }
+        }
+        .search-listing {
+            margin: 0;
+            padding: 0;
+
+            &:last-of-type {
+                margin-bottom: $size-l + $size-m;
+            }
+            h4, h4 a {
+                font-weight: 400;
+                color: #fff;
+            }
+        }
+        .tags-wrap {
+
+            ul {
+                margin: 0 0 $size-m;
+                list-style: none;
+                overflow: hidden;
+
+                li {
+                    float: left;
+                    margin-right: $size-m;
+
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
     .pagination {
         position: absolute;
         z-index: $z-m;
@@ -95,6 +152,15 @@
     @media (max-width: 1199px) {
         padding: 0 $size-l;
     }
+    @media (max-width: $laptop - 1) {
+        
+        .news-search {
+
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+    }
     @media (max-width: 900px) {
         padding: 0;
         margin-bottom: 100px;
@@ -115,6 +181,31 @@
             }
         }
     }
+    @media (max-width: $breakpoint-3) {
+        
+        .news-search {
+            padding-top: $size-m;
+            
+            .search-wrap, .tags-wrap {
+                width: 100%;
+                max-width: 100%;
+                flex-basis: 100%;
+
+                .search_field {
+                    margin-bottom: $size-s;
+                    width: 100%;
+                }
+                .search_button {
+                    margin-bottom: $size-m;
+                    float: right;
+                }
+                p {
+                    padding-top: 0;
+                    display: block;
+                }
+            }
+        }
+    }
     @media (max-width: $breakpoint-4) {
         
         &:before {
@@ -127,6 +218,27 @@
 
         &:before {
             height: calc(100% + 800px);
+        }
+        .news-search {
+
+            .search-listing {
+
+                h4, h4 a {
+                    font-weight: 800;
+                }
+            }
+            .tags-wrap {
+
+                ul {
+
+                    li {
+
+                        a {
+                            font-weight: 800;
+                        }   
+                    }
+                }
+            }
         }
     }
 }

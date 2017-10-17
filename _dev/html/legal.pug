@@ -1,0 +1,45 @@
+
+//- Article
+//- ============
+//- A news article
+
+//- Extend head of document
+extends _includes/_head
+
+//- Page vars
+block pageVars
+	- var bodyClass = 'stub'
+
+//- Includes
+include ../components/nav-vertical/_nav-vertical
+include ../components/footer/_footer
+
+block content
+
+	//- CMS config
+	<cms:template title="Legal"></cms:template>
+	<cms:editable name="group_stub_header" label="Stub header" desc="Header for stub page" type="group"></cms:editable>
+	<cms:editable name="group_stub_body" label="Stub body" desc="Body content for stub page" type="group"></cms:editable>
+	
+	//- Main nav
+	+navVertical
+
+	header(role="banner" style="padding: 0")
+		h1 <cms:editable name="stub_heading" group="group_stub_header" type="text"></cms:editable>
+
+	main(role="main" id="maincontent").news-article
+		article.content-left
+			p <cms:editable name="stub_standfirst" group="group_stub_body" type="text"></cms:editable>
+			<cms:editable name="stub_body" group="group_stub_body" type="richtext"></cms:editable>
+			
+	//- Footer
+	+footer
+		script(type="application/ld+json") 
+			| [
+			<cms:editable name='json_ld' label='JSON_LD' desc='JSON_LD for the page' group='group_meta' type='textarea' no_xss_check='1'>
+			include _includes/json-ld/WebSite.html
+			</cms:editable>
+			| ]
+
+	//- Under document content
+	include _includes/_under

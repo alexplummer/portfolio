@@ -16,20 +16,28 @@
     .active & picture {
         @extend .flipInY;
     }
-    h3, p, a {
+    h3, p, button, time {
         margin-left: 225px;
+        text-decoration: none;
     }
     h3 {
         @extend %heading-mid;
-        @extend %border-btm;
+        font-family: $font-header;
         text-transform: none;
     }
-    p {
+    p, time {
         margin-bottom: $size-m;
         font-size: $font-m;
+        line-height: $font-baseline;
+    }
+    time {
+        font-size: $font-s;
+        padding: $size-xs;
+        border-top: 1px solid $clr-darker;
+        border-bottom: 1px solid $clr-darker;
     }
     a {
-        @extend %btn;
+        text-decoration: none;
     }
     @media (max-width: $breakpoint-1) {
 
@@ -37,7 +45,7 @@
             width: 150px;
             height: 150px;
         }
-        h3, p, a {
+        h3, p, time, button {
             margin-left: 175px;
         }
     }
@@ -47,7 +55,7 @@
             width: 120px;
             height: 120px;
         }
-        h3, p, a {
+        h3, p, time, button {
             margin-left: 145px;
         }
         h3 {
@@ -70,7 +78,7 @@
         h3 {
             padding-top: 0;
         }
-        h3, p, a {
+        h3, p, time, button {
             margin-left: 100px;
         }
     }
@@ -82,7 +90,7 @@
         p {
             margin-bottom: $size-m;
         }
-        a {
+        button {
             clear: both;
             margin: 0;
             text-align: center;

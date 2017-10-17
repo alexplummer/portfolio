@@ -12,7 +12,7 @@ import { slideProjectsLeft, swapProjects, openPreview } from '../components/show
 import { doFirstSplash, doSecondSplash } from '../components/heading-splash/heading-splash';
 import { skillsSpin } from '../components/list-skills/list-skills';
 import { infoSpin } from '../components/list-info/list-info';
-import { newsEntrance } from '../components/news-highlights/news-highlights';
+import { newsEntrance, addQueryString } from '../components/news-highlights/news-highlights';
 import { relatedNewsEntrance } from '../components/related-news/related-news';
 import { workModal } from '../components/work-modal/work-modal';
 
@@ -52,6 +52,7 @@ onReady(() => {
     // News specific fns
     if (hasClass('body', 'news')) {
         newsEntrance();
+        addQueryString();
     }
 
     // Article specific fns

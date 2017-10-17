@@ -16,6 +16,8 @@ mixin newsHighlights()
 			//- News link
 			<cms:pages masterpage="article.php" limit="2">
 			- var heading = '<cms:show k_page_title "/>"'
+			- var date = '<cms:date k_page_date format="jS F, Y" "/>"'
 			- var content = '<cms:excerptHTML count="70" ignore="img"><cms:show article_standfirst "/>"</cms:excerptHTML>'
-			+newsLink(heading, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
+			+newsLink(heading, date, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
 			</cms:pages>
+										

@@ -342,6 +342,9 @@ gulp.task('copy:prod', () => {
 	// FONTS
 	let fonts = gulp.src(paths.tmp + '/font/**/*')
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
+	// FAVICONS
+	let favs = gulp.src(paths.dev + '/img/brand/favicons/**/*')
+		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// PHP
 	let php = gulp.src(paths.dev + '/script/**/*.php')
 		.pipe(plugins.newer(paths.prod + '/'))
@@ -353,7 +356,7 @@ gulp.task('copy:prod', () => {
 	let htaccess = gulp.src(paths.dev + '/.htaccess.txt')
 		.pipe(plugins.copy(paths.prod, { prefix: 1 }));
 	// Return streams
-	return plugins.mergeStream(html, css, map, js, fonts, php, humans, htaccess);
+	return plugins.mergeStream(html, css, map, js, fonts, favs, php, humans, htaccess);
 });
 
 
@@ -672,6 +675,22 @@ gulp.task('depcheck', plugins.depcheck({
 }));
 
 
+// Standalone img
+// ============
+// Compress img outside of solution
+
+gulp.task('saWebp', (cb) => {
+	plugins.rimraf('./_imgmin/out', cb);
+
+	gulp.src('./_imgmin/in/**')
+		.pipe(plugins.imagemin({
+			progressive: true,
+			optimizationLevel: 7
+		}))
+		.pipe(gulp.dest('./_imgmin/out'));
+});
+
+
 // Couch assets
 // ============
 // Replaces with Couch CMS absolute path
@@ -710,6 +729,11 @@ gulp.task('couchExcludes', function () {
 		.pipe(plugins.replace('">"','/>'))
 		.pipe(plugins.replace('</cms:show>',''))
 		.pipe(plugins.replace('</cms:search_form>',''))
+		.pipe(plugins.replace('<cms:show k_site_link /><cms:show k_page_link />','<cms:show k_page_link />'))
+		.pipe(plugins.replace('"/>"\'','/>\''))
+		.pipe(plugins.replace('"/>"/img','/>/img'))
+		.pipe(plugins.replace('<cms:show k_site_link /><cms:show k_site_link />','<cms:show k_site_link />'))
+		.pipe(plugins.replace('<cms:show folder_link_custom>','<a href="<cms:add_querystring "<cms:link masterpage=\'news.php\' />" "cat=<cms:show k_folder_name/>" />"#k_search_form><cms:show k_folder_title /></a> <br>'))
 		.pipe(gulp.dest(paths.prod));
 });
 
@@ -834,8 +858,8 @@ gulp.task('build:prod', gulpsync.sync([
 	'usemin',
 	'copy:prod',
 	'images',
-	'couch',
-	'optimise'
+	'optimise',
+	'couch'
 ]));
 
 
@@ -846,7 +870,7 @@ gulp.task('build:prod', gulpsync.sync([
 gulp.task('optimise', gulpsync.sync([
 	//'uncss',
 	'critical',
-	'htmlmin',
+	//'htmlmin',
 ]));
 
 

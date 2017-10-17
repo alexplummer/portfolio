@@ -4,20 +4,26 @@
 //- A section with links to online profiles
 
 mixin socialPersonal()
-    section.social-personal
-        .inner
-            h3 Find me online
 
-            nav
-                a(href="#" title="Link to Facebook profile")
-                    img.svg(src="img/icon-social-fb.svg"  aria-hidden="true" role="presentation")
-                a(href="#" title="Link to Twitter profile")
-                    img.svg(src="img/icon-social-tw.svg"  aria-hidden="true" role="presentation")
-                a(href="#" title="Link to LinkedIn profile")
-                    img.svg(src="img/icon-social-li.svg"  aria-hidden="true" role="presentation")
-                a(href="#" title="Link to Github profile")
-                    img.svg(src="img/icon-social-gh.svg"  aria-hidden="true" role="presentation")
-                a(href="#" title="Link to Stack Overflow profile")
-                    img.svg(src="img/icon-social-so.svg"  aria-hidden="true" role="presentation")
-                a(href="#" title="Link to Behance profile")
-                    img.svg(src="img/icon-social-be.svg"  aria-hidden="true" role="presentation")
+	//- CMS config
+	<cms:editable name="group_personal_social" label="Personal social" desc="Links to personal social accounts" type="group"></cms:editable>
+
+	section.social-personal
+		.inner
+			h3 Find me online
+
+			nav
+				<cms:editable name='personal_social' label='Personal social' desc='The links to personal social accounts' group="group_personal_social" type='textarea' no_xss_check='1'>
+				a(href="#" title="Link to Facebook profile")
+					img.svg(src="img/icon-social-fb.svg"  aria-hidden="true" role="presentation")
+				a(href="#" title="Link to Twitter profile")
+					img.svg(src="img/icon-social-tw.svg"  aria-hidden="true" role="presentation")
+				a(href="#" title="Link to LinkedIn profile")
+					img.svg(src="img/icon-social-li.svg"  aria-hidden="true" role="presentation")
+				a(href="#" title="Link to Github profile")
+					img.svg(src="img/icon-social-gh.svg"  aria-hidden="true" role="presentation")
+				a(href="#" title="Link to Stack Overflow profile")
+					img.svg(src="img/icon-social-so.svg"  aria-hidden="true" role="presentation")
+				a(href="#" title="Link to Behance profile")
+					img.svg(src="img/icon-social-be.svg"  aria-hidden="true" role="presentation")
+				</cms:editable>

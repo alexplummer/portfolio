@@ -6,6 +6,9 @@
 .heading-splash {
     position: relative;
 
+    .modal-active & {
+        visibility: hidden;
+    }
     .lined-heading {
         @extend %lined-heading;
         margin-left: 120px;
@@ -143,7 +146,7 @@
     }
     @media (max-width: $tablet - 1px) {
         
-        .lined-heading {
+        div.lined-heading {
             top: -120px;
             left: -120px;
             padding-left: $size-m;
@@ -154,16 +157,18 @@
             }
         }
         &:before {
-            top: -200px;
-            right: -270px;
+            top: -230px;
+            right: -310px;
             width: 550px;
         }
         &.right {
             margin-bottom: $size-m;
             
             &:before {
-                top: -130px;
-                left: -420px;
+                top: -90px;
+                left: -300px;
+                height: 420px;
+            
             }
             .inner {
 
@@ -217,8 +222,8 @@
             margin-bottom: $size-xl;
             
             &:before {
-                top: -130px;
-                left: -370px;
+                top: -90px;
+                left: -240px;            
             }
             .inner {
 

@@ -8,8 +8,8 @@ mixin headingImage(heading)
 		.inner
 			picture
 				<cms:hide>
-				<cms:editable name="article_image" group="group_news_article_header" label="Article image" type="image"></cms:editable>
+				<cms:editable name="article_image" group="group_news_article_header" label="Article image (1260 x 620)" type="image" width='1260' crop='1'></cms:editable>
 				<cms:editable name="article_image_alt" group="group_news_article_header" label="Article image alt" type="text"></cms:editable>
 				</cms:hide>
-				img(data-src="<cms:show article_image />" alt="<cms:show article_image_alt />")
+				img(src="<cms:show article_image />" alt="<cms:show article_image_alt />")
 			h1!= heading

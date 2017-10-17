@@ -10,8 +10,10 @@ mixin listInfo()
 	
 	section.list-info
 		picture
+			<cms:hide>
 			<cms:editable name="info_image" group="group_list_info" label="info image" type="image"></cms:editable>
 			<cms:editable name="info_image_alt" group="group_list_info" label="info image alt" type="text"></cms:editable>
+			</cms:hide>
 			img(data-src="<cms:show info_image />" alt="<cms:show info_image_alt />")
 
 		.heading

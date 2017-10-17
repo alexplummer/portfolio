@@ -151,8 +151,8 @@ var app = function () {
                 title.innerHTML = "SOME OF THE TECHY STUFF";
 
                 // Set tabindex for left
-                var leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
-                var rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+                var leftItems = document.querySelector('.items-left').getElementsByTagName('li');
+                var rightItems = document.querySelector('.items-right').getElementsByTagName('li');
 
                 leftItems = Array.prototype.slice.call(leftItems);
                 rightItems = Array.prototype.slice.call(rightItems);
@@ -170,8 +170,8 @@ var app = function () {
                 title.innerHTML = "SOME OF THE PRETTY STUFF";
 
                 // Set tabindex for left
-                var _leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
-                var _rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+                var _leftItems = document.querySelector('.items-left').getElementsByTagName('li');
+                var _rightItems = document.querySelector('.items-right').getElementsByTagName('li');
 
                 _leftItems = Array.prototype.slice.call(_leftItems);
                 _rightItems = Array.prototype.slice.call(_rightItems);
@@ -203,6 +203,15 @@ var app = function () {
         var focusedElementBeforeDialogOpened = void 0;
 
         items.forEach(function (thisItem) {
+
+            // Add keyboard interation
+            thisItem.addEventListener("keyup", function (e) {
+                e.preventDefault();
+                if (e.keyCode === 13) {
+                    thisItem.click();
+                }
+            });
+
             thisItem.addEventListener('click', function (e) {
                 e.preventDefault();
                 var scrollPosition = window.pageYOffset;
@@ -254,9 +263,9 @@ var app = function () {
 
                 // Close modal
                 modal.addEventListener('click', function (e) {
-                    e.preventDefault();
 
                     if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
+                        e.preventDefault();
                         closeModal();
                     }
                 });
@@ -402,6 +411,16 @@ var app = function () {
         }
     };
 
+    // Add querystring to page 
+    var addQueryString = function addQueryString() {
+
+        var url = window.location.href;
+
+        if (url.indexOf('?s=') !== -1 || url.indexOf('?cat=') !== -1) {
+            document.getElementById('k_search_form').scrollIntoView();
+        }
+    };
+
     // Related news
     // ============
     // (Write description here)
@@ -468,20 +487,38 @@ var app = function () {
                 thisScreens.classList.remove('active');
             });
 
+            // Add keyboard interation
+            thisToggle.addEventListener("keyup", function (e) {
+                e.preventDefault();
+                if (e.keyCode === 13) {
+                    thisToggle.click();
+                }
+            });
+
             // Open modal toggles
             thisToggle.addEventListener('click', function (e) {
-                toggleModal(e);
+
+                if (thisToggle.parentNode.parentNode.parentNode.classList.contains('mobile')) {
+                    toggleModal(e, true);
+                } else {
+                    toggleModal(e, false);
+                }
 
                 focusedElementBeforeDialogOpened = document.activeElement;
             });
 
             thisScreens.addEventListener('click', function (e) {
-                toggleModal(e);
+
+                if (thisToggle.parentNode.parentNode.parentNode.classList.contains('mobile')) {
+                    toggleModal(e, true);
+                } else {
+                    toggleModal(e, false);
+                }
 
                 focusedElementBeforeDialogOpened = document.activeElement;
             });
 
-            function toggleModal(e) {
+            function toggleModal(e, check) {
                 e.preventDefault();
                 var scrollPosition = window.pageYOffset;
 
@@ -515,6 +552,10 @@ var app = function () {
 
                 // Get content and display modal
                 document.getElementsByTagName('body')[0].classList.add('modal-active');
+
+                if (check === true) {
+                    modal.classList.add('v-mobile');
+                }
                 modalContentHolder.innerHTML = modalContent;
                 modalScreensHolder.innerHTML = modalScreens;
                 modal.style.display = "block";
@@ -528,10 +569,25 @@ var app = function () {
                 });
 
                 function closeModal() {
+                    // Annoying hack for mobile to approx scrollto = 0
+                    setTimeout(function () {
+                        var newContent = document.createElement('div');
+                        var screenshots = document.querySelector('.screenshots');
+
+                        newContent.classList.add('content');
+                        modalContentHolder.parentNode.removeChild(modalContentHolder);
+                        screenshots.parentNode.insertBefore(newContent, screenshots);
+                        modalContentHolder = modal.querySelector('.content');
+                    }, 100);
+
                     document.getElementsByTagName('body')[0].classList.remove('modal-active');
                     modal.style.display = "none";
                     window.scrollTo(0, scrollPosition);
                     document.body.removeAttribute('style');
+
+                    modalScreensHolder.innerHTML = "";
+                    document.querySelector('.controls').innerHTML = "";
+                    modal.classList.remove('v-mobile');
 
                     // Remove any active screens
                     var allScreens = document.querySelectorAll('.screens');
@@ -676,6 +732,7 @@ var app = function () {
         // News specific fns
         if (hasClass('body', 'news')) {
             newsEntrance();
+            addQueryString();
         }
 
         // Article specific fns

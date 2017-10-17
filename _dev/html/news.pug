@@ -33,39 +33,47 @@ block content
 
 	main(role="main" id="maincontent")
 		section.news-highlights
-			.inner
-				//-
-					<cms:search_form "/>"
+			.inner.news-search
 
-					<cms:search limit='10' >
+				.tags-wrap
+					h4.icon-th Categories
+					ul
+						<cms:folders masterpage="article.php">
+						li
+							<cms:show folder_link_custom />
+						</cms>
+				
+				.search-wrap
+					h4.icon-search Search all news
+					<cms:search_form msg='Enter keyword...' "/>"
+
+					<cms:search masterpage='article.php' limit='10' >
 						<cms:if k_paginated_top >
-							<div>
-								<cms:if k_paginator_required >
-								<cms:show k_current_page "/>" 
-								<cms:show k_total_pages "/>"
-								br
-								</cms:if>
-								<cms:show k_total_records "/>" 
-								<cms:show k_record_from "/>"
-								<cms:show k_record_to "/>"
-							</div>
+						.record-listing
+							h4 Pages found: <cms:show k_total_records "/>" 
 						</cms:if>
 
-						h3
-							a(href='')
-								<cms:show k_search_title "/>"
-
-						<cms:show k_search_excerpt "/>"
-						hr
-
-						<cms:paginator />
+						.search-listing
+							h4 &rsaquo; 
+								a(href='<cms:show k_search_link "/>"')
+									<cms:show k_search_title "/>"
+						
+							<cms:no_results>
+								h4 No pages found for <cms:show k_search_query "/>"
+							</cms:no_results>
+						
+						<cms:paginator "/>"
 
 					</cms:search>
+				
+			.inner
+
 				//- News link
-				<cms:pages masterpage="article.php" limit="8" paginate='1'>
+				<cms:pages masterpage="article.php" folder="<cms:gpc 'cat' />" limit="8" paginate='1'>
 				- var heading = '<cms:show k_page_title "/>"'
+				- var date = '<cms:date k_page_date format="jS F, Y" "/>"'
 				- var content = '<cms:excerptHTML count="70" ignore="img"><cms:show article_standfirst "/>"</cms:excerptHTML>'
-				+newsLink(heading, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
+				+newsLink(heading, date, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
 
 				<cms:paginator "/>"
 				</cms:pages>

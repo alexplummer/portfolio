@@ -7,15 +7,13 @@
 include ../news-link/_news-link
 
 mixin relatedNews()
-    section.related-news
-        .inner
-            h2 Further reading
-            //- News link
-            - var heading = 'Lorem ipsum dolor sit'
-            - var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-            +newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
-
-            //- News link
-            - var heading = 'Lorem ipsum dolor sit'
-            - var content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.'
-            +newsLink(heading, content)(src="img/media/screen-euromoney.jpg" href="article.html")
+	section.related-news
+		.inner
+			h2 Further reading
+			//- News link
+			<cms:pages masterpage="article.php" limit="2" id="NOT <cms:show k_page_id />">
+			- var heading = '<cms:show k_page_title "/>"'
+			- var date = '<cms:date k_page_date format="jS F, Y" "/>"'
+			- var content = '<cms:excerptHTML count="70" ignore="img"><cms:show article_standfirst "/>"</cms:excerptHTML>'
+			+newsLink(heading, date, content)(src="<cms:show article_thumb />" href="<cms:show k_page_link />")
+			</cms:pages>

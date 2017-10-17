@@ -27,7 +27,11 @@
     <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
-    <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
+    <cms:hide>
+        <cms:editable name="meta_image" group="group_meta" label="Meta image" type="image"></cms:editable>
+    </cms:hide>
+    <meta property="og:image" content="<cms:show meta_image />">
+    <meta name="twitter:image" content="<cms:show meta_image />">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
@@ -38,6 +42,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="stylesheet" href="style/style.css"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="img/brand/favicons/apple-touch-icon.png?v=6">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-32x32.png?v=6" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-16x16.png?v=6" sizes="16x16">
+    <link rel="manifest" href="img/brand/favicons/manifest.json?v=6">
+    <link rel="mask-icon" href="img/brand/favicons/safari-pinned-tab.svg?v=6" color="#009DC9">
+    <link rel="shortcut icon" href="img/brand/favicons/favicon.ico?v=6">
+    <meta name="apple-mobile-web-app-title" content="app_name">
+    <meta name="application-name" content="app_name">
+    <meta name="msapplication-TileColor" content="#009DC9">
+    <meta name="msapplication-config" content="img/brand/favicons/browserconfig.xml?v=6">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107949728-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-107949728-1');
+    </script>
 </head>
 
 <body class="home">
@@ -127,9 +149,9 @@
                                 <cms:editable name="showreel_left_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
                             </cms:repeatable>
                             <cms:show_repeatable "showreel_left"="">
-                                <li>
-                                    <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
-                                        <img data-src="&lt;cms:show showreel_left_thumb /&gt;" alt="&lt;cms:show showreel_left_thumb_alt /&gt;">
+                                <li role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
+                                    <picture>
+                                        <img src="&lt;cms:show showreel_left_thumb /&gt;" alt="&lt;cms:show showreel_left_thumb_alt /&gt;">
                                     </picture>
                                     <p>
                                         <cms:show showreel_left_title="" "="">"</cms:show></p>
@@ -170,8 +192,8 @@
                                     <cms:editable name="showreel_right_mobile_image_2_alt" label="Showreel mobile 2 alt" input_width="200" col_width="230" type="text"></cms:editable>
                                 </cms:repeatable>
                                 <cms:show_repeatable "showreel_right"="">
-                                    <li>
-                                        <picture role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info">
+                                    <li role="button" tabindex="-1" aria-pressed="false" title="Open a dialog with project info">
+                                        <picture>
                                             <img data-src="&lt;cms:show showreel_right_thumb /&gt;" alt="&lt;cms:show showreel_right_thumb_alt /&gt;">
                                         </picture>
                                         <p>
@@ -225,8 +247,8 @@
             <div class="inner">
                 <div class="list-wrap">
                     <h4>Code</h4>
-                    <ul>
-                        <cms:editable name="list_skills_code" label="Skills list code" desc="List of code skills" group="group_list_skills" type="richtext">
+                    <cms:editable name="list_skills_code" label="Skills list code" desc="List of code skills" group="group_list_skills" type="richtext">
+                        <ul>
                             <li class="three-bars">HTML/Pug</li>
                             <li class="three-bars">CSS</li>
                             <li class="three-bars">JS (ES6)</li>
@@ -235,13 +257,13 @@
                             <li class="three-bars">Gulp/Grunt</li>
                             <li class="two-bars">Angular</li>
                             <li class="one-bar">React</li>
-                        </cms:editable>
-                    </ul>
+                        </ul>
+                    </cms:editable>
                 </div>
                 <div class="list-wrap">
                     <h4>Design</h4>
-                    <ul>
-                        <cms:editable name="list_skills_design" label="Skills list design" desc="List of design skills" group="group_list_skills" type="richtext">
+                    <cms:editable name="list_skills_design" label="Skills list design" desc="List of design skills" group="group_list_skills" type="richtext">
+                        <ul>
                             <li class="three-bars">UI Design</li>
                             <li class="three-bars">App Design</li>
                             <li class="three-bars">Typography</li>
@@ -250,13 +272,13 @@
                             <li class="two-bars">UX/research</li>
                             <li class="two-bars">Wireframing</li>
                             <li class="two-bars">Print design</li>
-                        </cms:editable>
-                    </ul>
+                        </ul>
+                    </cms:editable>
                 </div>
                 <div class="list-wrap">
                     <h4>Tools</h4>
-                    <ul>
-                        <cms:editable name="list_skills_tools" label="Skills list tools" desc="List of tools skills" group="group_list_skills" type="richtext">
+                    <cms:editable name="list_skills_tools" label="Skills list tools" desc="List of tools skills" group="group_list_skills" type="richtext">
+                        <ul>
                             <li class="three-bars">Photoshop</li>
                             <li class="three-bars">Sketch</li>
                             <li class="three-bars">Git</li>
@@ -265,8 +287,8 @@
                             <li class="two-bars">Axure</li>
                             <li class="two-bars">Illustrator</li>
                             <li class="one-bar">Premier Pro</li>
-                        </cms:editable>
-                    </ul>
+                        </ul>
+                    </cms:editable>
                 </div>
                 <div class="key">
                     <h4>- Key -</h4>
@@ -279,8 +301,10 @@
         <cms:editable name="group_list_info" label="List info" desc="Content for list info" type="group"></cms:editable>
         <section class="list-info">
             <picture>
-                <cms:editable name="info_image" group="group_list_info" label="info image" type="image"></cms:editable>
-                <cms:editable name="info_image_alt" group="group_list_info" label="info image alt" type="text"></cms:editable>
+                <cms:hide>
+                    <cms:editable name="info_image" group="group_list_info" label="info image" type="image"></cms:editable>
+                    <cms:editable name="info_image_alt" group="group_list_info" label="info image alt" type="text"></cms:editable>
+                </cms:hide>
                 <img data-src="&lt;cms:show info_image /&gt;" alt="&lt;cms:show info_image_alt /&gt;">
             </picture>
             <div class="heading">
@@ -319,14 +343,19 @@
             <div class="inner">
                 <cms:pages masterpage="article.php" limit="2">
                     <article class="news-link">
-                        <picture>
-                            <img data-src="&lt;cms:show article_thumb /&gt;">
-                        </picture>
-                        <h3><cms:show k_page_title="" "="">"</cms:show></h3>
-                        <p>
-                            <cms:excerpthtml count="70" ignore="img">
-                                <cms:show article_standfirst="" "="">"</cms:show></cms:excerpthtml>
-                        </p><a class="btn" href="&lt;cms:show k_page_link /&gt;">Continue reading</a>
+                        <a href="&lt;cms:show k_page_link /&gt;">
+                            <picture>
+                                <img data-src="&lt;cms:show article_thumb /&gt;">
+                            </picture>
+                            <h3><cms:show k_page_title="" "="">"</cms:show></h3>
+                            <time pubdate="pubdate">
+                                <cms:date k_page_date="" format="jS F, Y" "="">"</cms:date></time>
+                                    <p>
+                                        <cms:excerpthtml count="70" ignore="img">
+                                            <cms:show article_standfirst="" "="">"</cms:show></cms:excerpthtml>
+                                    </p>
+                                    <button>Continue reading</button>
+                        </a>
                     </article>
                 </cms:pages>
             </div>

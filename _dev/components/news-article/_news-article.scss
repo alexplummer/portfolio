@@ -14,7 +14,7 @@
         .details {
             @extend %border-btm;
             @extend %cf;
-            margin-bottom: $size-l;
+            margin-bottom: $size-s;
             padding-top: 0;
             padding-bottom: 0;
             
@@ -54,8 +54,18 @@
         >p {
 
             &:first-of-type {
+                @extend %border-btm;
                 font-weight: bold;
             }
+        }
+    }
+    .content-left {
+
+        h3, h4, h5 {
+            padding-top: $size-l;
+        }
+        img {
+            max-width: 100%;
         }
     }
     .content-right {

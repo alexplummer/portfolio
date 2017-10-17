@@ -35,7 +35,11 @@ block pageVars
 	<meta property="og:site_name" content="#{siteName}">
 	<meta property="og:locale" content="en_UK">
 	block shareImage
-		<meta name="twitter:image" content="#{shareImage}">
+		<cms:hide>
+		<cms:editable name="meta_image" group="group_meta" label="Meta image" type="image"></cms:editable>
+		</cms:hide>
+		<meta property="og:image" content="<cms:show meta_image />">
+		<meta name="twitter:image" content="<cms:show meta_image />">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@site_account">
 	<meta name="twitter:creator" content="@individual_account">
@@ -50,8 +54,26 @@ block pageVars
 	<!-- endbower -->
 	<link rel="preload" href="style/style.css" as="style" onload="this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="style/style.css"></noscript>
-	//<link rel="stylesheet" href="style/style.css">
 	<!-- endbuild -->
+	<link rel="apple-touch-icon" sizes="76x76" href="img/brand/favicons/apple-touch-icon.png?v=6">
+	<link rel="icon" type="image/png" href="img/brand/favicons/favicon-32x32.png?v=6" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/brand/favicons/favicon-16x16.png?v=6" sizes="16x16">
+	<link rel="manifest" href="img/brand/favicons/manifest.json?v=6">
+	<link rel="mask-icon" href="img/brand/favicons/safari-pinned-tab.svg?v=6" color="#{brand}">
+	<link rel="shortcut icon" href="img/brand/favicons/favicon.ico?v=6">
+	<meta name="apple-mobile-web-app-title" content="app_name">
+	<meta name="application-name" content="app_name">
+	<meta name="msapplication-TileColor" content="#{brand}">
+	<meta name="msapplication-config" content="img/brand/favicons/browserconfig.xml?v=6">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107949728-1"></script>
+	<script>
+	| window.dataLayer = window.dataLayer || [];
+	| function gtag(){dataLayer.push(arguments);}
+	| gtag('js', new Date());
+	| gtag('config', 'UA-107949728-1');
+	</script>
 	</head>
 
 body(class=(bodyClass || ""))

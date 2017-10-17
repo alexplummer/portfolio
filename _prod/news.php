@@ -27,7 +27,11 @@
     <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
-    <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
+    <cms:hide>
+        <cms:editable name="meta_image" group="group_meta" label="Meta image" type="image"></cms:editable>
+    </cms:hide>
+    <meta property="og:image" content="<cms:show meta_image />">
+    <meta name="twitter:image" content="<cms:show meta_image />">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
@@ -37,7 +41,30 @@
     <meta name="apple-mobile-web-app-title" content="<cms:editable name='meta_title' label='Page Title' desc='Page title used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="stylesheet" href="<cms:show k_site_link />style/style.css"/>
+    <style type="text/css">
+        @charset "UTF-8";h1,h2{font-family:Sanchez,sans-serif}a,span{font-family:Quicksand,sans-serif;font-size:1rem}a{font-family:Quicksand,sans-serif}span{font-family:Quicksand,sans-serif;color:#272729}a,h1,h2{color:#272729}a{line-height:1.5rem}span{line-height:1.5rem}h1,h2{margin:0;padding:0}span{margin:0 0 .75rem;padding:.75rem 0 0}header,nav{display:block}.intro-with-description,header{-webkit-box-sizing:border-box;box-sizing:border-box;max-width:1400px;margin:0 auto;padding-left:3rem;padding-right:3rem}.intro-with-description,.intro-with-description .inner .lined-heading h1{position:relative}.intro-with-description .inner .lined-heading h1:after,.intro-with-description .inner .lined-heading h1:before,.intro-with-description:after,.intro-with-description:before{content:"";background-size:cover;background-repeat:no-repeat;position:absolute;left:0;top:0}a,span{font-size:1.5rem;line-height:2.25rem}@font-face{font-family:fontello;src:url(font/fontello.eot?1665543);src:url(font/fontello.eot?1665543#iefix) format("embedded-opentype"),url(font/fontello.woff2?1665543) format("woff2"),url(font/fontello.woff?1665543) format("woff"),url(font/fontello.ttf?1665543) format("truetype"),url(font/fontello.svg?1665543#fontello) format("svg");font-weight:400;font-style:normal}@media (max-width:500px){.intro-with-description{padding:0 3rem;margin-bottom:-310px}.intro-with-description:after{display:none}.intro-with-description .inner{display:block}.intro-with-description .inner .lined-heading{max-width:100%;width:100%;margin-left:0;padding-left:0;padding-right:0}.news .intro-with-description{margin-bottom:-340px}}@media (max-width:991px){body h1{font-size:2.25rem;line-height:3rem}body h2{font-size:1.5rem;line-height:1.5rem}body h1,body h2{padding-top:1.5rem;margin-bottom:1.5rem}}@media (max-width:767px){body h1,body h2{font-size:1.5rem;line-height:1.5rem}body h1,body h2{padding-top:.75rem;margin-bottom:.75rem}}.inner{-webkit-box-orient:horizontal}a{margin:0 0 .75rem}a{padding:.75rem 0 0}h1,h2,h4{font-family:Sanchez,sans-serif}a,li,span,ul{font-family:Quicksand,sans-serif;font-size:1rem}a,li{font-family:Quicksand,sans-serif}span,ul{font-family:Quicksand,sans-serif;color:#272729}a,h1,h2,h4,li{color:#272729}h1{font-size:3rem}h2{font-size:2.25rem}h4{font-size:1.5rem}h1,h2{line-height:3rem}a,h4,li{line-height:1.5rem}span,ul{line-height:1.5rem}h1,h2,h4{margin:0;padding:0}li,span,ul{margin:0 0 .75rem;padding:.75rem 0 0}a{color:#ce0176}h1{padding-top:2.25rem;margin-bottom:2.25rem}h2{padding-top:1.5rem}h2{margin-bottom:1.5rem}h4{padding-top:.75rem;margin-bottom:.75rem}@media (max-width:991px){body h1{font-size:2.25rem;line-height:3rem}body h2{font-size:1.5rem;line-height:1.5rem}body h4{font-size:1.125rem;line-height:1.5rem}body h1,body h2,body h4{padding-top:1.5rem;margin-bottom:1.5rem}}@media (max-width:767px){body h1,body h2{font-size:1.5rem;line-height:1.5rem}body h4{font-size:1.125rem;line-height:1.5rem}body h1,body h2,body h4{padding-top:.75rem;margin-bottom:.75rem}}ul{margin-left:1.5rem}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0;-webkit-backface-visibility:hidden}article,header,main,nav,section{display:block}a{background-color:transparent;-webkit-text-decoration-skip:objects}svg:not(:root){overflow:hidden}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.intro-with-description,header,section{-webkit-box-sizing:border-box;box-sizing:border-box;max-width:1400px;margin:0 auto;padding-left:3rem;padding-right:3rem}.inner{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-moz-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:0;-moz-flex:0 1 auto;-ms-flex:0 1 auto;flex:0 1 auto;-webkit-box-direction:normal;-moz-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-1.5rem;margin-left:-1.5rem}.intro-with-description .inner .lined-heading{-ms-flex-preferred-size:33.33333%;flex-basis:33.33333%;max-width:33.33333%}.intro-with-description .inner article,.news-highlights .news-search .search-wrap,.news-highlights .news-search .tags-wrap{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:0;-moz-flex-grow:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;padding-right:1.5rem;padding-left:1.5rem;-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.intro-with-description .inner .lined-heading{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:0;-moz-flex-grow:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;padding-right:1.5rem;padding-left:1.5rem;margin-left:8.33333%}@media only screen and (min-width:768px){.intro-with-description,header,section{width:100%}.intro-with-description .inner .lined-heading{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.intro-with-description .inner article{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:0;-moz-flex-grow:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;padding-right:1.5rem;padding-left:1.5rem;-ms-flex-preferred-size:41.66667%;flex-basis:41.66667%;max-width:41.66667%}.intro-with-description .inner .lined-heading{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:0;-moz-flex-grow:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;padding-right:1.5rem;padding-left:1.5rem;margin-left:16.66667%}}@media only screen and (min-width:992px){.intro-with-description,header,section{width:100%}}@media only screen and (min-width:1200px){.intro-with-description .inner .lined-heading{-webkit-box-sizing:border-box;box-sizing:border-box;padding-right:1.5rem;padding-left:1.5rem}.intro-with-description,header,section{width:100%}.intro-with-description .inner .lined-heading{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.intro-with-description .inner .lined-heading{-webkit-box-flex:0;-moz-flex-grow:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;margin-left:16.66667%}}[class^=icon-]:before,[class^=icon]:before{font-family:fontello;font-style:normal;font-weight:400;speak:none;display:inline-block;width:1em;margin-right:.2em;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center}[class^=icon]:before{text-decoration:inherit}[class^=icon-]:before{text-decoration:inherit}.icon-search:before{content:'\e803'}.icon-th:before{content:'\e804'}body,html{overflow-x:hidden;background:#fff}*{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-backface-visibility:hidden;backface-visibility:hidden}.intro-with-description .inner .lined-heading h1:before{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAF0lEQVQYV2PcuvvIf29XG0YGJMBIA0EAq9wUBqYv3ckAAAAASUVORK5CYII=)}.intro-with-description,.intro-with-description .inner .lined-heading h1,.news-highlights{position:relative}.intro-with-description .inner .lined-heading h1:after,.intro-with-description .inner .lined-heading h1:before,.intro-with-description:after,.intro-with-description:before,.news-highlights:after,.news-highlights:before{content:"";background-size:cover;background-repeat:no-repeat;position:absolute;left:0;top:0}.intro-with-description .inner .lined-heading h1{padding:6rem 0;position:relative;display:inline-block;margin-bottom:0}.intro-with-description .inner .lined-heading h1:before{background-size:auto;background-repeat:space;z-index:-1;width:100%;height:100%}.intro-with-description .inner .lined-heading h1{text-align:right}@media (max-width:1250px){.intro-with-description .inner .lined-heading h1{font-size:3rem;line-height:3rem}}@media (max-width:700px){.intro-with-description .inner .lined-heading h1{font-size:2.25rem;line-height:2.25rem}}.nav-vertical .logo-main h2,.nav-vertical .logo-main h2 span{font-family:Quicksand,sans-serif;font-weight:100;letter-spacing:15px;font-size:1.125rem;text-transform:uppercase}.nav-vertical .logo-main h2{position:relative;z-index:51}.nav-vertical .logo-main h2 span{font-size:2.25rem;font-weight:500;letter-spacing:30px;display:block}.intro-with-description .inner .lined-heading h1{font-size:6rem;font-weight:100;text-transform:uppercase;line-height:6rem;font-family:Sanchez,sans-serif}a,li,span,ul{font-size:1.5rem;line-height:2.25rem}@media (max-width:1199px){a{font-size:1.125rem;line-height:1.4625rem}}@media (max-width:991px){a{font-size:1rem;line-height:1.5rem}}@media (max-width:1199px){li{font-size:1.125rem;line-height:1.4625rem}}@media (max-width:991px){li{font-size:1rem;line-height:1.5rem}}@media (max-width:1199px){ul{font-size:1.125rem;line-height:1.4625rem}}@media (max-width:991px){ul{font-size:1rem;line-height:1.5rem}}@media (max-width:1199px){span{font-size:1.125rem;line-height:1.4625rem}}.intro-with-description{height:1000px;max-width:100%;width:100%;padding:0;margin:0 0 -180px}.intro-with-description:before{width:calc(100% - 6rem);height:100%;left:3rem;top:3rem;background:#e6eaf0}.intro-with-description:after{background:url(img/shape-splat.svg);width:1070px;height:814px;left:auto;top:auto;right:-600px;-webkit-transform:rotate(210deg);transform:rotate(210deg);bottom:-430px}.intro-with-description .inner .lined-heading{min-width:355px;position:relative;overflow:hidden;top:3rem}.intro-with-description .inner .lined-heading h1{-webkit-transform:skewY(8deg);transform:skewY(8deg);padding:280px 0 3rem;top:-30px;position:relative;width:310px}.intro-with-description .inner .lined-heading h1 svg{position:absolute;width:120px;height:auto;top:50%;left:50%;-webkit-transform:skewY(-8deg) translate(-50%,-75%);transform:skewY(-8deg) translate(-50%,-75%)}.intro-with-description .inner .lined-heading .header-bg-under{display:block;left:0;z-index:50;width:310px;height:auto;margin-top:-20px}.intro-with-description .inner article{display:-webkit-box;display:-moz-flex;display:-ms-flexbox;display:flex;-webkit-box-direction:normal;-webkit-box-orient:vertical;-moz-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:end;-ms-flex-pack:end;-moz-justify-content:flex-end;justify-content:flex-end;position:relative;top:3rem}.news .intro-with-description:after{display:none}.news .intro-with-description{margin-bottom:-240px}.news .intro-with-description .inner .lined-heading h1 svg{width:90px}@media (max-width:1250px){.intro-with-description{height:830px}.intro-with-description .inner .lined-heading{min-width:155px}.intro-with-description .inner .lined-heading h1{font-size:3rem;padding:280px 0 3rem;top:-30px;width:155px}.intro-with-description .inner .lined-heading h1 svg{position:absolute;width:120px;height:auto;top:50%;left:50%;-webkit-transform:skewY(-8deg) translate(-50%,-75%);transform:skewY(-8deg) translate(-50%,-75%)}.intro-with-description .inner .lined-heading .header-bg-under{display:block;left:0;z-index:50;width:155px;height:auto;margin-top:-20px}}@media (max-width:991px){span{font-size:1rem;line-height:1.5rem}.news .intro-with-description{margin-bottom:-240px}}@media (max-width:900px){.intro-with-description{margin-bottom:-330px}.intro-with-description:before{width:100%;left:0;top:0}.intro-with-description .inner .lined-heading{top:0}.intro-with-description .inner .lined-heading h1{padding:160px 0 0}}@media (max-width:767px){.nav-vertical .logo-main h2{font-size:.75rem;letter-spacing:6px;line-height:.5625rem;margin-bottom:1.5rem}.nav-vertical .logo-main h2 span{font-size:1rem;letter-spacing:18px}.intro-with-description{height:900px;margin-bottom:-400px}.news .intro-with-description{margin-bottom:-420px}}@media (max-width:500px){.intro-with-description{padding:0 3rem;margin-bottom:-310px}.intro-with-description:after{display:none}.intro-with-description .inner{display:block}.intro-with-description .inner .lined-heading{max-width:100%;width:100%;margin-left:0;padding-left:0;padding-right:0}.intro-with-description .inner article{max-width:100%;width:100%;margin-top:-1.5rem;padding-left:0;padding-right:0}.news .intro-with-description{margin-bottom:-340px}}@media (max-width:400px){.intro-with-description{height:950px}}.nav-vertical{position:absolute;z-index:100;top:6rem;left:100%;line-height:3rem;width:100%}.nav-vertical .logo-main{display:none;position:fixed;top:1.5rem;left:1.5rem}.nav-vertical .logo-main h2,.nav-vertical .logo-main h2 span{color:#fff}.nav-vertical .logo-main h2{margin:0;padding:0}.nav-vertical .logo-main span{padding-top:0}.nav-vertical .skip-main{position:absolute;top:-18rem;right:calc(100vw - 3rem);margin:0;width:200px}.nav-vertical .nav-inner{-webkit-transform:rotate(90deg);transform:rotate(90deg);-webkit-transform-origin:left top;transform-origin:left top;position:absolute}.nav-vertical a{color:#272729;font-size:1rem;margin-right:3rem;text-decoration:none;position:relative;line-height:1.5rem}.nav-vertical a svg{width:1.5rem;height:1.5rem;display:inline-block;position:absolute;bottom:-3rem;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);background-size:100% 100%;background-repeat:no-repeat;overflow:visible}@media (max-width:900px){.nav-vertical{-webkit-transform:none;transform:none;position:fixed;opacity:0;top:0;left:0;height:100%;width:100%}.nav-vertical .logo-main{display:block}.nav-vertical .nav-inner{position:absolute;-webkit-transform:rotate(0) translate(-50%,-50%);transform:rotate(0) translate(-50%,-50%);left:50%;top:50%}.nav-vertical a{font-family:Sanchez,sans-serif;font-size:2.25rem;display:block;padding-left:3rem;color:#fff;margin-bottom:1.5rem;border-bottom:1px solid rgba(250,250,250,.4);margin-right:0;padding-bottom:1.5rem;letter-spacing:6px}.nav-vertical a svg{bottom:40%;left:0;-webkit-transform:translateX(0);transform:translateX(0)}.nav-vertical a:last-of-type{border-bottom:0;padding-bottom:0;margin-bottom:0}.nav-vertical a:last-of-type svg{bottom:0}.nav-vertical:before{content:"";-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);position:fixed;width:200vw;height:200vh;background:#ce0176;z-index:-2}}.menu-toggle{width:150px;height:150px;position:fixed;top:0;right:0;z-index:1000;background:#ce0176;border-radius:50%;-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%)}.menu-toggle span{background:#fff;display:block;line-height:0;margin:0;padding:0;border-radius:15px}.menu-toggle.inactive{-webkit-transform:translate(100%,-100%);transform:translate(100%,-100%)}.menu-toggle .off{position:absolute;height:100%;width:100%}.menu-toggle .off span{width:35px;height:4px;margin:10px 0;position:relative;left:31%;top:52%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.menu-toggle .on{position:absolute;height:100%;width:100%;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.menu-toggle .on span:nth-child(1){height:0%;width:4px;position:absolute;top:75%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.menu-toggle .on span:nth-child(2){width:0%;height:4px;position:absolute;top:75%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}@media (max-width:900px){.menu-toggle{width:125px;height:125px}.menu-toggle.inactive{-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%)}.menu-toggle .off span{width:30px;height:3px;top:55%;left:33%;margin:7px 0}}.news-highlights{padding:0;width:100%;max-width:none;margin-bottom:150px}.news-highlights:before{position:absolute;width:calc(100% - 6rem);left:3rem;background:#e6eaf0;top:-800px;height:calc(100% + 950px)}.news-highlights .inner{padding:.75rem;margin:0}.news-highlights .news-search{position:relative;z-index:50;background:#fca504;padding-top:4.5rem;margin-bottom:6rem}.news-highlights .news-search h4:before{margin-right:.75rem}.news-highlights .news-search .search-listing{margin:0;padding:0}.news-highlights .news-search .search-listing:last-of-type{margin-bottom:4.5rem}.news-highlights .news-search .search-listing h4,.news-highlights .news-search .search-listing h4 a{font-weight:400;color:#fff}.news-highlights .news-search .tags-wrap ul{margin:0 0 1.5rem;list-style:none;overflow:hidden}.news-highlights .news-search .tags-wrap ul li{float:left;margin-right:1.5rem}.news .news-highlights{padding:0 3rem;margin-bottom:40px}.news .news-highlights:before{position:absolute;width:calc(100% - 6rem);left:3rem;background:#e6eaf0;top:0;height:calc(100% + 3rem)}@media (max-width:1199px){.news-highlights{padding:0 3rem}}@media (max-width:991px){.news-highlights .news-search h4{margin-bottom:0}}@media (max-width:900px){.news-highlights{padding:0;margin-bottom:100px}.news-highlights:before{width:100%;left:0;height:calc(100% + 900px)}.news .news-highlights{padding:0}.news .news-highlights:before{width:100%;left:0}}@media (max-width:700px){.news-highlights .news-search{padding-top:1.5rem}.news-highlights .news-search .search-wrap,.news-highlights .news-search .tags-wrap{width:100%;max-width:100%;-ms-flex-preferred-size:100%;flex-basis:100%}}@media (max-width:475px){.news-highlights:before{width:100%;left:0}}@media (max-width:767px){.news-highlights{margin-bottom:0}.news-highlights:before{height:calc(100% + 800px)}.news-highlights .news-search .search-listing h4,.news-highlights .news-search .search-listing h4 a{font-weight:800}}
+    </style>
+    <link rel="preload" href="<cms:show k_site_link />style/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<cms:show k_site_link />style/style.css"></noscript>
+    <script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
+    <link rel="apple-touch-icon" sizes="76x76" href="<cms:show k_site_link />img/brand/favicons/apple-touch-icon.png?v=6">
+    <link rel="icon" type="image/png" href="<cms:show k_site_link />img/brand/favicons/favicon-32x32.png?v=6" sizes="32x32">
+    <link rel="icon" type="image/png" href="<cms:show k_site_link />img/brand/favicons/favicon-16x16.png?v=6" sizes="16x16">
+    <link rel="manifest" href="<cms:show k_site_link />img/brand/favicons/manifest.json?v=6">
+    <link rel="mask-icon" href="<cms:show k_site_link />img/brand/favicons/safari-pinned-tab.svg?v=6" color="#009DC9">
+    <link rel="shortcut icon" href="<cms:show k_site_link />img/brand/favicons/favicon.ico?v=6">
+    <meta name="apple-mobile-web-app-title" content="app_name">
+    <meta name="application-name" content="app_name">
+    <meta name="msapplication-TileColor" content="#009DC9">
+    <meta name="msapplication-config" content="img/brand/favicons/browserconfig.xml?v=6">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107949728-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-107949728-1');
+    </script>
 </head>
 
 <body class="news">
@@ -73,17 +100,50 @@
     </nav>
     <main role="main" id="maincontent">
         <section class="news-highlights">
+            <div class="inner news-search">
+                <div class="tags-wrap">
+                    <h4 class="icon-th">Categories</h4>
+                    <ul>
+                        <cms:folders masterpage="article.php">
+                            <li>
+                                <a href="<cms:add_querystring "<cms:link masterpage='news.php' />" "cat=<cms:show k_folder_name/>" />"#k_search_form><cms:show k_folder_title /></a> <br>
+                            </li>
+                            
+                    </cms:folders></ul>
+                </div>
+                <div class="search-wrap">
+                    <h4 class="icon-search">Search all news</h4>
+                    <cms:search_form msg="Enter keyword..." /> <cms:search masterpage="article.php" limit="10">
+                        <cms:if k_paginated_top>
+                            <div class="record-listing">
+                                <h4>Pages found: <cms:show k_total_records /></h4>
+                            </div>
+                        </cms:if>
+                        <div class="search-listing">
+                            <h4>&rsaquo; <a href="<cms:show k_site_link /><cms:show k_search_link />"><cms:show k_search_title /></a></h4>
+                            <cms:no_results>
+                                <h4>No pages found for <cms:show k_search_query /></h4>
+                            </cms:no_results>
+                        </div>
+                        <cms:paginator /></cms:search>
+                </div>
+            </div>
             <div class="inner">
-                <cms:pages masterpage="article.php" limit="8" paginate="1">
+                <cms:pages masterpage="article.php" folder="<cms:gpc 'cat' />" limit="8" paginate="1">
                     <article class="news-link">
-                        <picture>
-                            <img data-src="<cms:show article_thumb />">
-                        </picture>
-                        <h3><cms:show k_page_title /></h3>
-                        <p>
-                            <cms:excerpthtml count="70" ignore="img">
-                                <cms:show article_standfirst /></cms:excerpthtml>
-                        </p><a class="btn" href="<cms:show k_page_link />">Continue reading</a>
+                        <a href="<cms:show k_page_link />">
+                            <picture>
+                                <img data-src="<cms:show article_thumb />">
+                            </picture>
+                            <h3><cms:show k_page_title /></h3>
+                            <time pubdate="pubdate">
+                                <cms:date k_page_date format="jS F, Y" /></time>
+                                    <p>
+                                        <cms:excerpthtml count="70" ignore="img">
+                                            <cms:show article_standfirst /></cms:excerpthtml>
+                                    </p>
+                                    <button>Continue reading</button>
+                        </a>
                     </article>
                     <cms:paginator /></cms:pages>
             </div>
@@ -95,9 +155,9 @@
                 <h2 class="logo-main"><span>Alex</span> Plummer</h2>
                 <p>© Copyright 2017</p>
                 <ul role="navigation">
-                    <li> <a href="<cms:show k_site_link /><cms:show k_site_link />legal.php">Legal</a>
+                    <li> <a href="<cms:show k_site_link />legal.php">Legal</a>
                     </li>
-                    <li> <a href="<cms:show k_site_link /><cms:show k_site_link />credits.php">Credits</a>
+                    <li> <a href="<cms:show k_site_link />credits.php">Credits</a>
                     </li>
                 </ul>
             </div>
@@ -128,26 +188,23 @@
         },{
             '@context': 'http://schema.org',
             '@type': 'NewsArticle',
-            'headline': 'Brand new JSON-LD website launched!',
-            'author': 'Andrew Ders Smith',
-            'datePublished': '29 October, 2016',
-            'dateModified': '29 October, 2016',
-            'dateline': 'NY, USA',
+            'headline': '<cms:show k_page_title />',
+            'author': 'Alex Plummer',
+            'datePublished': '<cms:date k_page_date format="jS F, Y" />',
+            'dateline': 'LN, UK',
             'mainEntityOfPage': 'true',
-            'articleSection': 'Internet',
-            'articleBody': 'The whole article copyed here',
             'image': {
                 '@type': 'imageObject',
-                'url': 'http://example.com/image.png',
-                'height': '400',
-                'width': '300'
+                'url': '<cms:show article_thumb />',
+                'height': '200',
+                'width': '200'
             },
             'publisher': {
                 '@type': 'Organization',
-                'name': 'Publisher Name',
+                'name': 'Alex Plummer Web Design',
                 'logo': {
                     '@type': 'imageObject',
-                    'url': 'http://example.com/images/logo.png'
+                    'url': '<cms:show k_site_link />/img/brand/logo_vector.svg'
                 }
             }
         },</cms:editable>]

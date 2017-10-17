@@ -23,6 +23,7 @@ block content
 	//- CMS config
 	<cms:template title="Chat"></cms:template>
 	<cms:editable name="group_intro" label="Intro" desc="Intro to page" type="group"></cms:editable>
+	<cms:editable name="group_quote" label="Quotes" desc="Quotes with author" type="group"></cms:editable>
 
 	//- Intro title	and description
 	- var heading = 'Chat'
@@ -41,13 +42,13 @@ block content
 
 				aside
 					//- Citation
-					- var cite = 'Design and code in beautiful harmony'
-					- var author = '- Some name, author'
+					- var cite = "<cms:editable name='chat_citation_1' label='Chat citation one' desc='First chat citation' group='group_quote' type='richtext'></cms:editable>"
+					- var author = "<cms:editable name='chat_citation_author_1' label='Chat citation one author' desc='First chat citation author' group='group_quote' type='richtext'></cms:editable>"
 					+citation(cite, author)
 
 					//- Citation
-					- var cite = 'Design and code in beautiful harmony'
-					- var author = '- Some name, author'
+					- var cite = "<cms:editable name='chat_citation_2' label='Chat citation two' desc='Second chat citation' group='group_quote' type='richtext'></cms:editable>"
+					- var author = "<cms:editable name='chat_citation_author_2' label='Chat citation two author' desc='Second chat citation author' group='group_quote' type='richtext'></cms:editable>"
 					+citation(cite, author)
 		
 		//- Links to online profiles

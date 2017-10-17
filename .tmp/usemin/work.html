@@ -27,7 +27,11 @@
     <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
-    <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
+    <cms:hide>
+        <cms:editable name="meta_image" group="group_meta" label="Meta image" type="image"></cms:editable>
+    </cms:hide>
+    <meta property="og:image" content="<cms:show meta_image />">
+    <meta name="twitter:image" content="<cms:show meta_image />">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
@@ -38,6 +42,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="stylesheet" href="style/style.css"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="img/brand/favicons/apple-touch-icon.png?v=6">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-32x32.png?v=6" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-16x16.png?v=6" sizes="16x16">
+    <link rel="manifest" href="img/brand/favicons/manifest.json?v=6">
+    <link rel="mask-icon" href="img/brand/favicons/safari-pinned-tab.svg?v=6" color="#009DC9">
+    <link rel="shortcut icon" href="img/brand/favicons/favicon.ico?v=6">
+    <meta name="apple-mobile-web-app-title" content="app_name">
+    <meta name="application-name" content="app_name">
+    <meta name="msapplication-TileColor" content="#009DC9">
+    <meta name="msapplication-config" content="img/brand/favicons/browserconfig.xml?v=6">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107949728-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-107949728-1');
+    </script>
 </head>
 
 <body class="work">
@@ -78,6 +100,7 @@
                 <div class="content"></div>
                 <div class="screenshots">
                     <svg viewbox="0 0 619 504" xmlns="http://www.w3.org/2000/svg" class="svg" aria-hidden="true" role="presentation"><g fill="none" fill-rule="evenodd"><path fill="#757B80" d="M387.638 493.769H230.847l8.97-67.462h140.131l7.69 67.462"/><path d="M.046 369.808v41.656c0 8.456 6.92 15.377 15.381 15.377h587.635c8.451 0 15.371-6.921 15.371-15.377v-41.656H.046" fill="#C0C8CB"/><path d="M618.433 16.077c0-8.458-6.92-15.378-15.371-15.378H15.427C6.966.699.046 7.619.046 16.077v353.731h618.387V16.077" fill="#343534"/><path fill="#C0C8CB" d="M230.847 493.769h156.791l27.576 6.518-211.947.157 27.58-6.675"/><path fill="#757B80" d="M413.771 503.91H204.707l-1.386-3.466 211.893-.157-1.443 3.623"/><path d="M320.241 400.141c0 6.074-4.925 10.998-10.999 10.998-6.083 0-11.002-4.924-11.002-10.998 0-6.078 4.919-11.004 11.002-11.004 6.074 0 10.999 4.926 10.999 11.004" fill="#343534"/></g></svg>
+                    <svg viewbox="0 0 221 435" xmlns="http://www.w3.org/2000/svg" class="svg mobile" aria-hidden="true" role="presentation"><g fill-rule="nonzero" fill="none"><path d="M220.88 73.34c0 .789-.64 1.428-1.429 1.428h-4.643a1.43 1.43 0 0 1-1.429-1.428v-20c0-.789.64-1.429 1.429-1.429h4.643c.789 0 1.429.64 1.429 1.429v20zM220.88 146.16c0 .789-.64 1.428-1.429 1.428h-4.643a1.43 1.43 0 0 1-1.429-1.428V86.588c0-.789.64-1.429 1.429-1.429h4.643c.789 0 1.429.64 1.429 1.429v59.572z" fill="#666"/><path d="M217.93 419.29c0 7.796-6.321 14.117-14.118 14.117H15.532c-7.797 0-14.118-6.321-14.118-14.117V15.53c0-7.796 6.321-14.118 14.118-14.118h188.28c7.797 0 14.118 6.321 14.118 14.118v403.76z" stroke="#CCC" stroke-width="2.82" fill="#E6E6E6"/><path d="M216.38 110.16L2.88 369.66V266.5L185.52 2.91h17.542c7.733 0 14.004 6.271 14.004 14.004l-.681 93.246h-.005z" fill="#F2F2F2"/><path d="M136.17 16.912a4.5 4.5 0 0 1-4.5 4.5h-44a4.5 4.5 0 0 1 0-9h44a4.5 4.5 0 0 1 4.5 4.5z" fill="#666"/><path d="M137.17 417.41a5 5 0 0 1-5 5h-45a5 5 0 0 1-5-5v-10a5 5 0 0 1 5-5h45a5 5 0 0 1 5 5v10z" stroke="#B2B2B2" stroke-width="2" fill="#E6E6E6"/></g></svg>
                     <div class="screens"></div>
                     <div class="controls"></div>
                 </div>

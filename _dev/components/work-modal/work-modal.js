@@ -47,20 +47,40 @@ const workModal = function workModal() {
             thisScreens.classList.remove('active');
         });
 
+        // Add keyboard interation
+        thisToggle.addEventListener("keyup", function(e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                thisToggle.click();
+            }
+        });
+
         // Open modal toggles
         thisToggle.addEventListener('click', (e) => {
-            toggleModal(e);
+            
+            if (thisToggle.parentNode.parentNode.parentNode.classList.contains('mobile')) {
+                toggleModal(e, true);
+            }
+            else {
+                toggleModal(e, false);
+            }
 
             focusedElementBeforeDialogOpened = document.activeElement;
         });
 
         thisScreens.addEventListener('click', (e) => {
-            toggleModal(e);
+            
+            if (thisToggle.parentNode.parentNode.parentNode.classList.contains('mobile')) {
+                toggleModal(e, true);
+            }
+            else {
+                toggleModal(e, false);
+            }
 
             focusedElementBeforeDialogOpened = document.activeElement;
         });
 
-        function toggleModal(e) {
+        function toggleModal(e, check) {
             e.preventDefault();
             let scrollPosition = window.pageYOffset;
 
@@ -94,6 +114,10 @@ const workModal = function workModal() {
 
             // Get content and display modal
             document.getElementsByTagName('body')[0].classList.add('modal-active');
+
+            if (check === true) {
+                modal.classList.add('v-mobile');
+            }
             modalContentHolder.innerHTML = modalContent;
             modalScreensHolder.innerHTML = modalScreens;
             modal.style.display = "block";
@@ -107,10 +131,25 @@ const workModal = function workModal() {
             });
 
             function closeModal() {
+                // Annoying hack for mobile to approx scrollto = 0
+                setTimeout(()=>{
+                    let newContent = document.createElement('div');
+                    let screenshots = document.querySelector('.screenshots');
+
+                    newContent.classList.add('content');
+                    modalContentHolder.parentNode.removeChild(modalContentHolder);
+                    screenshots.parentNode.insertBefore(newContent, screenshots);
+                    modalContentHolder = modal.querySelector('.content');
+                }, 100);
+
                 document.getElementsByTagName('body')[0].classList.remove('modal-active');
                 modal.style.display = "none";
                 window.scrollTo(0, scrollPosition);
                 document.body.removeAttribute('style');
+            
+                modalScreensHolder.innerHTML = "";
+                document.querySelector('.controls').innerHTML = "";
+                modal.classList.remove('v-mobile');
 
                 // Remove any active screens
                 let allScreens = document.querySelectorAll('.screens');

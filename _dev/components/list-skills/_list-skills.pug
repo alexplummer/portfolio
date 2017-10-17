@@ -21,8 +21,8 @@ mixin listSkills()
 
 			.list-wrap
 				h4 Code
+				<cms:editable name='list_skills_code' label='Skills list code' desc='List of code skills' group="group_list_skills" type='richtext'>	
 				ul
-					<cms:editable name='list_skills_code' label='Skills list code' desc='List of code skills' group="group_list_skills" type='richtext'>
 					li.three-bars HTML/Pug
 					li.three-bars CSS
 					li.three-bars JS (ES6)
@@ -31,12 +31,12 @@ mixin listSkills()
 					li.three-bars Gulp/Grunt
 					li.two-bars Angular
 					li.one-bar React
-					</cms:editable>
+				</cms:editable>
 
 			.list-wrap
 				h4 Design
+				<cms:editable name='list_skills_design' label='Skills list design' desc='List of design skills' group="group_list_skills" type='richtext'>	
 				ul
-					<cms:editable name='list_skills_design' label='Skills list design' desc='List of design skills' group="group_list_skills" type='richtext'>
 					li.three-bars UI Design
 					li.three-bars App Design
 					li.three-bars Typography
@@ -45,12 +45,12 @@ mixin listSkills()
 					li.two-bars UX/research
 					li.two-bars Wireframing
 					li.two-bars Print design
-					</cms:editable>
+				</cms:editable>
 
 			.list-wrap
 				h4 Tools
+				<cms:editable name='list_skills_tools' label='Skills list tools' desc='List of tools skills' group="group_list_skills" type='richtext'>	
 				ul
-					<cms:editable name='list_skills_tools' label='Skills list tools' desc='List of tools skills' group="group_list_skills" type='richtext'>
 					li.three-bars Photoshop
 					li.three-bars Sketch
 					li.three-bars Git
@@ -59,7 +59,7 @@ mixin listSkills()
 					li.two-bars Axure
 					li.two-bars Illustrator
 					li.one-bar Premier Pro
-					</cms:editable>
+				</cms:editable>
 
 			.key
 				h4 - Key -

@@ -1,7 +1,7 @@
 
 // News article
 // ============
-// (Write description here)
+// Content for the news articles
 
 // Imports
 

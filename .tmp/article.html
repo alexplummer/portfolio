@@ -27,7 +27,11 @@
     <meta property="og:description" content="<cms:editable name='meta_description' label='Page Description' desc='Page description used for meta and OG' group='group_meta' type='text'></cms:editable>">
     <meta property="og:site_name" content="Alex Plummer | Frontend Web Designer London">
     <meta property="og:locale" content="en_UK">
-    <meta name="twitter:image" content="http://wwww.alexplummer.com/img/logo-main.png">
+    <cms:hide>
+        <cms:editable name="meta_image" group="group_meta" label="Meta image" type="image"></cms:editable>
+    </cms:hide>
+    <meta property="og:image" content="<cms:show meta_image />">
+    <meta name="twitter:image" content="<cms:show meta_image />">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@site_account">
     <meta name="twitter:creator" content="@individual_account">
@@ -45,8 +49,25 @@
     <noscript>
         <link rel="stylesheet" href="style/style.css">
     </noscript>
-    <!--<link rel="stylesheet" href="style/style.css">-->
     <!-- endbuild -->
+    <link rel="apple-touch-icon" sizes="76x76" href="img/brand/favicons/apple-touch-icon.png?v=6">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-32x32.png?v=6" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/brand/favicons/favicon-16x16.png?v=6" sizes="16x16">
+    <link rel="manifest" href="img/brand/favicons/manifest.json?v=6">
+    <link rel="mask-icon" href="img/brand/favicons/safari-pinned-tab.svg?v=6" color="#009DC9">
+    <link rel="shortcut icon" href="img/brand/favicons/favicon.ico?v=6">
+    <meta name="apple-mobile-web-app-title" content="app_name">
+    <meta name="application-name" content="app_name">
+    <meta name="msapplication-TileColor" content="#009DC9">
+    <meta name="msapplication-config" content="img/brand/favicons/browserconfig.xml?v=6">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107949728-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-107949728-1');
+    </script>
 </head>
 
 <body class="article">
@@ -59,7 +80,7 @@
                     <cms:editable name="article_image" group="group_news_article_header" label="Article image" type="image"></cms:editable>
                     <cms:editable name="article_image_alt" group="group_news_article_header" label="Article image alt" type="text"></cms:editable>
                 </cms:hide>
-                <img data-src="&lt;cms:show article_image /&gt;" alt="&lt;cms:show article_image_alt /&gt;">
+                <img src="&lt;cms:show article_image /&gt;" alt="&lt;cms:show article_image_alt /&gt;">
             </picture>
             <h1><cms:show k_page_title"="">"</cms:show></h1>
         </div>
@@ -110,9 +131,32 @@
                             <cms:editable name="article_standfirst" group="group_news_article_body" type="text"></cms:editable>
                         </p>
                         <cms:editable name="article_body" group="group_news_article_body" type="richtext"></cms:editable>
+                        <br>
+                        <br>
+                        <h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+                        <script>
+                            var disqus_config = function () {
+                            this.page.url = '<cms:show k_page_link ">" ';  
+                            this.page.identifier = '<cms:show k_page_title">" ';
+                            };
+                             
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://alex-plummer.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
                     </article>
                     <aside class="content-right" role="complementary">
-                        <img src="img/media/content-sample.jpg" alt="some alt text">
+                        <cms:hide>
+                            <cms:editable name="article_support_image" group="group_news_article_body" label="Article support image" type="image"></cms:editable>
+                            <cms:editable name="article_support_image_alt" group="group_news_article_body" label="Article support image alt" type="text"></cms:editable>
+                        </cms:hide>
+                        <cms:if article_support_image="">
+                            <img data-src="&lt;cms:show article_support_image /&gt;" alt="&lt;cms:show article_support_image_alt /&gt;">
+                        </cms:if>
                     </aside>
                 </div>
             </div>
@@ -120,20 +164,23 @@
         <section class="related-news">
             <div class="inner">
                 <h2>Further reading</h2>
-                <article class="news-link">
-                    <picture>
-                        <img data-src="img/media/screen-euromoney.jpg">
-                    </picture>
-                    <h3>Lorem ipsum dolor sit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
-                </article>
-                <article class="news-link">
-                    <picture>
-                        <img data-src="img/media/screen-euromoney.jpg">
-                    </picture>
-                    <h3>Lorem ipsum dolor sit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, adipisci.</p><a class="btn" href="article.html">Continue reading</a>
-                </article>
+                <cms:pages masterpage="article.php" limit="2" id="NOT <cms:show k_page_id />">
+                    <article class="news-link">
+                        <a href="&lt;cms:show k_page_link /&gt;">
+                            <picture>
+                                <img data-src="&lt;cms:show article_thumb /&gt;">
+                            </picture>
+                            <h3><cms:show k_page_title="" "="">"</cms:show></h3>
+                            <time pubdate="pubdate">
+                                <cms:date k_page_date="" format="jS F, Y" "="">"</cms:date></time>
+                                    <p>
+                                        <cms:excerpthtml count="70" ignore="img">
+                                            <cms:show article_standfirst="" "="">"</cms:show></cms:excerpthtml>
+                                    </p>
+                                    <button>Continue reading</button>
+                        </a>
+                    </article>
+                </cms:pages>
             </div>
         </section>
     </main>
@@ -176,26 +223,23 @@
         },{
             '@context': 'http://schema.org',
             '@type': 'NewsArticle',
-            'headline': 'Brand new JSON-LD website launched!',
-            'author': 'Andrew Ders Smith',
-            'datePublished': '29 October, 2016',
-            'dateModified': '29 October, 2016',
-            'dateline': 'NY, USA',
+            'headline': '<cms:show k_page_title "/>"',
+            'author': 'Alex Plummer',
+            'datePublished': '<cms:date k_page_date format="jS F, Y" "/>"',
+            'dateline': 'LN, UK',
             'mainEntityOfPage': 'true',
-            'articleSection': 'Internet',
-            'articleBody': 'The whole article copyed here',
             'image': {
                 '@type': 'imageObject',
-                'url': 'http://example.com/image.png',
-                'height': '400',
-                'width': '300'
+                'url': '<cms:show article_thumb "/>"',
+                'height': '200',
+                'width': '200'
             },
             'publisher': {
                 '@type': 'Organization',
-                'name': 'Publisher Name',
+                'name': 'Alex Plummer Web Design',
                 'logo': {
                     '@type': 'imageObject',
-                    'url': 'http://example.com/images/logo.png'
+                    'url': '<cms:show k_site_link "/>"/img/brand/logo_vector.svg'
                 }
             }
         },</cms:editable>]

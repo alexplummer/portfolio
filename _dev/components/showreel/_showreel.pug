@@ -58,9 +58,9 @@ mixin showreel()
 
 						//- Left item CMS show repeat
 						<cms:show_repeatable "showreel_left" >
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
-								img(data-src="<cms:show showreel_left_thumb />" alt="<cms:show showreel_left_thumb_alt />")
+						li(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+							picture
+								img(src="<cms:show showreel_left_thumb />" alt="<cms:show showreel_left_thumb_alt />")
 	
 							p <cms:show showreel_left_title "/>"
 
@@ -98,8 +98,8 @@ mixin showreel()
 						
 						//- Right item CMS show repeat
 						<cms:show_repeatable "showreel_right">
-						li
-							picture(role="button" tabindex="0" aria-pressed="false" title="Open a dialog with project info")
+						li(role="button" tabindex="-1" aria-pressed="false" title="Open a dialog with project info")
+							picture
 								img(data-src="<cms:show showreel_right_thumb />" alt="<cms:show showreel_right_thumb_alt />")
 	
 							p <cms:show showreel_right_title "/>"

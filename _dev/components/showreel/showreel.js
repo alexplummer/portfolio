@@ -61,8 +61,8 @@ const swapProjects = function swapProjects() {
             title.innerHTML = "SOME OF THE TECHY STUFF";
 
             // Set tabindex for left
-            let leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
-            let rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+            let leftItems = document.querySelector('.items-left').getElementsByTagName('li');
+            let rightItems = document.querySelector('.items-right').getElementsByTagName('li');
 
             leftItems = Array.prototype.slice.call(leftItems);
             rightItems = Array.prototype.slice.call(rightItems);
@@ -81,8 +81,8 @@ const swapProjects = function swapProjects() {
             title.innerHTML = "SOME OF THE PRETTY STUFF";
 
             // Set tabindex for left
-            let leftItems = document.querySelector('.items-left').getElementsByTagName('picture');
-            let rightItems = document.querySelector('.items-right').getElementsByTagName('picture');
+            let leftItems = document.querySelector('.items-left').getElementsByTagName('li');
+            let rightItems = document.querySelector('.items-right').getElementsByTagName('li');
 
             leftItems = Array.prototype.slice.call(leftItems);
             rightItems = Array.prototype.slice.call(rightItems);
@@ -114,6 +114,15 @@ const openPreview = function openPreview() {
     let focusedElementBeforeDialogOpened;
 
     items.forEach((thisItem) => {
+
+        // Add keyboard interation
+        thisItem.addEventListener("keyup", function(e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                thisItem.click();
+            }
+        });
+
         thisItem.addEventListener('click', (e) => {
             e.preventDefault();
             let scrollPosition = window.pageYOffset;
@@ -165,9 +174,9 @@ const openPreview = function openPreview() {
 
             // Close modal
             modal.addEventListener('click', (e) => {
-                e.preventDefault();
-
+                
                 if (e.target === document.querySelector('.project-modal') || e.target === document.querySelector('.close')) {
+                    e.preventDefault();
                     closeModal();
                 }
             });

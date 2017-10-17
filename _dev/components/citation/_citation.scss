@@ -20,8 +20,11 @@
         display: block;
     }
     footer {
-        @extend %all-caps;
-        max-width: 100%;
+
+        p {
+            @extend %all-caps;
+            max-width: 100%;
+        }
     }
     &:before {
         display: none;

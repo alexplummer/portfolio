@@ -31,7 +31,7 @@
         display: block;
 
         &:before {
-           @extend %fade-in-slight;
+            @extend %fade-in-slight;
         }
     }
     .inner {
@@ -48,6 +48,11 @@
         svg {
             width: 80%;
             height: 0%;
+
+            &.mobile {
+                display: none;
+                height: 70%;
+            }
         }
         span {
             display: none;
@@ -121,6 +126,33 @@
                     background: $clr-link-hover;
                     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .6);
                 }
+            }
+        }
+    }
+    &.v-mobile {
+        
+        .screenshots { 
+
+            svg {
+                display: none;
+
+                &.mobile {
+                    display: inline-block;
+                    width: 280px;
+                    height: 555px;
+                }
+            }
+            .screens {
+                width: 260px;
+                height: 457px;
+                top: 40px;
+
+                img {
+                    height: 100%;
+                }
+            }
+            .controls {
+                bottom: -$size-l;
             }
         }
     }
@@ -275,14 +307,15 @@
             width: 100%;
         }
         .screenshots {
-
+            width: 100%;
+            
             svg {
-                width: 100%;
+                width: 80%;
                 height: auto;
             }
             .screens {
                 height: 65%;
-                width: calc(100% - #{$size-m});
+                width: calc(100% - 11.5rem);
             }
         }
         .close {
@@ -304,6 +337,21 @@
         .screenshots {
             width: 100%;
             top: -$size-m;
+                
+            svg {
+                width: 100%;
+                height: auto;
+            }
+            .screens {
+                height: 65%;
+                width: calc(100% - #{$size-m});
+            }
+        }
+        &.v-mobile {
+            
+            .screenshots { 
+                top: $size-l;
+            }
         }
     }
 }
